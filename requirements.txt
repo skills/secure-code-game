@@ -1,0 +1,4 @@
+pyOpenSSL
+secrets
+bcrypt
+flask
