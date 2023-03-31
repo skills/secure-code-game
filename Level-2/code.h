@@ -46,7 +46,7 @@ bool update_setting(user_account* ua, const char *index, const char *value) {
     i = strtol(index, &endptr, 10);
     if (*endptr)
         return false;
-    if (i >= SETTINGS_COUNT)
+    if (i < 0 || i >= SETTINGS_COUNT)  // Reject negative and out-of-bounds indices
         return false;
     v = strtol(value, &endptr, 10);
     if (*endptr)
