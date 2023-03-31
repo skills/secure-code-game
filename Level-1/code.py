@@ -1,15 +1,15 @@
-'''
-////////////////////////////////////////////////////////////
-///                                                      ///
-///   0. tests.py is passing but the code is vulnerable  /// 
-///   1. Review the code. Can you spot the bug?          ///
-///   2. Fix the code but ensure that tests.py passes    ///
-///   3. Run hack.py and if passing then CONGRATS!       ///
-///   4. If stucked then read the hint                   ///
-///   5. Compare your solution with solution.py          ///
-///                                                      ///
-////////////////////////////////////////////////////////////
-'''
+                                                  '''
+                                                  ////////////////////////////////////////////////////////////
+                                                  ///                                                      ///
+                                                  ///   In the 'validorder' function, the bug is caused by /// 
+                                                  ///   checking if the net amount is equal to 0 instead   ///
+                                                  ///   of using a tolerance value due to the limitations  ///
+                                                  ///   of floating-point arithmetic.                      ///
+                                                  ///                                                      ///
+                                                  ///   Replacing if net != 0: by if abs(net) > 1e-6:      ///
+                                                  ////////////////////////////////////////////////////////////
+                                                  '''
+ 
 
 from collections import namedtuple
 
@@ -27,7 +27,7 @@ def validorder(order: Order):
         else:
             return("Invalid item type: %s" % item.type)
     
-    if net != 0:
+    if abs(net) > 1e-6:
         return("Order ID: %s - Payment imbalance: $%0.2f" % (order.id, net))
     else:
         return("Order ID: %s - Full payment received!" % order.id)
