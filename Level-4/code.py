@@ -1,39 +1,203 @@
 import sqlite3
+import os
+from flask import Flask, request
 
-class DB_CRUD_ops:
+### Unrelated to the exercise -- Starts here -- Please ignore
+app = Flask(__name__)
+@app.route("/")
+def source():
+    DB_CRUD_ops().get_stock_info(request.args["input"])
+    DB_CRUD_ops().get_stock_price(request.args["input"])
+    DB_CRUD_ops().update_stock_price(request.args["input"])
+    DB_CRUD_ops().exec_multi_query(request.args["input"])
+    DB_CRUD_ops().exec_user_script(request.args["input"])
+### Unrelated to the exercise -- Ends here -- Please ignore
+
+class Connect(object):
+
+    # helper function creating database with the connection
+    def create_connection(self, path):
+        connection = None
+        try:
+            connection = sqlite3.connect(path)
+        except sqlite3.Error as e:
+            print(f"ERROR: {e}")
+        return connection
+    
+class Create(object):
     
     def __init__(self):
-        self.conn = sqlite3.connect('stocks.db')
+        con = Connect()
+        try:
+            # creates a dummy database inside the folder of this challenge
+            path = os.path.dirname(os.path.abspath(__file__))
+            db_path = os.path.join(path, 'level-4.db')
+            db_con = con.create_connection(db_path)
+            cur = db_con.cursor()
+            
+            # checks if tables already exist, which will happen when re-running code
+            table_fetch = cur.execute(
+                '''
+                SELECT name 
+                FROM sqlite_master 
+                WHERE type='table'AND name='stocks';
+                ''').fetchall()
+ 
+            # if tables do not exist, create them to instert dummy data
+            if table_fetch == []:
+                cur.execute(
+                    '''
+                    CREATE TABLE stocks
+                    (date text, symbol text, price real)
+                    ''')
+                
+                # inserts dummy data to the 'stocks' table, representing average price on date
+                cur.execute(
+                    "INSERT INTO stocks VALUES ('2022-01-06', 'MSFT', 300.00)")
+                db_con.commit()
+            
+        except sqlite3.Error as e:
+            print(f"ERROR: {e}")
+            
+        finally:
+            db_con.close()
+
+class DB_CRUD_ops(object):
     
-    def get_stock_info(self, symbol):
-        # Use parameterized queries to prevent SQL injection attacks
-        cursor = self.conn.execute("SELECT * FROM stocks WHERE symbol = ?", (symbol,))
-        result = cursor.fetchone()
-        return f"[METHOD EXECUTED] get_stock_info\n[QUERY] SELECT * FROM stocks WHERE symbol = '{symbol}'\n[RESULT] {result}"
-    
-    def get_stock_price(self, symbol):
-        # Use parameterized queries to prevent SQL injection attacks
-        cursor = self.conn.execute("SELECT price FROM stocks WHERE symbol = ?", (symbol,))
-        result = cursor.fetchone()
-        return f"[METHOD EXECUTED] get_stock_price\n[QUERY] SELECT price FROM stocks WHERE symbol = '{symbol}'\n[RESULT] {result}\n"
-    
-    def update_stock_price(self, symbol, new_price):
-        # Use parameterized queries to prevent SQL injection attacks
-        self.conn.execute("UPDATE stocks SET price = ? WHERE symbol = ?", (new_price, symbol))
-        self.conn.commit()
-        return f"[METHOD EXECUTED] update_stock_price\n[QUERY] UPDATE stocks SET price = '{new_price}' WHERE symbol = '{symbol}'\n"
-    
-    def exec_multi_query(self, query):
-        # Prevent multiple queries by only allowing SELECT statements
-        if "SELECT" not in query:
-            return "ERROR: Only SELECT statements are allowed for multi-query execution."
+    # retrieves all info about a stock symbol from the stocks table
+    # Example: get_stock_info('MSFT') will result into executing
+    # SELECT * FROM stocks WHERE symbol = 'MSFT'
+    def get_stock_info(self, stock_symbol):
+        # building database from scratch as it is more suitable for the purpose of the lab
+        db = Create()
+        con = Connect()
+        try:
+            path = os.path.dirname(os.path.abspath(__file__))
+            db_path = os.path.join(path, 'level-4.db')
+            db_con = con.create_connection(db_path)
+            cur = db_con.cursor() 
+            
+            res = "[METHOD EXECUTED] get_stock_info\n"
+            query = "SELECT * FROM stocks WHERE symbol = '{0}'".format(stock_symbol)
+            res += "[QUERY] " + query + "\n"
+            
+            # a block list or restricted characters that should not be presented in user-supplied input
+            restricted_chars = ";%&^!#-"
+            # checks if input contains characters from the block list
+            has_restricted_char = any([char in query for char in restricted_chars])
+            # checks if input contains a wrong number of single quotes against SQL injection
+            correct_number_of_single_quotes = query.count("'") == 2
+            
+            # performs the checks for good cyber security and safe software against SQL injection
+            if has_restricted_char or not correct_number_of_single_quotes:
+                
+                res += "CONFIRM THAT THE ABOVE QUERY IS NOT MALICIOUS TO EXECUTE"
+            else:
+                cur.execute(query)
+                
+                query_outcome = cur.fetchall()
+                for result in query_outcome:
+                    res += str(result)
+            return res
         
-        cursor = self.conn.execute(query)
-        result = ""
-        for row in cursor:
-            result += str(row) + " "
-        return f"[METHOD EXECUTED] exec_multi_query\n[QUERY]{query}\n[RESULT] {result}"
-    
-    def exec_user_script(self, query):
-        # Prevent execution of arbitrary user scripts
-        return "ERROR: User scripts are not allowed for execution."
+        except sqlite3.Error as e:
+            print(f"ERROR: {e}")
+            
+        finally:
+            db_con.close()
+            
+    def get_stock_price(self, stock_symbol):
+        db = Create()
+        con = Connect()
+        try:
+            path = os.path.dirname(os.path.abspath(__file__))
+            db_path = os.path.join(path, 'level-4.db')
+            db_con = con.create_connection(db_path)
+            cur = db_con.cursor()
+            
+            res = ""
+            query = "SELECT price FROM stocks WHERE symbol = '" + stock_symbol + "'"
+            if ';' in query:
+                res += "[SCRIPT EXECUTION]\n"
+                cur.executescript(query)
+            else:
+                cur.execute(query)
+                query_outcome = cur.fetchall()
+                for result in query_outcome:
+                    res += str(result) + "\n"
+            return res
+                
+        except sqlite3.Error as e:
+            print(f"ERROR: {e}")
+            
+        finally:
+            db_con.close()
+
+    def update_stock_price(self, stock_symbol, price):
+    # building database from scratch as it is more suitable for the purpose of the lab
+    db = Create()
+    con = Connect()
+    try:
+        path = os.path.dirname(os.path.abspath(__file__))
+        db_path = os.path.join(path, 'level-4.db')
+        db_con = con.create_connection(db_path)
+        cur = db_con.cursor()
+        
+        res = "[METHOD EXECUTED] update_stock_price\n"
+        query = "UPDATE stocks SET price = ? WHERE symbol = ?"
+        cur.execute(query, (price, stock_symbol))
+        db_con.commit()
+        res += f"{cur.rowcount} rows updated\n"
+        return res
+        
+    except sqlite3.Error as e:
+        print(f"ERROR: {e}")
+        
+    finally:
+        db_con.close()
+        
+# executes multiple statements on the database
+def exec_multi_query(self, query):
+    # building database from scratch as it is more suitable for the purpose of the lab
+    db = Create()
+    con = Connect()
+    try:
+        path = os.path.dirname(os.path.abspath(__file__))
+        db_path = os.path.join(path, 'level-4.db')
+        db_con = con.create_connection(db_path)
+        cur = db_con.cursor()
+        
+        res = "[METHOD EXECUTED] exec_multi_query\n"
+        cur.executescript(query)
+        db_con.commit()
+        res += f"{cur.rowcount} rows affected\n"
+        return res
+        
+    except sqlite3.Error as e:
+        print(f"ERROR: {e}")
+        
+    finally:
+        db_con.close()
+        
+# executes a user script that modifies the database
+def exec_user_script(self, script):
+    # building database from scratch as it is more suitable for the purpose of the lab
+    db = Create()
+    con = Connect()
+    try:
+        path = os.path.dirname(os.path.abspath(__file__))
+        db_path = os.path.join(path, 'level-4.db')
+        db_con = con.create_connection(db_path)
+        cur = db_con.cursor()
+        
+        res = "[METHOD EXECUTED] exec_user_script\n"
+        cur.execute(script)
+        db_con.commit()
+        res += f"{cur.rowcount} rows affected\n"
+        return res
+        
+    except sqlite3.Error as e:
+        print(f"ERROR: {e}")
+        
+    finally:
+        db_con.close
