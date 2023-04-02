@@ -5,6 +5,7 @@ import hashlib
 import os
 import bcrypt
 
+
 class Random_generator:
 
     # generates a random token
@@ -25,15 +26,14 @@ class SHA256_hasher:
 
     # produces the password hash by combining password + salt because hashing
     def password_hash(self, password, salt):
-        password = binascii.hexlify(hashlib.sha256(password.encode()).digest())
-        password_hash = bcrypt.hashpw(password, salt)
-        return password_hash.decode('ascii')
+        password_bytes = password.encode('utf-8')
+        password_hash = bcrypt.hashpw(password_bytes, salt)
+        return password_hash
 
     # verifies that the hashed password reverses to the plain text version on verification
     def password_verification(self, password, password_hash):
-        password = binascii.hexlify(hashlib.sha256(password.encode()).digest())
-        password_hash = password_hash.encode('ascii')
-        return bcrypt.checkpw(password, password_hash)
+        password_bytes = password.encode('utf-8')
+        return bcrypt.checkpw(password_bytes, password_hash)
 
 class MD5_hasher:
     
@@ -42,8 +42,8 @@ class MD5_hasher:
         return hashlib.md5(password.encode()).hexdigest()
 
     def password_verification(self, password, password_hash):
-        password = self.password_hash(password)
-        return secrets.compare_digest(password.encode(), password_hash.encode())    
+        password_hashed = self.password_hash(password)
+        return secrets.compare_digest(password_hashed.encode(), password_hash.encode())   
 
 # a collection of sensitive secrets necessary for the software to operate
 PRIVATE_KEY = os.environ.get('PRIVATE_KEY')
