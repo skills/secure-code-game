@@ -1,7 +1,7 @@
 import unittest
 import code as c
 
-class TestTaxPayer(unittest.TestCase): 
+class TestDatabase(unittest.TestCase): 
   
     # tests for correct retrieval of stock info given a symbol
     def test_1(self):
