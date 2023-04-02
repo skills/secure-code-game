@@ -23,8 +23,11 @@ class TaxPayer:
         if not path:
             pass
         
-        # defends against path traversal attacks
-        if path.startswith('/') or path.startswith('..'):
+        # list of valid directory names
+        valid_dirs = ["uploads", "profile_pictures", "assets"]
+        
+        # defends against path traversal attacks by checking if the input matches any of the valid directories
+        if not any(dir in path for dir in valid_dirs):
             return None
         
         # builds path
@@ -39,10 +42,15 @@ class TaxPayer:
 
     # returns the path of an attached tax form that every user should submit
     def get_tax_form_attachment(self, path=None):
-        tax_data = None
+        # list of valid directory names
+        valid_dirs = ["uploads", "tax_forms", "documents"]
         
         if not path:
             raise Exception("Error: Tax form is required for all users")
+        
+        # defends against path traversal attacks by checking if the input matches any of the valid directories
+        if not any(dir in path for dir in valid_dirs):
+            raise Exception("Invalid path")
        
         with open(path, 'rb') as form:
             tax_data = bytearray(form.read())
