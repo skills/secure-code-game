@@ -2,7 +2,7 @@ import unittest
 import os
 import code as c
 
-class TestDatabase(unittest.TestCase): 
+class TestTaxPayer(unittest.TestCase): 
     # Example 1 - shows a valid path to a profile picture
     def test_1(self):
         
