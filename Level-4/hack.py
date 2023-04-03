@@ -15,7 +15,7 @@ Here we show an exploit against (2) get_stock_price which is applicable to metho
 We believe that methods (4) and (5) shouldn't exist at all in the code. Have a look on solution.py for the why.
 """
 
-class TestTaxPayer(unittest.TestCase): 
+class TestDatabase(unittest.TestCase): 
   
     # performs an attack by passing another query. Does so by using the semicolon so the method executes a script.
     def test_1(self):

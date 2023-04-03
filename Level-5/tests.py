@@ -1,7 +1,7 @@
 import unittest
 import code as c
 
-class TestTaxPayer(unittest.TestCase): 
+class TestCrypto(unittest.TestCase): 
   
     # verifies that hash and verification are matching each other for SHA
     def test_1(self):
