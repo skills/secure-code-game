@@ -1,5 +1,5 @@
 from collections import namedtuple
-from decimal import *
+from decimal import Decimal
 
 Order = namedtuple('Order', 'id, items')
 Item = namedtuple('Item', 'type, description, amount, quantity')
