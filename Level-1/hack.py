@@ -13,7 +13,7 @@ class TestOnlineStore(unittest.TestCase):
 
     # Valid payments that should add up correctly, but do not
     def test_5(self):
-        small_item = c.Item(type='product', description='Accessory', amount=3.3, quantity=1)
+        small_item = c.Item(type='product', description='accessory', amount=3.3, quantity=1)
         payment_1 = c.Item(type='payment', description='invoice_5_1', amount=1.1, quantity=1)
         payment_2 = c.Item(type='payment', description='invoice_5_2', amount=2.2, quantity=1)
         order_5 = c.Order(id='5', items=[small_item, payment_1, payment_2])
