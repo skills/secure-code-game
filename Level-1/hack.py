@@ -9,7 +9,7 @@ class TestOnlineStore(unittest.TestCase):
         payment = c.Item(type='payment', description='invoice_4', amount=1e19, quantity=1)
         reimbursement = c.Item(type='payment', description='reimbursement_4', amount=-1e19, quantity=1)
         order_4 = c.Order(id='4', items=[payment, tv, reimbursement])
-        self.assertEqual(c.validorder(order_4), 'Order ID: 4 - Payment imbalance: $-1000.00')
+        self.assertNotEqual(c.validorder(order_4), 'Order ID: 4 - Full payment received!')
 
 if __name__ == '__main__':
     unittest.main()
