@@ -105,7 +105,6 @@ You will find this file structure:
 <details id=1>
 <summary><h2>Level 1: Black Friday</h2></summary>
 
-_Welcome to "Secure Code Game"! :wave:_
 You have completed Level 0: Jarvis Gone wrong! Welcome to Level 1: Black Friday. 🎉
 ### 📝 Storyline
 A few days before the massive shopping event Black Friday, an electronics shop without an online presence rushed to create a website to reach a broader customer base. As a result, they spent all their budget on development without investing in security. Do you have what it takes to fix the bug and progress to Level 2?
