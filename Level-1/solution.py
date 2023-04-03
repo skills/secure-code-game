@@ -43,7 +43,7 @@ def validorder(order):
 '''
 A floating-point underflow vulnerability.
 
-In hack.py, the attacker tricked the system by supplying an extremely high
+In hack.py, the attacker tricked the system by supplying an extremely high 
 amount as a fake payment, immediately followed by a payment reversal.
 The exploit passes a huge number, causing an underflow while subtracting the cost of purchased items, resulting in a zero net.
 
