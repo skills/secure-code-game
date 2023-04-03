@@ -1,0 +1,26 @@
+name: Jarvis Gone Wrong
+
+on:
+  push:
+    paths:
+      - ".github/workflows/jarvis.yml"
+
+jobs:
+  jarvis:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+      # What: For simple things, decide wisely. Try not to use any external and/or unofficial dependencies.
+      # Why: It adds an extra dependency that might have outdated or malicious code that could be changed by anyone if a proper PR review process isn't in place
+      - name: Check GitHub Status
+        run: |
+          curl https://www.githubstatus.com/api/v2/status.json
+      - name: Check for insecure actions
+        run: |
+          if grep -r "uses: dduzgun-security/secure-code-game-action" .; then
+            echo "Insecure action detected. Please remove it from your workflow."
+            exit 1
+          fi
