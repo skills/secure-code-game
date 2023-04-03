@@ -11,6 +11,7 @@ MAX_TOTAL = 1e6 # maximum total amount accepted for an order
 def validamount(amount):
     return amount > -1*MAX_ITEM_AMOUNT and amount < MAX_ITEM_AMOUNT
 
+# sets a reasonable min & max value for the item quantities
 def validquantity(quantity):
     return quantity > -1 * MAX_QUANTITY and quantity < MAX_QUANTITY
 
