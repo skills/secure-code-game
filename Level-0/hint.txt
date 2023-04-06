@@ -1,4 +1,4 @@
-Did you found the typo that allows an attacker to guess/enumerate valid emails?
-OMG! Does Lumberjack really logs emails (twice in the code) and passwords (once in the code).
+Did you find the typo that allows an attacker to guess/enumerate valid emails?
+OMG! Does Lumberjack really log emails (twice in the code) and passwords (once in the code)?
 
 To fix the tests (hack_test.go), you'll need to change the message in log.Printf().
