@@ -77,10 +77,35 @@ For more information about cloning repositories, see "[Cloning a repository](htt
 
 </details>
    
+<details id=0>
+<summary><h2>Level 0: LumberJack</h2></summary>
+
+_Welcome to "Secure Code Game"! :wave:_
+
+### 📝 Storyline
+Welcome to the world of Lumberjack, the clumsiest logging service in town! Lumberjack's codebase is riddled with security flaws, and it's up to you to find and fix them. Customers also noticed irregularities in our error messages. Something is off, are the error messages too revealing or incoherent? Put on your hard hat and get ready to chop down those security vulnerabilities in this hilarious logging adventure! Do you have what it takes to fix the bug and progress to Level 1?
+
+### :keyboard: What's in the repo?
+For each level, you will find the same file structure:
+- `code` includes the vulnerable code to be reviewed
+- `hack` exploits the vulnerabilities in `code`. Running `hack.go` will fail initially, your goal is to get this file to pass.
+- `hint` offers a hint if you get stuck.
+- `solution` provides one working solution. There are several possible solutions.
+- `tests` contains the unit tests that should still pass after you have implemented your fix.
+
+### 🚦 Time to start!
+1. Review the code in `code.go`. Can you spot the bug(s)?
+1. Try to fix the bug(s). Ensure that unit tests are still passing.
+1. You successfully completed the level when both `hack_test.go` and `code_test.go` pass 🟢. (You'll have to fix code hack_test.go to make the SensitiveLog tests pass.)
+1. If you get stuck, read the hint in the `hint.txt` file.
+1. Compare your solution with `solution/solution.go` and `solution/solution_hack_test.go`.
+
+</details>
+
 <details id=1>
 <summary><h2>Level 1: Black Friday</h2></summary>
 
-_Welcome to "Secure Code Game"! :wave:_
+You have completed Level 0: Jarvis Gone wrong! Welcome to Level 1: Black Friday. 🎉
 
 ### 📝 Storyline
 A few days before the massive shopping event Black Friday, an electronics shop without an online presence rushed to create a website to reach a broader customer base. As a result, they spent all their budget on development without investing in security. Do you have what it takes to fix the bug and progress to Level 2?
