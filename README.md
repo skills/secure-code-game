@@ -8,7 +8,7 @@ _A GitHub Security Lab initiative, providing an in-repo learning experience, whe
 - **Who is this for**: Developers, students.
 - **What you'll learn**: How to spot and fix vulnerable patterns in real-world code, build security into your workflows, and understand security alerts generated against your code. 
 - **What you'll build**: You will develop fixes on functional but vulnerable code.
-- **Prerequisites**: In this course, you will need some knowledge of `python3` for most levels and `C` for Level 2.
+- **Prerequisites**: In this course, you will need some knowledge of `python3` for most levels, `C` for Level 2 and `Kotlin` for Level 5.
 - **How long**: This course is five levels long and takes 8-10 hours to complete.
 
 ## How to start this course
@@ -199,7 +199,7 @@ It's a common myth that passwords should be complex. In reality, it's more impor
 
 ### :keyboard: What's in the repo?
 For each level, you will find the same file structure:
-- `code` includes the vulnerable code to be reviewed
+- `Main` includes the vulnerable code to be reviewed
 - `hack` exploits the vulnerabilities in `code`. Running `hack.py` will fail initially, your goal is to get this file to pass.
 - `hint` offers a hint if you get stuck.
 - `solution` provides one working solution. There are several possible solutions.
@@ -210,7 +210,7 @@ For Levels 3-5, we encourage you to enable code scanning with CodeQL. For more i
 
 ### 🚦 Time to start!
 1. The codebase generates several code scanning alerts. Your goal is to resolve these alerts for each level.
-1. Review the code in `code.py`. Can you spot the bugs?
+1. Review the code in `Main.kt`. Can you spot the bugs?
 1. If you get stuck, read the code scanning alert.
 1. Try to fix the bug. Make your changes and open a pull request to `main` or push your fix to a branch.
 1. Check the tests and the code scanning results to confirm the alert for this level has now disappeared.
