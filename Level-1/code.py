@@ -5,7 +5,7 @@
 ///   1. Review the code. Can you spot the bug?          ///
 ///   2. Fix the code but ensure that tests.py passes    ///
 ///   3. Run hack.py and if passing then CONGRATS!       ///
-///   4. If stucked then read the hint                   ///
+///   4. If stuck then read the hint                     ///
 ///   5. Compare your solution with solution.py          ///
 ///                                                      ///
 ////////////////////////////////////////////////////////////
