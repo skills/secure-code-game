@@ -63,7 +63,8 @@ Once installation has completed, clone your repository to your local machine and
 $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 ```
 6. Press **Enter** to create your local clone.
-7. Install dependencies by running:
+7. Change the working directory to the cloned directory.
+8. Install dependencies by running:
 ```bash
 pip3 install -r requirements.txt
 ```
