@@ -52,7 +52,11 @@ sudo apt-get install libldap2-dev libsasl2-dev
 ```bash
 sudo yum install python-devel openldap-devel
 ```
-- Then, for both Debian/Ubuntu and CentOS/RHEL, install `pyOpenSSL` by running:
+- For Archlinux, run: 
+```bash
+sudo pacman -Sy libldap libsasl
+```
+- Then, for any of the above Linux distribution install `pyOpenSSL` by running:
 ```bash
 pip3 install pyOpenSSL
 ```
