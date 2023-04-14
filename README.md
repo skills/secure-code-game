@@ -52,16 +52,16 @@ sudo apt-get install libldap2-dev libsasl2-dev
 ```bash
 sudo yum install python-devel openldap-devel
 ```
-- Then, for both Debian/Ubuntu and CentOS/RHEL, install `pyOpenSSL` by running:
+- For Archlinux, run: 
+```bash
+sudo pacman -Sy libldap libsasl
+```
+- Then, for all of the above Linux distributions install `pyOpenSSL` by running:
 ```bash
 pip3 install pyOpenSSL
 ```
-3. Install the other dependencies by running:
-```bash
-pip3 install -r requirements.txt
-```
 
-Once installation has completed, clone your repository to your local machine.
+Once installation has completed, clone your repository to your local machine and install required dependencies.
 1. From your repository, click the **Code** drop down button in the upper-right of your repository navigation bar.
 1. Select the `Local` tab from the menu.
 1. Copy your preferred URL.
@@ -71,6 +71,11 @@ Once installation has completed, clone your repository to your local machine.
 $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 ```
 6. Press **Enter** to create your local clone.
+7. Change the working directory to the cloned directory.
+8. Install dependencies by running:
+```bash
+pip3 install -r requirements.txt
+```
 
 For more information about cloning repositories, see "[Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)."
 
