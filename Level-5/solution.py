@@ -10,14 +10,13 @@ class Random_generator:
     def generate_token(self, length=8, alphabet=(
     '0123456789'
     'abcdefghijklmnopqrstuvwxyz'
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZ' 
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     )):
         return ''.join(secrets.choice(alphabet) for i in range(length))
 
     # generates salt using the bcrypt library which is a safe implementation
-    def generate_salt(self, rounds=22):
-        return bcrypt.gensalt() 
-        # didn't supply the rounds variable to gensalt() because it takes way longer to run
+    def generate_salt(self, rounds=12):
+        return bcrypt.gensalt(rounds)
 
 class SHA256_hasher:
 
@@ -27,7 +26,7 @@ class SHA256_hasher:
         password_hash = bcrypt.hashpw(password, salt)
         return password_hash.decode('ascii')
 
-    # verifies that the hashed password reverses to the plain text version on verification    
+    # verifies that the hashed password reverses to the plain text version on verification
     def password_verification(self, password, password_hash):
         password = binascii.hexlify(hashlib.sha256(password.encode()).digest())
         password_hash = password_hash.encode('ascii')
@@ -37,8 +36,8 @@ class SHA256_hasher:
 PRIVATE_KEY = os.environ.get('PRIVATE_KEY')
 PUBLIC_KEY = os.environ.get('PUBLIC_KEY')
 SECRET_KEY = os.environ.get('SECRET_KEY')
-PASSWORD_HASHER = 'SHA256_hasher' 
-    
+PASSWORD_HASHER = 'SHA256_hasher'
+
 """
 Some mistakes are very basic, like choosing a cryptographically-broken algorithm
 or committing secret keys directly in your source code.
