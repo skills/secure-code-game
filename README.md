@@ -56,7 +56,7 @@ sudo yum install python-devel openldap-devel
 ```bash
 sudo pacman -Sy libldap libsasl
 ```
-- Then, for any of the above Linux distributions install `pyOpenSSL` by running:
+- Then, for all of the above Linux distributions install `pyOpenSSL` by running:
 ```bash
 pip3 install pyOpenSSL
 ```
