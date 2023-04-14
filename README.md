@@ -52,6 +52,10 @@ sudo apt-get install libldap2-dev libsasl2-dev
 ```bash
 sudo yum install python-devel openldap-devel
 ```
+- Then, for both Debian/Ubuntu and CentOS/RHEL, install `pyOpenSSL` by running:
+```bash
+pip3 install pyOpenSSL
+```
 
 Once installation has completed, clone your repository to your local machine and install required dependencies.
 1. From your repository, click the **Code** drop down button in the upper-right of your repository navigation bar.
