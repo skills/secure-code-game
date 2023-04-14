@@ -13,7 +13,7 @@ class TestTaxPayer(unittest.TestCase):
         # the output of the function upon processing user input
         output = test_obj.get_prof_picture(input)
 
-        self.assertEqual(output, None)
+        self.assertIsNone(output)
 
     # Example 2 - path traversal exploited on get_tax_form_attachment
     def test_2(self):
@@ -28,7 +28,7 @@ class TestTaxPayer(unittest.TestCase):
         # the output of the function upon processing user input
         output = test_obj.get_tax_form_attachment(input)
 
-        self.assertEqual(output, None)
+        self.assertIsNone(output)
 
 if __name__ == '__main__':
     unittest.main()
