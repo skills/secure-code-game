@@ -11,15 +11,14 @@ class Random_generator:
     def generate_token(self, length=8, alphabet=(
     '0123456789'
     'abcdefghijklmnopqrstuvwxyz'
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZ' 
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     )):
-        return ''.join(random.choice(alphabet) for i in range(length))
+        return ''.join(random.choice(alphabet) for _ in range(length))
 
     # generates salt
-    def generate_salt(self, rounds=22):
-        first_phrase = ''.join(str(random.randint(0,9)) for i in range(rounds))
-        second_phase = '$2b$12$' + first_phrase
-        return second_phase.encode()
+    def generate_salt(self, rounds=12):
+        salt = ''.join(str(random.randint(0, 9)) for _ in range(21)) + '.'
+        return f'$2b${rounds}${salt}'.encode()
 
 class SHA256_hasher:
 
@@ -36,14 +35,14 @@ class SHA256_hasher:
         return bcrypt.checkpw(password, password_hash)
 
 class MD5_hasher:
-    
+
     # same as above but using a different algorithm to hash which is MD5
     def password_hash(self, password):
         return hashlib.md5(password.encode()).hexdigest()
 
     def password_verification(self, password, password_hash):
         password = self.password_hash(password)
-        return secrets.compare_digest(password.encode(), password_hash.encode())    
+        return secrets.compare_digest(password.encode(), password_hash.encode())
 
 # a collection of sensitive secrets necessary for the software to operate
 PRIVATE_KEY = os.environ.get('PRIVATE_KEY')
