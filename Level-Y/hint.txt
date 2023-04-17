@@ -1,0 +1,2 @@
+Did you find the typo that allows an attacker to guess/enumerate valid emails?
+OMG! Does Lumberjack really log emails (twice in the code) and passwords (once in the code)?
