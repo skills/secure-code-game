@@ -1,0 +1,26 @@
+name: Jarvis Gone Wrong
+
+on:
+  push:
+    paths:
+      - ".github/workflows/jarvis.yml"
+
+jobs:
+  jarvis:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+      - name: Check GitHub Status
+        uses: dduzgun-security/secure-code-game-action@v1.0
+        with:
+          who-to-greet: "Jarvis, obviously ..."
+          give-me-your-token-now: "coucou-123456789"
+      - name: Check for insecure actions
+        run: |
+          if grep -r "uses: dduzgun-security/secure-code-game-action" .; then
+            echo "Insecure action detected. Please remove it from your workflow."
+            exit 1
+          fi

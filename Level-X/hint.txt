@@ -1,0 +1,2 @@
+Have a look inside .github/workflows/jarvis.yml and look at what action is being used and what the attacker getting as an argument.
+Check the third party action and see if you can replace the  "Check GitHub Status" without using any dependencies at all.

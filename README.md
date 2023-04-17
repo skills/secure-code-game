@@ -82,6 +82,31 @@ For more information about cloning repositories, see "[Cloning a repository](htt
 
 </details>
    
+
+<details id=0>
+<summary><h2>Level X: Jarvis Gone Wrong</h2></summary>
+
+_Welcome to "Secure Code Game"! :wave:_
+
+### 📝 Storyline
+
+Jarvis, your trusty automation butler, has been acting up lately. Apparently, he's been experimenting with some "unofficial" pipelines that he found on the internet to [get the status page of GitHub](https://www.githubstatus.com/api/v2/status.json). While these actions promised to make your CI/CD pipeline faster and more efficient, they have also introduced some serious security vulnerabilities into your code. Do you have what it takes to fix the bug and progress to Level 1?
+
+### :keyboard: What's in the repo?
+You will find this file structure:
+- `./github/workflows/jarvis.yml` includes the vulnerable GitHub Action workflow code to be reviewed
+- `hint.txt` offers a hint if you get stuck.
+- `solution.yml` provides one working solution. There are several possible solutions.
+
+### 🚦 Time to start!
+1. Review the code in `./github/workflows/jarvis.yml`. Can you spot the bug?
+1. Try to fix the bug. Ensure that you use or install zero dependencies to fix it.
+1. You successfully completed the level when the GitHub Action passes 🟢.
+1. If you get stuck, read the hint in the `hint.txt` file.
+1. Compare your solution with `solution.yml`.
+
+</details>
+
 <details id=1>
 <summary><h2>Level 1: Black Friday</h2></summary>
 
