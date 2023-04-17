@@ -1,3 +1,10 @@
+// -------------------------------
+// ------------- FIX -------------
+// -------------------------------
+// 1) Remove the email being logged (see line 35)
+// 2) Fix the error message to prevent user enumeration (see line 64)
+// 3) Remove the email and password being logged (see line 71)
+
 package main
 
 import (
@@ -26,6 +33,7 @@ func isValidEmail(email string) bool {
 	match, err := regexp.MatchString(emailPattern, email)
 	if err != nil {
 		// Fix: Removing the email from the log
+		// log.Printf("Invalid email format: %q", email)
 		log.Printf("Invalid email format")
 		return false
 	}
@@ -54,12 +62,14 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 		storedPassword, ok := testFakeMockUsers[email]
 		if !ok {
 			// Fix: Correcting the message to prevent user enumeration
+			// http.Error(w, "invalid email or password", http.StatusUnauthorized)
 			http.Error(w, "Invalid Email or Password", http.StatusUnauthorized)
 			return
 		}
 
 		if password == storedPassword {
 			// Fix: Removing the email and password from the log
+			// log.Printf("User %q logged in successfully with a valid password %q", email, password)
 			log.Printf("Successful login request")
 			w.WriteHeader(http.StatusOK)
 		} else {
