@@ -6,7 +6,7 @@ _A GitHub Security Lab initiative, providing an in-repo learning experience, whe
 <summary><h2>Welcome</h2></summary>
 
 - **Who is this for**: Developers, students.
-- **What you'll learn**: How to spot and fix vulnerable patterns in real-world code, build security into your workflows, and understand security alerts generated against your code. 
+- **What you'll learn**: How to spot and fix vulnerable patterns in real-world code, build security into your workflows, and understand security alerts generated against your code.
 - **What you'll build**: You will develop fixes on functional but vulnerable code.
 - **Prerequisites**: In this course, you will need some knowledge of `python3` for most levels and `C` for Level 2.
 - **How long**: This course is five levels long and takes 8-10 hours to complete.
@@ -27,21 +27,24 @@ _A GitHub Security Lab initiative, providing an in-repo learning experience, whe
 [![start-course](https://user-images.githubusercontent.com/1221423/235727646-4a590299-ffe5-480d-8cd5-8194ea184546.svg)](https://github.com/new?template_owner=skills&template_name=secure-code-game&owner=%40me&name=skills-secure-code-game&description=My+clone+repository&visibility=public)
 
 1. Right-click **Start course** and open the link in a new tab.
-2. In the new tab, follow the prompts to create a new repository. For owner, we recommend your personal account.
+2. In the new tab, most of the prompts will automatically fill in for you.
+   - For owner, choose your personal account or an organization to host the repository.
+   - We recommend creating a public repository, as private repositories will [use Actions minutes](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
+   - Scroll down and click the **Create repository** button at the bottom of the form.
 3. After your new repository is created, wait about 20 seconds, then refresh the page. Follow the step-by-step instructions in the new repository's README.
-   
+
 ## 🛠️ The set up
-  
+
 #### 🖥️ Using codespaces
-  
+
 All levels are configured to run instantly with GitHub Codespaces. If you chose to use codespaces, be aware that this course **will count towards your 60 hours of monthly free allowance**. For more information about GitHub Codespaces, see the "[GitHub Codespaces overview](https://docs.github.com/en/codespaces/overview)." If you prefer to work locally, please follow the local installation guide in the next section.
-  
+
 1. To create a codespace, click the **Code** drop down button in the upper-right of your repository navigation bar.
 1. Click **Create codespace on main**.
 1. After creating a codespace wait for all background installations to complete. This should take less than two minutes.
 
 
-#### 💻 Local installation 
+#### 💻 Local installation
 
 Please note: You don't need a local installation if you are using GitHub Codespaces.
 
@@ -54,14 +57,14 @@ uname -a
 ```
  - For Debian/Ubuntu, run:
  ```bash
-sudo apt-get update                                                             
-sudo apt-get install libldap2-dev libsasl2-dev                                  
-``` 
-- For CentOS/RHEL, run: 
+sudo apt-get update
+sudo apt-get install libldap2-dev libsasl2-dev
+```
+- For CentOS/RHEL, run:
 ```bash
 sudo yum install python-devel openldap-devel
 ```
-- For Archlinux, run: 
+- For Archlinux, run:
 ```bash
 sudo pacman -Sy libldap libsasl
 ```
@@ -90,7 +93,7 @@ For more information about cloning repositories, see "[Cloning a repository](htt
 
 
 </details>
-   
+
 <details id=1>
 <summary><h2>Level 1: Black Friday</h2></summary>
 
