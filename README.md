@@ -55,8 +55,8 @@ The following local installation guide is adapted to Debian/Ubuntu and CentOS/RH
 ```bash
 uname -a
 ```
- - For Debian/Ubuntu, run:
- ```bash
+- For Debian/Ubuntu, run:
+```bash
 sudo apt-get update
 sudo apt-get install libldap2-dev libsasl2-dev
 ```
