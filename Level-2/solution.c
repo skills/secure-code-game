@@ -54,7 +54,7 @@ bool update_setting(user_account* ua, const char *index, const char *value) {
 }
 
 /*
-Buffer Overflow Vulnerabilty
+Buffer Overflow Vulnerability
 
 In hack.c, an attacker escalated privileges and became an admin by abusing 
 the fact that the code wasn't checking for negative index values.
