@@ -1,6 +1,10 @@
+<header>
+
 # Secure Code Game
 
 _A GitHub Security Lab initiative, providing an in-repo learning experience, where learners secure intentionally vulnerable code._
+
+</header>
 
 ## Welcome
 
@@ -9,12 +13,6 @@ _A GitHub Security Lab initiative, providing an in-repo learning experience, whe
 - **What you'll build**: You will develop fixes on functional but vulnerable code.
 - **Prerequisites**: In this course, you will need some knowledge of `python3` for most levels and `C` for Level 2.
 - **How long**: This course is five levels long and takes 8-10 hours to complete.
-
-In this course, you will:
-
-1.
-2.
-3.
 
 ### How to start this course
 
@@ -253,10 +251,12 @@ Here's a recap of all the tasks you've accomplished in your repository:
 - [Read more about code security](https://docs.github.com/en/code-security).
 - To find projects to contribute to, check out [GitHub Explore](https://github.com/explore).
 
-
+<footer>
 
 ---
 
 Get help: Email us at securitylab-social@github.com &bull; [Review the GitHub status page](https://www.githubstatus.com/)
 
 &copy; 2023 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+
+</footer>
