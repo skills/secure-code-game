@@ -58,9 +58,7 @@ The following local installation guide is adapted to Debian/Ubuntu and CentOS/RH
 ```bash
 uname -a
 ```
-
 - For Debian/Ubuntu, run:
-
 ```bash
 sudo apt-get update
 sudo apt-get install libldap2-dev libsasl2-dev
@@ -145,7 +143,7 @@ At the time "The Matrix" was first released in 1999, programming was different. 
 For each level, you will find the same file structure:
 
 - `code` includes the vulnerable code to be reviewed
-- `hack` exploits the vulnerabilities in `code`. Running `hack.py` will fail initially, your goal is to get this file to pass.
+- `hack` exploits the vulnerabilities in `code`. Running `hack.c` will fail initially, your goal is to get this file to pass.
 - `hint` offers a hint if you get stuck.
 - `solution` provides one working solution. There are several possible solutions.
 - `tests` contains the unit tests that should still pass after you have implemented your fix.
