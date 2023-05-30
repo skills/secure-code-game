@@ -11,7 +11,13 @@ _A GitHub Security Lab initiative, providing an in-repo learning experience, whe
 - **Prerequisites**: In this course, you will need some knowledge of `python3` for most levels and `C` for Level 2.
 - **How long**: This course is five levels long and takes 8-10 hours to complete.
 
-## How to start this course
+In this course, you will:
+
+1.
+2.
+3.
+
+### How to start this course
 
 <!-- For start course, run in JavaScript:
 'https://github.com/new?' + new URLSearchParams({
