@@ -2,8 +2,7 @@
 
 _A GitHub Security Lab initiative, providing an in-repo learning experience, where learners secure intentionally vulnerable code._
 
-<details id=0 open>
-<summary><h2>Welcome</h2></summary>
+## Welcome
 
 - **Who is this for**: Developers, students.
 - **What you'll learn**: How to spot and fix vulnerable patterns in real-world code, build security into your workflows, and understand security alerts generated against your code.
@@ -98,10 +97,9 @@ pip3 install -r requirements.txt
 For more information about cloning repositories, see "[Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)."
 
 
-</details>
 
-<details id=1>
-<summary><h2>Level 1: Black Friday</h2></summary>
+
+## Level 1: Black Friday
 
 _Welcome to "Secure Code Game"! :wave:_
 
@@ -123,11 +121,10 @@ For each level, you will find the same file structure:
 1. If you get stuck, read the hint in the `hint.js` file.
 1. Compare your solution with `solution.py`.
 
-</details>
 
 
-<details id=2>
-<summary><h2>Level 2: Matrix</h2></summary>
+
+## Level 2: Matrix
 
 _You have completed Level 1: Black Friday! Welcome to Level 2: Matrix. :tada:_
 
@@ -151,11 +148,10 @@ For each level, you will find the same file structure:
 1. If you get stuck, read the hint in the `hint.txt` file.
 1. Compare your solution with `solution.c`.
 
-</details>
 
 
-<details id=3>
-<summary><h2>Level 3: Social Network</h2></summary>
+
+## Level 3: Social Network
 
 _Nice work finishing Level 2: Matrix! It's now time for Level 3: Social Network. :sparkles:_
 
@@ -180,11 +176,10 @@ For each level, you will find the same file structure:
 1. Try to fix the bug. Make your changes and open a pull request to `main` or push your fix to a branch.
 1. Check the tests and the code scanning results to confirm the alert for this level has now disappeared.
 
-</details>
 
 
-<details id=4>
-<summary><h2>Level 4: Data Bank</h2></summary>
+
+## Level 4: Data Bank
 
 _Nicely done! Level 3: Social Network is complete. It's time for Level 4: Database. :partying_face:_
 
@@ -209,11 +204,10 @@ For Levels 3-5, we encourage you to enable code scanning with CodeQL. For more i
 1. Try to fix the bug. Make your changes and open a pull request to `main` or push your fix to a branch.
 1. Check the tests and the code scanning results to confirm the alert for this level has now disappeared.
 
-</details>
 
 
-<details id=5>
-<summary><h2>Level 5: Locanda</h2></summary>
+
+## Level 5: Locanda
 
 _Almost there! One level to go! :heart:_
 
@@ -238,11 +232,10 @@ For Levels 3-5, we encourage you to enable code scanning with CodeQL. For more i
 1. Try to fix the bug. Make your changes and open a pull request to `main` or push your fix to a branch.
 1. Check the tests and the code scanning results to confirm the alert for this level has now disappeared.
 
-</details>
 
 
-<details id=X>
-<summary><h2>Finish</h2></summary>
+
+## Finish
 
 _Congratulations, you've completed this course!_
 
@@ -260,7 +253,7 @@ Here's a recap of all the tasks you've accomplished in your repository:
 - [Read more about code security](https://docs.github.com/en/code-security).
 - To find projects to contribute to, check out [GitHub Explore](https://github.com/explore).
 
-</details>
+
 
 ---
 
