@@ -1,5 +1,14 @@
 <header>
 
+<!--
+  <<< Author notes: Course header >>>
+  Read <https://skills.github.com/quickstart> for more information about how to build courses using this template.
+  Include a 1280×640 image, course name in sentence case, and a concise description in emphasis.
+  In your repository settings: enable template repository, add your 1280×640 social image, auto delete head branches.
+  Next to "About", add description & tags; disable releases, packages, & environments.
+  Add your open source license, GitHub uses the MIT license.
+-->
+
 # Secure Code Game
 
 _A GitHub Security Lab initiative, providing an in-repo learning experience, where learners secure intentionally vulnerable code._
@@ -267,6 +276,11 @@ Here's a recap of all the tasks you've accomplished in your repository:
 - To find projects to contribute to, check out [GitHub Explore](https://github.com/explore).
 
 <footer>
+
+<!--
+  <<< Author notes: Footer >>>
+  Add a link to get support, GitHub status page, code of conduct, license link.
+-->
 
 ---
 
