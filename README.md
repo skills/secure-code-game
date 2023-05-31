@@ -15,6 +15,12 @@ _A GitHub Security Lab initiative, providing an in-repo learning experience, whe
 
 </header>
 
+<!--
+  <<< Author notes: Course start >>>
+  Include start button, a note about Actions minutes,
+  and tell the learner why they should take the course.
+-->
+
 ## Welcome
 
 - **Who is this for**: Developers, students.
