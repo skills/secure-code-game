@@ -9,7 +9,7 @@
   Add your open source license, GitHub uses the MIT license.
 -->
 
-# Secure Code Game
+# Secure Code Game.
 
 _A GitHub Security Lab initiative, providing an in-repo learning experience, where learners secure intentionally vulnerable code._
 
