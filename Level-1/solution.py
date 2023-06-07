@@ -48,7 +48,7 @@ errors as it cannot represent decimal numbers with the precision we expect.
 For example, running `0.1 + 0.2` in the Python interpreter gives `0.30000000000000004` instead of 0.3.
 
 The solution to this is to use the Decimal type for calculations that should work in the same way "as the arithmetic that people learn at school."
--- except from Python's documentation on Decimal (https://docs.python.org/3/library/decimal.html).
+-- excerpt from Python's documentation on Decimal (https://docs.python.org/3/library/decimal.html).
 
 It is also necessary to convert the floating point values to string first before passing it to the Decimal constructor.
 If the floating point value is passed to the Decimal constructor, the rounded value is stored instead.
