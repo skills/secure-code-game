@@ -153,6 +153,8 @@ If you need assistance, don't hesitate to ask for help in our [GitHub Discussion
 
 _You have completed Level 1: Black Friday! Welcome to Level 2: Matrix. :tada:_
 
+By the way, we welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md)
+
 ### 📝 Storyline
 
 At the time "The Matrix" was first released in 1999, programming was different. In the movie, a computer programmer named Thomas "Neo" Anderson leads the fight in an underground war against powerful computers who have constructed his entire reality with a system called the Matrix. Do you have what it takes to win that war and progress to Level 3?
@@ -214,6 +216,8 @@ If you need assistance, don't hesitate to ask for help in our [GitHub Discussion
 ## Level 4: Data Bank
 
 _Nicely done! Level 3: Social Network is complete. It's time for Level 4: Database. :partying_face:_
+
+By the way, we welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md)
 
 ### 📝 Storyline
 
@@ -288,7 +292,8 @@ Here's a recap of all the tasks you've accomplished in your repository:
 ### What's next?
 
 - Follow [GitHub Security Lab](https://twitter.com/ghsecuritylab) for the latest updates and announcements about this course.
-- Share your feedback on this course by emailing us at securitylab-social@github.com.
+- Contribute new levels to the game in 3 simple steps! Read our [Contribution Guideline](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md)
+- Share your feedback and ideas in our [Discussions](https://github.com/skills/secure-code-game/discussions) and join our community on [Slack](https://gh.io/securitylabslack)
 - [Take another skills course](https://skills.github.com/).
 - [Read more about code security](https://docs.github.com/en/code-security).
 - To find projects to contribute to, check out [GitHub Explore](https://github.com/explore).
