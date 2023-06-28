@@ -49,3 +49,7 @@ PRIVATE_KEY = os.environ.get('PRIVATE_KEY')
 PUBLIC_KEY = os.environ.get('PUBLIC_KEY')
 SECRET_KEY = 'TjWnZr4u7x!A%D*G-KaPdSgVkXp2s5v8'
 PASSWORD_HASHER = 'MD5_hasher'
+
+
+# Contribute new levels to the game in 3 simple steps! 
+# Read our Contribution Guideline at github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md

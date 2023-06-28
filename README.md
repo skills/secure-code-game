@@ -61,6 +61,8 @@ All levels are configured to run instantly with GitHub Codespaces. If you chose 
 1. Click **Create codespace on main**.
 1. After creating a codespace wait for all background installations to complete. This should take less than two minutes.
 
+If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack), at the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
+
 #### 💻 Local installation
 
 Please note: You don't need a local installation if you are using GitHub Codespaces.
@@ -145,9 +147,13 @@ For each level, you will find the same file structure:
 1. If you get stuck, read the hint in the `hint.js` file.
 1. Compare your solution with `solution.py`.
 
+If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack), at the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
+
 ## Level 2: Matrix
 
 _You have completed Level 1: Black Friday! Welcome to Level 2: Matrix. :tada:_
+
+By the way, we welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md)
 
 ### 📝 Storyline
 
@@ -172,6 +178,8 @@ For each level, you will find the same file structure:
 1. The level is completed successfully when both `hack.c` and `tests.c` pass. 🟢
 1. If you get stuck, read the hint in the `hint.txt` file.
 1. Compare your solution with `solution.c`.
+
+If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack), at the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
 
 ## Level 3: Social Network
 
@@ -203,9 +211,13 @@ For each level, you will find the same file structure:
 1. Try to fix the bug. Make your changes and open a pull request to `main` or push your fix to a branch.
 1. Check the tests and the code scanning results to confirm the alert for this level has now disappeared.
 
+If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack), at the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
+
 ## Level 4: Data Bank
 
 _Nicely done! Level 3: Social Network is complete. It's time for Level 4: Database. :partying_face:_
+
+By the way, we welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md)
 
 ### 📝 Storyline
 
@@ -232,6 +244,8 @@ For Levels 3-5, we encourage you to enable code scanning with CodeQL. For more i
 1. If you get stuck, read the code scanning alert.
 1. Try to fix the bug. Make your changes and open a pull request to `main` or push your fix to a branch.
 1. Check the tests and the code scanning results to confirm the alert for this level has now disappeared.
+
+If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack), at the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
 
 ## Level 5: Locanda
 
@@ -263,6 +277,8 @@ For Levels 3-5, we encourage you to enable code scanning with CodeQL. For more i
 1. Try to fix the bug. Make your changes and open a pull request to `main` or push your fix to a branch.
 1. Check the tests and the code scanning results to confirm the alert for this level has now disappeared.
 
+If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack), at the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
+
 ## Finish
 
 _Congratulations, you've completed this course!_
@@ -276,7 +292,8 @@ Here's a recap of all the tasks you've accomplished in your repository:
 ### What's next?
 
 - Follow [GitHub Security Lab](https://twitter.com/ghsecuritylab) for the latest updates and announcements about this course.
-- Share your feedback on this course by emailing us at securitylab-social@github.com.
+- Contribute new levels to the game in 3 simple steps! Read our [Contribution Guideline](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md)
+- Share your feedback and ideas in our [Discussions](https://github.com/skills/secure-code-game/discussions) and join our community on [Slack](https://gh.io/securitylabslack)
 - [Take another skills course](https://skills.github.com/).
 - [Read more about code security](https://docs.github.com/en/code-security).
 - To find projects to contribute to, check out [GitHub Explore](https://github.com/explore).
