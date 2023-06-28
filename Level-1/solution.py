@@ -59,6 +59,7 @@ Decimal('0.299999999999999988897769753748434595763683319091796875')
 >>> Decimal('0.3')
 Decimal('0.3')
 
+
 Contribute new levels to the game in 3 simple steps! 
 Read our Contribution Guideline at github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md
 '''
