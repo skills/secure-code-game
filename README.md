@@ -133,7 +133,7 @@ A few days before the massive shopping event Black Friday, an electronics shop w
 
 For each level, you will find the same file structure:
 
-- `code` includes the vulnerable code to be reviewed
+- `code` includes the vulnerable code to be reviewed.
 - `hack` exploits the vulnerabilities in `code`. Running `hack.py` will fail initially, your goal is to get this file to pass.
 - `hint` offers a hint if you get stuck.
 - `solution` provides one working solution. There are several possible solutions.
@@ -153,7 +153,7 @@ If you need assistance, don't hesitate to ask for help in our [GitHub Discussion
 
 _You have completed Level 1: Black Friday! Welcome to Level 2: Matrix. :tada:_
 
-By the way, we welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md)
+By the way, we welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md).
 
 ### 📝 Storyline
 
@@ -163,7 +163,7 @@ At the time "The Matrix" was first released in 1999, programming was different. 
 
 For each level, you will find the same file structure:
 
-- `code` includes the vulnerable code to be reviewed
+- `code` includes the vulnerable code to be reviewed.
 - `hack` exploits the vulnerabilities in `code`. Running `hack.c` will fail initially, your goal is to get this file to pass.
 - `hint` offers a hint if you get stuck.
 - `solution` provides one working solution. There are several possible solutions.
@@ -197,7 +197,7 @@ The following fictitious story takes place in the mid-2030s. Authorities worldwi
 
 For each level, you will find the same file structure:
 
-- `code` includes the vulnerable code to be reviewed
+- `code` includes the vulnerable code to be reviewed.
 - `hack` exploits the vulnerabilities in `code`. Running `hack.py` will fail initially, your goal is to get this file to pass.
 - `hint` offers a hint if you get stuck.
 - `solution` provides one working solution. There are several possible solutions.
@@ -217,7 +217,7 @@ If you need assistance, don't hesitate to ask for help in our [GitHub Discussion
 
 _Nicely done! Level 3: Social Network is complete. It's time for Level 4: Database. :partying_face:_
 
-By the way, we welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md)
+By the way, we welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md).
 
 ### 📝 Storyline
 
@@ -227,7 +227,7 @@ Databases are essential for our applications. However, malicious actors only nee
 
 For each level, you will find the same file structure:
 
-- `code` includes the vulnerable code to be reviewed
+- `code` includes the vulnerable code to be reviewed.
 - `hack` exploits the vulnerabilities in `code`. Running `hack.py` will fail initially, your goal is to get this file to pass.
 - `hint` offers a hint if you get stuck.
 - `solution` provides one working solution. There are several possible solutions.
@@ -259,7 +259,7 @@ It's a common myth that passwords should be complex. In reality, it's more impor
 
 For each level, you will find the same file structure:
 
-- `code` includes the vulnerable code to be reviewed
+- `code` includes the vulnerable code to be reviewed.
 - `hack` exploits the vulnerabilities in `code`. Running `hack.py` will fail initially, your goal is to get this file to pass.
 - `hint` offers a hint if you get stuck.
 - `solution` provides one working solution. There are several possible solutions.
@@ -285,15 +285,15 @@ _Congratulations, you've completed this course!_
 
 Here's a recap of all the tasks you've accomplished in your repository:
 
-- You practiced secure code principles by spotting and fixing vulnerable patterns in real-world code
+- You practiced secure code principles by spotting and fixing vulnerable patterns in real-world code.
 - You assessed your solutions against exploits developed by GitHub Security Lab experts.
 - You utilized GitHub code scanning features and understood the security alerts generated against your code.
 
 ### What's next?
 
 - Follow [GitHub Security Lab](https://twitter.com/ghsecuritylab) for the latest updates and announcements about this course.
-- Contribute new levels to the game in 3 simple steps! Read our [Contribution Guideline](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md)
-- Share your feedback and ideas in our [Discussions](https://github.com/skills/secure-code-game/discussions) and join our community on [Slack](https://gh.io/securitylabslack)
+- Contribute new levels to the game in 3 simple steps! Read our [Contribution Guideline](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md).
+- Share your feedback and ideas in our [Discussions](https://github.com/skills/secure-code-game/discussions) and join our community on [Slack](https://gh.io/securitylabslack).
 - [Take another skills course](https://skills.github.com/).
 - [Read more about code security](https://docs.github.com/en/code-security).
 - To find projects to contribute to, check out [GitHub Explore](https://github.com/explore).
