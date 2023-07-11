@@ -1,0 +1,4 @@
+Congratulations on completing Level 2 !
+Welcome to Level 3, where new challenges and mysteries await you. Here, you will face a heightened test of your skills and knowledge.
+
+In this level, the website's vulnerability has become more elusive, requiring a deeper understanding of cross-site scripting (XSS) techniques. Your mission is to explore the intricate corners of the website's code, discover hidden flaws, and master the art of XSS exploitation.
