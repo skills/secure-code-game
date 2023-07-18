@@ -90,13 +90,14 @@ Jarvis, your trusty automation butler, has been acting up lately. Apparently, he
 ### :keyboard: What's in the repo?
 You will find this file structure:
 - `./github/workflows/jarvis.yml` includes the vulnerable GitHub Action workflow code to be reviewed
+- `./github/workflows/jarvis-test.yml` tests if the vulnerable action is still present. If not, well done! 
 - `hint.txt` offers a hint if you get stuck.
 - `solution.yml` provides one working solution. There are several possible solutions.
 
 ### 🚦 Time to start!
 1. Review the code in `./github/workflows/jarvis.yml`. Can you spot the bug?
 1. Try to fix the bug. Ensure that you use or install zero dependencies to fix it.
-1. You successfully completed the level when the GitHub Action passes 🟢.
+1. You successfully completed the level when the GitHub Action `./github/workflows/jarvis-test.yml` passes 🟢.
 1. If you get stuck, read the hint in the `hint.txt` file.
 1. Compare your solution with `solution.yml`.
 
