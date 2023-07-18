@@ -34,7 +34,7 @@ jobs:
           curl https://www.githubstatus.com/api/v2/status.json
       - name: Check for insecure actions
         run: |
-          if grep -l -r -E "uses: dduzgun-security/secure-code-game-action|give-me-your-token-now" .github/workflows/*.yml; then
+          if grep -q "uses: dduzgun-security/secure-code-game-action@v1.0" $GITHUB_WORKSPACE/.github/workflows/*.yml; then
             echo "Insecure action detected. Please remove it from your workflow."
             exit 1
           fi
