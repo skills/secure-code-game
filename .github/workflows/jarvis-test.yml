@@ -1,0 +1,22 @@
+name: Jarvis Gone Wrong - Test
+
+on:
+  push:
+    paths:
+      - ".github/workflows/jarvis.yml"
+
+jobs:
+  jarvis:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Check for insecure actions
+        run: |
+          if grep -q "uses: dduzgun-security/secure-code-game-action@v1.0" $GITHUB_WORKSPACE/.github/workflows/jarvis.yml; then
+            echo "Insecure action detected. Please remove it from your workflow."
+            exit 1
+          fi
