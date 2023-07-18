@@ -1,3 +1,14 @@
+# ////////////////////////////////////////////////////////////
+# ///                                                      ///
+# ///   0. Take some time to understand the GitHub Action  /// 
+# ///   1. Review the code. Can you spot the bug?          ///
+# ///   2. Fix the pipeline and push to jarvis.yml         ///
+# ///   3. Check the pipeline if passing then CONGRATS!    ///
+# ///   4. If stuck then read the hint                     ///
+# ///   5. Compare your solution with solution.yml         ///
+# ///                                                      ///
+# ////////////////////////////////////////////////////////////
+
 name: Jarvis Gone Wrong
 
 on:

@@ -13,8 +13,22 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v3
-      # What: For simple things, decide wisely. Try not to use any external and/or unofficial dependencies.
-      # Why: It adds an extra dependency that might have outdated or malicious code that could be changed by anyone if a proper PR review process isn't in place
+        # /////////////////////////////////////////////////////////////////////////////////////////////////////
+        # ///                                                                                               ///
+        # ///   Using an existing GitHub Action from the marketplace makes it a powerfull CI/CD ecosystem.  ///
+        # ///   However, power is always dangerous. That's why we need to decide wisely.                    ///
+        # ///   Here are some helpfull tips.                                                                ///
+        # ///                                                                                               ///
+        # ///   0. For simple things, try not to use any external GitHub Action from the marketplace.       ///
+        # ///   1. When you have to, in the marketplace use GitHub Action from Verified Creators            ///
+        # ///      https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions  ///
+        # ///   2. Use the latest and greatest version of existing GitHub Actions                           ///
+        # ///   3. Think about GitHub Actions like dependencies. It needs to be maintained and updated      ///
+        # ///   4. Have a proper PR process to avoid someone adding a malicious GitHub Action               ///
+        # ///   5. Think about disabling or limiting GitHub Actions in your organization in the Settings    ///
+        # ///                                                                                               ///
+        # /////////////////////////////////////////////////////////////////////////////////////////////////////
+
       - name: Check GitHub Status
         run: |
           curl https://www.githubstatus.com/api/v2/status.json

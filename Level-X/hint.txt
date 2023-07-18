@@ -1,2 +1,4 @@
-Have a look inside .github/workflows/jarvis.yml and look at what action is being used and what the attacker getting as an argument.
-Check the third party action and see if you can replace the  "Check GitHub Status" without using any dependencies at all.
+Have a look inside .github/workflows/jarvis.yml.
+A strange GitHub Action is being used and a secret value is sent to it as an input... This doesn't look good!
+Do we really need a third party GitHub Action to "Check GitHub Status" (https://www.githubstatus.com/api/v2/status.json)?
+Can you replace the "Check GitHub Status" step without using any dependencies at all?
