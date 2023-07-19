@@ -17,8 +17,18 @@ Exploit:
 **Explanation**: In this payload, the double angle brackets << and >> will not be matched by the regex, so the payload remains unaffected, and the XSS attack will be executed.
 
 ### How to Fix?
-- We can use html escape function to escape all the html characters / or improve the regex to escape all the html characters.
+- we can use Flask's built-in function escape from the Markup module. This function helps to escape special characters in the input, preventing them from being executed as HTML or JavaScript.
 
+Example: 
+
+```python
+from flask import Flask, request, render_template, jsonify, escape
+```
+
+```python
+return f'<h2>Planet Details:</h2><p>{escape(details)}</p>'
+```
+ 
 ### What you can do with XSS?
 - Steal Cookies and Session Information
 - Redirect to malicious websites
