@@ -13,7 +13,7 @@ class MyTestCase(TestCase):
         response = self.client.get('/')
         self.assert200(response)
         self.assertTemplateUsed('index.html')
- 
+
     def test_get_planet_info_invalid_planet(self):
         planet = 'Pluto'
         expected_info = 'No information found for Pluto.'
@@ -25,14 +25,14 @@ class MyTestCase(TestCase):
         expected_info = 'The smallest and fastest planet in the Solar System.'
         result = get_planet_info(planet)
         self.assertEqual(result, expected_info)
- 
-    def test_get_planet_info_endpoint_no_planet(self):
-        response = self.client.get('/getPlanetInfo')
-        self.assert400(response)
-        self.assertEqual(response.json, {'error': 'No planet name provided.'})
-    
- 
 
+    def test_get_planet_info_endpoint_valid_planet(self):
+        planet = 'Venus'
+        response = self.client.get(f'/getPlanetInfo?planet={planet}')
+        self.assert200(response)
+        self.assertEqual(response.data.decode(), f'<h2>Planet Details:</h2><p>{get_planet_info(planet)}</p>')
+
+ 
+ 
 if __name__ == '__main__':
     unittest.main()
- 

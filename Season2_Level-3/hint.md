@@ -1,12 +1,3 @@
-XSS Exploit
+🔍 HINT: How carefully do we handle user input before displaying it? Think about what happens when the user's input is directly included in the output without any modifications.
 
-Hey, This Code is vulnerable to XSS, can you exploit it?
-
-try checking endpoint 
-```/getPlanetInfo```
-
-Learn more about XSS from : 
-
-[OWASP](https://owasp.org/www-community/attacks/xss/)
-
-[PortSwigger](https://portswigger.net/web-security/cross-site-scripting)
+Try checking how input is handled in the code.py file.

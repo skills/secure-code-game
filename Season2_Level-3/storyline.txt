@@ -1,4 +1,5 @@
-Congratulations on completing Level 2 !
-Welcome to Level 3, where new challenges and mysteries await you. Here, you will face a heightened test of your skills and knowledge.
+Welcome to Level 3 of our challenge! You've made it this far, and now you're about to embark on a mission that will test your skills in a new dimension.
 
-In this level, the website's vulnerability has become more elusive, requiring a deeper understanding of cross-site scripting (XSS) techniques. Your mission is to explore the intricate corners of the website's code, discover hidden flaws, and master the art of XSS exploitation.
+In this level, you'll find yourself exploring a website that serves as a hub for information about celestial bodies. Imagine being able to discover fascinating details about planets by simply entering their names.
+
+ 
