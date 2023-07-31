@@ -24,10 +24,10 @@ class TestOnlineStore(unittest.TestCase):
         order_3 = c.Order(id='3', items=[payment, tv, reimbursement])
         self.assertEqual(c.validorder(order_3),'Order ID: 3 - Payment imbalance: $-1000.00')
 
-     # Example 3 - successfully handles decimal places correctly
+    # Example 4 - successfully handles decimal places
     def test_4(self):
-        tv = c.Item(type='product', description='candy bar',amount=5.99, quantity=1)
-        order_4 = c.Order(id='4', items=[tv])
+        smaller_item = c.Item(type='product', description='cable',amount=5.99, quantity=1)
+        order_4 = c.Order(id='4', items=[smaller_item])
         self.assertEqual(c.validorder(order_4),'Order ID: 4 - Payment imbalance: $-5.99')
 
 if __name__ == '__main__':
