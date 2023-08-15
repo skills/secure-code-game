@@ -8,7 +8,7 @@ app = Flask(__name__)
 def source():
     DB_CRUD_ops().get_stock_info(request.args["input"])
     DB_CRUD_ops().get_stock_price(request.args["input"])
-    DB_CRUD_ops().update_stock_price(request.args["input"])
+    DB_CRUD_ops().update_stock_price(request.args["input"], 10)
     DB_CRUD_ops().exec_multi_query(request.args["input"])
     DB_CRUD_ops().exec_user_script(request.args["input"])
 ### Unrelated to the exercise -- Ends here -- Please ignore
@@ -40,7 +40,7 @@ class Create(object):
                 '''
                 SELECT name 
                 FROM sqlite_master 
-                WHERE type='table'AND name='stocks';
+                WHERE type='table' AND name='stocks';
                 ''').fetchall()
  
             # if tables do not exist, create them and insert dummy data
