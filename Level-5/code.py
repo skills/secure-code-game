@@ -9,9 +9,9 @@ class Random_generator:
 
     # generates a random token
     def generate_token(self, length=8, alphabet=(
-    '0123456789'
-    'abcdefghijklmnopqrstuvwxyz'
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        '0123456789'
+        'abcdefghijklmnopqrstuvwxyz'
+        'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     )):
         return ''.join(random.choice(alphabet) for _ in range(length))
 
@@ -22,7 +22,7 @@ class Random_generator:
 
 class SHA256_hasher:
 
-    # produces the password hash by combining password + salt because hashing
+    # produces the password hash by combining password + salt before hashing
     def password_hash(self, password, salt):
         password = binascii.hexlify(hashlib.sha256(password.encode()).digest())
         password_hash = bcrypt.hashpw(password, salt)

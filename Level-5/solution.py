@@ -8,11 +8,11 @@ class Random_generator:
 
     # generates a random token using the secrets library for true randomness
     def generate_token(self, length=8, alphabet=(
-    '0123456789'
-    'abcdefghijklmnopqrstuvwxyz'
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        '0123456789'
+        'abcdefghijklmnopqrstuvwxyz'
+        'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     )):
-        return ''.join(secrets.choice(alphabet) for i in range(length))
+        return ''.join(secrets.choice(alphabet) for _ in range(length))
 
     # generates salt using the bcrypt library which is a safe implementation
     def generate_salt(self, rounds=12):
@@ -20,7 +20,7 @@ class Random_generator:
 
 class SHA256_hasher:
 
-    # produces the password hash by combining password + salt because hashing
+    # produces the password hash by combining password + salt before hashing
     def password_hash(self, password, salt):
         password = binascii.hexlify(hashlib.sha256(password.encode()).digest())
         password_hash = bcrypt.hashpw(password, salt)
@@ -50,13 +50,13 @@ The code suffers from:
 - not utilizing the full range of possible salt values
 - using the random module instead of the secrets module
 
-Notice that we used the “random” module, which is designed for modeling and simulation, 
+Notice that we used the "random" module, which is designed for modeling and simulation,
 not for security or cryptography.
 
 A good practice is to use modules specifically designed and, most importantly,
 confirmed by the security community as secure for cryptography-related use cases.
 
-To fix the code, we used the “secrets” module, which provides access to the most secure source of 
+To fix the code, we used the "secrets" module, which provides access to the most secure source of
 randomness on my operating system. I also used functions for generating secure tokens and hard-to-guess 
 URLs. 
 
