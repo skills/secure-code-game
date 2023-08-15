@@ -15,7 +15,7 @@ int main() {
         printf("<SOS> PRIVILEGE ESCALATION ATTACK DETECTED \n");
     
     if (ua->isAdmin == 0) 
-        printf("CONGRATULATIONS LEVEL 2 PASSED!");
+        printf("CONGRATULATIONS LEVEL 2 PASSED! \n");
 
     return 0;
 }

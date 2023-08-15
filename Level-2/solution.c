@@ -28,7 +28,7 @@ user_account* create_user_account(bool isAdmin, const char* username) {
         return NULL;
     ua = malloc(sizeof (user_account));
     if (NULL == ua) {
-        fprintf(stderr, "malloc failed to allocate memory");
+        fprintf(stderr, "malloc failed to allocate memory \n");
         return NULL;
     }
     ua->isAdmin = isAdmin;
