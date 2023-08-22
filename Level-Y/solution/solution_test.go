@@ -1,7 +1,10 @@
-// -------------------------------------
-// ------------- RUN TESTS -------------
-// -------------------------------------
-// go test -v solution.go solution_hack_test.go
+///////////////////////////////////////////////////////////////////
+///                      	RUN TESTS                      		///
+/// ___________________________________________________________ ///
+///                                                      		///
+///   				go test -v code.go solution_test.go			///
+///                                                      		///
+///////////////////////////////////////////////////////////////////
 
 package main
 
@@ -16,7 +19,6 @@ import (
 	"time"
 )
 
-// Line 66 in solution.go fixes this unit test
 func TestLoginHandler_UserEnumeration_InvalidEmail(t *testing.T) {
 	reqBody := `{"email": "invalid@example.com", "password": "password12345"}`
 	req, err := http.NewRequest("POST", "/login", strings.NewReader(reqBody))
@@ -39,8 +41,11 @@ func TestLoginHandler_UserEnumeration_InvalidEmail(t *testing.T) {
 	}
 }
 
-func TestLoginHandler_SensitiveLog_InvalidEmail(t *testing.T) {
-	reqBody := `{"email": "invalid@example.com", "password": "password12345"}`
+func TestLoginHandler_SensitiveLog_InvalidEmail_FIXME(t *testing.T) {
+	var buf bytes.Buffer
+	log.SetOutput(&buf)
+
+	reqBody := `{"email": "in.valid@ex@mple.com", "password": "password12345"}`
 	req, err := http.NewRequest("POST", "/login", strings.NewReader(reqBody))
 	if err != nil {
 		t.Fatalf("Failed to create request: %v", err)
@@ -50,26 +55,22 @@ func TestLoginHandler_SensitiveLog_InvalidEmail(t *testing.T) {
 	handler := http.HandlerFunc(loginHandler)
 	handler.ServeHTTP(recorder, req)
 
-	if recorder.Code != http.StatusUnauthorized {
-		t.Errorf("Expected status code %d, but got %d", http.StatusUnauthorized, recorder.Code)
+	if recorder.Code != http.StatusBadRequest {
+		t.Errorf("Expected status code %d, but got %d", http.StatusBadRequest, recorder.Code)
 	}
-
-	var buf bytes.Buffer
-	log.SetOutput(&buf)
-
-	// Fix: This has been changed to prevent sensitive data being logged and to fix unit tests
-	// See line 37 in solution.go
-	log.Printf("Invalid email format")
 
 	logOutput := buf.String()
 	expectedRespLog := "Invalid email format"
-	if strings.Contains(logOutput, "invalid@example.com") {
+	if strings.Contains(logOutput, "in.valid@ex@mple.com") {
 		t.Errorf("Expected body %q, but got %q", expectedRespLog, logOutput)
 		t.Fail()
 	}
 }
 
-func TestLoginHandler_SensitiveLog_ValidCredentials(t *testing.T) {
+func TestLoginHandler_SensitiveLog_ValidCredentials_FIXME(t *testing.T) {
+	var buf bytes.Buffer
+	log.SetOutput(&buf)
+
 	reqBody := `{"email": "user1@example.com", "password": "password12345"}`
 	req, err := http.NewRequest("POST", "/login", strings.NewReader(reqBody))
 	if err != nil {
@@ -83,13 +84,6 @@ func TestLoginHandler_SensitiveLog_ValidCredentials(t *testing.T) {
 	if recorder.Code != http.StatusOK {
 		t.Errorf("Expected status code %d, but got %d", http.StatusOK, recorder.Code)
 	}
-
-	var buf bytes.Buffer
-	log.SetOutput(&buf)
-
-	// Fix: This has been changed to prevent sensitive data being logged and to fix unit tests
-	// See line 73 in solution.go
-	log.Printf("Successful login request")
 
 	logOutput := buf.String()
 	expectedRespLog := "Successful login request"

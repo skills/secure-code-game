@@ -1,3 +1,14 @@
+///////////////////////////////////////////////////////////////////
+///                                                      		///
+///   0. code_test.go is passing but the code is vulnerable  	///
+///   1. Review the code. Can you spot the bugs(s)?       		///
+///   2. Fix the code.go but ensure that code_test.go passes    ///
+///   3. Run hack_test.go and if passing then CONGRATS!       	///
+///   4. If stuck then read the hint                     		///
+///   5. Compare your solution with solution/solution.go   		///
+///                                                      		///
+///////////////////////////////////////////////////////////////////
+
 package main
 
 import (
@@ -7,6 +18,7 @@ import (
 	"regexp"
 )
 
+// Test users
 var testFakeMockUsers = map[string]string{
 	"user1@example.com": "password12345",
 	"user2@example.com": "B7rx9OkWVdx13$QF6Imq",
@@ -25,7 +37,6 @@ func isValidEmail(email string) bool {
 	emailPattern := `^[a-zA-Z0-9_+&*-]+(?:\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$`
 	match, err := regexp.MatchString(emailPattern, email)
 	if err != nil {
-		log.Printf("Invalid email format: %q", email)
 		return false
 	}
 	return match
@@ -46,6 +57,7 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 		password := reqBody.Password
 
 		if !isValidEmail(email) {
+			log.Printf("Invalid email format: %q", email)
 			http.Error(w, "Invalid email format", http.StatusBadRequest)
 			return
 		}

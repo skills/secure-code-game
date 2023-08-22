@@ -1,2 +1,6 @@
 Did you find the typo that allows an attacker to guess/enumerate valid emails?
 OMG! Does Lumberjack really log emails (twice in the code) and passwords (once in the code)?
+
+If you are stuck and can't run the code, don't forget to create a go.mod file.
+Something like "go mod init secure-code-game" at the same directory as code.go should work.
+https://go.dev/doc/tutorial/create-module
