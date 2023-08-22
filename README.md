@@ -98,7 +98,7 @@ For each level, you will find the same file structure:
 1. Try to fix the bug(s). Ensure that unit tests are still passing.
 1. You successfully completed the level when both `hack_test.go` and `code_test.go` pass 🟢. (You'll have to fix code hack_test.go to make the SensitiveLog tests pass.)
 1. If you get stuck, read the hint in the `hint.txt` file.
-1. Compare your solution with `solution/solution.go` and `solution/hack_test.go`.
+1. Compare your solution with `solution/solution.go` and `solution/solution_test.go`.
 
 </details>
 

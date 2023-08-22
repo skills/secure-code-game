@@ -47,5 +47,5 @@ class TaxPayer:
         with open(path, 'rb') as form:
             tax_data = bytearray(form.read())
 
-        # assume that taxa data is returned on screen after this
+        # assume that tax data is returned on screen after this
         return path
