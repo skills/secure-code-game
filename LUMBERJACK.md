@@ -6,7 +6,7 @@ By the way, we welcome contributions for new game levels! Learn more [here](http
 
 ### 📝 Storyline
 
-Welcome to the world of Lumberjack, the clumsiest logging service in town! Lumberjack's codebase is riddled with security flaws, and it's up to you to find and fix them. Customers also noticed irregularities in our error messages. Something is off, are the error messages too revealing or incoherent? Put on your hard hat and get ready to chop down those security vulnerabilities in this hilarious logging adventure! Do you have what it takes to fix the bug and progress?
+Welcome to the world of Lumberjack, the clumsiest logging service in town! Lumberjack's codebase is full of security flaws. It's up to you to find them and secure Lumberjack's codebase. Customers also noticed irregularities in Lumberjack's error messages. Something is off; are the error messages too revealing or incoherent? Put on your hard hat and prepare to chop down those security vulnerabilities in this hilarious logging adventure! Do you have what it takes to fix the bug and progress?
 
 ### :keyboard: What's in the repo?
 
