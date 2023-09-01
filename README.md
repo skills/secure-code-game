@@ -88,7 +88,7 @@ _Welcome to "Secure Code Game"! :wave:_
 Jarvis, your trusty automation butler, has been acting up lately. He's been experimenting with unofficial pipelines he found online to [get the GitHub status page](https://www.githubstatus.com/api/v2/status.json). While these actions promised to make your CI/CD pipeline faster and more efficient, they have also introduced serious security vulnerabilities into your code. Do you have what it takes to fix the bug and progress to Level 1?
 
 ### :keyboard: What's in the repo?
-You will find this file structure:
+For each level, you will find the same file structure:
 - `./github/workflows/jarvis.yml` includes the vulnerable GitHub Action workflow code to be reviewed
 - `./github/workflows/jarvis-test.yml` tests if the vulnerable action is still present. If not, well done! 
 - `hint.txt` offers a hint if you get stuck.
