@@ -14,10 +14,10 @@ Exploit:
 <<img src="x" onerror="alert(1)">>
 ``` 
 
-**Explanation**: In this payload, the double angle brackets << and >> will not be matched by the regex, so the payload remains unaffected, and the XSS attack will be executed.
+**Explanation**: In this payload, the double angle brackets, `<<` and `>>`, will not be matched by the regex, so the payload remains unaffected, and the XSS attack will execute.
 
-### How to Fix?
-- we can use Flask's built-in function escape from the Markup module. This function helps to escape special characters in the input, preventing them from being executed as HTML or JavaScript.
+### How to fix?
+We can use Flask's built-in function escape from the Markup module. This function helps to escape special characters in the input, preventing them from being executed as HTML or JavaScript.
 
 Example: 
 
@@ -29,13 +29,12 @@ from flask import Flask, request, render_template, jsonify, escape
 return f'<h2>Planet Details:</h2><p>{escape(details)}</p>'
 ```
  
-### What you can do with XSS?
-- Steal Cookies and Session Information
+### What else can XSS do?
+- Steal cookies and session information
 - Redirect to malicious websites
 - Modify website content
 - Phishing
 - Keylogging
-- etc. 
 
 ### How to prevent XSS?
 - Sanitize user input properly
@@ -56,7 +55,7 @@ return f'<h2>Planet Details:</h2><p>{escape(details)}</p>'
 ```
 
 #### Modify website content
-You can inject any phising page / malicious page or any other content to the website using XSS.
+You can inject any phishing page, malicious page, or any other content to the website using XSS.
 
 ```
 <<img src="x" onerror="document.body.innerHTML = '<h1>Website is hacked</h1>';">> 
