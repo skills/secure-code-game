@@ -25,7 +25,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
       - name: Check GitHub Status
-        uses: dduzgun-security/secure-code-game-action@675f79225c41e6b281d00379a52ec2364be841fe # v1.0
+        uses: dduzgun-security/secure-code-game-action@dc70b85ad674f6e93657401f3933622870372093 # v1.0
         with:
           who-to-greet: "Jarvis, obviously ..."
-          give-me-your-token-now: "coucou-123456789"
+          get-token: "token-4db56ee8-dbec-46f3-96f5-32247695ab9b"
