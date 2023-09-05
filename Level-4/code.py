@@ -43,7 +43,7 @@ class Create(object):
                 WHERE type='table'AND name='stocks';
                 ''').fetchall()
  
-            # if tables do not exist, create them to instert dummy data
+            # if tables do not exist, create them and insert dummy data
             if table_fetch == []:
                 cur.execute(
                     '''
