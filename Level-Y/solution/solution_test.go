@@ -3,6 +3,7 @@
 /// ___________________________________________________________ ///
 ///                                                      		///
 ///  This file is a copy of main_test.go and solution_test.go   ///
+///    It tests the solution for failing and passing payloads  	///
 ///                                                      		///
 ///   		  go test -v solution.go solution_test.go			///
 ///                                                      		///

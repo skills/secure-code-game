@@ -2,7 +2,7 @@
 ///                      	RUN TESTS                      		///
 /// ___________________________________________________________ ///
 ///                                                      		///
-///             This file contains invalid tests.				///
+///             This file contains failing tests.				///
 ///                                                      		///
 ///   			 go test -v code.go hack_test.go				///
 ///                                                      		///

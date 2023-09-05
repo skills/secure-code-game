@@ -2,7 +2,7 @@
 ///                      	RUN TESTS                      		///
 /// ___________________________________________________________ ///
 ///                                                      		///
-///               This file contains valid tests.				///
+///               This file contains passing tests.				///
 ///                                                      		///
 ///   			  go test -v code.go code_test.go				///
 ///                                                      		///
