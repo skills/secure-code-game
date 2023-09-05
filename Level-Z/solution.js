@@ -2,9 +2,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const libxmljs = require("libxmljs");
 const multer = require("multer");
-const path = require("path");
-const fs = require("fs");
-const { exec } = require("node:child_process");
 const app = express();
 
 app.use(bodyParser.json());
