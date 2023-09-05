@@ -2,7 +2,9 @@
 ///                      	RUN TESTS                      		///
 /// ___________________________________________________________ ///
 ///                                                      		///
-///   			go test -v solution.go solution_test.go			///
+///  This file is a copy of main_test.go and solution_test.go   ///
+///                                                      		///
+///   		  go test -v solution.go solution_test.go			///
 ///                                                      		///
 ///////////////////////////////////////////////////////////////////
 
