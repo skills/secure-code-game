@@ -18,6 +18,12 @@ For each level, you will find the same file structure:
 - `solution` provides one working solution. There are several possible solutions.
 - `tests` contains the unit tests that should still pass after you have implemented your fix.
 
+For this specific level, you will find additional files:
+- `.env.production` is an internal server side file containing a secret environment variable.
+- `hack.admin` is a file used by administrators at XMLon for debugging purposes.
+- `package.json` contains all the dependencies required for this level. You can install them by running `npm install`.
+- `package-lock.json` ensures that the same dependencies are installed consistently across different environments.
+
 ### 🚦 Time to start!
 
 1. Review the code in `code.js`. Can you spot the bug(s)?
