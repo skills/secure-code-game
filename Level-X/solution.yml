@@ -3,7 +3,7 @@ name: Jarvis Gone Wrong
 on:
   push:
     paths:
-      - ".github/workflows/jarvis.yml"
+      - ".github/workflows/jarvis-code.yml"
 
 jobs:
   jarvis:
