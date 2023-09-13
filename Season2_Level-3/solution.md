@@ -45,7 +45,7 @@ return f'<h2>Planet Details:</h2><p>{escape(details)}</p>'
 
 ### Here are some exploit examples:
 
-#### Redirect to Phiting page using XSS 
+#### Redirect to phishing page using XSS 
 ```
 <<img src="x" onerror="window.location.href = 'https://google.com';">>
 ```
