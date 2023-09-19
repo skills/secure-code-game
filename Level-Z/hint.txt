@@ -3,3 +3,4 @@ Hackers always look for unconventional ways of exploiting a feature.
 Especially if that feature (replaceEntities) allows them to retrieve file contents from the server.
 The server also appears to behave differently when retrieving files with a specific extension.
 Can you trick the server into uploading files with that special extension and then, just maybe, make it dance to the tune of your code?
+If so, can you urgently remove the unplanned upload endpoint created without notice by E.T. (the main developer)

@@ -2,6 +2,7 @@
 ///                      	RUN TESTS                      		///
 /// ________________________________________________________///
 ///                                                      		///
+///   				       npm install --global mocha       			///
 ///   				           mocha tests.js       				      ///
 ///                                                      		///
 ///////////////////////////////////////////////////////////////
@@ -19,7 +20,7 @@ describe('POST /ufo', () => {
       .set('Content-Type', 'application/json')
       .expect(200)
       .end((err, res) => {
-        if (err) return done(err);
+        if (err) return done(err + "\n" +  res.text);
         expect(res.body.ufo).to.equal('Received JSON data from an unknown planet.');
         done();
       });
@@ -33,7 +34,7 @@ describe('POST /ufo', () => {
       .send(xmlData)
       .expect(200)
       .end(function (err, res) {
-        if (err) return done(err);
+        if (err) return done(err + "\n" +  res.text);
         expect(res.text).to.equal("Canada");
         done();
       });
@@ -48,8 +49,8 @@ describe('POST /ufo', () => {
       .send(invalidXmlPayload)
       .expect(400)
       .end((err, res) => {
-        if (err) return done(err);
-        expect(res.text).to.include('Invalid XML:');
+        if (err) return done(err + "\n" +  res.text);
+        expect(res.text).to.include('Invalid XML');
         done();
       });
   });
