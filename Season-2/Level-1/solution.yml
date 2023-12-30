@@ -1,0 +1,44 @@
+# Contribute new levels to the game in 3 simple steps!
+# Read our Contribution Guideline at github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md
+
+name: Jarvis Gone Wrong
+
+on:
+  push:
+    paths:
+      - ".github/workflows/jarvis-code.yml"
+
+jobs:
+  jarvis:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Check GitHub Status
+        run: |
+          curl https://www.githubstatus.com/api/v2/status.json
+
+# Solution Explanation
+
+# There is no doubt that using a GitHub Action from the marketplace can add value to our CI/CD pipeline.
+# As with every expansion, our attack surface grows. In this case, we are both trusting a GitHub Action
+#  from a questionable third-party and we are also creating a new dependency for our project.
+ 
+# Here are some steps to guide our decision-making process, before using a new GitHub Action:
+# 1. For simple tasks, avoid external GitHub Actions because the risk might outweigh the value.
+# 2. Use GitHub Actions from Verified Creators because they follow a strict security review process.
+# 3. Use the latest version of a GitHub Action because it might contain security fixes.
+# 4. Think about GitHub Actions like dependencies: they need to be maintained and updated.
+# 5. Think about disabling or limiting GitHub Actions for your organization(s) in Settings.
+# 6. Have a PR process with multiple reviewers to avoid adding a malicious GitHub Action.
+
+# Learn more:
+# New tool to secure your GitHub Actions: https://github.blog/2023-06-26-new-tool-to-secure-your-github-actions/
+# Short video on using third-party GitHub Actions like a PRO: https://www.youtube.com/shorts/eVbXtKylZpo 
+# Short video on avoiding injections from malicious GitHub Actions: https://www.youtube.com/shorts/fVxTV5rZxhc
+# Short video on GitHub Actions' secrets privileges: https://www.youtube.com/shorts/1tD7km5jK70
+# Keeping your GitHub Actions and workflows secure: https://www.youtube.com/watch?v=Jn0kfAuJI2o
+# Finding and customizing a GitHub Action: https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions

@@ -22,9 +22,9 @@ Start a [new discussion](https://github.com/skills/secure-code-game/discussions/
 
 To increase the chances of your proposal being merged into the game, consider suggesting a vulnerability and programming language combination that we haven't yet included in the game or rejected in past discussions. While we welcome all contributions, you will have more chances for these popular vulnerabilities and programming languages:
 
-- **TypeScript/JavaScript:** Cross-Site Scripting (XSS), Server-Side Request Forgery (SSRF), Prototype Pollution, Broken Access Control, Cross-Site Request Forgery (CSRF)
-- **C#:** Server-Side Request Forgery (SSRF), Remote Code Execution, XML external entity attacks (XXE), Insecure Deserialization, Cross-Site Request Forgery (CSRF)
-- **Java:** Cross-Site Scripting (XSS), Broken Access Control, Remote Code Execution, XML external entity attacks (XXE), Insecure Deserialization
+- **TypeScript/JavaScript:** Server-Side Request Forgery (SSRF), Broken Access Control, Cross-Site Request Forgery (CSRF)
+- **C#:** Server-Side Request Forgery (SSRF), Remote Code Execution, Insecure Deserialization, Cross-Site Request Forgery (CSRF)
+- **Java:** Broken Access Control, Remote Code Execution, Insecure Deserialization
 
 Please feel free to propose other vulnerabilities and programming languages or frameworks as well. For those looking for community feedback on an idea before opening a discussion, or for other collaborators and beta-testers, you can join our vibrant [Slack community](https://gh.io/securitylabslack) and engage in the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
 

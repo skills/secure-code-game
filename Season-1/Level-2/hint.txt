@@ -1,0 +1,6 @@
+Have a look inside hack.c and look at what the attacker is passing as an argument.
+Then think if that value is overwriting something in memory.
+
+
+Contribute new levels to the game in 3 simple steps! 
+Read our Contribution Guideline at github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md

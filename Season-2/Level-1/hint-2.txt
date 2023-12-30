@@ -1,0 +1,5 @@
+What impact do new dependancies have on the attack surface of a project?
+
+Do we really need a third-party GitHub Action to check GitHub's availability status?
+
+What if we could use https://www.githubstatus.com/api/v2/status.json without using any dependencies?

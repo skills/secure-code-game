@@ -1,0 +1,4 @@
+Have a look inside .github/workflows/jarvis-code.yml
+A GitHub Action is being used, can we trust it?
+
+Try again, without reading hint-2.txt ;-)

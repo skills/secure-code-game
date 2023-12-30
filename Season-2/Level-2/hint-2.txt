@@ -1,0 +1,3 @@
+OMG! Does Lumberjack really log emails (twice in the code) and passwords (once in the code)?
+
+Try again, without reading the CodeQL code scanning alerts ;-)

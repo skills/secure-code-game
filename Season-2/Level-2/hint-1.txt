@@ -1,0 +1,3 @@
+Can an attacker guess or enumerate valid emails of Lumberjack customers?
+
+Try again, without reading hint-2.txt or the CodeQL code scanning alerts ;-)

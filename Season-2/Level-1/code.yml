@@ -1,0 +1,7 @@
+# Due to the nature of GitHub Actions, please find this level's vulnerable code inside:
+# .github/workflows/jarvis-code.yml
+
+# That is by navigating to:
+#     .github/
+#             > workflows/
+#                         > jarvis-code.yml

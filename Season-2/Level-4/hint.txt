@@ -1,0 +1,8 @@
+Entities are primarily used to make XML documents more modular, maintainable, and efficient.
+Hackers always look for unconventional ways of exploiting a feature.
+
+Especially if that feature (replaceEntities) allows them to retrieve file contents from the server.
+The server also appears to behave differently when retrieving files with a specific extension.
+
+Can you trick the server into uploading files with that special extension and.. have an impact to what this code does?
+But do we really need the upload endpoint? Why did the developer create it in the first place?

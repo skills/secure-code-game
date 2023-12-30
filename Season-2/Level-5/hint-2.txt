@@ -1,0 +1,3 @@
+What do you think about the property reference CryptoAPI.sha1._round?
+
+What if the problem is in line 41 and not in line 49?

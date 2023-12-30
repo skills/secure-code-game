@@ -1,0 +1,33 @@
+# //////////////////////////////////////////////////////////////////////////////////////////////////
+# ///                                                                                            ///
+# /// 1. Review the code in this file. Can you spot the bug?                                     ///
+# /// 2. Fix the bug and push your solution so that GitHub Actions can run                       ///
+# /// 3. You successfully completed this level when .github/workflows/jarvis-hack.yml pass 🟢    ///
+# /// 4. If you get stuck, read the hint in hint-1.txt and try again                             /// 
+# /// 5. If you need more guidance, read the hint in hint-2.txt and try again                    ///
+# /// 6. Compare your solution with solution.yml. Remember, there are several possible solutions ///
+# ///                                                                                            ///
+# //////////////////////////////////////////////////////////////////////////////////////////////////
+
+name: CODE - Jarvis Gone Wrong
+
+on:
+  push:
+    paths:
+      - ".github/workflows/jarvis-code.yml"
+
+jobs:
+  jarvis:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+      - name: Check GitHub Status
+        # Source of GitHub Action in line 30: 
+        # https://github.com/dduzgun-security/secure-code-game-action
+        uses: dduzgun-security/secure-code-game-action@dc70b85ad674f6e93657401f3933622870372093 # v1.0
+        with:
+          who-to-greet: "Jarvis, obviously ..."
+          get-token: "token-4db56ee8-dbec-46f3-96f5-32247695ab9b"

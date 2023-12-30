@@ -1,0 +1,25 @@
+We can provide a malicious object as the parameter for CryptoAPI.sha1.hash().
+What does this trigger? 
+
+Example 1:
+$ var s = { toString: function() { alert('Exploit 1'); } };
+$ CryptoAPI.sha1.hash(s)
+
+Example 2:
+$ var s = { toString: function() { alert('Exploit 1'); } };
+$ CryptoAPI.sha1.hash("abc")
+
+Do you want to visualize the above? Follow these instructions:
+
+1. Double click index.html to open it in any browser. Are you using GitHub Codespaces?
+
+// Please note that if you are inside a codespace, it is not possible to perform step 1. For
+// this reason, please create a local copy for the file 'index.html'. You can do so by copying 
+// and pasting the contents of 'index.html' in a local file so that you can open it in a browser.
+// Then, follow the remaining steps.
+
+2. Copy the first line of the example, paste it in the javascript console and press enter.
+
+3. Now copy the second line, paste it in the javascript console and press enter.
+
+4. A popup should appear with the text "Exploit 1" in it. If it does, the exploit was successful.

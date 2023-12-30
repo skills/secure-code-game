@@ -1,4 +1,5 @@
 pyOpenSSL
-secrets
 bcrypt
 flask
+flask-testing
+requests

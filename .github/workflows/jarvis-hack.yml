@@ -1,0 +1,24 @@
+# This file is expected to fail ❌ upon push until you fix the bug
+# You successfully completed this level when this file pass 🟢 upon push
+name: HACK - Jarvis Gone Wrong
+
+on:
+  push:
+    paths:
+      - ".github/workflows/jarvis-code.yml"
+
+jobs:
+  jarvis:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Check for insecure actions
+        run: |
+          if grep -q "uses: dduzgun-security/secure-code-game-action@" $GITHUB_WORKSPACE/.github/workflows/jarvis-code.yml; then
+            echo "Insecure action detected. Please remove it from your workflow."
+            exit 1
+          fi
