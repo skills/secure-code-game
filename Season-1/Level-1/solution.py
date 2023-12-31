@@ -9,23 +9,25 @@ MAX_QUANTITY = 100 # maximum quantity of an item in the shop
 MAX_TOTAL = 1e6 # maximum total amount accepted for an order
 
 def validorder(order):
-    net = Decimal('0')
+    payments = Decimal('0')
+    expenses = Decimal('0')
 
     for item in order.items:
         if item.type == 'payment':
-            # sets a reasonable min & max value for the invoice amounts
-            if item.amount > -1*MAX_ITEM_AMOUNT and item.amount < MAX_ITEM_AMOUNT:
-                net += Decimal(str(item.amount))
+            # Sets a reasonable min & max value for the invoice amounts
+            if -MAX_ITEM_AMOUNT <= item.amount <= MAX_ITEM_AMOUNT:
+                payments += Decimal(str(item.amount))
         elif item.type == 'product':
-            if item.quantity > 0 and item.quantity <= MAX_QUANTITY and item.amount > 0 and item.amount <= MAX_ITEM_AMOUNT:
-                net -= Decimal(str(item.amount)) * item.quantity
-            if net > MAX_TOTAL or net < -1*MAX_TOTAL:
-                return "Total amount exceeded"
+            if type(item.quantity) is int and 0 < item.quantity <= MAX_QUANTITY and 0 < item.amount <= MAX_ITEM_AMOUNT:
+                expenses += Decimal(str(item.amount)) * item.quantity
         else:
             return "Invalid item type: %s" % item.type
+    
+    if abs(payments) > MAX_TOTAL or expenses > MAX_TOTAL:
+        return "Total amount exceeded"
 
-    if net != 0:
-        return "Order ID: %s - Payment imbalance: $%0.2f" % (order.id, net)
+    if payments != expenses:
+        return "Order ID: %s - Payment imbalance: $%0.2f" % (order.id, payments - expenses)
     else:
         return "Order ID: %s - Full payment received!" % order.id
 
@@ -67,6 +69,9 @@ def validorder(order):
 # >>> Decimal('0.3')
 # Decimal('0.3')
 
+# Input validation should be expanded to also check data types besides testing allowed range of values. 
+# This specific bug, caused by using a non-integer quantity, is due to insufficient attention to requirements engineering. 
+# In some systems it is OK to buy half of something, but here it was assumed to be a positive integer.
 
 # Contribute new levels to the game in 3 simple steps!
 # Read our Contribution Guideline at github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md
