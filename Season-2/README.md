@@ -157,12 +157,12 @@ For Levels 2-4 in Season 2, we encourage you to enable code scanning with CodeQL
 ### 🚦 Time to start!
 
 1. Start by installing the dependencies required for this level, by running `npm install`. These dependancies reside inside `package.json`.
-1. Review the code in `code.py`. Can you spot the bug(s)?
+1. Review the code in `code.js`. Can you spot the bug(s)?
 1. Try to fix the bug. Open a pull request to `main` or push your fix to a branch.
-1. You successfully completed this level when you (a) resolve all related code scanning alerts and (b) when both `hack.py` and `tests.py` pass 🟢.
+1. You successfully completed this level when you (a) resolve all related code scanning alerts and (b) when both `hack.js` and `tests.js` pass 🟢.
 1. If you get stuck, read the hint and try again.
 1. If you need more guidance, read the CodeQL scanning alerts.
-1. Compare your solution to `solution.py`.
+1. Compare your solution to `solution.js`.
 
 If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack) in the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
 
