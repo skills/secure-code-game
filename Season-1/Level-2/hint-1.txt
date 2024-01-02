@@ -1,0 +1,4 @@
+Think about what could happen if an attacker would figure out the
+details of the user_account structure (see code.h).
+
+Try again the exercise without looking further into hint-2.txt.
