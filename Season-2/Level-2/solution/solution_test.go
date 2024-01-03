@@ -2,7 +2,7 @@
 ///                      					RUN TESTS                      					        ///
 /// _______________________________________________________________________________________________ ///
 ///                                                      										    ///
-///  				This file is a copy of main_test.go and solution_test.go   					    ///
+///  				This file is a copy of code_test.go and hack_test.go    					    ///
 ///    				It tests the solution for failing and passing payloads  					    ///
 ///                                          								                 	    ///
 ///	 				Run them by opening a terminal and running the following:  					    ///
