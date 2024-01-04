@@ -1,13 +1,9 @@
 We can provide a malicious object as the parameter for CryptoAPI.sha1.hash().
 What does this trigger? 
 
-Example 1:
+Example:
 $ var s = { toString: function() { alert('Exploit 1'); } };
 $ CryptoAPI.sha1.hash(s)
-
-Example 2:
-$ var s = { toString: function() { alert('Exploit 1'); } };
-$ CryptoAPI.sha1.hash("abc")
 
 Do you want to visualize the above? Follow these instructions:
 
