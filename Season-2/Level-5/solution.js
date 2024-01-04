@@ -59,7 +59,8 @@ var CryptoAPI = (function() {
 						w[(i >> 2) & 15] = j;
 						j = 0;
 					}
-					if ((i & 63) == 63) CryptoAPI.sha1._round(H, w);
+					// FIX for hack-2.js
+					if ((i & 63) == 63) internalRound(H, w);
 				}
 				
 				for (i = 0; i < H.length; i++)
