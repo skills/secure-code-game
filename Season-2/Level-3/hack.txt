@@ -1,0 +1,7 @@
+Here are two steps to showcase the XSS attack:
+
+1. Start the applicsation as instructed in 'code.py'
+2. Enter in the input field for planet the following content: <img src='x' onerror='alert(1)'>
+
+You will see that an alert dialog box opens instead of being presented with a message
+that such a planet is unknown to the system.
