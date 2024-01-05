@@ -1,17 +1,17 @@
 ///////////////////////////////////////////////////////////////////////////
-///                           	RUN HACK                      			///
+///                             RUN HACK                                ///
 /// ___________________________________________________________________ ///
-///																		///
-/// 	 	This file exploits the vulnerabilities in code.h 			///
-///		   Running this file will fail initially (it contains			///
-///	       failing tests). As all other levels, your goal is			///
-///	       to get this file to pass. Run this file using:				///
-///                                                      				///
-///	     Run hack by opening a terminal and running the following:  	///
+///                                                                     ///
+///         This file exploits the vulnerabilities in code.h            ///
+///         Running this file will fail initially (it contains			///
+///         failing tests). As all other levels, your goal is			///
+///         to get this file to pass. Run this file using:				///
+///                                                                     ///
+///      Run hack by opening a terminal and running the following:      ///
 ///        $ make Season-1/Level-2/hack && ./Season-1/Level-2/hack      ///
-///										            					///
+///                                                                     ///
 ///		 As a reminder, to pass this level, both this file				///
-///		 		    alongside tests.c must pass.						///
+///                 alongside tests.c must pass.						///
 ///																		///
 ///////////////////////////////////////////////////////////////////////////
 
