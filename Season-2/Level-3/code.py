@@ -9,7 +9,6 @@
 # 5. If stuck then read the hint
 # 6. Compare your solution with solution.txt
 
-
 # Run code.py (RECOMMENDED for this level) by following the instructions below:
 
 # Run by opening a terminal and running the following:
