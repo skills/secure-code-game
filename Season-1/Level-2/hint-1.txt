@@ -1,4 +1,5 @@
-Think about what could happen if an attacker would figure out the
-details of the user_account structure (see code.h).
+Consider what can happen if an attacker figures out the private,
+implementation-specific details of the user_account structure 
+inside code.h. What can the attacker do with this information? 
 
-Try again the exercise without looking further into hint-2.txt.
+Go back and try the exercise without looking hint-2.txt ;)
