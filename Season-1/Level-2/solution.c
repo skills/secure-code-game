@@ -1,9 +1,5 @@
-///////////////////////////////////////////////////
-///                                             ///
-///   Vulnerability was in line 83 of code.h    ///
-///   Fix can be found in line 82 below         ///
-///                                             ///
-///////////////////////////////////////////////////
+// Vulnerability was in line 83 of code.h
+// Fix can be found in line 77 below
 
 #include <stdbool.h>
 #include <stddef.h>

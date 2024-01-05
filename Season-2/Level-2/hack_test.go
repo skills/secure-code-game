@@ -1,22 +1,17 @@
-/////////////////////////////////////////////////////////////////////////////
-///                      	RUN HACK                      				  ///
-/// _____________________________________________________________________ ///
-///																		  ///
-/// 	 	This file exploits the vulnerabilities in code. 			  ///
-///		   Running this file will fail initially (it contains			  ///
-///	       failing tests). As all other levels, your goal is			  /// 
-///	       to get this file to pass. Run this file using:				  ///
-///                                                      				  ///
-///	     Run hack by opening a terminal and running the following:  	  ///
-///  $ go test -v Season-2/Level-2/code.go Season-2/Level-2/hack_test.go  ///
-///										            					  ///
-///		 As a reminder, to pass this level, both this file				  ///
-///		 		  alongside code_test.go must pass.						  ///
-///																		  ///
-///	   If 'go' is not found when running the above, install it from:	  ///
-///		 					https://go.dev/dl/							  ///
-///																		  ///
-/////////////////////////////////////////////////////////////////////////////
+// Run hack_test.go by following the instructions below:
+
+// This file exploits the vulnerabilities in code. Running this file will fail initially
+// (it contains failing tests). As all other levels, your goal is to get this file to pass.
+
+// Run this file using:
+
+// Run hack by opening a terminal and running the following:
+// $ go test -v Season-2/Level-2/code.go Season-2/Level-2/hack_test.go
+
+// As a reminder, to pass this level, both this file alongside code_test.go must pass.
+
+// If 'go' is not found when running the above, install it from:
+// https://go.dev/dl/
 
 package main
 

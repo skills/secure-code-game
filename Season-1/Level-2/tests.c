@@ -1,13 +1,9 @@
-///////////////////////////////////////////////////////////////////////////
-///                      		RUN TESTS                      			///
-/// ___________________________________________________________________ ///
-///                                                      			    ///
-///               This file contains passing tests.					    ///
-///       															    ///
-///	 	 Run them by opening a terminal and running the following:      ///
-///      $ make Season-1/Level-2/tests && ./Season-1/Level-2/tests      ///
-///									                    				///
-///////////////////////////////////////////////////////////////////////////
+// Run tests.c by following the instructions below:
+
+// This file contains passing tests.
+
+// Run them by opening a terminal and running the following:
+// $ make Season-1/Level-2/tests && ./Season-1/Level-2/tests
 
 #include "code.h"
 

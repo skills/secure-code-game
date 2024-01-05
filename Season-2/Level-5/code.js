@@ -1,3 +1,7 @@
+// Welcome to Secure Code Game Season-2/Level-5!
+
+// This is the last level of this season, good luck!
+
 var CryptoAPI = (function() {
 	var encoding = {
 		a2b: function(a) { },

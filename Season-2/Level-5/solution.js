@@ -88,7 +88,7 @@ var CryptoAPI = (function() {
 // The parameter "s" could be an object, and when cast to
 // a string by the implicit type conversion of the "+=" operator, the
 // conversion can trigger malicious code execution. (This operator is used
-// on lines 14, 24, 31 and 32 of code.js.)
+// on lines 18, 28, 35 and 36 of code.js.)
 
 
 // Exploit 1
@@ -103,7 +103,7 @@ var x = { toString: function() { alert('1'); } };
 
 // Fix 1
 
-// We could fix this vulnerability by adding between lines 13 and 14 of code.js.
+// We could fix this vulnerability by adding between lines 17 and 18 of code.js.
 
 if (typeof s !== "string") {
   throw "Error: CryptoAPI.sha1.hash() should be called with a 'normal' parameter (i.e., a string)";
@@ -125,11 +125,11 @@ hash: function example (input) {
 // Vulnerability 2
 // --------------------------------------------------------------------------------------------
 
-// The reference to CryptoAPI.sha1._round on line 41 of code.js is
+// The reference to CryptoAPI.sha1._round on line 45 of code.js is
 // non-local, so the "_round" property of CryptoAPI.sha1 can be overwritten
 // with attacker-defined code that will be executed by CryptoAPI.sha1.hash.
 // It's important to realise that this is because of how the function is
-// called on line 41 of code.js, not because of how it is defined on line 49.
+// called on line 45 of code.js, not because of how it is defined on line 53.
 
 
 // Exploit 2
@@ -145,13 +145,13 @@ CryptoAPI.sha1._round = function() { alert('2'); };
 // Fix 2
 
 // We could fix this vulnerability by storing a local
-// reference to the "_round" property on line 52 of code.js, 
+// reference to the "_round" property on line 56 of code.js, 
 // after "API" has been defined:
 
 var internalRound = API.sha1._round;
 
 // and using this local reference in the body of the "hash" function in the
-// invocation of the function on line 41 of code.js instead:
+// invocation of the function on line 45 of code.js instead:
 
 if ((i & 63) == 63) internalRound(H, w);
 
@@ -164,17 +164,17 @@ if ((i & 63) == 63) internalRound(H, w);
 // Vulnerability 3
 // --------------------------------------------------------------------------------------------
 
-// The array "w" is initialised as an empty array on line 21 of code.js, 
+// The array "w" is initialised as an empty array on line 25 of code.js, 
 // but other code in CryptoAPI.sha1.hash makes implicit references to
 // elements at specific indices (which are simply properties of an object),
-// so an assignment to one of these elements (e.g., on line 38) could
+// so an assignment to one of these elements (e.g., on line 42) could
 // trigger malicious code execution as a result of poisoning the Array
 // prototype. Specifically, 128 elements of "w" are accessed by the CryptoAPI code.
 
 // Although the reason for this vulnerability was the failure
-// to correctly initialise "w" on line 21 of code.js with the number of elements that
+// to correctly initialise "w" on line 25 of code.js with the number of elements that
 // would be used by the code that followed it, someone could also identify
-// that the assignment on line 38 of code.js could trigger malicious code execution. 
+// that the assignment on line 42 of code.js could trigger malicious code execution. 
 
 
 // Exploit 3
@@ -206,7 +206,7 @@ Array.prototype.__defineSetter__("0", function() { alert('3'); });
 // 128 elements of "w" are accessed by the CryptoAPI code, so
 // we could fix this vulnerability by declaring "w" as an array initialised
 // explicitly with 128 elements. This way, when we attempt to set the value 
-// of an element in "w" on line 38 of code.js we don't inherit a malicious 
+// of an element in "w" on line 42 of code.js we don't inherit a malicious 
 // setter for that property via the Array prototype.
 
 w = [

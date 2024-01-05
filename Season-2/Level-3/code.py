@@ -1,22 +1,19 @@
-# //////////////////////////////////////////////////////////////////////
-# ///                                                                ///
-# ///   0. tests.py file is passing but the code here is vulnerable  ///
-# ///   1. Review the code in this file. Can you spot the bugs(s)?   ///
-# ///   2. Fix the bug(s) in code.py. Ensure that tests.py passes    ///
-# ///   3. Run hack.py and if passing then CONGRATS!                 ///
-# ///   4. If stuck then read the hint                               ///
-# ///   5. Compare your solution with solution.txt                   ///
-# ///                                                                ///
-# //////////////////////////////////////////////////////////////////////
+# Welcome to Secure Code Game Season-2/Level-3!
 
-# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-# ///                               RUN CODE (RECOMMENDED TO PASS THIS LEVEL)                                            ///
-# /// __________________________________________________________________________________________________________________ ///
-# ///                                                                                                                    ///
-# ///  Run by opening a terminal and running the following:                                                              ///
-# ///  $ export FLASK_APP=Season-2/Level-3/code.py && export FLASK_ENV=development && export FLASK_DEBUG=0 && flask run  ///
-# ///                                                                                                                    ///
-# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# Follow the instructions below to get started:
+
+# 1. tests.py file is passing but code.py is vulnerable
+# 2. Review the code in this file. Can you spot the bugs(s)?
+# 3. Fix the bug(s) in code.py. Ensure that tests.py passes
+# 4. Run hack.py and if passing then CONGRATS!
+# 5. If stuck then read the hint
+# 6. Compare your solution with solution.txt
+
+
+# Run code.py (RECOMMENDED for this level) by following the instructions below:
+
+# Run by opening a terminal and running the following:
+# $ export FLASK_APP=Season-2/Level-3/code.py && export FLASK_ENV=development && export FLASK_DEBUG=0 && flask run
 
 import os
 import re

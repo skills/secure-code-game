@@ -1,16 +1,12 @@
-/////////////////////////////////////////////////////////////////////////////
-///								RUN TESTS								  ///
-/// _____________________________________________________________________ ///
-///																		  ///
-///				This file contains passing tests.						  ///
-///																		  ///
-///		Run them by opening a terminal and running the following:		  ///
-///	 $ go test -v Season-2/Level-2/code.go Season-2/Level-2/code_test.go  ///
-///																		  ///
-///		If 'go' is not found when running the above, install it from:	  ///
-///							https://go.dev/dl/							  ///
-///																		  ///
-/////////////////////////////////////////////////////////////////////////////
+// Run code_test.go by following the instructions below:
+
+// This file contains passing tests.
+
+// Run them by opening a terminal and running the following:
+// $ go test -v Season-2/Level-2/code.go Season-2/Level-2/code_test.go
+
+// If 'go' is not found when running the above, install it from:
+// https://go.dev/dl/
 
 package main
 

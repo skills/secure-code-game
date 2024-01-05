@@ -1,11 +1,11 @@
-////////////////////////////////////////////////////////
-///                                                  ///
-///   0. Perform code review. Can you spot the bug?  /// 
-///   1. Run tests.c to test the functionality       ///
-///   2. Run hack.c and if passing then CONGRATS!    ///
-///   3. Compare your solution with solution.c       ///
-///                                                  ///
-////////////////////////////////////////////////////////
+// Welcome to Secure Code Game Season-1/Level-2!
+
+// Follow the instructions below to get started:
+
+// 1. Perform code review. Can you spot the bug? 
+// 2. Run tests.c to test the functionality
+// 3. Run hack.c and if passing then CONGRATS!
+// 4. Compare your solution with solution.c
 
 #include <stdbool.h>
 #include <stddef.h>

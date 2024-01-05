@@ -1,18 +1,14 @@
-# /////////////////////////////////////////////////////////////////////////
-# ///                           RUN TESTS                               ///
-# /// _________________________________________________________________ ///
-# ///                                                                   ///
-# ///               This file contains passing tests.                   ///
-# ///                                                                   ///
-# ///	 Run them by opening a terminal and running the following:      ///
-# ///    $ python3 Season-2/Level-3/tests.py                            ///
-# ///																	///
-# ///   Note: first you have to run code.py following the instructions  ///
-# ///   on top of the file so that the environment variables align but  ///
-# ///   it's not necessary to run both files in parallel as the tests   ///
-# ///   initialize a new environment, similar to code.py                ///
-# ///                                                                   ///
-# /////////////////////////////////////////////////////////////////////////
+# Run tests.py by following the instructions below:
+
+# This file contains passing tests.
+
+# Run them by opening a terminal and running the following:
+# $ python3 Season-2/Level-3/tests.py
+
+# Note: first you have to run code.py following the instructions
+# on top of that file so that the environment variables align but
+# it's not necessary to run both files in parallel as the tests
+# initialize a new environment, similar to code.py
 
 from code import app, get_planet_info
 import unittest

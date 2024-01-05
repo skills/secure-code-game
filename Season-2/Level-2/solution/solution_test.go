@@ -1,17 +1,13 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-///											RUN TESTS												///
-/// _______________________________________________________________________________________________	///
-///																									///
-///					This file is a copy of code_test.go and hack_test.go							///
-///					It tests the solution for failing and passing payloads							///
-///																									///
-///					Run them by opening a terminal and running the following:						///
-///	$ go test -v Season-2/Level-2/solution/solution.go Season-2/Level-2/solution/solution_test.go	///
-///																									///
-///					If 'go' is not found when running the above, install it from:					///
-///										https://go.dev/dl/											///
-///																									///
-///////////////////////////////////////////////////////////////////////////////////////////////////////
+// Run solution_test.go by following the instructions below:
+
+// This file is a copy of code_test.go and hack_test.go
+// It tests the solution for failing and passing payloads
+
+// Run them by opening a terminal and running the following:
+// $ go test -v Season-2/Level-2/solution/solution.go Season-2/Level-2/solution/solution_test.go
+
+// If 'go' is not found when running the above, install it from:
+// https://go.dev/dl/
 
 package main
 

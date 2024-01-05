@@ -1,13 +1,13 @@
-/////////////////////////////////////////////////////////////////
-///                                                      	    ///
-///   0. test.js is passing but the code here is vulnerable   ///
-///   1. Review the code. Can you spot the bugs(s)?       	  ///
-///   2. Fix the code.js but ensure that test.js passes       ///
-///   3. Run hack.js and if passing then CONGRATS!       	    ///
-///   4. If stuck then read the hint                          ///
-///   5. Compare your solution with solution.js               ///
-///                                                      	    ///
-/////////////////////////////////////////////////////////////////
+// Welcome to Secure Code Game Season-2/Level-4!
+
+// Follow the instructions below to get started:
+
+// 1. test.js is passing but the code here is vulnerable
+// 2. Review the code. Can you spot the bugs(s)?
+// 3. Fix the code.js but ensure that test.js passes
+// 4. Run hack.js and if passing then CONGRATS!
+// 5. If stuck then read the hint
+// 6. Compare your solution with solution.js
 
 const express = require("express");
 const bodyParser = require("body-parser");
