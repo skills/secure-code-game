@@ -1,0 +1,2 @@
+Have a look inside hack.c and look at what the attacker is passing as an argument.
+Then think if that value is overwriting something in memory.
