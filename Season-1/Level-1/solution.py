@@ -6,6 +6,7 @@ Item = namedtuple('Item', 'type, description, amount, quantity')
 
 MAX_ITEM_AMOUNT = 100000 # maximum price of item in the shop
 MAX_QUANTITY = 100 # maximum quantity of an item in the shop
+MIN_QUANTITY = 0 # minimum quantity of an item in the shop
 MAX_TOTAL = 1e6 # maximum total amount accepted for an order
 
 def validorder(order):
@@ -18,13 +19,13 @@ def validorder(order):
             if -MAX_ITEM_AMOUNT <= item.amount <= MAX_ITEM_AMOUNT:
                 payments += Decimal(str(item.amount))
         elif item.type == 'product':
-            if type(item.quantity) is int and 0 < item.quantity <= MAX_QUANTITY and 0 < item.amount <= MAX_ITEM_AMOUNT:
+            if type(item.quantity) is int and MIN_QUANTITY < item.quantity <= MAX_QUANTITY and MIN_QUANTITY < item.amount <= MAX_ITEM_AMOUNT:
                 expenses += Decimal(str(item.amount)) * item.quantity
         else:
             return "Invalid item type: %s" % item.type
     
     if abs(payments) > MAX_TOTAL or expenses > MAX_TOTAL:
-        return "Total amount exceeded"
+        return "Total amount payable for an order exceeded"
 
     if payments != expenses:
         return "Order ID: %s - Payment imbalance: $%0.2f" % (order.id, payments - expenses)
@@ -69,9 +70,13 @@ def validorder(order):
 # >>> Decimal('0.3')
 # Decimal('0.3')
 
-# Input validation should be expanded to also check data types besides testing allowed range of values. 
-# This specific bug, caused by using a non-integer quantity, is due to insufficient attention to requirements engineering. 
-# In some systems it is OK to buy half of something, but here it was assumed to be a positive integer.
+# Input validation should be expanded to also check data types besides testing allowed range
+# of values. This specific bug, caused by using a non-integer quantity, might occur due to
+# insufficient attention to requirements engineering. While in certain contexts is acceptable
+# to buy a non-integer amount of an item (e.g. buy a fractional share), in the context of our
+# online shop we falsely placed trust to users for buying a positive integer of items only,
+# without malicious intend.
+
 
 # Contribute new levels to the game in 3 simple steps!
 # Read our Contribution Guideline at github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md

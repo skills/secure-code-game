@@ -19,19 +19,19 @@ class TestOnlineStore(unittest.TestCase):
         order_5 = c.Order(id='5', items=[small_item, payment_1, payment_2])
         self.assertEqual(c.validorder(order_5), 'Order ID: 5 - Full payment received!')
 
-    # The total amount of an order must be limited. Order validation shouldn't depend on ordering of items.
+    # The total amount payable in an order should be limited.
     def test_8(self):
         num_items = 12
         items = [c.Item(type='product', description='tv', amount=99999, quantity=num_items)]
         for i in range(num_items):
             items.append(c.Item(type='payment', description='invoice_' + str(i), amount=99999, quantity=1))
         order_1 = c.Order(id='1', items=items)
-        self.assertEqual(c.validorder(order_1), 'Total amount exceeded')
+        self.assertEqual(c.validorder(order_1), 'Total amount payable for an order exceeded')
 
         # Put payments before products
         items = items[1:] + [items[0]]
         order_2 = c.Order(id='2', items=items)
-        self.assertEqual(c.validorder(order_2), 'Total amount exceeded')
+        self.assertEqual(c.validorder(order_2), 'Total amount payable for an order exceeded')
 
 if __name__ == '__main__':
     unittest.main()
