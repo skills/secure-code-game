@@ -24,5 +24,20 @@ class TestOnlineStore(unittest.TestCase):
         order_3 = c.Order(id='3', items=[payment, tv_item, payback])
         self.assertEqual(c.validorder(order_3), 'Order ID: 3 - Payment imbalance: $-1000.00')
 
+    # Example 4 - invalid input should not blow up the system
+    def test_4(self):
+        tv = c.Item(type='product', description='tv', amount=1000, quantity=1.5)
+        order_1 = c.Order(id='1', items=[tv])
+        try:
+            c.validorder(order_1)
+        except:
+            self.fail("Unhandled exception occured in the target system!")
+
+    # Example 5 - successfully detects an invalid item type
+    def test_5(self):
+        service = c.Item(type='service', description='shippment of goods', amount=100, quantity=1)
+        order_1 = c.Order(id='1', items=[service])
+        self.assertEqual(c.validorder(order_1), 'Invalid item type: service')
+
 if __name__ == '__main__':
     unittest.main()
