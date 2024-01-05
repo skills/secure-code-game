@@ -1,19 +1,19 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-///                      			           FIX           								     ///
+///                      			           FIX												 ///
 /// ____________________________________________________________________________________________ ///
-///                                                      										 ///
-///  1) Remove the email being logged here:			 											 ///
-///     log.Printf("Invalid email format: %q", email)											 ///
-///     log.Printf("Invalid email format")														 ///
-///                                                      										 ///
-///	 2) Fix the error message to prevent user enumeration here: 								 ///
-/// 	http.Error(w, "invalid email or password", http.StatusUnauthorized)						 ///
-/// 	http.Error(w, "Invalid Email or Password", http.StatusUnauthorized)						 ///
-///                                                      										 ///
-///	 3) Remove the email and password being logged here: 										 ///
-///     log.Printf("User %q logged in successfully with a valid password %q", email, password)	 ///
-///     log.Printf("Successful login request")							 						 ///
-///                                                      										 ///
+///																								 ///
+///	1) Remove the email being logged here:														 ///
+///		log.Printf("Invalid email format: %q", email)											 ///
+///		log.Printf("Invalid email format")														 ///
+///																								 ///
+///	2) Fix the error message to prevent user enumeration here:									 ///
+///		http.Error(w, "invalid email or password", http.StatusUnauthorized)						 ///
+///		http.Error(w, "Invalid Email or Password", http.StatusUnauthorized)						 ///
+///																								 ///
+///	3) Remove the email and password being logged here:										 	 ///
+///		log.Printf("User %q logged in successfully with a valid password %q", email, password)	 ///
+///		log.Printf("Successful login request")							 						 ///
+///																								 ///
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 package main

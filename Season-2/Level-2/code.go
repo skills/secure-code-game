@@ -1,12 +1,12 @@
 ///////////////////////////////////////////////////////////////////
-///                                                      		///
-///   0. code_test.go is passing but the code is vulnerable  	///
-///   1. Review the code. Can you spot the bugs(s)?       		///
-///   2. Fix the code.go, but ensure that code_test.go passes   ///
-///   3. Run hack_test.go and if passing then CONGRATS!       	///
-///   4. If stuck then read the hint                     		///
-///   5. Compare your solution with solution/solution.go   		///
-///                                                      		///
+///																///
+///	  0. code_test.go is passing but the code is vulnerable		///
+///	  1. Review the code. Can you spot the bugs(s)?				///
+///	  2. Fix the code.go, but ensure that code_test.go passes	///
+///	  3. Run hack_test.go and if passing then CONGRATS!			///
+///	  4. If stuck then read the hint							///
+///	  5. Compare your solution with solution/solution.go		///
+///																///
 ///////////////////////////////////////////////////////////////////
 
 package main

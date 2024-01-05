@@ -10,7 +10,7 @@ Do you want to visualize the above? Follow these instructions:
 1. Double click index.html to open it in any browser. Are you using GitHub Codespaces?
 
 // Please note that if you are inside a codespace, it is not possible to perform step 1. For
-// this reason, please create a local copy for the file 'index.html'. You can do so by copying 
+// this reason, please create a local copy for the file 'index.html'. You can do so by copying
 // and pasting the contents of 'index.html' in a local file so that you can open it in a browser.
 // Then, follow the remaining steps.
 

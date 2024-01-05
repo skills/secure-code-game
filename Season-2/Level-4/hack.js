@@ -1,11 +1,11 @@
 ///////////////////////////////////////////////////////////////////////
-///                         RUN HACK                      		      ///
+///                         RUN HACK                                ///
 /// _______________________________________________________________ ///
-///                                                   		          ///
+///                                                                 ///
 ///	 Run file by opening a terminal and running the following:      ///
 ///                                                                 ///
 ///				     $ mocha Season-2/Level-4/hack.js                     ///
-///                                                      		        ///
+///                                                                 ///
 ///  If you're inside a Codespace, the above should be running      ///
 ///  smoothly. In case you're running this locally, please run      ///
 ///  the following command first, and then run the hack file:       ///
