@@ -31,7 +31,7 @@ class MyTestCase(TestCase):
 
     def test_get_planet_info_invalid_planet(self):
         planet = 'Pluto'
-        expected_info = 'No information found for Pluto.'
+        expected_info = 'Unknown planet.'
         result = get_planet_info(planet)
         self.assertEqual(result, expected_info)
 
@@ -45,7 +45,7 @@ class MyTestCase(TestCase):
         planet = 'Venus'
         response = self.client.post('/', data={'planet': planet})
         self.assert200(response)
-        self.assertEqual(response.data.decode(), f'<h2>Planet Details:</h2><p>{get_planet_info(planet)}</p>')
+        self.assertEqual(response.data.decode()[:15], '<!DOCTYPE html>')
 
     def test_index_missing_planet(self):
         response = self.client.post('/')

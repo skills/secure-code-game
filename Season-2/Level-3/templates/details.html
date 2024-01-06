@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Planet Details</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Planet Details</h2>
+    <p>Planet name: <span id="name">{{ planet | safe }}</span></p>
+    <p>Planet info: {{ info | safe }}</p>
+    <br/>
+    <p>Search in Google for more information about the planet: <span id="planet"/></p>
+    <script>
+        document.getElementById("planet").innerHTML = document.getElementById("name").textContent;
+    </script>
+</body>
+
+</html>

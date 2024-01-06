@@ -1,6 +1,7 @@
 Here are two steps to simulate an attack:
 
 1. Start the applicsation as instructed in 'code.py'
-2. Enter in the input field for planet the following content: <img src='x' onerror='alert(1)'>
+2. Enter in the input field for planet the following content: &ltimg src='x' onerror='alert(1)'&gt
 
-Your application must present a message that such a planet is unknown to the system.
+Your application must present a message that such a planet is unknown to the system without
+showing an alert box.
