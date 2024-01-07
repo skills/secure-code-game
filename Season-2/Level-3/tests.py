@@ -12,7 +12,6 @@
 
 from code import app, get_planet_info
 import unittest
-from flask import Flask
 from flask_testing import TestCase
 
 class MyTestCase(TestCase):
@@ -28,7 +27,7 @@ class MyTestCase(TestCase):
 
     def test_get_planet_info_invalid_planet(self):
         planet = 'Pluto'
-        expected_info = 'No information found for Pluto.'
+        expected_info = 'Unknown planet.'
         result = get_planet_info(planet)
         self.assertEqual(result, expected_info)
 
@@ -38,11 +37,27 @@ class MyTestCase(TestCase):
         result = get_planet_info(planet)
         self.assertEqual(result, expected_info)
 
-    def test_get_planet_info_endpoint_valid_planet(self):
+    def test_index_valid_planet(self):
         planet = 'Venus'
-        response = self.client.get(f'/getPlanetInfo?planet={planet}')
+        response = self.client.post('/', data={'planet': planet})
         self.assert200(response)
-        self.assertEqual(response.data.decode(), f'<h2>Planet Details:</h2><p>{get_planet_info(planet)}</p>')
+        self.assertEqual(response.data.decode()[:15], '<!DOCTYPE html>')
+
+    def test_index_missing_planet(self):
+        response = self.client.post('/')
+        self.assert200(response)
+        self.assertEqual(response.data.decode(), '<h2>Please enter a planet name.</h2>')
+
+    def test_index_empty_planet(self):
+        response = self.client.post('/', data={'planet': ''})
+        self.assert200(response)
+        self.assertEqual(response.data.decode(), '<h2>Please enter a planet name.</h2>')
+
+    def test_index_active_content_planet(self):
+        planet = "<script ...>"
+        response = self.client.post('/', data={'planet': planet})
+        self.assert200(response)
+        self.assertEqual(response.data.decode(), '<h2>Blocked</h2></p>')
 
 if __name__ == '__main__':
     unittest.main()
