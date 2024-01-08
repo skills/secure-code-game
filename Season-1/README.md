@@ -34,7 +34,7 @@ For each level, you will find the same file structure:
 1. If you get stuck, read the hint in the `hint.js` file.
 1. Compare your solution with `solution.py`.
 
-If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack), at the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
+If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://join.slack.com/t/ghsecuritylab/shared_invite/zt-2afhxkndc-3ZGRV1i2UMvCZ0DtXgqaQw), at the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
 
 ## Season 1 - Level 2: Matrix
 
