@@ -51,7 +51,7 @@ _A GitHub Security Lab initiative, providing an in-repo learning experience, whe
    - For owner, choose your personal account or an organization to host the repository.
    - We recommend creating a public repository, as private repositories will [use Actions minutes](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
    - Scroll down and click the **Create repository** button at the bottom of the form.
-1. After your new repository is created, wait about 20 seconds, then refresh the page. Follow the step-by-step instructions in the new repository's README.
+1. After your new repository is created, wait about 30 seconds, then refresh the page.
 
 ## 🛠️ The set up
 
@@ -62,6 +62,7 @@ All levels are configured to run instantly with GitHub Codespaces. If you chose 
 1. To create a codespace, click the **Code** drop down button in the upper-right of your repository navigation bar.
 1. Click **Create codespace on main**.
 1. After creating a codespace, relax and wait for VS Code extensions and background installations to complete. This should take less than three minutes.
+1. At this point, you can get started with Season-1 or Season-2 by navigating on the respective folders and reading the `README.md` file.
 
 We recommend these free-of-charge additional extensions, but we haven't pre-installed them for you:
 
@@ -161,6 +162,8 @@ Adapt the command to the package manager you have chosen if it's not homebrew.
 ```bash
 npm install --prefix Season-2/Level-4/ Season-2/Level-4/ && npm install --global mocha
 ```
+
+4. At this point, you can get started with Season-1 or Season-2 by navigating on the respective folders and reading the `README.md` file.
 
 We recommend these free-of-charge additional extensions:
 
