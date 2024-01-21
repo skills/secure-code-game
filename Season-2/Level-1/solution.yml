@@ -1,7 +1,7 @@
 # Contribute new levels to the game in 3 simple steps!
 # Read our Contribution Guideline at github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md
 
-name: Jarvis Gone Wrong
+name: CODE - Jarvis Gone Wrong
 
 on:
   push:
@@ -11,15 +11,12 @@ on:
 jobs:
   jarvis:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
     steps:
-      - name: Check out code
-        uses: actions/checkout@v3
-
       - name: Check GitHub Status
         run: |
-          curl https://www.githubstatus.com/api/v2/status.json
+          STATUS=$(curl -s https://www.githubstatus.com/api/v2/status.json | jq -r '.status.description')
+          echo "GitHub Status: $STATUS"
+
 
 # Solution Explanation
 
