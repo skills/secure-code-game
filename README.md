@@ -65,10 +65,10 @@ All levels are configured to run instantly with GitHub Codespaces. If you chose 
 1. After creating a codespace, relax and wait for VS Code extensions and background installations to complete. This should take less than three minutes.
 1. At this point, you can get started with Season-1 or Season-2 by navigating on the respective folders and reading the `README.md` file.
 
-We recommend these free-of-charge additional extensions, but we haven't pre-installed them for you:
+Optional: We recommend these free-of-charge additional extensions, but we haven't pre-installed them for you:
 
 1. `github.copilot-labs` to receive AI-generated code explanations.
-1. `alexcvzz.vscode-sqlite` to visualize the SQL database created and the effects of our exploits on its content.
+1. `alexcvzz.vscode-sqlite` to visualize the SQL database created in Season-1/Level-4 and the effects of our exploits on its content.
 
 If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://join.slack.com/t/ghsecuritylab/shared_invite/zt-2afhxkndc-3ZGRV1i2UMvCZ0DtXgqaQw), at the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
 
