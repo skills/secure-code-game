@@ -4,10 +4,12 @@
 
 // 1. Double click index.html to open it in any browser. Are you using GitHub Codespaces?
 
-// Please note that if you are inside a codespace, it is not possible to perform step 1. For
-// this reason, please create a local copy for the file 'index.html'. You can do so by copying 
-// and pasting the contents of 'index.html' in a local file so that you can open it in a browser.
-// Then, follow the remaining steps.
+// Please note that if you are inside a codespace, it is not possible to perform step 1.
+// Instead, run the following in terminal from the root of the game level (Season-2/Level-5/):
+//    `python3 -m http.server`
+// Once running, select on the "ports" tab of the codespace and click on the URL that exposes
+// port 8000. Navigating to the URL should serve the HTML and vulnerable JavaScript.
+// Proceed with the remaining steps.
 
 // 2. Copy the following line, paste it in the javascript console and press enter.
 var s = { toString: function() { alert('Exploit 1'); } };
