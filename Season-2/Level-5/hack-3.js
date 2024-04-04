@@ -4,10 +4,13 @@
 
 // 1. Double click index.html to open it in any browser. Are you using Codespaces?
 
-// Please note that if you are inside a Codespace, it is not possible to perform step 1. For
-// this reason, please create a local copy for the file 'index.html'. You can do so by copying 
-// and pasting the contents of 'index.html' in a local file so that you can open it in a browser.
-// Then, follow the remaining steps.
+// Please note that if you are inside a codespace, it is not possible to perform step 1.
+// Instead, run the following command inside the codespace's terminal:
+//    `cd Season-2/Level-5/ && python3 -m http.server`
+// A pop up window will appear on the bottom right informing you that 
+// "Your application running on port 8000 is available". Now click "Open in Browser".
+// Another way to open the application on port 8000 is by clicking on the "Ports" tab 
+// in terminal, followed by clicking on its respective URL.
 
 // 2. Copy the following line, paste it in the javascript console and press enter.
 Array.prototype.__defineSetter__("0", function() { alert('Exploit 3'); });
