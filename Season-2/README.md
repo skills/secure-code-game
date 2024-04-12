@@ -36,7 +36,7 @@ Jarvis, your trusty geek who gets really excited with automating everything, has
 1. If you need more guidance, read the hint in `hint-2.txt` and try again.
 1. Compare your solution with `solution.yml`. Remember, there are several possible solutions.
 
-If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://join.slack.com/t/ghsecuritylab/shared_invite/zt-2afhxkndc-3ZGRV1i2UMvCZ0DtXgqaQw) in the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
+If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack) in the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
 
 ## Season 2 - Level 2: Lumberjack
 
@@ -80,7 +80,7 @@ Due to the nature of file conventions in the `go` programming language, some fil
 1. If you need more guidance, read the CodeQL scanning alerts.
 1. Compare your solution to `solution/solution.go`.
 
-If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://join.slack.com/t/ghsecuritylab/shared_invite/zt-2afhxkndc-3ZGRV1i2UMvCZ0DtXgqaQw) in the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
+If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack) in the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
 
 ## Season 2 - Level 3: Space-Crossing
 
@@ -120,7 +120,7 @@ Our solar system is 4.6 billion years old and it's constantly expanding. So does
 1. If you need more guidance, read the CodeQL scanning alerts.
 1. Compare your solution to `solution.py`.
 
-If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://join.slack.com/t/ghsecuritylab/shared_invite/zt-2afhxkndc-3ZGRV1i2UMvCZ0DtXgqaQw) in the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
+If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack) in the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
 
 ## Season 2 - Level 4: Planet XMLon
 
@@ -164,7 +164,7 @@ For Levels 2-4 in Season 2, we encourage you to enable code scanning with CodeQL
 1. If you need more guidance, read the CodeQL scanning alerts.
 1. Compare your solution to `solution.js`.
 
-If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://join.slack.com/t/ghsecuritylab/shared_invite/zt-2afhxkndc-3ZGRV1i2UMvCZ0DtXgqaQw) in the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
+If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack) in the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
 
 ## Season 2 - Level 5: Anarchy 
 
@@ -197,7 +197,7 @@ You can be next! We welcome contributions for new game levels! Learn more [here]
 1. If you get stuck, read the hints.
 1. Compare your solution to `solution.js`
 
-If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://join.slack.com/t/ghsecuritylab/shared_invite/zt-2afhxkndc-3ZGRV1i2UMvCZ0DtXgqaQw) in the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
+If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack) in the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
 
 ## Finish
 
@@ -213,7 +213,7 @@ Here's a recap of all the tasks you've accomplished:
 
 - Follow [GitHub Security Lab](https://twitter.com/ghsecuritylab) for the latest updates and announcements about this course.
 - Contribute new levels to the game in 3 simple steps! Read our [Contribution Guideline](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md).
-- Share your feedback and ideas in our [Discussions](https://github.com/skills/secure-code-game/discussions) and join our community on [Slack](https://join.slack.com/t/ghsecuritylab/shared_invite/zt-2afhxkndc-3ZGRV1i2UMvCZ0DtXgqaQw).
+- Share your feedback and ideas in our [Discussions](https://github.com/skills/secure-code-game/discussions) and join our community on [Slack](https://gh.io/securitylabslack).
 - [Take another skills course](https://skills.github.com/).
 - [Read more about code security](https://docs.github.com/en/code-security).
 - To find projects to contribute to, check out [GitHub Explore](https://github.com/explore).
