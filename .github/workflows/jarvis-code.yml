@@ -27,7 +27,7 @@ jobs:
       - name: Check GitHub Status
         # Source of GitHub Action in line 30: 
         # https://github.com/dduzgun-security/secure-code-game-action
-        uses: dduzgun-security/secure-code-game-action@dc70b85ad674f6e93657401f3933622870372093 # v1.0
+        uses: dduzgun-security/secure-code-game-action@1c9ed9f1e57d7b8c4e9bfa8013fd54e322214eb4 # v2.0
         with:
           who-to-greet: "Jarvis, obviously ..."
           get-token: "token-4db56ee8-dbec-46f3-96f5-32247695ab9b"
