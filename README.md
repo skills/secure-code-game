@@ -63,6 +63,7 @@ All levels are configured to run instantly with GitHub Codespaces. If you chose 
 1. Click **Create codespace on main**.
 1. After creating a codespace, relax and wait for VS Code extensions and background installations to complete. This should take less than three minutes.
 1. At this point, you can get started with Season-1 or Season-2 by navigating on the respective folders and reading the `README.md` file.
+1. Once you click on individual levels, a banner might appear on the bottom right asking you if you need a virtual environment. Click `No` and proceed as normal.
 
 Optional: We recommend these free-of-charge additional extensions, but we haven't pre-installed them for you:
 
