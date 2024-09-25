@@ -10,8 +10,8 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-      "body-parser": "^1.20.2",
-      "express": "^4.19.2",
+      "body-parser": "^1.20.3",
+      "express": "^4.21.0",
       "fs": "^0.0.1-security",
       "libxmljs": "^1.0.9",
       "multer": "^1.4.5-lts.1",
