@@ -37,10 +37,7 @@ def safe_path(path):
 # traversal is about to happen and that the final path ends up in the
 # intended directory.
 
-# The GitHub Security Lab covered this flaw in one episode of Security
-# Bites, its series on secure programming: https://youtu.be/sQGxdwRePh8
-
-# We also covered this flaw in a blog post about OWASP's Top 10 proactive controls:
+# We covered this flaw in a blog post about OWASP's Top 10 proactive controls:
 # https://github.blog/2021-12-06-write-more-secure-code-owasp-top-10-proactive-controls/
 
 
