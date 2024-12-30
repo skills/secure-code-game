@@ -1,11 +1,35 @@
 import os
 
+# Example of a secure function that doesn't suffer from path traversal
 def safe_path(path):
     base_dir = os.path.dirname(os.path.abspath(__file__))
     filepath = os.path.normpath(os.path.join(base_dir, path))
     if base_dir != os.path.commonpath([base_dir, filepath]):
         return None
     return filepath
+
+# Following the above, this is the secure version of the respective function on code.py
+def get_prof_picture(self, path=None):
+    # setting a profile picture is optional
+    if not path:
+        pass
+
+    # defends against path traversal attacks
+    if path.startswith('/') or path.startswith('..'):
+        return None
+
+    # builds path
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    prof_picture_path = os.path.normpath(os.path.join(base_dir, path))
+    if base_dir != os.path.commonpath([base_dir, prof_picture_path]):
+        return None
+
+    with open(prof_picture_path, 'rb') as pic:
+        picture = bytearray(pic.read())
+
+    # assume that image is returned on screen after this
+    return prof_picture_path
+
 
 # Solution explanation
 
