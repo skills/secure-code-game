@@ -19,8 +19,8 @@ class TestTaxPayer(unittest.TestCase):
     def test_2(self):
         # creates tax payer object with dummy username and password
         test_obj = c.TaxPayer('username_test', 'password_test')
-        # gets base directory
-        base_dir = os.path.dirname(os.path.abspath(__file__))
+        # gets base directory and completes path with a slash for consistency and completeness
+        base_dir = os.path.dirname(os.path.abspath(__file__)) + "/"
         # user input to the tax form attachment
         file_path = './../../../../../etc/passwd'
         # complete path for input
