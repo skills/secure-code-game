@@ -82,49 +82,9 @@ Due to the nature of file conventions in the `go` programming language, some fil
 
 If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack) in the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
 
-## Season 2 - Level 3: Space-Crossing
+## Season 2 - Level 3: Planet XMLon
 
-_Nice work finishing Level 2: Lumberjack ! It's now time for Level 3: Space-Crossing_ :sparkles:
-
-Languages: `python3`
-
-### 🚀 Credits
-
-The author of this level is [Viral Vaghela](https://www.linkedin.com/in/viralv/).
-
-You can be next! We welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md).
-
-### 📝 Storyline
-
-Our solar system is 4.6 billion years old and it's constantly expanding. So does human interest around the world with local communities of enthusiasts constantly forming in an increasingly digitized world. Space enthusiasts use the internet as an information bank and to connect with their counterparts. This was exactly what drove a local community of space enthusiasts to create a public website, featuring their meetups, alongside contact information and a simple search bar where users can discover rare facts about planets. Having said that, did you know that ninety-five per cent (95%) of the Universe is invisible? What percentage of security issues is invisible though, and for how long? Do you have what it takes to secure the site and progress to Level 4?
-
-### :keyboard: Setup instructions
-
-- For Levels 2-4 in Season 2, we encourage you to enable code scanning with CodeQL. For more information about CodeQL, see "[About CodeQL](https://codeql.github.com/docs/codeql-overview/about-codeql/)." For instructions on setting up code scanning, see "[Setting up code scanning using starter workflows](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-starter-workflows)."
-
-### :keyboard: What's in the repo?
-
-- `code` includes the vulnerable code to be reviewed.
-- `hack` exploits the vulnerabilities in `code`. Running `hack` will fail initially and your goal is to get this file to pass 🟢.
-- `hint` offers guidance if you get stuck. Remember that you can also view the CodeQL scanning alerts.
-- `solution` provides one working solution. There are several possible solutions.
-- `templates/index.html` host a simple front-end to interact with the back-end.
-- `tests` contains the unit tests that should still pass 🟢 after you implement your fix.
-
-### 🚦 Time to start!
-
-1. Review the code in `code.py`. Can you spot the bug(s)?
-1. Try to fix the bug. Open a pull request to `main` or push your fix to a branch.
-1. You successfully completed this level when you (a) resolve all related code scanning alerts and (b) when both `hack.py` and `tests.py` pass 🟢.
-1. If you get stuck, read the hint and try again.
-1. If you need more guidance, read the CodeQL scanning alerts.
-1. Compare your solution to `solution.py`.
-
-If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack) in the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
-
-## Season 2 - Level 4: Planet XMLon
-
-_Nicely done! Level 3: Space-Crossing is complete. It's time for Level 4: Planet XMLon_ :partying_face:
+_Nicely done! Level 2: Lumberjack is complete. It's time for Level 3: Planet XMLon_ :partying_face:
 
 Languages: `javascript`
 
@@ -163,6 +123,46 @@ For Levels 2-4 in Season 2, we encourage you to enable code scanning with CodeQL
 1. If you get stuck, read the hint and try again.
 1. If you need more guidance, read the CodeQL scanning alerts.
 1. Compare your solution to `solution.js`.
+
+If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack) in the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
+
+## Season 2 - Level 4: Space-Crossing
+
+_Nice work finishing Level 3: Planet XMLon! It's now time for Level 4: Space-Crossing_ :sparkles:
+
+Languages: `python3`
+
+### 🚀 Credits
+
+The author of this level is [Viral Vaghela](https://www.linkedin.com/in/viralv/).
+
+You can be next! We welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md).
+
+### 📝 Storyline
+
+Our solar system is 4.6 billion years old and it's constantly expanding. So does human interest around the world with local communities of enthusiasts constantly forming in an increasingly digitized world. Space enthusiasts use the internet as an information bank and to connect with their counterparts. This was exactly what drove a local community of space enthusiasts to create a public website, featuring their meetups, alongside contact information and a simple search bar where users can discover rare facts about planets. Having said that, did you know that ninety-five per cent (95%) of the Universe is invisible? What percentage of security issues is invisible though, and for how long? Do you have what it takes to secure the site and progress to Level 4?
+
+### :keyboard: Setup instructions
+
+- For Levels 2-4 in Season 2, we encourage you to enable code scanning with CodeQL. For more information about CodeQL, see "[About CodeQL](https://codeql.github.com/docs/codeql-overview/about-codeql/)." For instructions on setting up code scanning, see "[Setting up code scanning using starter workflows](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-starter-workflows)."
+
+### :keyboard: What's in the repo?
+
+- `code` includes the vulnerable code to be reviewed.
+- `hack` exploits the vulnerabilities in `code`. Running `hack` will fail initially and your goal is to get this file to pass 🟢.
+- `hint` offers guidance if you get stuck. Remember that you can also view the CodeQL scanning alerts.
+- `solution` provides one working solution. There are several possible solutions.
+- `templates/index.html` host a simple front-end to interact with the back-end.
+- `tests` contains the unit tests that should still pass 🟢 after you implement your fix.
+
+### 🚦 Time to start!
+
+1. Review the code in `code.py`. Can you spot the bug(s)?
+1. Try to fix the bug. Open a pull request to `main` or push your fix to a branch.
+1. You successfully completed this level when you (a) resolve all related code scanning alerts and (b) when both `hack.py` and `tests.py` pass 🟢.
+1. If you get stuck, read the hint and try again.
+1. If you need more guidance, read the CodeQL scanning alerts.
+1. Compare your solution to `solution.py`.
 
 If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack) in the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
 

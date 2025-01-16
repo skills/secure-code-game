@@ -1,4 +1,4 @@
-# Welcome to Secure Code Game Season-2/Level-3!
+# Welcome to Secure Code Game Season-2/Level-4!
 
 # Follow the instructions below to get started:
 
@@ -12,7 +12,7 @@
 # Run code.py (RECOMMENDED for this level) by following the instructions below:
 
 # Run by opening a terminal and running the following:
-# $ export FLASK_APP=Season-2/Level-3/code.py && export FLASK_ENV=development && export FLASK_DEBUG=0 && flask run
+# $ export FLASK_APP=Season-2/Level-4/code.py && export FLASK_ENV=development && export FLASK_DEBUG=0 && flask run
 
 import os
 import re

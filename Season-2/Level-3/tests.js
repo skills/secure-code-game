@@ -1,13 +1,13 @@
 // Run tests.js by following the instructions below:
 
 // Run file by opening a terminal and running the following:
-// $ mocha Season-2/Level-4/tests.js
+// $ mocha Season-2/Level-3/tests.js
 
 // If you're inside a Codespace, the above should be running smoothly.
 
 // In case you're running this locally, please run the following command 
 // first, and then run the tests' file:
-// $ npm install Season-2/Level-4/ && npm install --global mocha
+// $ npm install Season-2/Level-3/ && npm install --global mocha
 
 const app = require("./code");
 // const app = require("./solution"); // To test the solution, uncomment this line and comment the one above
