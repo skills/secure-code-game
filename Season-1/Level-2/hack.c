@@ -4,7 +4,7 @@
 // As all other levels, your goal is to get this file to pass.
 
 // Run hack by opening a terminal and running the following:
-// $ make Season-1/Level-2/hack && ./Season-1/Level-2/hack
+// $ make -B Season-1/Level-2/hack && ./Season-1/Level-2/hack
 
 // As a reminder, to pass this level, both this file alongside tests.c must pass.
 
