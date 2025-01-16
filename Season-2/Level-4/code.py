@@ -20,7 +20,7 @@ from flask import Flask, request, render_template
 app = Flask(__name__)
 
 # Set the absolute path to the template directory
-template_dir = os.path.abspath('Season-2/Level-3/templates')
+template_dir = os.path.abspath('Season-2/Level-4/templates')
 app.template_folder = template_dir
 
 # Hard-coded planet data
