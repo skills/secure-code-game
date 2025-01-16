@@ -5,5 +5,5 @@
       "extensions": ["ms-python.python", "ms-python.vscode-pylance", "ms-vscode.cpptools-extension-pack", "redhat.vscode-yaml", "golang.go"]
     }
   },
-  "postCreateCommand": "npm install --prefix Season-2/Level-4/ Season-2/Level-4/ && npm install --global mocha"
+  "postCreateCommand": "npm install --prefix Season-2/Level-3/ Season-2/Level-3/ && npm install --global mocha"
 }

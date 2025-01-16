@@ -3,7 +3,7 @@
 # This file contains passing tests.
 
 # Run them by opening a terminal and running the following:
-# $ python3 Season-2/Level-3/tests.py
+# $ python3 Season-2/Level-4/tests.py
 
 # Note: first you have to run code.py following the instructions
 # on top of that file so that the environment variables align but
