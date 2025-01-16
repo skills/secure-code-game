@@ -25,14 +25,10 @@ class TaxPayer:
         if not path:
             pass
 
-        # defends against path traversal attacks
-        if path.startswith('/') or path.startswith('..'):
-            return None
-
         # builds path
         base_dir = os.path.dirname(os.path.abspath(__file__))
         prof_picture_path = os.path.normpath(os.path.join(base_dir, path))
-        if base_dir != os.path.commonpath([base_dir, prof_picture_path]):
+        if not prof_picture_path.startswith(base_dir):
             return None
 
         with open(prof_picture_path, 'rb') as pic:
@@ -52,7 +48,7 @@ class TaxPayer:
         # Validate the path to prevent path traversal attacks
         base_dir = os.path.dirname(os.path.abspath(__file__))
         tax_form_path = os.path.normpath(os.path.join(base_dir, path))
-        if base_dir != os.path.commonpath([base_dir, tax_form_path]):
+        if not tax_form_path.startswith(base_dir):
             return None
 
         with open(tax_form_path, 'rb') as form:
