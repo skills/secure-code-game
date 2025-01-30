@@ -1,3 +1,0 @@
-Does the code:
-a) reinvent the wheel or
-b) is using cryptographically approved libraries?

@@ -1,1 +1,0 @@
-The array "w" is initialised as an empty array on line 25, any opinions?

@@ -1,1 +1,0 @@
-How does the site handle user input before and after displaying it?

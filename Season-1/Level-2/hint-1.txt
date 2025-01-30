@@ -1,5 +1,0 @@
-Consider what can happen if an attacker figures out the private,
-implementation-specific details of the user_account structure 
-inside code.h. What can the attacker do with this information? 
-
-Go back and try the exercise without looking hint-2.txt ;)

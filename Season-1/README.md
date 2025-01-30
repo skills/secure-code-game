@@ -22,7 +22,7 @@ For each level, you will find the same file structure:
 
 - `code` includes the vulnerable code to be reviewed.
 - `hack` exploits the vulnerabilities in `code`. Running `hack.py` will fail initially, your goal is to get this file to pass.
-- `hint` offers a hint if you get stuck.
+- `hint` offers a hint if you get stuck. (Hints & Solutions to be added from March 2025)
 - `solution` provides one working solution. There are several possible solutions.
 - `tests` contains the unit tests that should still pass after you have implemented your fix.
 
@@ -31,7 +31,7 @@ For each level, you will find the same file structure:
 1. Review the code in `code.py`. Can you spot the bug(s)?
 1. Try to fix the bug. Ensure that unit tests are still passing 🟢.
 1. You successfully completed the level when both `hack.py` and `tests.py` pass 🟢.
-1. If you get stuck, read the hint in the `hint.js` file.
+1. If you get stuck, read the hint in the `hint.js` file. (Hints & Solutions to be added from March 2025)
 1. Compare your solution with `solution.py`.
 
 If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack), at the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
@@ -54,7 +54,7 @@ For each level, you will find the same file structure:
 
 - `code` includes the vulnerable code to be reviewed.
 - `hack` exploits the vulnerabilities in `code`. Running `hack.c` will fail initially, your goal is to get this file to pass 🟢.
-- `hint` offers a hint if you get stuck.
+- `hint` offers a hint if you get stuck. (Hints & Solutions to be added from March 2025)
 - `solution` provides one working solution. There are several possible solutions.
 - `tests` contains the unit tests that should still pass 🟢 after you have implemented your fix.
 
@@ -63,7 +63,7 @@ For each level, you will find the same file structure:
 1. Review the code in `code.h`. Can you spot the bug(s)?
 1. Try to fix the bug. Ensure that unit tests are still passing.
 1. The level is completed successfully when both `hack.c` and `tests.c` pass 🟢.
-1. If you get stuck, read the hint in the `hint.txt` file.
+1. If you get stuck, read the hint in the `hint.txt` file. (Hints & Solutions to be added from March 2025)
 1. Compare your solution with `solution.c`.
 
 If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack), at the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
@@ -90,7 +90,7 @@ For each level, you will find the same file structure:
 
 - `code` includes the vulnerable code to be reviewed.
 - `hack` exploits the vulnerabilities in `code`. Running `hack.py` will fail initially, your goal is to get this file to pass 🟢.
-- `hint` offers a hint if you get stuck.
+- `hint` offers a hint if you get stuck. (Hints & Solutions to be added from March 2025)
 - `solution` provides one working solution. There are several possible solutions.
 - `tests` contains the unit tests that should still pass 🟢 after you have implemented your fix.
 
@@ -127,7 +127,7 @@ For each level, you will find the same file structure:
 
 - `code` includes the vulnerable code to be reviewed.
 - `hack` exploits the vulnerabilities in `code`. Running `hack.py` will fail initially, your goal is to get this file to pass 🟢.
-- `hint` offers a hint if you get stuck.
+- `hint` offers a hint if you get stuck. (Hints & Solutions to be added from March 2025)
 - `solution` provides one working solution. There are several possible solutions.
 - `tests` contains the unit tests that should still pass 🟢 after you have implemented your fix.
 
@@ -173,7 +173,7 @@ For each level, you will find the same file structure:
 1. Review the code in `code.py`. Can you spot the bug(s)?
 1. Try to fix the bug. Open a pull request to `main` or push your fix to a branch.
 1. You successfully completed this level when you (a) resolve all related code scanning alerts and (b) `tests.py` pass 🟢. Notice that `hack.py` in this level is inactive.
-1. If you get stuck, read the hint and try again.
+1. If you get stuck, read the hint and try again. (Hints & Solutions to be added from March 2025)
 1. If you need more guidance, read the CodeQL scanning alerts.
 1. Compare your solution to `solution.py`.
 
