@@ -1,3 +1,0 @@
-Have a look in hack.py and see what the attacker is supplying as value.
-Then, think whether is better to use a block list vs using an allow list 
-when it comes to user input.

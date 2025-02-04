@@ -32,7 +32,7 @@ Jarvis, your trusty geek who gets really excited with automating everything, has
 1. Review the code inside `.github/workflows/jarvis-code.yml`. Can you spot the bug(s)?
 1. Fix the bug and push your solution so that `GitHub Actions` can run.
 1. You successfully completed this level when `.github/workflows/jarvis-hack.yml` passes 🟢.
-1. If you get stuck, read the hint in `hint-1.txt` and try again.
+1. If you get stuck, read the hint in `hint-1.txt` and try again. (Hints & Solutions to be added from March 2025)
 1. If you need more guidance, read the hint in `hint-2.txt` and try again.
 1. Compare your solution with `solution.yml`. Remember, there are several possible solutions.
 
@@ -66,7 +66,7 @@ Due to the nature of file conventions in the `go` programming language, some fil
 - `code` includes the vulnerable code to be reviewed.
 - `code_test` contains the unit tests that should still pass 🟢 after you implement your fix.
 - `hack_test` exploits the vulnerabilities in `code`. Running `hack_test.go` will fail initially and your goal is to get this file to pass 🟢.
-- `hint` files offer guidance if you get stuck. We provide 2 hints for this level. Remember that you can also view the CodeQL scanning alerts for guidance.
+- `hint` files offer guidance if you get stuck. We provide 2 hints for this level. Remember that you can also view the CodeQL scanning alerts for guidance. (Hints & Solutions to be added from March 2025)
 - `solution` provides one working solution. There are several possible solutions.
 - `solution_test` is identical to `code_test` and it's used to test the solution for failing and passing payloads.
 - `go.mod` is a `go` programming language convention for a module residing at the root of the module's directory hierarchy.
@@ -110,7 +110,7 @@ For Levels 2-4 in Season 2, we encourage you to enable code scanning with CodeQL
 - `hint` offers guidance if you get stuck. Remember that you can also view the CodeQL scanning alerts.
 - `package.json` contains all the dependencies required for this level. You can install them by running `npm install`.
 - `package-lock.json` ensures that the same dependencies are installed consistently across different environments.
-- `solution` provides one working solution. There are several possible solutions.
+- `solution` provides one working solution. There are several possible solutions. (Hints & Solutions to be added from March 2025)
 - `tests` contains the unit tests that should still pass 🟢 after you implement your fix.
 - `.env.production` is an internal server-side file containing a secret environment variable.
 
@@ -151,7 +151,7 @@ Our solar system is 4.6 billion years old and it's constantly expanding. So does
 - `code` includes the vulnerable code to be reviewed.
 - `hack` exploits the vulnerabilities in `code`. Running `hack` will fail initially and your goal is to get this file to pass 🟢.
 - `hint` offers guidance if you get stuck. Remember that you can also view the CodeQL scanning alerts.
-- `solution` provides one working solution. There are several possible solutions.
+- `solution` provides one working solution. There are several possible solutions. (Hints & Solutions to be added from March 2025)
 - `templates/index.html` host a simple front-end to interact with the back-end.
 - `tests` contains the unit tests that should still pass 🟢 after you implement your fix.
 
@@ -186,7 +186,7 @@ You can be next! We welcome contributions for new game levels! Learn more [here]
 
 - `code` includes the vulnerable code to be reviewed.
 - `hack` files exploit the vulnerabilities in `code`. For this level, the exploits couldn't be automated. To run them, follow the instructions provided inside.
-- `hint` files offer guidance if you get stuck.
+- `hint` files offer guidance if you get stuck. (Hints & Solutions to be added from March 2025)
 - `solution` provides one working solution. There are several possible solutions.
 - `index` hosts the homepage, featuring a javascript console.
 
