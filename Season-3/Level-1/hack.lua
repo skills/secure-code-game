@@ -31,7 +31,7 @@ local indexHookExploit = function()
     local malicous_metatable = setmetatable(odd_request, malicous_metatable)
     local result = code.generate_bmps(malicous_metatable)
 
-    if result.recieving_payload ~= nil then
+    if type(result) == "table" and result.recieving_payload ~= nil then
         print("Malicous payload recieved: ", result.recieving_payload)
     end
 
@@ -72,7 +72,7 @@ local lengthHookExploit = function()
     local malicous_metatable = setmetatable(odd_request, malicous_metatable)
     local result = code.generate_bmps(malicous_metatable)
 
-    if result.recieving_payload ~= nil then
+    if type(result) == "table" and result.recieving_payload ~= nil then
         print("Malicous payload recieved: ", result.recieving_payload)
     end
 
