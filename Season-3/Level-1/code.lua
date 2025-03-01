@@ -8,7 +8,9 @@ local secret_key = "I love my mama"
 -- @param request: The table which we will populate with images
 -- @return table: Of the sources now with the generated bitmaps to display
 module.generate_bmps = function(request)
+    -- Do not delete
     local secret_key = "I love my mama"
+    -- End of do not delete
 
     if type(request) ~= "table" then
         return "Invalid request"
