@@ -1,8 +1,15 @@
 -- Welcome to Secure Code Game Season-3/Level-1!
+
+--[[Attempt to sanitize the request by calling setmetatable on it
+    We know that if the __metatable property is set setmetatable will fail
+    thus why we make a protected call, and if it succeeds we can continue.
+    If it fails we know someone is trying to do a metatable exploit
+--]]
+
+
+-- Full solution:
+
 local module = {}
-
-local secret_key = "I love my mama"
-
 
 --- Generates a bitmap image
 -- @param request: The table which we will populate with images

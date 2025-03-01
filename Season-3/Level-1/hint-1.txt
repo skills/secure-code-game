@@ -1,0 +1,4 @@
+Seems like when we index the table something else happens.
+What is hack.lua doing to enable it to run the code?
+
+Try to solve it without hint 2

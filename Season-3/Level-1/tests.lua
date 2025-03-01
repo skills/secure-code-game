@@ -1,3 +1,8 @@
+-- This file contains passing tests.
+
+-- Run them by opening a terminal and running the following:
+-- $ (cd Season-3/Level-1/ && lua tests.lua)
+
 local code = require("code")
 
 local does_it_return_cats = function()

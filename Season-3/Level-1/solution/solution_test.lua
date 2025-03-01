@@ -1,3 +1,11 @@
+-- Run solution_test.lua by following the instructions below:
+
+-- This file is a copy of code_test.go and hack_test.go
+-- It tests the solution for failing and passing payloads
+
+-- Run them by opening a terminal and running the following:
+-- $ (cd Season-3/Level-1/solution && lua solution_test.lua)
+
 local code = require("solution")
 
 

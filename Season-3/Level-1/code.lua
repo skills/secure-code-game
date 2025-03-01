@@ -1,7 +1,15 @@
 -- Welcome to Secure Code Game Season-3/Level-1!
-local module = {}
 
-local secret_key = "I love my mama"
+-- Follow the instructions below to get started:
+
+-- 1. tests.lua is passing but the code is vulnerable
+-- 2. Review the code. Can you spot the bugs(s)?
+-- 3. Fix the code.lua, but ensure that tests.lua passes
+-- 4. Run hack.lua and if passing then CONGRATS!
+-- 5. If stuck then read the hint
+-- 6. Compare your solution with solution/solution.go
+
+local module = {}
 
 
 --- Generates a bitmap image

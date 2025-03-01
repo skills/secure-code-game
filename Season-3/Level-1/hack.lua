@@ -1,3 +1,9 @@
+-- This file exploits the vulnerabilities in code. Running this file will fail initially
+-- (it contains failing tests). As all other levels, your goal is to get this file to pass.
+
+-- Run them by opening a terminal and running the following:
+-- $ (cd Season-3/Level-1/ && lua hack.lua)
+
 local code = require("code")
 
 
