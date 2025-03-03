@@ -32,6 +32,14 @@ module.generate_bmps = function(request)
     end
 
     for i = 1, #request, 1 do
+        local isNotMalicous, errVal = pcall(function()
+            setmetatable(request[i], {})
+        end)
+
+        if not isNotMalicous then
+            return "Invalid request"
+        end
+
         if type(request[i].source) ~= "string" then
             -- This will display an error image to the user, letting the know something is wrong
             request[i] = { source = "Bad request", image = "Error Image" }
