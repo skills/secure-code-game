@@ -1,7 +1,7 @@
 -- This file contains passing tests.
 
 -- Run them by opening a terminal and running the following:
--- $ (cd Season-3/Level-1/ && lua tests.lua)
+-- $ (cd Season-4/Level-1/ && lua tests.lua)
 
 local code = require("code")
 
@@ -23,9 +23,15 @@ local does_it_return_cats = function()
     local isValid = true
 
 
-    for key, value in pairs(result) do
-        if not (value.source == expected_result[key].source and value.image == expected_result[key].image) then
-            isValid = false
+    if type(result) ~= "table" then
+        isValid = false
+    end
+
+    if isValid then
+        for key, value in pairs(result) do
+            if not (value.source == expected_result[key].source and value.image == expected_result[key].image) then
+                isValid = false
+            end
         end
     end
 
@@ -49,10 +55,15 @@ local does_it_hanlde_malformed_requests = function()
 
     local isValid = true
 
+    if type(result) ~= "table" then
+        isValid = false
+    end
 
-    for key, value in pairs(result) do
-        if not (value.source == expected_result[key].source and value.image == expected_result[key].image) then
-            isValid = false
+    if isValid then
+        for key, value in pairs(result) do
+            if not (value.source == expected_result[key].source and value.image == expected_result[key].image) then
+                isValid = false
+            end
         end
     end
 

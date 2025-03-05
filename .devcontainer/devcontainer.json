@@ -1,5 +1,5 @@
 {
-  "onCreateCommand": "sudo apt-get update && sudo apt-get -y install libldap2-dev libsasl2-dev lua5.4 && pip3 install pyOpenSSL && pip3 install -r requirements.txt",
+  "onCreateCommand": "sudo apt-get update && sudo apt-get -y install libldap2-dev libsasl2-dev lua5.4 luarocks && pip3 install pyOpenSSL && pip3 install -r requirements.txt && sudo luarocks install busted 2.2.0-1",
   "customizations": {
     "vscode": {
       "extensions": [

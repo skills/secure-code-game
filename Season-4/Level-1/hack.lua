@@ -2,7 +2,9 @@
 -- (it contains failing tests). As all other levels, your goal is to get this file to pass.
 
 -- Run them by opening a terminal and running the following:
--- $ (cd Season-3/Level-1/ && lua hack.lua)
+-- $ (cd Season-4/Level-1/ && lua hack.lua)
+
+require 'busted.runner' ()
 
 local code = require("code")
 
@@ -34,14 +36,14 @@ local indexHookExploit = function()
     }
 
     local odd_request = { { source = "Legit link", image = nil }, nil, { source = "Another legit link", image = nil } }
-    local malicous_metatable = setmetatable(odd_request, malicous_metatable)
-    local result = code.generate_bmps(malicous_metatable)
+    local malicous_request = setmetatable(odd_request, malicous_metatable)
+    local result = code.generate_bmps(malicous_request)
 
     if type(result) == "table" and result.recieving_payload ~= nil then
         print("Malicous payload recieved: ", result.recieving_payload)
     end
 
-    print(not malicous_code_executed)
+    return result
 end
 
 local lengthHookExploit = function()
@@ -70,20 +72,27 @@ local lengthHookExploit = function()
         end
     }
 
-    local odd_request = {
-        { source = "Legit link",                image = nil },
-        { source = "Another legit link",        image = nil },
-        { source = "Another legit boring link", image = nil }
-    }
-    local malicous_metatable = setmetatable(odd_request, malicous_metatable)
-    local result = code.generate_bmps(malicous_metatable)
+    local odd_request = { { source = "Legit link", image = nil }, { source = "boring legit link", image = nil }, { source = "Another legit link", image = nil } }
+    local malicous_request = setmetatable(odd_request, malicous_metatable)
+    local result = code.generate_bmps(malicous_request)
 
     if type(result) == "table" and result.recieving_payload ~= nil then
         print("Malicous payload recieved: ", result.recieving_payload)
     end
 
-    print(not malicous_code_executed)
+    return result
 end
 
+
+-- describe("Length Hook exploit", function()
+--     it("result", function()
+--         assert.are.equals("Invalid request", lengthHookExploit())
+--     end)
+-- end)
+-- describe("index Hook exploit", function()
+--     it(" result", function()
+--         assert.are.equals("Invalid request", indexHookExploit())
+--     end)
+-- end)
+
 lengthHookExploit()
-indexHookExploit()

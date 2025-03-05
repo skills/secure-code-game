@@ -4,7 +4,7 @@
 -- It tests the solution for failing and passing payloads
 
 -- Run them by opening a terminal and running the following:
--- $ (cd Season-3/Level-1/solution && lua solution_test.lua)
+-- $ (cd Season-4/Level-1/solution && lua solution_test.lua)
 
 local code = require("solution")
 
@@ -106,9 +106,15 @@ local does_it_return_cats = function()
     local isValid = true
 
 
-    for key, value in pairs(result) do
-        if not (value.source == expected_result[key].source and value.image == expected_result[key].image) then
-            isValid = false
+    if type(result) ~= "table" then
+        isValid = false
+    end
+
+    if isValid then
+        for key, value in pairs(result) do
+            if not (value.source == expected_result[key].source and value.image == expected_result[key].image) then
+                isValid = false
+            end
         end
     end
 
@@ -133,9 +139,15 @@ local does_it_hanlde_malformed_requests = function()
     local isValid = true
 
 
-    for key, value in pairs(result) do
-        if not (value.source == expected_result[key].source and value.image == expected_result[key].image) then
-            isValid = false
+    if type(result) ~= "table" then
+        isValid = false
+    end
+
+    if isValid then
+        for key, value in pairs(result) do
+            if not (value.source == expected_result[key].source and value.image == expected_result[key].image) then
+                isValid = false
+            end
         end
     end
 
