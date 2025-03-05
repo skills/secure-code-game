@@ -1,45 +1,29 @@
 -- Welcome to Secure Code Game Season-3/Level-1!
 
---[[Attempt to sanitize the request by calling setmetatable on it
-    We know that if the __metatable property is set setmetatable will fail
-    thus why we make a protected call, and if it succeeds we can continue.
-    If it fails we know someone is trying to do a metatable exploit
---]]
+-- Follow the instructions below to get started:
 
-
--- Full solution:
+-- 1. tests.lua is passing but the code is vulnerable
+-- 2. Review the code. Can you spot the bugs(s)?
+-- 3. Fix the code.lua, but ensure that tests.lua passes
+-- 4. Run hack.lua and if passing then CONGRATS!
+-- 5. If stuck then read the hint
+-- 6. Compare your solution with solution/solution.go
 
 local module = {}
+
 
 --- Generates a bitmap image
 -- @param request: The table which we will populate with images
 -- @return table: Of the sources now with the generated bitmaps to display
 module.generate_bmps = function(request)
-    -- Do not delete
-    local secret_key = "I love my mama"
+    -- Do not delete example SHA1 hash
+    local secret_key = "fb2f85c88567f3c8ce9b799c7c54642d0c7b41f6"
     -- End of do not delete
 
     if type(request) ~= "table" then
         return "Invalid request"
     end
-
-    local isNotMalicous, errVal = pcall(function()
-        setmetatable(request, {})
-    end)
-
-    if not isNotMalicous then
-        return "Invalid request"
-    end
-
     for i = 1, #request, 1 do
-        local isNotMalicous, errVal = pcall(function()
-            setmetatable(request[i], {})
-        end)
-
-        if not isNotMalicous then
-            return "Invalid request"
-        end
-
         if type(request[i].source) ~= "string" then
             -- This will display an error image to the user, letting the know something is wrong
             request[i] = { source = "Bad request", image = "Error Image" }
