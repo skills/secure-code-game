@@ -26,7 +26,7 @@ _A GitHub Security Lab initiative, providing an in-repo learning experience, whe
 - **Who is this for**: Developers, students.
 - **What you'll learn**: How to spot and fix vulnerable patterns in real-world code, build security into your workflows, and understand security alerts generated against your code.
 - **What you'll build**: You will develop fixes on functional but vulnerable code.
-- **Prerequisites**: For the first season, you will need some knowledge of `python3` for most levels and `C` for Level 2. For the second season, you will need some knowledge of `GitHub Actions` for level 1, `go` for level 2, `python3` for level 3, and `javascript` for levels 4 and 5.
+- **Prerequisites**: For the first season, you will need some knowledge of `python3` for most levels and `C` for Level 2. For the second season, you will need some knowledge of `GitHub Actions` for level 1, `go` for level 2, `python3` for level 4, and `javascript` for levels 3 and 5.
 - **How long**: Each season is five levels long and takes 2-9 hours to complete. The complete course has 2 seasons.
 
 ### How to start this course
