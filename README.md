@@ -159,7 +159,7 @@ Adapt the command to the package manager you have chosen if it's not homebrew.
 3. The `npm` packages needed are specified in `package.json` and `package-lock.json`. Navigate to the `secure-code-game` repository and install them by running:
 
 ```bash
-npm install --prefix Season-2/Level-4/ Season-2/Level-4/ && npm install --global mocha
+npm install --prefix Season-2/Level-4/ && npm install --global mocha
 ```
 
 4. At this point, you can get started with Season-1 or Season-2 by navigating on the respective folders and reading the `README.md` file.
