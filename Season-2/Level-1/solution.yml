@@ -29,13 +29,16 @@ jobs:
 # Here are some steps to guide our decision-making process, before using a new GitHub Action:
 # 1. For simple tasks, avoid external GitHub Actions because the risk might outweigh the value.
 # 2. Use GitHub Actions from Verified Creators because they follow a strict security review process.
-# 3. Use the latest version of a GitHub Action because it might contain security fixes.
-# 4. Think about GitHub Actions like dependencies: they need to be maintained and updated.
-# 5. Think about disabling or limiting GitHub Actions for your organization(s) in Settings.
-# 6. Have a PR process with multiple reviewers to avoid adding a malicious GitHub Action.
+# 3. Use Artifact Attestations to verify the piece of software you're using. Check references below.
+# 4. Use the latest version of a GitHub Action because it might contain security fixes.
+# 5. Pin the GitHub Action to a specific version by using GitHub Actions pinning. 
+# 6. Think about GitHub Actions like dependencies: they need to be maintained and updated.
+# 7. Think about disabling or limiting GitHub Actions for your organization(s) in Settings.
+# 8. Have a PR process with multiple reviewers to avoid adding a malicious GitHub Action.
 
-# Learn more:
+# References:
 # New tool to secure your GitHub Actions: https://github.blog/2023-06-26-new-tool-to-secure-your-github-actions/
+# How to enable artifact attestations: https://gh.io/docs-artifact-attestations
 # Short video on using third-party GitHub Actions like a PRO: https://www.youtube.com/shorts/eVbXtKylZpo 
 # Short video on avoiding injections from malicious GitHub Actions: https://www.youtube.com/shorts/fVxTV5rZxhc
 # Short video on GitHub Actions' secrets privileges: https://www.youtube.com/shorts/1tD7km5jK70
