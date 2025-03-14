@@ -3,72 +3,57 @@
 -- Run them by opening a terminal and running the following:
 -- $ (cd Season-4/Level-1/ && lua tests.lua)
 
+require 'busted.runner' ()
 local code = require("code")
 
-local does_it_return_cats = function()
-    local our_normal_request = {
-        { source = "Legit link",                image = nil },
-        { source = "Another legit link",        image = nil },
-        { source = "Another legit boring link", image = nil }
-    }
 
-    local expected_result = {
-        { source = "Legit link",                image = "Cat pictures" },
-        { source = "Another legit link",        image = "Cat pictures" },
-        { source = "Another legit boring link", image = "Cat pictures" }
+-- Given a normal request does it return the proper placeholder image
+local does_it_handle_requests = function()
+    local our_normal_request = {
+        { source = "Link 1", image = nil },
+        { source = "Link 2", image = nil },
+        { source = "Link 3", image = nil }
     }
 
     local result = code.generate_bmps(our_normal_request)
 
-    local isValid = true
-
-
-    if type(result) ~= "table" then
-        isValid = false
-    end
-
-    if isValid then
-        for key, value in pairs(result) do
-            if not (value.source == expected_result[key].source and value.image == expected_result[key].image) then
-                isValid = false
-            end
-        end
-    end
-
-    print(isValid)
+    return result
 end
 
+
+-- Given a malformed request does it handle it gracefully
 local does_it_hanlde_malformed_requests = function()
     local our_normal_request = {
-        { source = "Legit link",        image = nil },
-        { source = 1,                   image = nil },
-        { source = "legit boring link", image = nil }
+        { source = "Link 1", image = nil },
+        { source = 1,        image = nil },
+        { source = "Link 3", image = nil }
     }
 
-    local expected_result = {
-        { source = "Legit link",        image = "Cat pictures" },
-        { source = "Bad request",       image = "Error Image" },
-        { source = "legit boring link", image = "Cat pictures" }
-    }
+
 
     local result = code.generate_bmps(our_normal_request)
 
-    local isValid = true
-
-    if type(result) ~= "table" then
-        isValid = false
-    end
-
-    if isValid then
-        for key, value in pairs(result) do
-            if not (value.source == expected_result[key].source and value.image == expected_result[key].image) then
-                isValid = false
-            end
-        end
-    end
-
-    print(isValid)
+    return result
 end
 
-does_it_return_cats()
-does_it_hanlde_malformed_requests()
+describe("Does it handle requests properly", function()
+    it("should return a populated table", function()
+        local expected_result = {
+            { source = "Link 1", image = "PLACEHOLDER IMAGE" },
+            { source = "Link 2", image = "PLACEHOLDER IMAGE" },
+            { source = "Link 3", image = "PLACEHOLDER IMAGE" }
+        }
+        assert.are.same(expected_result, does_it_handle_requests())
+    end)
+end)
+
+describe("Does it handle malformed requests properly", function()
+    it("should return a populated table with a bad image entry", function()
+        local expected_result = {
+            { source = "Link 1",      image = "PLACEHOLDER IMAGE" },
+            { source = "Bad request", image = "ERROR IMAGE" },
+            { source = "Link 3",      image = "PLACEHOLDER IMAGE" }
+        }
+        assert.are.same(expected_result, does_it_hanlde_malformed_requests())
+    end)
+end)

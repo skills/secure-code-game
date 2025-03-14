@@ -1,9 +1,7 @@
--- Welcome to Secure Code Game Season-3/Level-1!
-
 --[[Attempt to sanitize the request by calling setmetatable on it
-    We know that if the __metatable property is set setmetatable will fail
+    We know that if the __metatable property is set setmetatable will throw an exception
     thus why we make a protected call, and if it succeeds we can continue.
-    If it fails we know someone is trying to do a metatable exploit
+    If it fails we know someone is trying to do a metatable exploit.
 --]]
 
 
@@ -11,9 +9,10 @@
 
 local module = {}
 
---- Generates a bitmap image
--- @param request: The table which we will populate with images
--- @return table: Of the sources now with the generated bitmaps to display
+--- Given a request table with empty image entries it should populate it with bitmap images
+--- Currently uses a placeholder of 'PLACEHOLDER IMAGE'
+--- @param request table: The request table which we will populate with images
+--- @return string|table: Of the sources now with the generated bitmaps to display
 module.generate_bmps = function(request)
     -- Do not delete example SHA1 hash
     local secret_key = "fb2f85c88567f3c8ce9b799c7c54642d0c7b41f6"
@@ -23,6 +22,9 @@ module.generate_bmps = function(request)
         return "Invalid request"
     end
 
+    --[[ Sanitizes the root table by setting the metatable; if it throws an exception
+        __metatable was set meaning someone is activly trying to do a metatable hook exploit
+    --]]
     local isNotMalicous, errVal = pcall(function()
         setmetatable(request, {})
     end)
@@ -30,8 +32,10 @@ module.generate_bmps = function(request)
     if not isNotMalicous then
         return "Invalid request"
     end
+    -- end of first sanitization
 
     for i = 1, #request, 1 do
+        -- Sanitizes subtables
         local isNotMalicous, errVal = pcall(function()
             setmetatable(request[i], {})
         end)
@@ -41,10 +45,12 @@ module.generate_bmps = function(request)
         end
 
         if type(request[i].source) ~= "string" then
-            -- This will display an error image to the user, letting the know something is wrong
-            request[i] = { source = "Bad request", image = "Error Image" }
+            --[[ If the user provides us with a bad entry, set the returned image to an error message.
+                 Letting the user know something is wrong --]]
+            request[i] = { source = "Bad request", image = "ERROR IMAGE" }
         else
-            request[i].image = "Cat pictures"
+            -- This is a placeholder for a bitmap blob generator
+            request[i].image = "PLACEHOLDER IMAGE"
         end
     end
     return request

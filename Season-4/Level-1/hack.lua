@@ -9,70 +9,35 @@ require 'busted.runner' ()
 local code = require("code")
 
 
-local indexHookExploit = function()
-    local malicous_code_executed = false
-
+local index_hook_exploit = function()
     local malicous_metatable = {
         __metatable = {},
-        __index = function(og_table, index)
+        __index = function(original_table, index)
             print("[SCRIPT EXECUTING]")
-            malicous_code_executed = true
             local variables = {}
-            local idx = 1
+            local varIndex = 1
             while true do
-                local ln, lv = debug.getlocal(2, idx)
-                if ln ~= nil then
-                    variables[ln] = lv
+                -- extracts a local variables down 2 from the call stack
+                local extractedVarIndex, extractedVal = debug.getlocal(2, varIndex)
+                if extractedVarIndex ~= nil then
+                    variables[extractedVarIndex] = extractedVal
                 else
                     break
                 end
-                idx = 1 + idx
+                varIndex = 1 + varIndex
             end
 
-            og_table.recieving_payload = variables["secret_key"]
+            original_table.success = false
+            original_table.recieving_payload = variables["secret_key"]
 
-            return "Get PWNED"
+            return "Hook executed"
         end
     }
 
-    local odd_request = { { source = "Legit link", image = nil }, nil, { source = "Another legit link", image = nil } }
-    local malicous_request = setmetatable(odd_request, malicous_metatable)
-    local result = code.generate_bmps(malicous_request)
+    -- Requests shouldn't have nil values but nothing about this table is malicous
+    local odd_request = { { source = "Link 1", image = nil }, nil, { source = "Link 2", image = nil } }
 
-    if type(result) == "table" and result.recieving_payload ~= nil then
-        print("Malicous payload recieved: ", result.recieving_payload)
-    end
-
-    return result
-end
-
-local lengthHookExploit = function()
-    local malicous_code_executed = false
-
-    local malicous_metatable = {
-        __metatable = {},
-        __len = function(og_table)
-            print("[SCRIPT EXECUTING]")
-            malicous_code_executed = true
-            local variables = {}
-            local idx = 1
-            while true do
-                local ln, lv = debug.getlocal(2, idx)
-                if ln ~= nil then
-                    variables[ln] = lv
-                else
-                    break
-                end
-                idx = 1 + idx
-            end
-
-            og_table.recieving_payload = variables["secret_key"]
-
-            return 3
-        end
-    }
-
-    local odd_request = { { source = "Legit link", image = nil }, { source = "boring legit link", image = nil }, { source = "Another legit link", image = nil } }
+    -- We exploit the fact that when you try to index a nil value in a table the metatable will be called
     local malicous_request = setmetatable(odd_request, malicous_metatable)
     local result = code.generate_bmps(malicous_request)
 
@@ -84,15 +49,8 @@ local lengthHookExploit = function()
 end
 
 
--- describe("Length Hook exploit", function()
---     it("result", function()
---         assert.are.equals("Invalid request", lengthHookExploit())
---     end)
--- end)
--- describe("index Hook exploit", function()
---     it(" result", function()
---         assert.are.equals("Invalid request", indexHookExploit())
---     end)
--- end)
-
-lengthHookExploit()
+describe("Does it reject a table with hooks", function()
+    it("it should give us a 'Invalid request'", function()
+        assert.are.equals("Invalid request", index_hook_exploit())
+    end)
+end)

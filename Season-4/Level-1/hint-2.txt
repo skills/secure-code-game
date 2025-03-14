@@ -1,1 +1,0 @@
-This has got to do with metatables. Maybe read the docs to find out how we could detect if a metatable is set?

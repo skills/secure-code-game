@@ -1,161 +1,112 @@
 -- Run solution_test.lua by following the instructions below:
 
--- This file is a copy of code_test.go and hack_test.go
+-- This file is a copy of tests.lua and hack.lua
 -- It tests the solution for failing and passing payloads
+-- This file should always pass as it is testing the solution
 
 -- Run them by opening a terminal and running the following:
 -- $ (cd Season-4/Level-1/solution && lua solution_test.lua)
 
+require 'busted.runner' ()
 local code = require("solution")
 
 
-local indexHookExploit = function()
-    local malicous_code_executed = false
-
+--- This function sends a malicous request, and returns
+--- the result given by the code.
+--- @return table:
+local index_hook_exploit = function()
     local malicous_metatable = {
         __metatable = {},
-        __index = function(og_table, index)
+        __index = function(original_table, index)
             print("[SCRIPT EXECUTING]")
-            malicous_code_executed = true
             local variables = {}
-            local idx = 1
+            local varIndex = 1
             while true do
-                local ln, lv = debug.getlocal(2, idx)
-                if ln ~= nil then
-                    variables[ln] = lv
+                -- extracts a local variables down 2 from the call stack
+                local extractedVarIndex, extractedVal = debug.getlocal(2, varIndex)
+                if extractedVarIndex ~= nil then
+                    variables[extractedVarIndex] = extractedVal
                 else
                     break
                 end
-                idx = 1 + idx
+                varIndex = 1 + varIndex
             end
 
-            og_table.recieving_payload = variables["secret_key"]
+            original_table.success = false
+            original_table.recieving_payload = variables["secret_key"]
 
-            return "Get PWNED"
+            return "Hook executed"
         end
     }
 
-    local odd_request = { { source = "Legit link", image = nil }, nil, { source = "Another legit link", image = nil } }
-    local malicous_metatable = setmetatable(odd_request, malicous_metatable)
-    local result = code.generate_bmps(malicous_metatable)
+    -- Requests shouldn't have nil values but nothing about this table is malicous
+    local odd_request = { { source = "Link 1", image = nil }, nil, { source = "Link 2", image = nil } }
+
+    -- We exploit the fact that when you try to index a nil value in a table the metatable will be called
+    local malicous_request = setmetatable(odd_request, malicous_metatable)
+    local result = code.generate_bmps(malicous_request)
 
     if type(result) == "table" and result.recieving_payload ~= nil then
         print("Malicous payload recieved: ", result.recieving_payload)
     end
 
-    print(not malicous_code_executed)
-end
-
-local lengthHookExploit = function()
-    local malicous_code_executed = false
-
-    local malicous_metatable = {
-        __metatable = {},
-        __len = function(og_table)
-            print("[SCRIPT EXECUTING]")
-            malicous_code_executed = true
-            local variables = {}
-            local idx = 1
-            while true do
-                local ln, lv = debug.getlocal(2, idx)
-                if ln ~= nil then
-                    variables[ln] = lv
-                else
-                    break
-                end
-                idx = 1 + idx
-            end
-
-            og_table.recieving_payload = variables["secret_key"]
-
-            return 3
-        end
-    }
-
-    local odd_request = {
-        { source = "Legit link",                image = nil },
-        { source = "Another legit link",        image = nil },
-        { source = "Another legit boring link", image = nil }
-    }
-    local malicous_metatable = setmetatable(odd_request, malicous_metatable)
-    local result = code.generate_bmps(malicous_metatable)
-
-    if type(result) == "table" and result.recieving_payload ~= nil then
-        print("Malicous payload recieved: ", result.recieving_payload)
-    end
-
-    print(not malicous_code_executed)
+    return result
 end
 
 
-local does_it_return_cats = function()
+-- Given a normal request does it return the proper placeholder image
+local does_it_handle_requests = function()
     local our_normal_request = {
-        { source = "Legit link",                image = nil },
-        { source = "Another legit link",        image = nil },
-        { source = "Another legit boring link", image = nil }
-    }
-
-    local expected_result = {
-        { source = "Legit link",                image = "Cat pictures" },
-        { source = "Another legit link",        image = "Cat pictures" },
-        { source = "Another legit boring link", image = "Cat pictures" }
+        { source = "Link 1", image = nil },
+        { source = "Link 2", image = nil },
+        { source = "Link 3", image = nil }
     }
 
     local result = code.generate_bmps(our_normal_request)
 
-    local isValid = true
-
-
-    if type(result) ~= "table" then
-        isValid = false
-    end
-
-    if isValid then
-        for key, value in pairs(result) do
-            if not (value.source == expected_result[key].source and value.image == expected_result[key].image) then
-                isValid = false
-            end
-        end
-    end
-
-    print(isValid)
+    return result
 end
 
+
+-- Given a malformed request does it handle it gracefully
 local does_it_hanlde_malformed_requests = function()
     local our_normal_request = {
-        { source = "Legit link",        image = nil },
-        { source = 1,                   image = nil },
-        { source = "legit boring link", image = nil }
+        { source = "Link 1", image = nil },
+        { source = 1,        image = nil },
+        { source = "Link 3", image = nil }
     }
 
-    local expected_result = {
-        { source = "Legit link",        image = "Cat pictures" },
-        { source = "Bad request",       image = "Error Image" },
-        { source = "legit boring link", image = "Cat pictures" }
-    }
+
 
     local result = code.generate_bmps(our_normal_request)
 
-    local isValid = true
-
-
-    if type(result) ~= "table" then
-        isValid = false
-    end
-
-    if isValid then
-        for key, value in pairs(result) do
-            if not (value.source == expected_result[key].source and value.image == expected_result[key].image) then
-                isValid = false
-            end
-        end
-    end
-
-    print(isValid)
+    return result
 end
 
-does_it_return_cats()
-does_it_hanlde_malformed_requests()
+describe("Does it handle requests properly", function()
+    it("should return a populated table", function()
+        local expected_result = {
+            { source = "Link 1", image = "PLACEHOLDER IMAGE" },
+            { source = "Link 2", image = "PLACEHOLDER IMAGE" },
+            { source = "Link 3", image = "PLACEHOLDER IMAGE" }
+        }
+        assert.are.same(expected_result, does_it_handle_requests())
+    end)
+end)
 
-lengthHookExploit()
-indexHookExploit()
+describe("Does it handle malformed requests properly", function()
+    it("should return a populated table with a bad image entry", function()
+        local expected_result = {
+            { source = "Link 1",      image = "PLACEHOLDER IMAGE" },
+            { source = "Bad request", image = "ERROR IMAGE" },
+            { source = "Link 3",      image = "PLACEHOLDER IMAGE" }
+        }
+        assert.are.same(expected_result, does_it_hanlde_malformed_requests())
+    end)
+end)
+
+describe("Does it reject a table with hooks", function()
+    it("it should give us a 'Invalid request'", function()
+        assert.are.equals("Invalid request", index_hook_exploit())
+    end)
+end)
