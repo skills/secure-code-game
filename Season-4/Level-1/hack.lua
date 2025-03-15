@@ -9,6 +9,9 @@ require 'busted.runner' ()
 local code = require("code")
 
 
+--- This function sends a malicous request, and returns
+--- the result given by the code.
+--- @return table | string: the resulting response
 local index_hook_exploit = function()
     local malicous_metatable = {
         __metatable = {},
