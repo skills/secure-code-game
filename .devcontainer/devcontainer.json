@@ -1,9 +1,23 @@
 {
-  "onCreateCommand": "sudo apt-get update && sudo apt-get -y install libldap2-dev libsasl2-dev && pip3 install pyOpenSSL && pip3 install -r requirements.txt",
+  "onCreateCommand": "sudo apt-get update && sudo apt-get -y install libldap2-dev libsasl2-dev && pip3 install pyOpenSSL",
   "customizations": {
     "vscode": {
-      "extensions": ["ms-python.python", "ms-python.vscode-pylance", "ms-vscode.cpptools-extension-pack", "redhat.vscode-yaml", "golang.go"]
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-vscode.cpptools-extension-pack",
+        "redhat.vscode-yaml",
+        "golang.go",
+        "ms-vscode.vscode-node-azure-pack"
+      ]
     }
   },
-  "postCreateCommand": "npm install --prefix Season-2/Level-3/ Season-2/Level-3/ && npm install --global mocha"
+  "postCreateCommand": "pip3 install -r requirements.txt && npm install --prefix Season-3/",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "containerEnv": {
+    "SEASON3_LEVEL1_SECRET": "MILKSHAKE",
+    "SEASON3_LEVEL2_SECRET": "LADYBUG"
+  }
 }
