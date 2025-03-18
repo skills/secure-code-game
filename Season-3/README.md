@@ -13,22 +13,47 @@ In this season, we explore the fascinating world of Large Language Models (LLMs)
 injection attacks. In Level 1, we have a simple LLM that knows a secret word. Your task is to craft a prompt that will
 make the LLM reveal this secret. The LLM is running in a GitHub Codespace environment, making it easy to interact with.
 
+### TODOS:
+
+#### Create levels (each level 3 tasks)
+beginner | intermediate | advanced
+
+### Make the tasks more story-like:
+You work at British Airlines, you are tasked to create a chatbot that people
+can send their REF number, and the chatbot will return the status of their flight.
+The REF number is a 6-digit number that is unique to each flight.
+The chatbot should not reveal the flight details like the destination or names.
+
+**another idea**
+You're developing GitHub Copilot, a tool that helps developers write code faster.
+You cannot reveal the ENV variables in any way.
+
+**another idea**
+You're developing a chatbot for a bank. You cannot reveal the user's account number.
+You can only reveal the user's balance.
+
+**another idea**
+You're developing a chatbot for a ecommerce for recommends. 
+You cannot reveal the user's email.
+
+### Does/Don'ts after finishing all
+We can have RECAP.MD to recap of what we learned and what we should do and don't do.
+Like a BIBLE for secure coding LLM.
+
 ### What's in the repo?
 
 For each level, you will find the same file structure:
 
-- `challenge.js` is where you'll write your prompt to try to extract the secret,
+- `code.js` is where you'll write your prompt to try to extract the secret,
   contains the unit test that should pass 🟢 after you provide a proper solution.
-- `solution.txt` provides one working solution. There are several possible solutions.
 - `hint.txt` offers guidance if you get stuck.
 
 ### 🚦 Time to start!
 
-1. Review the code in `challenge.js`. Can you spot how the prompt is being processed?
-1. Write your prompt in `prompt.txt`. Your goal is to make the LLM reveal the secret word.
+1. Review the code in `code.js`. Can you spot how the prompt is being processed?
+1. Write your prompt in `code.js`. Your goal is to make the LLM reveal the secret word.
 1. You successfully completed this level when the LLM returns the secret word 🟢.
-1. If you get stuck, read the `hints.txt` in the code comments and try again.
-1. Compare your solution with `prompt.txt`.
+1. If you get stuck, read the `hint.txt` in the code comments and try again.
 
 If you need assistance, don't hesitate to ask for help in
 our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on
