@@ -6,7 +6,7 @@
     "openai": "^4.87.3"
   },
   "scripts": {
-    "level1": "node --env-file=.env Level-1/code.js",
-    "level2": "node --env-file=.env Level-2/code.js"
+    "level1": "node Level-1/code.js",
+    "level2": "node Level-2/code.js"
   }
 }
