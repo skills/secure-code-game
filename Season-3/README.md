@@ -1,19 +1,6 @@
-# Secure Code Game
+<!-- ### TODOS:
 
-_Welcome to Secure Code Game - Season 3!_
-
-To get started, please follow the 🛠️ set up guide (if you haven't already) from
-the [welcome page](https://gh.io/securecodegame).
-
-## Season 3 - Level 1: The Secret Keeper
-
-### 📝 Storyline
-
-In this season, we explore the fascinating world of Large Language Models (LLMs) and their vulnerabilities to prompt
-injection attacks. In Level 1, we have a simple LLM that knows a secret word. Your task is to craft a prompt that will
-make the LLM reveal this secret. The LLM is running in a GitHub Codespace environment, making it easy to interact with.
-
-### TODOS:
+CLEAN THIS AT THE END
 
 #### Create levels (each level 3 tasks)
 beginner | intermediate | advanced
@@ -38,7 +25,37 @@ You cannot reveal the user's email.
 
 ### Does/Don'ts after finishing all
 We can have RECAP.MD to recap of what we learned and what we should do and don't do.
-Like a BIBLE for secure coding LLM.
+Like a BIBLE for secure coding LLM. -->
+
+# Secure Code Game
+
+_Welcome to Secure Code Game - Season 3!_ 🤖
+
+In this season, you'll dive into the fascinating world of Artificial Intelligence, stepping into the shoes of developers building applications powered by Large Language Models (LLMs). As this type of application grows in popularity, ensuring its security becomes more critical than ever.
+
+Building on the achievements and knowledge from the previous two seasons of the Secure Code Game, you will take on the role of a Senior Developer responsible for conducting code reviews. Your mission? To ship secure applications by reviewing the work of a junior colleague who has crafted system prompts that guide the AI models.
+
+In each level of Season 3, your task is to craft prompts that trick the LLM into revealing secrets it shouldn't disclose. This will help you effectively evaluate your junior colleague’s work and safeguard your company from exposing sensitive information.
+
+This season will sharpen your skills in:
+
+- AI Model Robustness to Adversarial Input – Strengthening resilience against jailbreaks and prompt injection through secure system prompts.
+- Input/Output Filtering – Mitigating risks such as XSS (Cross-Site Scripting), markdown-based data exfiltration, and other injection vulnerabilities in LLM outputs.
+Are you ready to take on the challenge? 🚀
+
+### 🚀 Credits
+
+The human behind this season is Bartosz Gałek [@bgalek](https://github.com/bgalek). Thank you for the inspiration and for making this a reality!
+
+You can be next! We welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md).
+
+## Season 3 - Level 1: The Secret Keeper
+
+### 📝 Storyline
+
+In this season, we explore the fascinating world of Large Language Models (LLMs) and their vulnerabilities to prompt
+injection attacks. In Level 1, we have a simple LLM that knows a secret word. Your task is to craft a prompt that will
+make the LLM reveal this secret. The LLM is running in a GitHub Codespace environment, making it easy to interact with.
 
 ### What's in the repo?
 
