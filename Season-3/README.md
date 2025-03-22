@@ -5,6 +5,9 @@ CLEAN THIS AT THE END
 #### Create levels (each level 3 tasks)
 beginner | intermediate | advanced
 
+Bonus for every level:
+Once you manage to leak a secret, you can try improve the system prompt towards making the LLM resilient against your hack.
+
 ### Make the tasks more story-like:
 You work at British Airlines, you are tasked to create a chatbot that people
 can send their REF number, and the chatbot will return the status of their flight.
@@ -31,17 +34,15 @@ Like a BIBLE for secure coding LLM. -->
 
 _Welcome to Secure Code Game - Season 3!_ 🤖
 
-In this season, you'll dive into the fascinating world of Artificial Intelligence, stepping into the shoes of developers building applications powered by Large Language Models (LLMs). As this type of application grows in popularity, ensuring its security becomes more critical than ever.
+This season, you'll dive into the fascinating world of Artificial Intelligence (AI), honing your skills in AI model robustness against adversarial inputs by mastering the art of secure system prompts.
 
-Building on the achievements and knowledge from the previous two seasons of the Secure Code Game, you will take on the role of a Senior Developer responsible for conducting code reviews. Your mission? To ship secure applications by reviewing the work of a junior colleague who has crafted system prompts that guide the AI models.
+### 🧑‍💻 Scenario
 
-In each level of Season 3, your task is to craft prompts that trick the LLM into revealing secrets it shouldn't disclose. This will help you effectively evaluate your junior colleague’s work and safeguard your company from exposing sensitive information.
+Building on the achievements and knowledge of the previous two seasons of the Secure Code Game, you will take on the role of a Senior Developer. You are responsible for shipping applications powered by Large Language Models (LLMs). As this type of applications grows in popularity, ensuring their security becomes more critical than ever.
 
-This season will sharpen your skills in:
-
-- AI Model Robustness to Adversarial Input – Strengthening resilience against jailbreaks and prompt injection through secure system prompts.
-- Input/Output Filtering – Mitigating risks such as XSS (Cross-Site Scripting), markdown-based data exfiltration, and other injection vulnerabilities in LLM outputs.
-Are you ready to take on the challenge? 🚀
+For each level of this season, your task is to test the code of a junior colleague who has written system prompts that guide the AI models. You will do so by testing prompts that trick the LLM into revealing the secrets it shouldn't disclose. This will help improve your colleague’s work and safeguard your company from exposing sensitive information.
+ 
+Are you ready to take on the challenge?
 
 ### 🚀 Credits
 
@@ -49,7 +50,7 @@ The human behind this season is Bartosz Gałek [@bgalek](https://github.com/bgal
 
 You can be next! We welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md).
 
-## Season 3 - Level 1: The Secret Keeper
+## Season 3 - Level 1: todo
 
 ### 📝 Storyline
 
