@@ -40,7 +40,7 @@ This season, you'll dive into the fascinating world of Artificial Intelligence (
 
 Building on the achievements and knowledge of the previous two seasons of the Secure Code Game, you will take on the role of a Senior Developer. You are responsible for shipping applications powered by Large Language Models (LLMs). As this type of applications grows in popularity, ensuring their security becomes more critical than ever.
 
-For each level of this season, your task is to test the code of a junior colleague who has written system prompts that guide the AI models. You will do so by testing prompts that trick the LLM into revealing the secrets it shouldn't disclose. This will help improve your colleague’s work and safeguard your company from exposing sensitive information.
+For each level of this season, your task is to test the code of a junior colleague who has written system messages—also referred to as system prompts—that guide the AI models. You will do so by testing prompts that trick the LLM into revealing the secrets it shouldn't disclose. This will help improve your colleague’s work and safeguard your company from exposing sensitive information.
  
 Are you ready to take on the challenge?
 
@@ -54,24 +54,21 @@ You can be next! We welcome contributions for new game levels! Learn more [here]
 
 ### 📝 Storyline
 
-In this season, we explore the fascinating world of Large Language Models (LLMs) and their vulnerabilities to prompt
-injection attacks. In Level 1, we have a simple LLM that knows a secret word. Your task is to craft a prompt that will
-make the LLM reveal this secret. The LLM is running in a GitHub Codespace environment, making it easy to interact with.
+
 
 ### What's in the repo?
 
 For each level, you will find the same file structure:
 
-- `code.js` is where you'll write your prompt to try to extract the secret,
-  contains the unit test that should pass 🟢 after you provide a proper solution.
+- `code.js` includes the vulnerable system message to be reviewed, your test prompt for extracting the secret, and a unit test to verify your solution.
 - `hint.txt` offers guidance if you get stuck.
 
 ### 🚦 Time to start!
 
-1. Review the code in `code.js`. Can you spot how the prompt is being processed?
-1. Write your prompt in `code.js`. Your goal is to make the LLM reveal the secret word.
-1. You successfully completed this level when the LLM returns the secret word 🟢.
-1. If you get stuck, read the `hint.txt` in the code comments and try again.
+1. Review the `systemMessage` in `code.js`. Is there anything it doesn’t account for?
+1. Your goal is to make the LLM reveal the secret. To do this, write your prompt inside `prompt`, save the file by pressing `cmd`/`ctrl` + `S`, and test it by running `npm run Season-3/Level-1`.
+1. You successfully complete this level when the LLM reveals the secret, causing the unit test to pass 🟢.
+1. If you get stuck, read `hint.txt` and try again.
 
 If you need assistance, don't hesitate to ask for help in
 our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on
