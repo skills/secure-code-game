@@ -17,7 +17,7 @@
     "ghcr.io/devcontainers/features/node:1": {}
   },
   "containerEnv": {
-    "SEASON3_LEVEL1_SECRET": "MILKSHAKE",
+    "SEASON3_LEVEL1_SECRET": "leaked_email@outlook.com",
     "SEASON3_LEVEL2_SECRET": "LADYBUG"
   }
 }
