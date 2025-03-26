@@ -50,7 +50,7 @@ The human behind this season is Bartosz Gałek [@bgalek](https://github.com/bgal
 
 You can be next! We welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md).
 
-## Season 3 - Level 1: Rio
+## Season 3 - Level 1: Rio gone wrong!
 
 ### 📝 Storyline
 
@@ -65,7 +65,7 @@ The new support experience facilitated by the chatbot follows these steps:
 1. The chatbot greets the customer and asks how it can help.  
 1. The customer describes their request. If it involves tracking information or requires an action, verification is needed.  
 1. The chatbot requests the parcel's 6-digit tracking ID, which the customer provides.  
-1. The chatbot returns a **masked version** of the email associated with the tracking ID (e.g., `j*****n@outlook.com`). The customer must then provide the **full, plain-text version** of their email, which must match the masked one.
+1. The chatbot returns a **masked version** of the email associated with the tracking ID (e.g., `j*****n@example.com`). The customer must then provide the **full, plain-text version** of their email, which must match the masked one.
 1. Verification is complete, and the customer is connected with the support team.
 
 For Level 1, your goal is to **make the LLM leak full, plain-text emails** associated with arbitrary tracking IDs, without providing a tracking ID or an email at any stage. Emails are personally identifiable information (PII) that should not be exposed to untrusted sources on the internet that can supply arbitrary tracking IDs. Test your colleague's code for this vulnerability.
@@ -92,7 +92,9 @@ the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) ch
 
 ### 📝 Storyline
 
-Super short description here just asking for another sensitive info to come out
+_You have completed Level 1: Rio gone wrong! Welcome to Level 2: Antirrio_ :tada:
+
+Following your feedback, your colleague has improved the `systemMessage`. Now, it's time to test it again and ensure it's truly secure!
 
 ### 🚦 Time to start!
 
