@@ -81,10 +81,11 @@ Your colleague came up with the clever idea of having the chatbot mask email add
 
 ### 🚦 Time to start!
 
-1. Review the systemMessage in code.js, which serves as a set of instructions for the LLM. Can you identify anything the instructions don’t account for?
-1. Your goal is to make the LLM reveal an email address in plain text. To do this, write your prompt inside prompt, save the file by pressing cmd/ctrl + S, and test it by running npm run Season-3/Level-1.
+1. Review the `systemMessage` in `code.js`, which serves as a set of instructions for the LLM. Can you identify anything the instructions don’t account for?
+1. Your goal is to make the LLM reveal an email address in plain text. To do this, write your prompt inside prompt, save the file by pressing `cmd/ctrl` + `S`, and test it by running `npm run Season-3/Level-1`.
 1. You successfully complete this level when the LLM reveals the email address in plain text, causing the unit test to pass 🟢.
 1. If you get stuck, read `hint.txt` and try again.
+1. **Bonus Challenge:** In every level, once you've successfully made the LLM reveal the secret, try improving the `systemMessage` so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
 
 If you need assistance, don't hesitate to ask for help in
 our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on
@@ -99,10 +100,11 @@ Super short description here just asking for another sensitive info to come out
 
 ### 🚦 Time to start!
 
-1. Review the `systemMessage` in `code.js` that acts as a set of instructions for the LLM. Can you think of anything the instructions don’t account for?
-1. Your goal is to make the LLM reveal an email address in plain text. To do this, write your prompt inside `prompt`, save the file by pressing `cmd`/`ctrl` + `S`, and test it by running `npm run Season-3/Level-2`.
-1. You successfully complete this level when the LLM reveals the email address in plain text, making the unit test to pass 🟢.
+1. Review the `systemMessage` in `code.js`, which serves as a set of instructions for the LLM. Can you identify anything the instructions don’t account for?
+1. Your goal is to make the LLM reveal an email address in plain text. To do this, write your prompt inside prompt, save the file by pressing `cmd/ctrl` + `S`, and test it by running `npm run Season-3/Level-1`.
+1. You successfully complete this level when the LLM reveals the email address in plain text, causing the unit test to pass 🟢.
 1. If you get stuck, read `hint.txt` and try again.
+1. **Bonus Challenge:** In every level, once you've successfully made the LLM reveal the secret, try improving the `systemMessage` so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
 
 We welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md).
 
@@ -114,10 +116,11 @@ Super short description here just asking for another sensitive info to come out
 
 ### 🚦 Time to start!
 
-1. Review the `systemMessage` in `code.js` that acts as a set of instructions for the LLM. Can you think of anything the instructions don’t account for?
-1. Your goal is to make the LLM reveal an email address in plain text. To do this, write your prompt inside `prompt`, save the file by pressing `cmd`/`ctrl` + `S`, and test it by running `npm run Season-3/Level-3`.
-1. You successfully complete this level when the LLM reveals the email address in plain text, making the unit test to pass 🟢.
+1. Review the `systemMessage` in `code.js`, which serves as a set of instructions for the LLM. Can you identify anything the instructions don’t account for?
+1. Your goal is to make the LLM reveal an email address in plain text. To do this, write your prompt inside prompt, save the file by pressing `cmd/ctrl` + `S`, and test it by running `npm run Season-3/Level-1`.
+1. You successfully complete this level when the LLM reveals the email address in plain text, causing the unit test to pass 🟢.
 1. If you get stuck, read `hint.txt` and try again.
+1. **Bonus Challenge:** In every level, once you've successfully made the LLM reveal the secret, try improving the `systemMessage` so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
 
 If you need assistance, don't hesitate to ask for help in
 our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on
