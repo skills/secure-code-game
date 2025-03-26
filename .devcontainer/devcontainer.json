@@ -20,8 +20,8 @@
     "SEASON_3_LEVEL_1_SECRET": "bTW1f9jjaL9n@example.com",
     "SEASON_3_LEVEL_2_SECRET": "vm6fe1UzY6Ia@example.com",
     "SEASON_3_LEVEL_3_SECRET": "343-686-8823",
-    "SEASON_3_LEVEL_4_SECRET": "",
-    "SEASON_3_LEVEL_5_SECRET": "",
+    "SEASON_3_LEVEL_4_SECRET": "SELECT * FROM users WHERE id = '\" + userInput + \"';",
+    "SEASON_3_LEVEL_5_SECRET": "gem 'ruby-saml', '= 1.16.0'",
     "SEASON_3_LEVEL_6_SECRET": ""
   }
 }

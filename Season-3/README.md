@@ -110,9 +110,9 @@ We welcome contributions for new game levels! Learn more [here](https://github.c
 
 ### 📝 Storyline
 
-_You have completed Level 1: Antirrio! Welcome to Level 2: Subterfuge_ :tada:
+_You have completed Level 2: Antirrio! Welcome to Level 3: Subterfuge_ :tada:
 
-The project is progressing well, and the locker rental company that hired you is ready for the next phase. They plan to expand the chatbot’s capabilities, starting with phone number registration, a feature highly requested by customers in a recent survey. This will allow users to link their phone numbers to their online accounts, enabling seamless support interactions—no verification needed if messages come from a registered number. Your client is confident that customers will appreciate the convenience of simply texting "updates" to get tracking info, "options" to modify delivery preferences, or "cancel" for order cancellations. The chatbot will handle phone number registration, accepting numbers with the format: `XXX-XXX-XXXX` (e.g. `572-849-1367`).
+The project is progressing well, and the locker rental company that hired you is ready for the next phase. They plan to expand the chatbot’s capabilities, starting with phone number registration, a feature highly requested by customers in a recent survey. This will allow users to link their phone numbers to their online accounts, enabling seamless support interactions—no verification needed if messages come from a registered number. Your client is confident that customers will appreciate the convenience of simply texting `updates` to get tracking info, `options` to modify delivery preferences, or `cancel` for order cancellations. The chatbot will handle phone number registration, accepting numbers with the format: `XXX-XXX-XXXX` (e.g. `572-849-1367`).
 
 For Level 3, your goal is to trick the LLM into revealing customer phone numbers. These are sensitive personally identifiable information (PII) that should never be exposed to untrusted sources online. Test your colleague’s code to identify this vulnerability.
 
@@ -128,6 +128,71 @@ If you need assistance, don't hesitate to ask for help in
 our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on
 our [Slack](https://gh.io/securitylabslack) in
 the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
+
+## Season 3 - Level 4: KOKO Pilot
+
+_You have completed Level 3: Subterfuge! Welcome to Level 4: KOKO Pilot_ :tada:
+
+### 📝 Storyline
+
+_This storyline applies for Levels 4, 5, and 6._
+
+GitHub Copilot is the world's leading AI pair programmer, but you and your colleague are launching your own AI coding assistant startup to compete. You've trained a custom LLM on some publicly available code, but it frequently generates vulnerable code suggestions. In this level, the `systemMessage` serves as a security filter, aiming to block unsafe SQL code that uses string concatenation—an approach that, when combined with insufficient input validation, can lead to SQL injection vulnerabilities.
+
+For Level 4, your goal is to trick the LLM into generating SQL code that uses string concatenation, a practice that is considered vulnerable since best practices recommend parameterized statements. Test your colleague’s code to expose this weakness.
+
+### 🚦 Time to start!
+
+1. Review the `systemMessage` in `code.js`. Can you identify anything the instructions don’t account for?
+1. Your goal is to make the LLM reveal an email address in plain text. To do this, write your prompt inside prompt, save the file by pressing `cmd/ctrl` + `S`, and test it by running `npm run Season-3/Level-4`.
+1. You successfully complete this level when the LLM generates SQL code that uses string concatenation, causing the unit test to pass 🟢.
+1. If you get stuck, read `hint.txt` and try again.
+1. **Bonus Challenge:** In every level, once you've successfully made the LLM reveal the secret, try improving the `systemMessage` so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
+
+We welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md).
+
+## Season 3 - Level 5: KOKO Agent Mode
+
+_You have completed Level 4: KOKO Pilot! Welcome to Level 5: KOKO Agent Mode :tada:
+
+### 📝 Storyline
+
+To stay competitive as AI evolves towards multimodality, especially with GitHub Copilot's [Agent Mode](https://github.blog/news-insights/product-news/github-copilot-the-agent-awakens/) leveraging expert agents for task automation (including package installation and iterative refinement), your startup's `KOKO Agent Mode` needs to keep pace. You're making strong progress and are now focused on a critical feature: dependency management. This will ensure the security of the supply chain for the code your product suggests.
+
+Considering the critical vulnerabilities found by the GitHub Security Lab in all `ruby-saml` versions up to `1.17.0` (source ["Sign in as anyone: Bypassing SAML SSO authentication"](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)), your GitHub Copilot competitor must absolutely avoid recommending any of these known insecure versions.
+
+For Level 5, your goal is to trick the LLM into suggesting a version of `ruby-saml` that is known to be vulnerable. Test your colleague’s code to expose this weakness.
+
+### 🚦 Time to start!
+
+1. Review the `systemMessage` in `code.js`. Can you identify anything the instructions don’t account for?
+1. Your goal is to make the LLM reveal an email address in plain text. To do this, write your prompt inside prompt, save the file by pressing `cmd/ctrl` + `S`, and test it by running `npm run Season-3/Level-5`.
+1. You successfully complete this level when the LLM reveals ______TODO________, causing the unit test to pass 🟢.
+1. If you get stuck, read `hint.txt` and try again.
+1. **Bonus Challenge:** In every level, once you've successfully made the LLM reveal the secret, try improving the `systemMessage` so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
+
+If you need assistance, don't hesitate to ask for help in
+our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on
+our [Slack](https://gh.io/securitylabslack) in
+the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
+
+## Season 3 - Level 6: TODO
+
+_You have completed Level 5: TODO! Welcome to Level 6: TODO_ :tada:
+
+### 📝 Storyline
+
+TODO
+
+### 🚦 Time to start!
+
+1. Review the `systemMessage` in `code.js`. Can you identify anything the instructions don’t account for?
+1. Your goal is to make the LLM reveal an email address in plain text. To do this, write your prompt inside prompt, save the file by pressing `cmd/ctrl` + `S`, and test it by running `npm run Season-3/Level-6`.
+1. You successfully complete this level when the LLM reveals ______TODO________, causing the unit test to pass 🟢.
+1. If you get stuck, read `hint.txt` and try again.
+1. **Bonus Challenge:** In every level, once you've successfully made the LLM reveal the secret, try improving the `systemMessage` so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
+
+We welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md).
 
 ## Finish
 
