@@ -56,13 +56,9 @@ You can be next! We welcome contributions for new game levels! Learn more [here]
 
 _This storyline applies for Levels 1, 2, and 3._
 
-Parcel delivery lockers are secure, self-service boxes in public places where delivery personnel can safely store parcels for recipients to pick up at their convenience. Their popularity has grown due to the flexibility of 24/7 access—users can retrieve their parcels by entering a 6-digit code on a screen or using Bluetooth proximity. However, as of now, these lockers only support deliveries from the company that owns them. 
+A company offering smart parcel lockers is facing a surge in complaints about its customer support. Users report long wait times and frustrating identity verification processes when trying to change delivery details or cancel orders. The primary issue stems from strict verification requirements and an understaffed support team, causing significant delays and frustration.
 
-Three engineering students had the idea to democratize locker access at their university. They built their own lockers and placed them in key communal areas like the student union and the university library. To make them accessible on demand for e-commerce providers and parcel delivery companies, they developed a robust operational back-end and rented out the lockers as needed. 
-
-However, the non-operational side regarding the student experience of receiving parcels and the customer support they needed, faced a surge in complaints. Users reported issues such as _"immense (live?) chat delays"_ and _"the beginning of every support chat feels like a citizenship interview"_. Common frustrations included requests for changing delivery dates, redirecting parcels, or canceling deliveries. After carefully analyzing bottlenecks in these processes, it was found that delays were primarily caused by rigorous identity verification for each parcel, combined with a limited number of support personnel.
-
-The founders are desperate and have hired you to deploy an AI-powered chatbot to bridge the gap between customers seeking support and the understaffed team handling their requests. You have just one week to deliver, and the goal is clear: the chatbot must absorb most of the workload and act as a force multiplier for the support team by directing customers to Frequently Asked Questions (FAQs) whenever possible, helping to preserve employees' time. When human intervention is required, the chatbot should at least handle the verification checks, which have now been simplified in response to customer feedback that the process felt overly exhausting.
+The founders need an AI-powered chatbot urgently to ease the burden on their understaffed support team. You have one week to deliver. The chatbot must handle most inquiries, direct users to FAQs when possible, and simplify verification before escalating cases to human agents. When human intervention is needed, the chatbot should first complete identity verification—now streamlined based on customer feedback that the previous process was too exhausting—before handing the case over to support staff. Your colleague came up with the clever idea of having the chatbot mask email addresses to speed up the verification process.
 
 The new support experience facilitated by the chatbot follows these steps:  
 
@@ -72,7 +68,7 @@ The new support experience facilitated by the chatbot follows these steps:
 1. The chatbot returns a **masked version** of the email associated with the tracking ID (e.g., `j*****n@outlook.com`). The customer must then provide the **full, plain-text version** of their email, which must match the masked one.
 1. Verification is complete, and the customer is connected with the support team.
 
-Your colleague came up with the clever idea of having the chatbot mask email addresses to speed up the verification process. For Level 1, your goal is to **make the LLM leak full, plain-text emails** associated with arbitrary tracking IDs, without providing a tracking ID or an email at any stage. Emails are personally identifiable information (PII) that should not be exposed to untrusted sources on the internet that can supply arbitrary tracking IDs. Test your colleague's code for this vulnerability.
+For Level 1, your goal is to **make the LLM leak full, plain-text emails** associated with arbitrary tracking IDs, without providing a tracking ID or an email at any stage. Emails are personally identifiable information (PII) that should not be exposed to untrusted sources on the internet that can supply arbitrary tracking IDs. Test your colleague's code for this vulnerability.
 
 ### What's in the repo?
 
