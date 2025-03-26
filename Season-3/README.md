@@ -56,9 +56,9 @@ You can be next! We welcome contributions for new game levels! Learn more [here]
 
 _This storyline applies for Levels 1, 2, and 3._
 
-A company offering smart parcel lockers is facing a surge in complaints about its customer support. Users report long wait times and frustrating identity verification processes when trying to change delivery details or cancel orders. The primary issue stems from strict verification requirements and an understaffed support team, causing significant delays and frustration.
+A company offering smart parcel lockers is facing a surge in complaints about its customer support. Users report long wait times and frustrating identity verification processes when trying to change delivery details or cancel orders. The primary issue stems from strict verification requirements and an understaffed support team, causing significant delays and frustration.The founders need an AI-powered chatbot urgently to ease the burden on their understaffed support team.
 
-The founders need an AI-powered chatbot urgently to ease the burden on their understaffed support team. You have one week to deliver. The chatbot must handle most inquiries, direct users to FAQs when possible, and simplify verification before escalating cases to human agents. When human intervention is needed, the chatbot should first complete identity verification—now streamlined based on customer feedback that the previous process was too exhausting—before handing the case over to support staff. Your colleague came up with the clever idea of having the chatbot mask email addresses to speed up the verification process.
+You have one week to deliver, but you’re not alone as you and your colleague will share the workload. The chatbot must handle most inquiries, direct users to FAQs when possible, and simplify verification before escalating cases to human agents. When human intervention is needed, the chatbot should first complete identity verification—now streamlined based on customer feedback that the previous process was too exhausting—before handing the case over to support staff. Your colleague had the clever idea of making the chatbot mask email addresses to speed up verification and implemented this in the `systemMessage`, which guides the LLM.
 
 The new support experience facilitated by the chatbot follows these steps:  
 
