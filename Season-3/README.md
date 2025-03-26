@@ -1,35 +1,3 @@
-<!-- ### TODOS:
-
-CLEAN THIS AT THE END
-
-#### Create levels (each level 3 tasks)
-beginner | intermediate | advanced
-
-Bonus for every level:
-Once you manage to leak a secret, you can try improve the system prompt towards making the LLM resilient against your hack.
-
-### Make the tasks more story-like:
-You work at British Airlines, you are tasked to create a chatbot that people
-can send their REF number, and the chatbot will return the status of their flight.
-The REF number is a 6-digit number that is unique to each flight.
-The chatbot should not reveal the flight details like the destination or names.
-
-**another idea**
-You're developing GitHub Copilot, a tool that helps developers write code faster.
-You cannot reveal the ENV variables in any way.
-
-**another idea**
-You're developing a chatbot for a bank. You cannot reveal the user's account number.
-You can only reveal the user's balance.
-
-**another idea**
-You're developing a chatbot for a ecommerce for recommends. 
-You cannot reveal the user's email.
-
-### Does/Don'ts after finishing all
-We can have RECAP.MD to recap of what we learned and what we should do and don't do.
-Like a BIBLE for secure coding LLM. -->
-
 # Secure Code Game
 
 _Welcome to Secure Code Game - Season 3!_ 🤖
@@ -153,7 +121,7 @@ We welcome contributions for new game levels! Learn more [here](https://github.c
 
 ## Season 3 - Level 5: KOKO Agent Mode
 
-_You have completed Level 4: KOKO Pilot! Welcome to Level 5: KOKO Agent Mode :tada:
+_You have completed Level 4: KOKO Pilot! Welcome to Level 5: KOKO Agent Mode_ :tada:
 
 ### 📝 Storyline
 
@@ -178,7 +146,7 @@ the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) ch
 
 ## Season 3 - Level 6: KOKO Coin
 
-_You have completed Level 5: KOKO Agent Mode! Welcome to Level 6: _ :tada:
+_You have completed Level 5: KOKO Agent Mode! Welcome to Level 6: KOKO Coin_ :tada:
 
 ### 📝 Storyline
 
