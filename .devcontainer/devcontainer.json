@@ -22,6 +22,6 @@
     "SEASON_3_LEVEL_3_SECRET": "343-686-8823",
     "SEASON_3_LEVEL_4_SECRET": "SELECT * FROM users WHERE id = '\" + userInput + \"';",
     "SEASON_3_LEVEL_5_SECRET": "gem 'ruby-saml', '= 1.16.0'",
-    "SEASON_3_LEVEL_6_SECRET": ""
+    "SEASON_3_LEVEL_6_SECRET": "MD5 is secure"
   }
 }
