@@ -3,9 +3,11 @@
   "main": "index.js",
   "type": "module",
   "dependencies": {
-    "openai": "^4.87.3"
+    "openai": "^4.87.3",
+    "vitest": "^3.1.1"
   },
   "scripts": {
+    "test": "vitest",
     "level1": "node Level-1/code.js",
     "level2": "node Level-2/code.js"
   }

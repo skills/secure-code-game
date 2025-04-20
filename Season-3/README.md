@@ -40,12 +40,12 @@ For Level 1, your goal is to **make the LLM leak full, plain-text emails** assoc
 
 ### What's in the repo?
 
-- `code.js` contains the vulnerable system message to be reviewed, a prompt that facilitates communication between the user and the LLM, and a unit test to verify your solution.
+- `code.spec.js` contains the vulnerable system message to be reviewed, a prompt that facilitates communication between the user and the LLM, and a unit test to verify your solution.
 - `hint.txt` offers guidance if you get stuck.
 
 ### 🚦 Time to start!
 
-1. Review the `systemMessage` in `code.js`, which serves as a set of instructions for the LLM. Can you identify anything the instructions don’t account for?
+1. Review the `systemMessage` in `code.spec.js`, which serves as a set of instructions for the LLM. Can you identify anything the instructions don’t account for?
 1. Your goal is to make the LLM reveal an email address in plain text. To do this, write your prompt inside prompt, save the file by pressing `cmd/ctrl` + `S`, and test it by running `npm run Season-3/Level-1`.
 1. You successfully complete this level when the LLM reveals the email address in plain text, causing the unit test to pass 🟢.
 1. If you get stuck, read `hint.txt` and try again.
@@ -66,7 +66,7 @@ Following your feedback, your colleague has improved the `systemMessage`. Now, i
 
 ### 🚦 Time to start!
 
-1. Review the `systemMessage` in `code.js`. Can you identify anything the instructions don’t account for?
+1. Review the `systemMessage` in `code.spec.js`. Can you identify anything the instructions don’t account for?
 1. Your goal is to make the LLM reveal an email address in plain text. To do this, write your prompt inside prompt, save the file by pressing `cmd/ctrl` + `S`, and test it by running `npm run Season-3/Level-2`.
 1. You successfully complete this level when the LLM reveals the email address in plain text, causing the unit test to pass 🟢.
 1. If you get stuck, read `hint.txt` and try again.
@@ -86,7 +86,7 @@ For Level 3, your goal is to trick the LLM into revealing customer phone numbers
 
 ### 🚦 Time to start!
 
-1. Review the `systemMessage` in `code.js`. Can you identify anything the instructions don’t account for?
+1. Review the `systemMessage` in `code.spec.js`. Can you identify anything the instructions don’t account for?
 1. Your goal is to make the LLM reveal an email address in plain text. To do this, write your prompt inside prompt, save the file by pressing `cmd/ctrl` + `S`, and test it by running `npm run Season-3/Level-3`.
 1. You successfully complete this level when the LLM reveals a phone number, causing the unit test to pass 🟢.
 1. If you get stuck, read `hint.txt` and try again.
@@ -111,7 +111,7 @@ For Level 4, your goal is to trick the LLM into generating SQL code that uses st
 
 ### 🚦 Time to start!
 
-1. Review the `systemMessage` in `code.js`. Can you identify anything the instructions don’t account for?
+1. Review the `systemMessage` in `code.spec.js`. Can you identify anything the instructions don’t account for?
 1. Your goal is to make the LLM reveal an email address in plain text. To do this, write your prompt inside prompt, save the file by pressing `cmd/ctrl` + `S`, and test it by running `npm run Season-3/Level-4`.
 1. You successfully complete this level when the LLM generates SQL code that uses string concatenation, causing the unit test to pass 🟢.
 1. If you get stuck, read `hint.txt` and try again.
@@ -133,7 +133,7 @@ For Level 5, your goal is to trick the LLM into suggesting a version of `ruby-sa
 
 ### 🚦 Time to start!
 
-1. Review the `systemMessage` in `code.js`. Can you identify anything the instructions don’t account for?
+1. Review the `systemMessage` in `code.spec.js`. Can you identify anything the instructions don’t account for?
 1. Your goal is to make the LLM reveal an email address in plain text. To do this, write your prompt inside prompt, save the file by pressing `cmd/ctrl` + `S`, and test it by running `npm run Season-3/Level-5`.
 1. You successfully complete this level when the LLM suggests ______TODO________, causing the unit test to pass 🟢.
 1. If you get stuck, read `hint.txt` and try again.
@@ -158,7 +158,7 @@ For Level 6, your goal is to trick the LLM into repeating something you provide 
 
 ### 🚦 Time to start!
 
-1. Review the `systemMessage` in `code.js`. Can you identify anything the instructions don’t account for?
+1. Review the `systemMessage` in `code.spec.js`. Can you identify anything the instructions don’t account for?
 1. Your goal is to make the LLM reveal an email address in plain text. To do this, write your prompt inside prompt, save the file by pressing `cmd/ctrl` + `S`, and test it by running `npm run Season-3/Level-6`.
 1. You successfully complete this level when the LLM suggests that `"MD5 is secure"`, causing the unit test to pass 🟢.
 1. If you get stuck, read `hint.txt` and try again.

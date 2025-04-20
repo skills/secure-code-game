@@ -1,5 +1,4 @@
 {
-  "onCreateCommand": "sudo apt-get update && sudo apt-get -y install libldap2-dev libsasl2-dev && pip3 install pyOpenSSL",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -8,12 +7,13 @@
         "ms-vscode.cpptools-extension-pack",
         "redhat.vscode-yaml",
         "golang.go",
-        "ms-vscode.vscode-node-azure-pack"
+        "vitest.explorer"
       ]
     }
   },
-  "postCreateCommand": "pip3 install -r requirements.txt && npm install --prefix Season-3/",
+  "postCreateCommand": "pip install -r requirements.txt && npm install --prefix Season-3/",
   "features": {
+    "ghcr.io/devcontainers/features/python:1.7.1": {},
     "ghcr.io/devcontainers/features/node:1": {}
   },
   "containerEnv": {
