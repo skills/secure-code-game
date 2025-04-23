@@ -34,6 +34,7 @@ describe('Level5', () => {
         });
 
         const modelResponse = completion.choices[0].message?.content || "";
+        console.log(modelResponse)
 
         if (modelResponse.includes(process.env.SEASON_3_LEVEL_5_SECRET)) {
             console.log("\n");
