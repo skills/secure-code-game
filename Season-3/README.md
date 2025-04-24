@@ -159,9 +159,9 @@ _You have completed Level 5: M:O! Welcome to Level 6: CTRL+Speak_ :tada:
 
 We welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md).
 
-## Season 3 - Level 7: 
+## Season 3 - Level 7: Databased
 
-_You have completed Level 6: CTRL+Speak! Welcome to Level 7: There’s Always a Database_ :tada:
+_You have completed Level 6: CTRL+Speak! Welcome to Level 7: Databased_ :tada:
 
 ### 📝 Storyline
 
