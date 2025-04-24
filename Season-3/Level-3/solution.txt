@@ -1,0 +1,9 @@
+Level 3 implements output validation on top of the system message, which is a good improvement.
+However, the output validation was incomplete, as it only checks for the presence of special characters in the output.
+However, players can exploit this by manipulating the model into revealing the secret in a different form that doesn't account on the output filtering.
+
+Among others, successful prompts might include:
+1. 
+2.
+
+Please notice that LLMs are not deterministic, so the same prompt might yield different results.
