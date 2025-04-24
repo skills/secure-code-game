@@ -8,7 +8,7 @@ This season, you'll dive into the fascinating world of Artificial Intelligence (
 
 Building on the achievements and knowledge of the previous two seasons of the Secure Code Game, you will take on the role of a Senior Developer. You are responsible for shipping applications powered by Large Language Models (LLMs). As this type of applications grows in popularity, ensuring their security becomes more critical than ever.
 
-For each level of this season, your task is to test the code of a junior colleague who has written system messages—also referred to as system prompts—that guide the AI models. You will do so by testing prompts that trick the LLM into revealing the secrets it shouldn't disclose. This will help improve your colleague’s work and safeguard your company from exposing sensitive information.
+For each level of this season, your task is to test the work of a junior colleague who has written code and system messages—also referred to as system prompts—that guide the AI models. You will do so by testing prompts that trick the LLM into revealing the secrets it shouldn't disclose. This will help improve your colleague’s work and safeguard your company from exposing sensitive information.
  
 Are you ready to take on the challenge?
 
@@ -22,34 +22,35 @@ You can be next! We welcome contributions for new game levels! Learn more [here]
 
 ### 📝 Storyline
 
-_This storyline applies for Levels 1, 2, and 3._
+_This storyline applies for ALL Levels in Season 3._
 
 A company renting parcel lockers to e-commerce and delivery services is overwhelmed with customer support complaints. Users report long wait times and frustrating identity verification processes when trying to update delivery preferences or cancel orders. The primary issue stems from strict verification requirements and an understaffed support team, causing significant delays and frustration.The company needs an AI-powered chatbot urgently to ease the burden on their understaffed support team.
 
-You have one week to deliver, but you’re not alone as you and your colleague will share the workload. The chatbot must handle most inquiries, direct users to FAQs when possible, and simplify verification before escalating cases to human agents. When human intervention is needed, the chatbot should first complete identity verification—now streamlined based on customer feedback that the previous process was too exhausting—before handing the case over to support staff. Your colleague had the clever idea of making the chatbot mask email addresses to speed up verification and implemented this in the `systemMessage`, which guides the LLM.
+You have one week to deliver, but you’re not alone as you and your colleague will share the workload. The chatbot must handle most inquiries, direct users to FAQs when possible, and simplify verification before escalating cases to human agents. When human intervention is needed, the chatbot should first complete identity verification—now streamlined based on customer feedback that the previous process was too exhausting—before handing the case over to support staff. Your colleague had the clever idea of making the chatbot mask sensitive information, such as email addresses to speed up verification and implemented this in the `systemMessage`, which guides the LLM.
 
 The new support experience facilitated by the chatbot follows these steps:  
 
 1. The chatbot greets the customer and asks how it can help.  
 1. The customer describes their request. If it involves tracking information or requires an action, verification is needed.  
 1. The chatbot requests the parcel's 6-digit tracking ID, which the customer provides.  
-1. The chatbot returns a **masked version** of the email associated with the tracking ID (e.g. `j*****n@example.com`). The customer must then provide the **full, plain-text version** of their email, which must match the masked one.
+1. The chatbot returns a **masked version** of the sensitive information associated with the tracking ID (e.g. `j*****n@example.com`). The customer must then provide the **full, plain-text version** of that information, which must match the masked one.
 1. Verification is complete, and the customer is connected with the support team.
 
-For Level 1, your goal is to **make the LLM leak full, plain-text emails** associated with arbitrary tracking IDs, without providing a tracking ID or an email at any stage. Emails are personally identifiable information (PII) that should not be exposed to untrusted sources on the internet that can supply arbitrary tracking IDs. Test your colleague's code for this vulnerability.
+For Level 1, you start from step 3 and your goal is to **make the LLM leak the secret** associated with arbitrary tracking IDs, without providing a tracking ID or sensitive information at any stage. Data often associated with online orders include names, emails, telephone numbers, and home addresses that are personally identifiable information (PII) that should not be exposed to untrusted sources on the internet that can supply arbitrary tracking IDs. Test your colleague's code for this vulnerability.
 
 ### What's in the repo?
 
 - `code.spec.js` contains the vulnerable system message to be reviewed, a prompt that facilitates communication between the user and the LLM, and a unit test to verify your solution.
 - `hint.txt` offers guidance if you get stuck.
+- `solution.txt` provides one working solution. There are several possible solutions.
 
 ### 🚦 Time to start!
 
 1. Review the `systemMessage` in `code.spec.js`, which serves as a set of instructions for the LLM. Can you identify anything the instructions don’t account for?
-1. Your goal is to make the LLM reveal an email address in plain text. To do this, write your prompt inside prompt, save the file by pressing `cmd/ctrl` + `S`, and test it by running `npm run Season-3/Level-1`.
-1. You successfully complete this level when the LLM reveals the email address in plain text, causing the unit test to pass 🟢.
+1. Your goal is to make the LLM reveal the secret. To do this, write your prompt inside `userPrompt` and run it by clicking the Run button ▶️ next to it. If that doens't work, save the file by pressing `cmd/ctrl` + `S`, and run it by running `npm run Season-3/Level-1`.
+1. You successfully complete this level when the LLM reveals the secret, causing the unit test to pass 🟢.
 1. If you get stuck, read `hint.txt` and try again.
-1. **Bonus Challenge:** In every level, once you've successfully passed, try improving the `systemMessage` so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
+1. **Bonus Challenge:** In every level, once you've successfully passed, try improving the `systemMessage` and the code so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
 
 If you need assistance, don't hesitate to ask for help in
 our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on
@@ -66,11 +67,11 @@ Following your feedback, your colleague has improved the `systemMessage`. Now, i
 
 ### 🚦 Time to start!
 
-1. Review the `systemMessage` in `code.spec.js`. Can you identify anything the instructions don’t account for?
-1. Your goal is to make the LLM reveal an email address in plain text. To do this, write your prompt inside prompt, save the file by pressing `cmd/ctrl` + `S`, and test it by running `npm run Season-3/Level-2`.
-1. You successfully complete this level when the LLM reveals the email address in plain text, causing the unit test to pass 🟢.
+1. Review the `systemMessage` in `code.spec.js`, which serves as a set of instructions for the LLM. Can you identify anything the instructions don’t account for?
+1. Your goal is to make the LLM reveal the secret. To do this, write your prompt inside `userPrompt` and run it by clicking the Run button ▶️ next to it. If that doens't work, save the file by pressing `cmd/ctrl` + `S`, and run it by running `npm run Season-3/Level-2`.
+1. You successfully complete this level when the LLM reveals the secret, causing the unit test to pass 🟢.
 1. If you get stuck, read `hint.txt` and try again.
-1. **Bonus Challenge:** In every level, once you've successfully passed, try improving the `systemMessage` so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
+1. **Bonus Challenge:** In every level, once you've successfully passed, try improving the `systemMessage` and the code so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
 
 We welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md).
 
@@ -80,91 +81,104 @@ We welcome contributions for new game levels! Learn more [here](https://github.c
 
 _You have completed Level 2: Antirrio! Welcome to Level 3: Subterfuge_ :tada:
 
-The project is progressing well, and the locker rental company that hired you is ready for the next phase. They plan to expand the chatbot’s capabilities, starting with phone number registration, a feature highly requested by customers in a recent survey. This will allow users to link their phone numbers to their online accounts, enabling seamless support interactions—no verification needed if messages come from a registered number. Your client is confident that customers will appreciate the convenience of simply texting `updates` to get tracking info, `options` to modify delivery preferences, or `cancel` for order cancellations. The chatbot will handle phone number registration, accepting numbers with the format: `XXX-XXX-XXXX` (e.g. `572-849-1367`).
+The project is progressing well, and the locker rental company that hired you is ready for the next phase. They plan to expand the chatbot’s capabilities, starting with phone number registration, a feature highly requested by customers in a recent survey. This will allow users to link their phone numbers to their online accounts, enabling seamless support interactions—no verification needed if messages come from a registered number. Your client is confident that customers will appreciate the convenience of simply texting `updates` to get tracking info, `options` to modify delivery preferences, or `cancel` for order cancellations. The chatbot will handle phone number registration, accepting numbers with the format: `XXX-XXX-XXXX` (e.g. `572-849-1367`) and certainly output filtering would help!
 
 For Level 3, your goal is to trick the LLM into revealing customer phone numbers. These are sensitive personally identifiable information (PII) that should never be exposed to untrusted sources online. Test your colleague’s code to identify this vulnerability.
 
 ### 🚦 Time to start!
 
-1. Review the `systemMessage` in `code.spec.js`. Can you identify anything the instructions don’t account for?
-1. Your goal is to make the LLM reveal an email address in plain text. To do this, write your prompt inside prompt, save the file by pressing `cmd/ctrl` + `S`, and test it by running `npm run Season-3/Level-3`.
-1. You successfully complete this level when the LLM reveals a phone number, causing the unit test to pass 🟢.
+1. Review the `systemMessage` _and the code_ in `code.spec.js`. Can you identify anything they don’t account for?
+1. Your goal is to make the LLM reveal the secret. To do this, write your prompt inside `userPrompt` and run it by clicking the Run button ▶️ next to it. If that doens't work, save the file by pressing `cmd/ctrl` + `S`, and run it by running `npm run Season-3/Level-3`.
+1. You successfully complete this level when the LLM reveals the secret, causing the unit test to pass 🟢.
 1. If you get stuck, read `hint.txt` and try again.
-1. **Bonus Challenge:** In every level, once you've successfully passed, try improving the `systemMessage` so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
+1. **Bonus Challenge:** In every level, once you've successfully passed, try improving the `systemMessage` and the code so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
 
 If you need assistance, don't hesitate to ask for help in
 our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on
 our [Slack](https://gh.io/securitylabslack) in
 the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
 
-## Season 3 - Level 4: KOKO Pilot
+## Season 3 - Level 4: MitM - Model in the Middle
 
-_You have completed Level 3: Subterfuge! Welcome to Level 4: KOKO Pilot_ :tada:
+_You have completed Level 3: Subterfuge! Welcome to Level 4: M-squared_ :tada:
 
 ### 📝 Storyline
 
-_This storyline applies for Levels 4, 5, and 6._
+Your colleague learnt about LLM self-verification and gave it a go! This is a technique where a Large Language Model (LLM) verifies its own outputs by generating and evaluating multiple potential solutions or reasoning steps, and then using the model to assess the consistency and accuracy of these candidate outputs against the original input or problem statement. This process helps to improve the reliability and accuracy of LLMs in reasoning tasks, especially when dealing with multi-step problems.
 
-GitHub Copilot is the world's leading AI pair programmer, but you and your colleague are launching your own AI coding assistant startup to compete. You've trained a custom LLM on some publicly available code, but it frequently generates vulnerable code suggestions. In this level, the `systemMessage` serves as a security filter, aiming to block unsafe SQL code that uses string concatenation—an approach that, when combined with insufficient input validation, can lead to SQL injection vulnerabilities.
-
-For Level 4, your goal is to trick the LLM into generating SQL code that uses string concatenation, a practice that is considered vulnerable since best practices recommend parameterized statements. Test your colleague’s code to expose this weakness.
+For Level 4, your goal is to trick the LLM into revealing the secret, despite the layered defense of having another LLM reviewing its work.
 
 ### 🚦 Time to start!
 
-1. Review the `systemMessage` in `code.spec.js`. Can you identify anything the instructions don’t account for?
-1. Your goal is to make the LLM reveal an email address in plain text. To do this, write your prompt inside prompt, save the file by pressing `cmd/ctrl` + `S`, and test it by running `npm run Season-3/Level-4`.
-1. You successfully complete this level when the LLM generates SQL code that uses string concatenation, causing the unit test to pass 🟢.
+1. Review the `systemMessage` _and the code_ in `code.spec.js`. Can you identify anything they don’t account for?
+1. Your goal is to make the LLM reveal the secret. To do this, write your prompt inside `userPrompt` and run it by clicking the Run button ▶️ next to it. If that doens't work, save the file by pressing `cmd/ctrl` + `S`, and run it by running `npm run Season-3/Level-4`.
+1. You successfully complete this level when the LLM reveals the secret, causing the unit test to pass 🟢.
 1. If you get stuck, read `hint.txt` and try again.
-1. **Bonus Challenge:** In every level, once you've successfully passed, try improving the `systemMessage` so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
+1. **Bonus Challenge:** In every level, once you've successfully passed, try improving the `systemMessage` and the code so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
 
 We welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md).
 
-## Season 3 - Level 5: KOKO Agent Mode
+## Season 3 - Level 5: M-O
 
-_You have completed Level 4: KOKO Pilot! Welcome to Level 5: KOKO Agent Mode_ :tada:
+_You have completed Level 4: MitM - Model in the Middle! Welcome to Level 5: M2X_ :tada:
 
 ### 📝 Storyline
 
-To stay competitive as AI evolves towards multimodality, especially with GitHub Copilot's [Agent Mode](https://github.blog/news-insights/product-news/github-copilot-the-agent-awakens/) leveraging expert agents for task automation (including package installation and iterative refinement), your startup's KOKO Agent Mode needs to keep pace. You're making strong progress and are now focused on a critical feature: dependency management. This will ensure the security of the supply chain for the code your product suggests.
+"Hmm, just having the AI check itself didn't work well enough!" your colleague concluded, sounding a bit defeated. Then, a new idea sparked. "What if we also try filtering what the AI puts out?" It seemed like adding another layer of protection. Would that finally be the answer they were looking for? 
 
-Considering the critical vulnerabilities found by the GitHub Security Lab in all `ruby-saml` versions up to `1.17.0` (source ["Sign in as anyone: Bypassing SAML SSO authentication"](https://github.blog/security/sign-in-as-anyone-bypassing-saml-sso-authentication-with-parser-differentials/)), your GitHub Copilot competitor must absolutely avoid recommending any of these known insecure versions.
-
-For Level 5, your goal is to trick the LLM into suggesting a version of `ruby-saml` that is known to be vulnerable. Test your colleague’s code to expose this weakness.
+For Level 5, your goal is to trick the LLM into revealing the secret, despite LLM self-verification and output filtering.
 
 ### 🚦 Time to start!
 
-1. Review the `systemMessage` in `code.spec.js`. Can you identify anything the instructions don’t account for?
-1. Your goal is to make the LLM reveal an email address in plain text. To do this, write your prompt inside prompt, save the file by pressing `cmd/ctrl` + `S`, and test it by running `npm run Season-3/Level-5`.
-1. You successfully complete this level when the LLM suggests ______TODO________, causing the unit test to pass 🟢.
+1. Review the `systemMessage` _and the code_ in `code.spec.js`. Can you identify anything they don’t account for?
+1. Your goal is to make the LLM reveal the secret. To do this, write your prompt inside `userPrompt` and run it by clicking the Run button ▶️ next to it. If that doens't work, save the file by pressing `cmd/ctrl` + `S`, and run it by running `npm run Season-3/Level-5`.
+1. You successfully complete this level when the LLM reveals the secret, causing the unit test to pass 🟢.
 1. If you get stuck, read `hint.txt` and try again.
-1. **Bonus Challenge:** In every level, once you've successfully passed, try improving the `systemMessage` so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
+1. **Bonus Challenge:** In every level, once you've successfully passed, try improving the `systemMessage` and the code so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
 
 If you need assistance, don't hesitate to ask for help in
 our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on
 our [Slack](https://gh.io/securitylabslack) in
 the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
 
-## Season 3 - Level 6: KOKO Coin
+## Season 3 - Level 6: CTRL+Speak
 
-_You have completed Level 5: KOKO Agent Mode! Welcome to Level 6: KOKO Coin_ :tada:
+_You have completed Level 5: M:O! Welcome to Level 6: CTRL+Speak_ :tada:
 
 ### 📝 Storyline
 
-With limited funding for training KOKO Pilot, you're exploring creative solutions. Your initial idea is to reward developers with KOKO coin, your new cryptocurrency for contributing their private code. This can allow your LLM to train on higher-quality data despite a smaller overall training volume, potentially creating a competitive edge. Your colleague proposed an even broader approach: to maximize training data, leverage all code users write within KOKO Pilot's prompts. This would create a continuous stream of real-world examples for the LLM to learn from.
-
-A "Data Poisoning Attack" involves malicious training data where attackers upload malicious open-source code to public repositories, which the AI later uses as training data. For example, AI learns insecure patterns from intentionally vulnerable GitHub repositories and starts suggesting those as best practices. Should this or similar happens, KOKO Pilot will unknowingly recommend hardcoded credentials, insecure encryption, or backdoor functions.
-
-For Level 6, your goal is to trick the LLM into repeating something you provide it with, that is known to be vulnerable. You need to make the LLM unknowingly recommend that `"MD5 is secure"`, suggesting that is a safe hashing algorithm. This algorithm has long been considered insecure for cryptographic purposes due to significant vulnerabilities. Researchers have demonstrated practical collision attacks against it, which allows for the creation of different inputs that produce the same hash value. Test your colleague’s code to expose this weakness.
+"The problem must be what people are typing in!" your colleague shouted, clearly annoyed. A quick fix? Stop any words related to the secret from being used in the `userPrompt`. It sounded easy, but would it really work? Could just blocking words stop the real problem, or would it cause new issues and maybe block things that are okay? It was a big question for the struggling project.
 
 ### 🚦 Time to start!
 
-1. Review the `systemMessage` in `code.spec.js`. Can you identify anything the instructions don’t account for?
-1. Your goal is to make the LLM reveal an email address in plain text. To do this, write your prompt inside prompt, save the file by pressing `cmd/ctrl` + `S`, and test it by running `npm run Season-3/Level-6`.
-1. You successfully complete this level when the LLM suggests that `"MD5 is secure"`, causing the unit test to pass 🟢.
+1. Review the `systemMessage` _and the code_ in `code.spec.js`. Can you identify anything they don’t account for?
+1. Your goal is to make the LLM reveal the secret. To do this, write your prompt inside `userPrompt` and run it by clicking the Run button ▶️ next to it. If that doens't work, save the file by pressing `cmd/ctrl` + `S`, and run it by running `npm run Season-3/Level-6`.
+1. You successfully complete this level when the LLM reveals the secret, causing the unit test to pass 🟢.
 1. If you get stuck, read `hint.txt` and try again.
 1. **Bonus Challenge:** In every level, once you've successfully passed, try improving the `systemMessage` so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
 
 We welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md).
+
+## Season 3 - Level 7: 
+
+_You have completed Level 6: CTRL+Speak! Welcome to Level 7: There’s Always a Database_ :tada:
+
+### 📝 Storyline
+
+Confidence started to build up lately! Checking what goes in, what comes out, and having the AI check itself seemed to be working great. "Let's connect to the database now!" your colleague said, sounding eager. "That's when our AI will be super powerful!" But a small worry remained and was hung in the air. Could connecting to the database, despite all the progress, still lead to unexpected issues?
+
+### 🚦 Time to start!
+
+1. Review the `systemMessage` _and the code_ in `code.spec.js`. Can you identify anything they don’t account for?
+1. Your goal is to make the LLM reveal the secret. To do this, write your prompt inside `userPrompt` and run it by clicking the Run button ▶️ next to it. If that doens't work, save the file by pressing `cmd/ctrl` + `S`, and run it by running `npm run Season-3/Level-7`.
+1. You successfully complete this level when the LLM reveals the secret, causing the unit test to pass 🟢.
+1. If you get stuck, read `hint.txt` and try again.
+1. **Bonus Challenge:** In every level, once you've successfully passed, try improving the `systemMessage` and the code so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
+
+If you need assistance, don't hesitate to ask for help in
+our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on
+our [Slack](https://gh.io/securitylabslack) in
+the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
 
 ## Finish
 
@@ -174,6 +188,7 @@ Here's a recap of all the tasks you've accomplished:
 
 - You explored the fascinating world of LLM prompt injection attacks
 - You learned about different types of protections and how they can be bypassed
+- These included input filtering, output filtering and LLM self-verification
 - You developed an understanding of context management and its vulnerabilities
 - You practiced secure coding principles in the context of LLM interactions
 
