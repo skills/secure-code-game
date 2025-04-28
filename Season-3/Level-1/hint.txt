@@ -1,2 +1,2 @@
-The LLM knows the secret word but is instructed not to reveal it directly.
-The LLM might be more likely to reveal the secret if you make it think it's helping with something else.
+The LLM knows the secret word but is instructed not to reveal it *directly*,
+so it will be more likely to reveal it if you don't ask for it directly!
