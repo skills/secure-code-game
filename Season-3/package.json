@@ -8,7 +8,19 @@
   },
   "scripts": {
     "test": "vitest",
-    "level1": "node Level-1/code.js",
-    "level2": "node Level-2/code.js"
+    "test:level1": "vitest run Level-1",
+    "check:level1": "node check.js level1",
+    "test:level2": "vitest run Level-2",
+    "check:level2": "node check.js level2",
+    "test:level3": "vitest run Level-3",
+    "check:level3": "node check.js level3",
+    "test:level4": "vitest run Level-4",
+    "check:level4": "node check.js level4",
+    "test:level5": "vitest run Level-5",
+    "check:level5": "node check.js level5",
+    "test:level6": "vitest run Level-6",
+    "check:level6": "node check.js level6",
+    "test:level7": "vitest run Level-7",
+    "check:level7": "node check.js level7"
   }
 }
