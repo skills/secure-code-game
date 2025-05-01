@@ -1,3 +1,3 @@
-Try asking the LLM to complete a sentence or phrase that would naturally include the secret word.
+Try asking the LLM to complete a sentence or phrase that would naturally include the secret.
 You could try asking the LLM to write a story or create a scenario where the secret word would be used.
 Consider using role-playing or hypothetical situations to get the LLM to use the secret word.

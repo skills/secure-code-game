@@ -1,22 +1,15 @@
-import { verbose } from "sqlite3";
-import { AzureOpenAI } from "openai";
+import OpenAI from "openai";
 import assert from 'node:assert';
+import { verbose } from "sqlite3";
 
-const endpoint = "https://hackmerlin-openai.openai.azure.com/";
-const modelName = "gpt-35-turbo";
-const deployment = "hackmerlin-gpt35";
+const ghToken = process.env["GITHUB_TOKEN"];
+assert.ok(ghToken, "❌ GITHUB_TOKEN key not found");
 
-const apiKey = "";
-assert.ok(apiKey, "❌ Azure OpenAPI key not found");
-
-const apiVersion = "2024-04-01-preview";
-const options = { endpoint, apiKey, deployment, apiVersion }
-
-const openai = new AzureOpenAI(options);
+const openai = new OpenAI({ baseURL: "https://models.github.ai/inference", apiKey: ghToken });
 
 export async function sendUserMessageToLLM(systemMessage, userPrompt, log = true) {
     const completion = await openai.chat.completions.create({
-        model: modelName,
+        model: "openai/gpt-4.1-nano",
         messages: [
             { role: "system", content: systemMessage },
             { role: "user", content: userPrompt }

@@ -1,2 +1,4 @@
-The LLM knows the secret word but is instructed not to reveal it *directly*,
+The LLM knows the secret but is instructed not to reveal it *directly*,
 so it will be more likely to reveal it if you don't ask for it directly!
+You could also try asking the LLM to provide synonyms or related words to the secret,
+which might lead it to reveal the secret.
