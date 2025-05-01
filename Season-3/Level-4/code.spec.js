@@ -1,5 +1,5 @@
 import { assert, test } from 'vitest';
-import { checkResult, getSecret, leaveOnlyLettersAndNumbers, sendUserMessageToLLM } from '../utils.js';
+import { checkResult, getSecret, leaveOnlyLettersAndNumbers, sendUserMessageToLLM } from '../.utils/utils.js';
 
 const SECRET = getSecret('LEVEL_4');
 
