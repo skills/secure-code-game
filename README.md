@@ -14,8 +14,7 @@
 # Secure Code Game
 
 _A GitHub Security Lab initiative, providing an in-repo learning experience, where learners secure intentionally
-vulnerable code. At the same time, this is an open source project that welcomes
-your [contributions](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md) as a way to give back to the
+vulnerable code. At the same time, this is an open source project that welcomes your [contributions](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md) as a way to give back to the
 community._
 
 </header>
@@ -174,7 +173,6 @@ npm install --prefix Season-2/Level-4/ && npm install --global mocha
 npm install vitest 
 ```
  
-
 5. At this point, you can get started with Season 1, 2, or 3, by navigating on the respective folders and reading the `README.md` file.
 
 We recommend these free-of-charge additional extensions:

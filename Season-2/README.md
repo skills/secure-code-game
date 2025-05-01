@@ -201,7 +201,7 @@ If you need assistance, don't hesitate to ask for help in our [GitHub Discussion
 
 ## Finish
 
-_Congratulations, you've completed the Secure Code Game!_
+_🎉 Congratulations, you've completed Season 2! 🎉_
 
 Here's a recap of all the tasks you've accomplished:
 

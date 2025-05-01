@@ -181,7 +181,7 @@ If you need assistance, don't hesitate to ask for help in our [GitHub Discussion
 
 ## Finish
 
-_Congratulations, you've completed Season 1! Ready for Season 2?_
+_🎉 Congratulations, you've completed Season 1! 🎉_
 
 Here's a recap of all the tasks you've accomplished:
 
