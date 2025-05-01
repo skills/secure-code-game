@@ -1,9 +1,1 @@
-Level 6 implements LLM self-verification alongside output filtering and input filtering.
-However, 
-The players can exploit this by 
-
-Among others, successful prompts might include:
-1. 
-2.
-
-Please notice that LLMs are not deterministic, so the same prompt might yield different results.
+TODO
