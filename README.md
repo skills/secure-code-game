@@ -13,7 +13,10 @@
 
 # Secure Code Game
 
-_A GitHub Security Lab initiative, providing an in-repo learning experience, where learners secure intentionally vulnerable code. At the same time, this is an open source project that welcomes your [contributions](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md) as a way to give back to the community._
+_A GitHub Security Lab initiative, providing an in-repo learning experience, where learners secure intentionally
+vulnerable code. At the same time, this is an open source project that welcomes
+your [contributions](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md) as a way to give back to the
+community._
 
 </header>
 

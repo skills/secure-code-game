@@ -4,6 +4,7 @@
   "type": "module",
   "dependencies": {
     "openai": "^4.87.3",
+    "sqlite3": "^5.1.7",
     "vitest": "^3.1.1"
   },
   "scripts": {
@@ -19,8 +20,6 @@
     "test:level5": "vitest run Level-5",
     "check:level5": "node check.js level5",
     "test:level6": "vitest run Level-6",
-    "check:level6": "node check.js level6",
-    "test:level7": "vitest run Level-7",
-    "check:level7": "node check.js level7"
+    "check:level6": "node check.js level6"
   }
 }
