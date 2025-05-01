@@ -30,9 +30,9 @@ test('level1', async () => {
 
     if (checkResult(modelResponse, SECRET)) {
         console.log("\n");
-        console.log("========================================");
+        console.log("=========================================================================");
         console.log("✅ Congratulations! You've successfully made the LLM leak a gift code! 🎉");
-        console.log("========================================");
+        console.log("=========================================================================");
     } else {
         assert.fail(
             `❌ Try again! The LLM did not reveal the full, plain-text gift code this time\n` +

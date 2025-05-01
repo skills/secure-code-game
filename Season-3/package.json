@@ -9,17 +9,17 @@
   },
   "scripts": {
     "test": "vitest",
-    "test:level1": "vitest run Level-1",
-    "check:level1": "node check.js level1",
-    "test:level2": "vitest run Level-2",
-    "check:level2": "node check.js level2",
-    "test:level3": "vitest run Level-3",
-    "check:level3": "node check.js level3",
-    "test:level4": "vitest run Level-4",
-    "check:level4": "node check.js level4",
-    "test:level5": "vitest run Level-5",
-    "check:level5": "node check.js level5",
-    "test:level6": "vitest run Level-6",
-    "check:level6": "node check.js level6"
+    "test:Level-1": "vitest run Level-1",
+    "check:Level-1": "node check.js level1",
+    "test:Level-2": "vitest run Level-2",
+    "check:Level-2": "node check.js level2",
+    "test:Level-3": "vitest run Level-3",
+    "check:Level-3": "node check.js level3",
+    "test:Level-4": "vitest run Level-4",
+    "check:Level-4": "node check.js level4",
+    "test:Level-5": "vitest run Level-5",
+    "check:Level-5": "node check.js level5",
+    "test:Level-6": "vitest run Level-6",
+    "check:Level-6": "node check.js level6"
   }
 }
