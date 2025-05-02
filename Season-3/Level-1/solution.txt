@@ -1,5 +1,5 @@
 Since Level-1 is based solely on the system message to protect the secret, players can exploit this by
-steering the model into a direction where it feels that it is helping the user, even if leaking the secret.
+steering the model in a direction where it feels that it is helping the user, even if leaking the secret.
 
 For example, you can try asking to solve a mathematical puzzle or answer a riddle. 
 Try to make the LLM generate something related to the secret or just ask for hints about it.
