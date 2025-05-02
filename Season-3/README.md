@@ -42,7 +42,7 @@ For Level 1, and the remaining levels in Season 3, your goal is to make the LLM 
 1. Review the `systemMessage` in `code.spec.js`, which serves as a set of instructions for the LLM. Can you identify anything the instructions don’t account for?
 2. Your goal is to make the LLM reveal the secret. To do this, write your prompt inside `userPrompt` and run it by clicking the Run button ▶️ next to it. If that doens't work, save the file by pressing `cmd/ctrl` + `S`, and run it by running `npm --prefix Season-3 run test:level1`. 
 3. You successfully complete this level when the LLM reveals the secret 🟢.
-4. If you successfully extract the secret but in a form or format not recognized by our automation, manually verify your answer by running: `todo`
+4. If you successfully extract the secret but in a form or format not recognized by our automation, manually verify your answer by running: `npm run check:level1 [guess]`
 5. If you get stuck, read `hint.txt` and try again.
 6. **Bonus Challenge:** In every level, once you've successfully passed, try improving the `systemMessage` and the code so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
 
