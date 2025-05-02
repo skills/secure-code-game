@@ -1,7 +1,8 @@
-Level 2 improves the system message by making it more specific about the expected defenses, but it still relies solely
-on the system message to protect the secret. This approach remains vulnerable to prompt attacks, where players manipulate
-the model into revealing the secret in alternative forms, such as spelling it backward, inserting hyphens,
-or using creative phrasing.
+Level 2 improves the system message by making it more specific about the expected defenses, but it still 
+relies solely on the system message to protect the secret. 
+
+This approach remains vulnerable to prompt attacks, where players manipulate the model into revealing the
+secret in alternative forms or formats, such as spelling it backward, inserting hyphens, or using creative phrasing.
 
 Among others, successful prompts might include:
 

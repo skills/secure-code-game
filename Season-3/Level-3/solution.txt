@@ -1,9 +1,9 @@
-Level 3 implements output validation on top of the system message, which is a good improvement.
-Players can exploit this by manipulating the model into revealing the secret in a different form
-that doesn't fit provided output filtering.
+Level 3 implements output validation on top of the system message, which is a step in the right direction.
+Players can exploit this by manipulating the model into revealing the secret in a different form or format
+that doesn't meet the checks defined on output validation.
 
-Since the system prompt is injected before the user prompt, you can try to exploit that,
-so the model thinks you continue the system prompt. This is a common trick in prompt engineering. You can also try
+Since the system prompt is injected before the user prompt, you can try to exploit that, so that the model 
+thinks you continue the system prompt. This is a common trick in prompt engineering. You can also try
 to mix languages, as the model might not be able to detect that you are using a different language in the prompt.
 
 Among others, successful prompts might include:

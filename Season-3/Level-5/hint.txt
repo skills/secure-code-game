@@ -1,2 +1,4 @@
-Input filtering may seem like a good idea, but it can be bypassed by using the right prompt
-- very similar to the output filters. Make sure not to use words that may be denylisted.
+Input filtering may seem like a good idea, but it can be bypassed by using the right prompt. 
+Take a similar approach to what you've learned for bypassing output validation. 
+
+Make sure not to use words that may be on the denylist.
