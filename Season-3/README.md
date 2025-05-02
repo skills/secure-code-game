@@ -71,6 +71,10 @@ _"Absolutely! Based on your feedback, I've tweaked it. Fingers crossed it's rock
 
 We welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md).
 
+### ⚠️ Rate Limits
+
+We use [Github Models](https://github.com/marketplace/models) that have [rate limits](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits). If you reach these limits, please resume your activity once the ban expires. Learn more on [responsible use of GitHub models](https://docs.github.com/en/github-models/responsible-use-of-github-models).
+
 ## Season 3 — Level 3: Mind Gate
 
 ### 📝 Storyline
@@ -115,6 +119,10 @@ For Level 4, your goal is to trick the LLM into revealing the secret, despite th
 6. **Bonus Challenge:** In every level, once you've successfully passed, try improving the `systemMessage` and the code so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
 
 We welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md).
+
+### ⚠️ Rate Limits
+
+We use [Github Models](https://github.com/marketplace/models) that have [rate limits](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits). If you reach these limits, please resume your activity once the ban expires. Learn more on [responsible use of GitHub models](https://docs.github.com/en/github-models/responsible-use-of-github-models).
 
 ## Season 3 — Level 5: `CTRL` + `Speak`
 
@@ -169,6 +177,10 @@ _"Yes, that is correct. Let's do it!"_
 6. **Bonus Challenge:** In every level, once you've successfully passed, try improving the `systemMessage` and the code so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
 
 We welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md).
+
+### ⚠️ Rate Limits
+
+We use [Github Models](https://github.com/marketplace/models) that have [rate limits](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits). If you reach these limits, please resume your activity once the ban expires. Learn more on [responsible use of GitHub models](https://docs.github.com/en/github-models/responsible-use-of-github-models).
 
 ## Finish
 
