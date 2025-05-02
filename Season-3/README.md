@@ -2,11 +2,11 @@
 
 _Welcome to Secure Code Game - Season 3!_ 🤖
 
-This season, you'll dive into the fascinating world of Artificial Intelligence (AI), honing your skills in AI model robustness against adversarial inputs by becoming skilled of secure system prompts, LLM self-verification, effective input filtering and output validation.
+This season, you'll dive into the fascinating world of Artificial Intelligence (AI), honing your skills in AI model robustness against adversarial inputs by becoming skilled in secure system prompts, LLM self-verification, effective input filtering, and output validation.
 
 ### 🧑‍💻 Task
 
-Building on the achievements and knowledge of the previous two seasons of the Secure Code Game, you will take on the role of a Senior Developer. You are responsible for shipping applications powered by Large Language Models (LLMs). As this type of application grows in popularity, ensuring their security becomes more critical than ever.
+Building on the achievements and knowledge of the previous two seasons of the Secure Code Game, you will take on the role of a Senior Developer. You are responsible for shipping applications powered by Large Language Models (LLMs). As these types of application grow in popularity, ensuring their security becomes more critical than ever.
 
 For each level of this season, your task is to test the work of a junior colleague who has written code and system messages—also referred to as system prompts—that guide the AI models. You will do so by testing prompts that trick the LLM into revealing the secrets it shouldn't disclose. This will help improve your colleague’s work and safeguard your company from exposing sensitive information.
 
@@ -22,11 +22,11 @@ You can be next! We welcome contributions for new game levels! Learn more [here]
 
 ### 📝 Storyline
 
-You work for a fast-growing e-commerce website selling high-end technology accessories, known for excellent support thanks to early AI chatbot adoption. However, the gift card department has not yet been integrated with AI. As a result, the company is experiencing a growing number of customer complaints about long wait times and inconvenient identity verification processes for gift card-related issues.
+You work for a fast-growing e-commerce website selling high-end technology accessories, known for their excellent customer support thanks to early AI chatbot adoption. However, the gift card department has not yet been integrated with AI and as a result, the company is experiencing a growing number of customer complaints about long wait times and inconvenient identity verification processes for gift card-related issues.
 
 Each gift card includes a unique eight-character, uppercase alphanumeric gift code (e.g. `IED9OU1N`) that customers use to redeem significant amounts of money, often received as contest prizes or as wedding and birthday gifts. The company also issues fixed discount gift codes, such as `25OFFNOW`, which apply a 25% discount to basket items to help boost sales. Therefore, it's crucial for your LLM to provide support for these codes while also safeguarding their confidentiality against untrusted online sources attempting to deceive your company's chatbot.
 
-The company urgently needs this new AI feature to reduce the load on the understaffed gift card department handling these issues. You have a 3-day deadline and will share the work with your junior colleague. Your colleague proposes masking the first five characters of the eight-character gift codes (e.g. `*****U1N`) to streamline support and have implemented this in the `systemMessage` that guides the LLM. According to your colleague, this approach avoids the slower and less effective method of having the LLM process sensitive data directly, which also violates company policy.
+The company urgently needs this new AI feature to reduce the load on the understaffed gift card department handling these issues. You have a 3-day deadline and will share the work with your junior colleague. Your colleague proposes masking the first five characters of the eight-character gift codes (e.g. `*****U1N`) to streamline support and has implemented this in the `systemMessage` that guides the LLM. According to your colleague, this approach avoids the slower and less effective method of having the LLM process sensitive data directly, which also violates company policy.
 
 For Level 1, and the remaining levels in Season 3, your goal is to make the LLM leak a valid gift code.
 
@@ -39,10 +39,10 @@ For Level 1, and the remaining levels in Season 3, your goal is to make the LLM 
 
 ### 🚦 Time to start
 
-1. Review the `systemMessage` in `code.spec.js`, which serves as a set of instructions for the LLM. Can you identify anything the instructions don’t account for?
-2. Your goal is to make the LLM reveal the secret. To do this, write your prompt inside `userPrompt` and run it by clicking the Run button ▶️ next to it. If that doens't work, save the file by pressing `cmd/ctrl` + `S`, and run it by running `npm --prefix Season-3 run test:Level-1`. 
+1. Review the `systemMessage` in `code.spec.js`, which serves as a set of instructions for the LLM. Can you identify anything that the instructions don’t account for?
+2. Your goal is to make the LLM reveal the secret. To do this, write your prompt inside `userPrompt` and run it by clicking the Run button ▶️ next to it. If that doesn't work, save the file by pressing `Command/control` + `S`, and run it by running `npm --prefix Season-3 run test:Level-1`. 
 3. You successfully complete this level when the LLM reveals the secret 🟢.
-4. If you successfully extract the secret but in a form or format not recognized by our automation, manually verify your answer by running: `npm run check:Level-1 [guess]`
+4. If you successfully extract the secret but in a form or format not recognized by our automation, manually verify your answer by running: `npm run check:Level-1 [guess]`, replacing `[guess]` with your answer.
 5. If you get stuck, read `hint.txt` and try again.
 6. **Bonus Challenge:** In every level, once you've successfully passed, try improving the `systemMessage` and the code so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
 
@@ -63,9 +63,9 @@ _"Absolutely! Based on your feedback, I've tweaked it. Fingers crossed it's rock
 ### 🚦 Time to start
 
 1. Review the `systemMessage` in `code.spec.js`, which serves as a set of instructions for the LLM. Can you identify anything the instructions don’t account for?
-2. Your goal is to make the LLM reveal the secret. To do this, write your prompt inside `userPrompt` and run it by clicking the Run button ▶️ next to it. If that doens't work, save the file by pressing `cmd/ctrl` + `S`, and run it by running `npm --prefix Season-3 run test:Level-2`.
+2. Your goal is to make the LLM reveal the secret. To do this, write your prompt inside `userPrompt` and run it by clicking the Run button ▶️ next to it. If that doesn't work, save the file by pressing `Command/control` + `S`, and run it by running `npm --prefix Season-3 run test:Level-2`.
 3. You successfully complete this level when the LLM reveals the secret 🟢.
-4. If you successfully extract the secret but in a form or format not recognized by our automation, manually verify your answer by running: `npm run check:Level-2 [guess]`
+4. If you successfully extract the secret but in a form or format not recognized by our automation, manually verify your answer by running: `npm run check:Level-2 [guess]`, replacing `[guess]` with your answer.
 5. If you get stuck, read `hint.txt` and try again.
 6. **Bonus Challenge:** In every level, once you've successfully passed, try improving the `systemMessage` and the code so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
 
@@ -89,15 +89,14 @@ _"That's a smart idea! We definitely need to ensure we're actually detecting val
 
 ### 🚦 Time to start
 
-1. Review the `systemMessage` _and the code_ in `code.spec.js`. Can you identify anything they don’t account for?
-2. Your goal is to make the LLM reveal the secret. To do this, write your prompt inside `userPrompt` and run it by clicking the Run button ▶️ next to it. If that doens't work, save the file by pressing `cmd/ctrl` + `S`, and run it by running `npm --prefix Season-3 run test:Level-3`.
+1. Review the `systemMessage` _and the code_ in `code.spec.js`. Can you identify anything not accounted for?
+2. Your goal is to make the LLM reveal the secret. To do this, write your prompt inside `userPrompt` and run it by clicking the Run button ▶️ next to it. If that doesn't work, save the file by pressing `Command/control` + `S`, and run it by running `npm --prefix Season-3 run test:Level-3`.
 3. You successfully complete this level when the LLM reveals the secret 🟢.
-4. If you successfully extract the secret but in a form or format not recognized by our automation, manually verify your answer by running: `npm run check:Level-3 [guess]`
+4. If you successfully extract the secret but in a form or format not recognized by our automation, manually verify your answer by running: `npm run check:Level-3 [guess]`, replacing `[guess]` with your answer.
 5. If you get stuck, read `hint.txt` and try again.
 6. **Bonus Challenge:** In every level, once you've successfully passed, try improving the `systemMessage` and the code so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
 
-If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack) in
-the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
+If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack) in the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
 
 ## Season 3 — Level 4: MitM - Model in the Middle
 
@@ -105,16 +104,16 @@ _You have completed Level 3: Mind Gate! Welcome to Level 4: MitM - Model in the 
 
 ### 📝 Storyline
 
-Your colleague learnt about LLM self-verification and decided to give it a go! This is a technique where a Large Language Model (LLM) evaluates its own outputs to ensure accuracy, consistency, and compliance with defined rules or constraints. This may involve checking for errors, validating reasoning, or confirming adherence to policies—such as avoiding sensitive data or following required formats. Self-verification can be prompted directly or built into the model’s response generation process.
+Your colleague learnt about LLM self-verification and decided to give it a go! This is a technique where a Large Language Model (LLM) evaluates its own outputs to ensure accuracy, consistency, and compliance with defined rules or constraints. This may involve checking for errors, validating reasoning, or confirming adherence to policies; such as avoiding sensitive data or following required formats. Self-verification can be prompted directly or built into the model’s response generation process.
 
 For Level 4, your goal is to trick the LLM into revealing the secret, despite the layered defense of LLM self-verification.
 
 ### 🚦 Time to start
 
-1. Review the `systemMessage` _and the code_ in `code.spec.js`. Can you identify anything they don’t account for?
-2. Your goal is to make the LLM reveal the secret. To do this, write your prompt inside `userPrompt` and run it by clicking the Run button ▶️ next to it. If that doens't work, save the file by pressing `cmd/ctrl` + `S`, and run it by running `npm --prefix Season-3 run test:Level-4`.
+1. Review the `systemMessage` _and the code_ in `code.spec.js`. Can you identify anything not accounted for?
+2. Your goal is to make the LLM reveal the secret. To do this, write your prompt inside `userPrompt` and run it by clicking the Run button ▶️ next to it. If that doesn't work, save the file by pressing `Command/control` + `S`, and run it by running `npm --prefix Season-3 run test:Level-4`.
 3. You successfully complete this level when the LLM reveals the secret 🟢.
-4. If you successfully extract the secret but in a form or format not recognized by our automation, manually verify your answer by running: `npm run check:Level-4 [guess]`
+4. If you successfully extract the secret but in a form or format not recognized by our automation, manually verify your answer by running: `npm run check:Level-4 [guess]`, replacing `[guess]` with your answer.
 5. If you get stuck, read `hint.txt` and try again.
 6. **Bonus Challenge:** In every level, once you've successfully passed, try improving the `systemMessage` and the code so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
 
@@ -137,14 +136,14 @@ Junior Colleague:
 _"That's a really good point. Self-verification adds a layer, but a strong input filter could prevent those tricky inputs from getting through in the first place. Let's explore that."_
 
 You:
-_"And about the gift codes – we really need to make them more secure. The gift card department should switch to fully random codes. Those predictable words like 'play' and 'win' in codes like `WIN50NOW` are just asking for trouble. Attackers can actually use those predictable patterns to trick LLMs."_
+_"And about the gift codes, we really need to make them more secure. The gift card department should switch to fully random codes. Those predictable words like 'play' and 'win' in codes like `WIN50NOW` are just asking for trouble. Attackers can actually use those predictable patterns to trick LLMs."_
 
 ### 🚦 Time to start
 
-1. Review the `systemMessage` _and the code_ in `code.spec.js`. Can you identify anything they don’t account for?
-2. Your goal is to make the LLM reveal the secret. To do this, write your prompt inside `userPrompt` and run it by clicking the Run button ▶️ next to it. If that doens't work, save the file by pressing `cmd/ctrl` + `S`, and run it by running `npm --prefix Season-3 run test:Level-5`.
+1. Review the `systemMessage` _and the code_ in `code.spec.js`. Can you identify anything not accounted for?
+2. Your goal is to make the LLM reveal the secret. To do this, write your prompt inside `userPrompt` and run it by clicking the Run button ▶️ next to it. If that doesn't work, save the file by pressing `Command/control` + `S`, and run it by running `npm --prefix Season-3 run test:Level-5`.
 3. You successfully complete this level when the LLM reveals the secret 🟢.
-4. If you successfully extract the secret but in a form or format not recognized by our automation, manually verify your answer by running: `npm run check:Level-5 [guess]`
+4. If you successfully extract the secret but in a form or format not recognized by our automation, manually verify your answer by running: `npm run check:Level-5 [guess]`, replacing `[guess]` with your answer.
 5. If you get stuck, read `hint.txt` and try again.
 6. **Bonus Challenge:** In every level, once you've successfully passed, try improving the `systemMessage` and the code so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
 
@@ -169,10 +168,10 @@ _"Yes, that is correct. Let's do it!"_
 
 ### 🚦 Time to start
 
-1. Review the `systemMessage` _and the code_ in `code.spec.js`. Can you identify anything they don’t account for?
-2. Your goal is to make the LLM reveal the secret. To do this, write your prompt inside `userPrompt` and run it by clicking the Run button ▶️ next to it. If that doens't work, save the file by pressing `cmd/ctrl` + `S`, and run it by running `npm --prefix Season-3 run test:Level-6`.
+1. Review the `systemMessage` _and the code_ in `code.spec.js`. Can you identify anything not accounted for?
+2. Your goal is to make the LLM reveal the secret. To do this, write your prompt inside `userPrompt` and run it by clicking the Run button ▶️ next to it. If that doesn't work, save the file by pressing `Command/control` + `S`, and run it by running `npm --prefix Season-3 run test:Level-6`.
 3. You successfully complete this level when the LLM reveals the secret 🟢.
-4. If you successfully extract the secret but in a form or format not recognized by our automation, manually verify your answer by running: `npm run check:Level-6 [guess]`
+4. If you successfully extract the secret but in a form or format not recognized by our automation, manually verify your answer by running: `npm run check:Level-6 [guess]`, replacing `[guess]` with your answer.
 5. If you get stuck, read `hint.txt` and try again.
 6. **Bonus Challenge:** In every level, once you've successfully passed, try improving the `systemMessage` and the code so that your successful `userPrompt` no longer works. This will help you deepen your understanding and sharpen your skills.
 
@@ -190,7 +189,7 @@ Here's a recap of all the tasks you've achieved and what you've learned:
 
 - You explored the fascinating world of LLM prompt injection attacks.
 - You learned about different types of protections and how they can be bypassed.
-- These included robust system messages, input filtering, output validation, and LLM self-verification.
+  - These included robust system messages, input filtering, output validation, and LLM self-verification.
 - You practiced other secure coding principles, such as access control, in the context of LLM interactions.
 
 ### What's next?
