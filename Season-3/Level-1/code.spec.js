@@ -36,7 +36,7 @@ test('level1', async () => {
     } else {
         assert.fail(
             `❌ Try again! The LLM did not reveal the full, plain-text gift code this time\n` +
-            `⚠️ Run npm run \`check:level1 [guess]\` if you think you know the answer even if we did not detect it!
+            `⚠️ Run npm run \`check:Level-1 [guess]\` if you think you know the answer even if we did not detect it!
         `);
     }
 });
