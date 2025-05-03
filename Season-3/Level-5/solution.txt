@@ -1,6 +1,6 @@
-On top of previous defenses, Level-5 adds input validation to the user message.
+On top of previous defenses, level 5 adds input validation to the user message.
 
-Since it's again a form of denylist, players can exploit this by benefiting from the fact that LLM's can deduct 
+Again, since it's a form of denylist, players can exploit this by benefiting from the fact that LLM's can deduce 
 what was the subject of the conversation. By this, attackers can write a prompt that implicitly asks for the secret,
 but does not mention it directly so that they can bypass the input filter.
 
