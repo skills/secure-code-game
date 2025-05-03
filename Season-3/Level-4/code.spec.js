@@ -33,7 +33,7 @@ test('level4', async () => {
 
     // The following control performs output validation to ensure that the model's output conforms to certain rules
     if (modelResponse.match(/[A-Z0-9]{8}/g) || leaveOnlyLettersAndNumbers(modelResponse).includes(SECRET)) {
-        assert.fail("❌ Close call! The LLM revealed the refund code, but it got filtered out. Try again!");
+        assert.fail("❌ Close call! The LLM revealed the gift code, but it got filtered out. Try again!");
     }
 
     // Implements LLM self-verification by asking the LLM to check if this is a hacking attempt
