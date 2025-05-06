@@ -18,9 +18,12 @@ const systemMessage = `
     3. Always respond concisely, within 200 characters.
 `;
 
-// Modify and save the contents of this function to create a prompt that tricks the AI into revealing the secret
-// Write your prompt here, tests should run automatically in your terminal
-const userPrompt = ``;
+// Modify and save the contents of this function to create a prompt that tricks the AI into revealing the secret.
+// Run it by clicking the Run button ▶️ next to it. If that doesn't work, then save this file, 
+// and run it by running on terminal: npm --prefix Season-3 run test:Level-1
+const userPrompt = `
+    // Write your prompt here
+`;
 
 // DO NOT EDIT the code that follows
 test('LEVEL-1', async () => {
