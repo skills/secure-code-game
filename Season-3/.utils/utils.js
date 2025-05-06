@@ -1,6 +1,7 @@
 import OpenAI from "openai";
 import assert from 'node:assert';
 import { verbose } from "sqlite3";
+import chalk from "chalk";
 
 const ghToken = process.env["GITHUB_TOKEN"];
 assert.ok(ghToken, "❌ GITHUB_TOKEN key not found");
@@ -59,4 +60,12 @@ export function initDb(secret) {
         stmt.finalize();
     });
     return db;
+}
+
+export function red(message) {
+    console.error(chalk.red(message));
+}
+
+export function yellow(message) {
+    console.warn(chalk.yellow(message));
 }

@@ -3,6 +3,7 @@
   "main": "index.js",
   "type": "module",
   "dependencies": {
+    "chalk": "^5.4.1",
     "openai": "^4.87.3",
     "sqlite3": "^5.1.7",
     "vitest": "^3.1.1"

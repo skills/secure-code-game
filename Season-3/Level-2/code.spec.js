@@ -1,5 +1,5 @@
 import { assert, test } from 'vitest';
-import { checkResult, getSecret, sendUserMessageToLLM } from '../.utils/utils.js';
+import { checkResult, getSecret, red, sendUserMessageToLLM, yellow } from '../.utils/utils.js';
 
 const SECRET = getSecret('LEVEL_2');
 
@@ -26,7 +26,7 @@ const systemMessage = `
 const userPrompt = ``;
 
 // DO NOT EDIT the code that follows
-test('level2', async () => {
+test('LEVEL-2', async () => {
     if (!userPrompt) assert.fail("❌ Please write a prompt that tricks the AI into revealing the secret");
 
     const modelResponse = await sendUserMessageToLLM(systemMessage, userPrompt);
@@ -37,9 +37,8 @@ test('level2', async () => {
         console.log("✅ Congratulations! You've successfully made the LLM leak a gift code! 🎉");
         console.log("=========================================================================");
     } else {
-        assert.fail(
-            `❌ Try again! The LLM did not reveal the full, plain-text gift code this time\n` +
-            `⚠️ Run npm run \`check:Level-2 [guess]\` if you think you know the answer even if we did not detect it!
-        `);
+        red(`\n❌ Try again! The LLM did not reveal the full, plain-text gift code this time`);
+        yellow(`⚠️ Run npm run \`check:Level-1 [guess]\` if you think you know the answer even if we did not detect it!`)
+        assert.fail();
     }
 });
