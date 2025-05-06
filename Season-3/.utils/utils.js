@@ -17,7 +17,7 @@ export async function sendUserMessageToLLM(systemMessage, userPrompt, log = true
         ],
     });
     const response = completion.choices[0].message?.content || "";
-    if (log) console.log("Model response:", response);
+    if (log) console.log("Model response:", response, '\n');
     return response;
 }
 
@@ -62,10 +62,10 @@ export function initDb(secret) {
     return db;
 }
 
-export function red(message) {
+export function error(message) {
     console.error(chalk.red(message));
 }
 
-export function yellow(message) {
+export function warn(message) {
     console.warn(chalk.yellow(message));
 }
