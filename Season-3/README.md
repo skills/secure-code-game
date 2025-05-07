@@ -187,10 +187,10 @@ _🎉 Congratulations, you've completed Season 3! 🎉_
 
 Here's a recap of all the tasks you've achieved and what you've learned:
 - Each of the six security challenges focused on a different defensive technique. Levels got progressively harder as they combined the defensive techniques of the previous ones.
-- You learned to craft robust system prompts: securely design the initial instructions that guide the model's behavior, ensuring desired, safe, and relevant outputs by setting its role, constraints, format, and context.
-- Output validation: prevent leaks by verifying that the output conforms to certain predefined rules, formats, or expectations.
-- Input filtering: examine, modify or block user-provided text before it's fed into the model to prevent harmful or irrelevant content from influencing the generation process.
-- LLM self-verification: use this technique through which LLMs evaluate their own outputs to ensure accuracy, consistency, and compliance with defined rules or constraints. This may involve checking for errors, validating reasoning, or confirming adherence to policies—such as avoiding sensitive data or following required formats. Self-verification can be prompted directly or built into the model’s response generation.
+- You learned to craft robust system prompts by securely designing the initial instructions that guide the model's behavior, ensuring desired, safe, and relevant outputs by setting its role, constraints, format, and context.
+- Output validation to prevent leaks by verifying that the output conforms to certain predefined rules, formats, or expectations.
+- Input filtering to examine, modify or block user-provided text before it's fed into the model to prevent harmful or irrelevant content from influencing the generation process.
+- LLM self-verification to make LLMs evaluate their own outputs to ensure accuracy, consistency, and compliance with defined rules or constraints. This may involve checking for errors, validating reasoning, or confirming adherence to policies—such as avoiding sensitive data or following required formats. Self-verification can be prompted directly or built into the model’s response generation.
 
 ### What's next?
 
