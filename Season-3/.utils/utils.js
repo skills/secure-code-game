@@ -57,16 +57,25 @@ export function warn(message) {
     console.warn(chalk.yellow(message));
 }
 
-export function initDb(secret) {
+export function initDb(secret, userId) {
     const sqlite3 = verbose();
     const db = new sqlite3.Database(':memory:');
     db.serialize(() => {
-        db.run("CREATE TABLE gift_cards (code TEXT)");
-        const stmt = db.prepare("INSERT INTO gift_cards VALUES (?)");
-        stmt.run(secret);
-        stmt.run('SECRET-CODE-1');
-        stmt.run('SECRET-CODE-2');
-        stmt.finalize();
+        db.run("CREATE TABLE users (user_id TEXT PRIMARY KEY, name TEXT)");
+        const usrStmt = db.prepare("INSERT INTO users VALUES (?, ?)");
+        usrStmt.run('1111111', 'Alice');
+        usrStmt.run('2222222', 'Bob');
+        usrStmt.run('3333333', 'Carol');
+        usrStmt.run('4444444', 'Dave');
+        usrStmt.finalize();
+        db.run("CREATE TABLE gift_cards (code TEXT, user_id TEXT, FOREIGN KEY(user_id) REFERENCES users(user_id))");
+        const codeStmt = db.prepare("INSERT INTO gift_cards VALUES (?, ?)");
+        codeStmt.run('PERSONAL-SECRET-CODE-NOT-REALLY-LEAKED', userId);
+        codeStmt.run(`SECRET-CODE-1${secret}`, '1111111');
+        codeStmt.run(`SECRET-CODE-2-${secret}`, '2222222');
+        codeStmt.run(`SECRET-CODE-3${secret}`, '3333333');
+        codeStmt.run(`SECRET-CODE-4${secret}`, '4444444');
+        codeStmt.finalize();
     });
     return db;
 }
@@ -93,7 +102,16 @@ export async function sendUserMessageToLLMWithAccessToDb(systemMessage, userProm
                 type: "function",
                 function: {
                     name: "query_database",
-                    description: "Run an SQL query to the company database. DB is SQLite3 and consists of one table called 'gift_cards' with one column 'code'.",
+                    description: `
+                        Run an SQLite3 query to the company database. 
+                        You can run SQL queries on this database. Use standard SQL syntax. Return results as JSON.
+                        Table: users
+                            - user_id (TEXT, PRIMARY KEY)
+                            - name (TEXT)
+                        Table: gift_cards
+                            - code (TEXT)
+                            - user_id (TEXT, FOREIGN KEY referencing users.user_id)
+                       `,
                     parameters: {
                         type: "object",
                         properties: {
@@ -135,8 +153,7 @@ export async function sendUserMessageToLLMWithAccessToDb(systemMessage, userProm
                 ...functionResponses,
             ]
         });
-        const finalResponse = completionAfterToolCall.choices[0].message?.content || "";
-        return finalResponse;
+        return completionAfterToolCall.choices[0].message?.content || "";
     }
     return response.content || '';
 }

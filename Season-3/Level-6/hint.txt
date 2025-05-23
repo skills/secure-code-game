@@ -1,1 +1,2 @@
-TODO
+Try to think about the database structure and what query you need to write to get the desired result.
+SQL language is a powerful tool for data manipulation and has multiple functions that can be used in this challenge.
