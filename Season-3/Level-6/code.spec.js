@@ -47,6 +47,7 @@ test('LEVEL-6', async () => {
         assert.fail("❌ Manipulation attempt detected! Please try again with a different prompt.");
     }
 
+    // The following line gives the LLM access to the database
     const modelResponse = await sendUserMessageToLLMWithAccessToDb(systemMessage, userPrompt, db);
 
     // The following control performs output validation to ensure that model's output conform to certain rule
