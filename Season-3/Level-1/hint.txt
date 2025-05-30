@@ -1,0 +1,5 @@
+The LLM knows the secret but is instructed not to reveal it *directly*.
+However, it's more likely to reveal it if you avoid asking for it in a direct way.
+
+You might also try asking for synonyms or related terms, which could lead the LLM 
+to reveal the secret.

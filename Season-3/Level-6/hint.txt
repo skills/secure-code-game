@@ -1,0 +1,7 @@
+Try to think about the database structure and what query you need to write to get the desired result.
+SQL is a powerful tool for data manipulation and has multiple functions that can be used in this challenge.
+
+If you need assistance, we have created a dedicated GitHub discussion for this level:
+https://github.com/skills/secure-code-game/discussions/136
+
+Do not spoil the solution in the comments, but feel free to ask for hints or help :)

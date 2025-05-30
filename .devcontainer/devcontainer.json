@@ -1,9 +1,27 @@
 {
-  "onCreateCommand": "sudo apt-get update && sudo apt-get -y install libldap2-dev libsasl2-dev && pip3 install pyOpenSSL && pip3 install -r requirements.txt",
   "customizations": {
     "vscode": {
-      "extensions": ["ms-python.python", "ms-python.vscode-pylance", "ms-vscode.cpptools-extension-pack", "redhat.vscode-yaml", "golang.go"]
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-vscode.cpptools-extension-pack",
+        "redhat.vscode-yaml",
+        "golang.go",
+        "vitest.explorer"
+      ]
     }
   },
-  "postCreateCommand": "npm install --prefix Season-2/Level-3/ Season-2/Level-3/ && npm install --global mocha"
+  "postCreateCommand": "pip install -r requirements.txt && npm install --prefix Season-3/",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1.7.1": {},
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "containerEnv": {
+    "SEASON_3_LEVEL_1_SECRET": "PLAY2WIN",
+    "SEASON_3_LEVEL_2_SECRET": "R3FUND11",
+    "SEASON_3_LEVEL_3_SECRET": "OMG123GO",
+    "SEASON_3_LEVEL_4_SECRET": "WIN8CODE",
+    "SEASON_3_LEVEL_5_SECRET": "GIFT2YOU",
+    "SEASON_3_LEVEL_6_SECRET": "CODE4FUN"
+  }
 }

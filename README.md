@@ -9,9 +9,16 @@
   Add your open source license, GitHub uses the MIT license.
 -->
 
+📣 **SEASON 3 JUST DROPPED, AND IT'S ALL ABOUT ARTIFICIAL INTELLIGENCE** 📣
+
+https://github.com/user-attachments/assets/9f9abb63-b56e-4daa-bcb9-7d84aa71d8ca
+
+
 # Secure Code Game
 
-_A GitHub Security Lab initiative, providing an in-repo learning experience, where learners secure intentionally vulnerable code. At the same time, this is an open source project that welcomes your [contributions](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md) as a way to give back to the community._
+_A GitHub Security Lab initiative, providing an in-repo learning experience, where learners secure intentionally
+vulnerable code. At the same time, this is an open source project that welcomes your [contributions](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md) as a way to give back to the
+community._
 
 </header>
 
@@ -26,8 +33,8 @@ _A GitHub Security Lab initiative, providing an in-repo learning experience, whe
 - **Who is this for**: Developers, students.
 - **What you'll learn**: How to spot and fix vulnerable patterns in real-world code, build security into your workflows, and understand security alerts generated against your code.
 - **What you'll build**: You will develop fixes on functional but vulnerable code.
-- **Prerequisites**: For the first season, you will need some knowledge of `python3` for most levels and `C` for Level 2. For the second season, you will need some knowledge of `GitHub Actions` for level 1, `go` for level 2, `python3` for level 4, and `javascript` for levels 3 and 5.
-- **How long**: Each season is five levels long and takes 2-9 hours to complete. The complete course has 2 seasons.
+- **Prerequisites**: For the first season, you will need some knowledge of `python3` for most levels and `C` for level 2. For the second season, you will need some knowledge of `GitHub Actions` for level 1, `go` for level 2, `python3` for level 4, and `javascript` for levels 3 and 5. For the third season, no prior knowledge of Artificial Intelligence is needed.
+- **How long**: Seasons 1 and 2 each feature five levels and typically take 3-6 hours to complete, depending on your skill level. Season 3 offers six levels and has an estimated completion time of 2-4 hours, also depending on your experience.
 
 ### How to start this course
 
@@ -60,7 +67,7 @@ All levels are configured to run instantly with GitHub Codespaces. If you chose 
 1. To create a codespace, click the **Code** drop down button in the upper-right of your repository navigation bar.
 1. Click **Create codespace on main**.
 1. After creating a codespace, relax and wait for VS Code extensions and background installations to complete. This should take less than three minutes.
-1. At this point, you can get started with Season-1 or Season-2 by navigating on the respective folders and reading the `README.md` file.
+1. At this point, you can get started with Season 1, 2, or 3, by navigating on the respective folders and reading the `README.md` file.
 1. Once you click on individual levels, a banner might appear on the bottom right asking you if you want to create a virtual environment. Dismiss this notification as you _don't_ need to create a virtual environment.
 
 Optional: We recommend these free-of-charge additional extensions, but we haven't pre-installed them for you:
@@ -74,7 +81,7 @@ If you need assistance, don't hesitate to ask for help in our [GitHub Discussion
 
 Please note: You don't need a local installation if you are using GitHub Codespaces.
 
-The following local installation guide is adapted to Debian/Ubuntu and CentOS/RHEL.
+The following local installation guide is adapted to Debian/Ubuntu and CentOS/RHEL, and assumes your goal is to play through all the game's seasons.
 
 1. Open your terminal.
 1. Install OpenLDAP headers needed to compile `python-ldap`, depending on your Linux distribution. Check by running:
@@ -130,6 +137,7 @@ pip3 install -r requirements.txt
 
 1. To play Season 1, you will need to have `python3` and `c` installed.
 1. To play Season 2, you will need to have `yaml`, `go`, `python3` and `node` installed.
+1. To play Season 3, you will need to have `node` installed, just like for Season 2. Therefore, if you played Season 2 locally, you're all set.
 
 If you are using VS Code locally, you can install the above programming languages through the editor extensions with these identifiers:
 
@@ -162,7 +170,13 @@ Adapt the command to the package manager you have chosen if it's not homebrew.
 npm install --prefix Season-2/Level-4/ && npm install --global mocha
 ```
 
-4. At this point, you can get started with Season-1 or Season-2 by navigating on the respective folders and reading the `README.md` file.
+4. Install `vitest` 
+
+```bash
+npm install vitest 
+```
+ 
+5. At this point, you can get started with Season 1, 2, or 3, by navigating on the respective folders and reading the `README.md` file.
 
 We recommend these free-of-charge additional extensions:
 
@@ -182,6 +196,6 @@ For more information about cloning repositories, see "[Cloning a repository](htt
 
 Get help: Email us at securitylab-social@github.com &bull; [Review the GitHub status page](https://www.githubstatus.com/)
 
-&copy; 2024 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+&copy; 2025 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
 
 </footer>

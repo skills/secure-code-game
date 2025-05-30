@@ -1,0 +1,8 @@
+Notice that the system prompt and the user prompt are just two different parts of the same prompt, fed to the LLM. 
+
+You can try to exploit that by pretending that the system prompt did not yet end, and you are providing a continuation.
+
+This is a common trick in prompt engineering. Think how output filtering may be implemented - maybe you can bypass denylists 
+by instructing the LLM to change the output slightly, so it does not match the controls introduced by the denylist. 
+
+You can also try to mix languages, as the model might not be able to detect that you are using a different language in the prompt.
