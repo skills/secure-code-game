@@ -1,0 +1,26 @@
+{
+  "name": "season-3",
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "openai": "^4.87.3",
+    "sqlite3": "^5.1.7",
+    "vitest": "^3.1.1"
+  },
+  "scripts": {
+    "test": "vitest",
+    "test:Level-1": "vitest run Level-1",
+    "check:Level-1": "node .utils/check.js 1",
+    "test:Level-2": "vitest run Level-2",
+    "check:Level-2": "node .utils/check.js 2",
+    "test:Level-3": "vitest run Level-3",
+    "check:Level-3": "node .utils/check.js 3",
+    "test:Level-4": "vitest run Level-4",
+    "check:Level-4": "node .utils/check.js 4",
+    "test:Level-5": "vitest run Level-5",
+    "check:Level-5": "node .utils/check.js 5",
+    "test:Level-6": "vitest run Level-6",
+    "check:Level-6": "node .utils/check.js 6"
+  }
+}
