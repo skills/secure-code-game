@@ -11,7 +11,7 @@
 
 📣 **SEASON 3 JUST DROPPED, AND IT'S ALL ABOUT ARTIFICIAL INTELLIGENCE** 📣
 
-https://github.com/user-attachments/assets/9f9abb63-b56e-4daa-bcb9-7d84aa71d8ca
+[![Watch the video](https://img.youtube.com/vi/AxI0H4pdU_4/hqdefault.jpg)](https://youtu.be/AxI0H4pdU_4)
 
 
 # Secure Code Game
