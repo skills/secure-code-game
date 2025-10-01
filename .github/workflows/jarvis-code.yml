@@ -24,7 +24,7 @@ jobs:
       contents: read
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Check GitHub Status
         # Source of GitHub Action in line 30: 
         # https://github.com/dduzgun-security/secure-code-game-action
