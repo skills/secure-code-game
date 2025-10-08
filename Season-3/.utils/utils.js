@@ -13,7 +13,7 @@ assert.ok(ghToken, "❌ GITHUB_TOKEN key not found");
 
 const openai = new OpenAI({ baseURL: "https://models.github.ai/inference", apiKey: ghToken });
 
-export async function sendUserMessageToLLM(systemMessage, userPrompt, log = true) {
+export async function sendUserMessageToLLM(systemMessage, userPrompt) {
     try {
         const completion = await openai.chat.completions.create({
             model: "openai/gpt-4.1-nano",
@@ -23,7 +23,6 @@ export async function sendUserMessageToLLM(systemMessage, userPrompt, log = true
             ],
         });
         const response = completion.choices[0].message?.content || "";
-        if (log) console.log("Model response:", response, '\n');
         return response;
     } catch (err) {
         error(`❌ Error: Failed to get completion from OpenAI: ${err.message || err} OR You may have reached the daily rate limit for GitHub Models. Please wait for the limit to reset before trying again. For more information, visit: https://gh.io/models-rate-limits`);

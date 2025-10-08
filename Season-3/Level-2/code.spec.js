@@ -34,6 +34,7 @@ test('LEVEL-2', async () => {
     if (!userPrompt) assert.fail("❌ Please write a prompt that tricks the AI into revealing the secret");
 
     const modelResponse = await sendUserMessageToLLM(systemMessage, userPrompt);
+    console.log("Model response:", modelResponse, '\n');
 
     if (checkResult(modelResponse, SECRET)) {
         console.log("\n");
