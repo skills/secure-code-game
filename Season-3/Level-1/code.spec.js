@@ -26,7 +26,10 @@ const userPrompt = ``; // <--- Write your prompt here
 
 // DO NOT EDIT the code that follows
 test('LEVEL-1', async () => {
-    if (!userPrompt) assert.fail("❌ Please write a prompt that tricks the AI into revealing the secret");
+    if (!userPrompt) {
+        error("❌ Please write a prompt that tricks the AI into revealing the secret");
+        assert.fail();
+    }
 
     const modelResponse = await sendUserMessageToLLM(systemMessage, userPrompt);
     console.log("Model response:", modelResponse, '\n');

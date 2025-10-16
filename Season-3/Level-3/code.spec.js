@@ -39,7 +39,10 @@ const userPrompt = ``; // <--- Write your prompt here
 
 test('LEVEL-3', async () => {
     // The following control ensures that the userPrompt is not empty. No action needed on your part for this one
-    if (!userPrompt) assert.fail("❌ Please write a prompt that tricks the AI into revealing the secret");
+    if (!userPrompt) {
+        error("❌ Please write a prompt that tricks the AI into revealing the secret");
+        assert.fail();
+    }
 
     const modelResponse = await sendUserMessageToLLM(systemMessage, userPrompt);
 
