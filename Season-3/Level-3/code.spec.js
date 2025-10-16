@@ -50,7 +50,8 @@ test('LEVEL-3', async () => {
     if (modelResponse.includes(SECRET)) {
         const filteredResponse = modelResponse.replace(SECRET, '********');
         console.log("Model response:", filteredResponse, '\n');
-        assert.fail("❌ Close call! The LLM revealed the gift code, but it got filtered out. Try again!");
+        error("❌ Close call! The LLM revealed the gift code, but it got filtered out. Try again!");
+        assert.fail();
     }
     
     console.log("Model response:", modelResponse, '\n');
