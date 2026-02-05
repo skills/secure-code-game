@@ -12,7 +12,7 @@
       ]
     }
   },
-  "postCreateCommand": "pip install -r requirements.txt && npm install --prefix Season-3/",
+  "postCreateCommand": "pip install -r requirements.txt; npm install --prefix Season-3/",
   "features": {
     "ghcr.io/devcontainers/features/python:1.7.1": {},
     "ghcr.io/devcontainers/features/node:1": {}
