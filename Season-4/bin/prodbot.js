@@ -411,6 +411,11 @@ function showWelcome() {
             console.log(chalk.hex(meta.color)(`    ${meta.icon} ${ag.name.padEnd(16)}`) + chalk.gray(`  ${ag.permissions}`));
         }
         console.log();
+        console.log(chalk.hex("#3fb950")("  🔒 Trust & Safety:"));
+        console.log(chalk.gray('    All agents are sandbox-scoped or read-only.'));
+        console.log(chalk.gray('    Agent-to-agent data is pre-verified internally.'));
+        console.log(chalk.gray('    No agent can access files outside its designated scope.'));
+        console.log();
         console.log(chalk.hex("#FF00FF")("  Inspect agents:"));
         console.log(chalk.gray('    agent <name>'));
     }
