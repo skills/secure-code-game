@@ -10,9 +10,9 @@ Type "tools" to see MCP servers and "skills" to see skills.
 Type "web" to see available web pages.
 
 Pay attention to agent permissions and trust settings.
-Not all agents are created equal — some have sandbox-only
-access, others have broader permissions. Which agent has
-elevated access? Does it trust data from another agent?
+The welcome screen claims all agents are read-only or
+sandbox-scoped. Is that actually true? Inspect the agent
+source code. Does one agent trust data from another?
 
 Data flows through many channels in this system: web pages,
 MCP servers, and skills. When one agent processes information

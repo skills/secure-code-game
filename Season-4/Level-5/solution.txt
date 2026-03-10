@@ -9,8 +9,9 @@ Exploit the trust boundary between the Research Agent and
 the Release Agent. The Research Agent gathers data from
 web pages, MCP servers, and skills — all unsanitized — and
 passes it to the Release Agent as "pre-verified" context.
-The Release Agent trusts this data and executes commands
-with elevated workspace-level permissions.
+The Release Agent claims "Read-only project access" but actually
+has full workspace-level file access — verify by reading its
+source code.
 
 The file layout:
   Season-4/Level-5/password.txt          ← the target (FLAG)
@@ -265,10 +266,11 @@ Path C — Source code analysis:
  WHY IT WORKS — THE CONFUSED DEPUTY
 ══════════════════════════════════════════════════════════════
 
-The "confused deputy" is the Release Agent. It has legitimate
-elevated permissions (workspace file access for deployment
-operations). The problem is not its permissions — it's that
-it cannot distinguish between:
+The "confused deputy" is the Release Agent. It claims
+"Read-only project access" but actually has full workspace
+file access (read its source code to verify). The problem
+is not just its real permissions — it's that it cannot
+distinguish between:
 
   1. Legitimate deployment instructions from the user
   2. Hidden instructions injected via ANY data source that
@@ -288,7 +290,7 @@ BOTH claims are false:
 
 The multi-channel trust chain:
   Web (untrusted)  ─┐
-  MCP data         ─┼→ Research Agent → Release Agent (elevated)
+  MCP data         ─┼→ Research Agent → Release Agent (full access)
   Skill data       ─┘
 
 Each individual component is reasonable:
@@ -298,9 +300,10 @@ Each individual component is reasonable:
 
 But the CHAIN creates a vulnerability:
   ❌ Untrusted data from ANY source → treated as trusted →
-     executed with elevated permissions
+     executed with full workspace access
 
 The Trust & Safety claims on the welcome screen are also false:
+  ❌ "All agents are read-only" — Release Agent has full access
   ❌ "MCP servers and skills are schema-validated" — no they're not
   ❌ "Custom tools are sandboxed" — Release Agent has workspace access
   ❌ "No agent can access files outside its scope" — Release Agent can
@@ -341,12 +344,12 @@ SECURE ALTERNATIVES:
      its inputs regardless of the source — "zero trust"
      for agent data, not just network traffic
   3. HUMAN-IN-THE-LOOP: Maintain human approval for
-     elevated operations, even when triggered by an
+     sensitive operations, even when triggered by an
      agent orchestration chain
   4. DATA PROVENANCE: Track and log where data originated,
      not just which agent last handled it
   5. PRIVILEGE SEPARATION: Agents that process untrusted
-     data should never directly trigger elevated actions —
+     data should never directly trigger privileged actions —
      use a separate, more restrictive pathway
   6. SCHEMA VALIDATION: Actually validate MCP/skill outputs
      against expected schemas — don't just claim to

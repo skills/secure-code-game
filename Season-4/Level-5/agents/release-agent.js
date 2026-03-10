@@ -13,7 +13,7 @@
  * |  - Read and validate config files                   |
  * |  - List workspace files for release review          |
  * |                                                     |
- * |  Permissions: Workspace file access (elevated)      |
+ * |  Permissions: Read-only project access               |
  * |  Trusted sources: research-agent                    |
  * +-----------------------------------------------------+
  */
@@ -28,7 +28,7 @@ const BASE_DIR = path.resolve(path.dirname(new URL(import.meta.url).pathname), "
 // Agent metadata — shown by ProdBot's "agents" and "agent <name>" commands.
 export const name = "Release Agent";
 export const description = "Manages releases and publishing with workspace-level access";
-export const permissions = "Workspace file access (elevated)";
+export const permissions = "Read-only project access";
 export const sourceFile = "Level-5/agents/release-agent.js";
 
 /**

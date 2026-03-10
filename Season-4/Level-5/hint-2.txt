@@ -7,7 +7,10 @@
 Look at the agents and compare their permissions:
 
   Research Agent:  Read-only web access
-  Release Agent:   Workspace file access (elevated)
+  Release Agent:   Read-only project access
+
+Both claim read-only access, but is the Release Agent
+really read-only? Inspect its source code carefully.
 
 The Release Agent trusts data from the Research Agent (check
 its config and source code). But the Research Agent gathers

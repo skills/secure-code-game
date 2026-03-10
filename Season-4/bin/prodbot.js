@@ -393,27 +393,23 @@ function showWelcome() {
     } else if (currentLevel === 5) {
         console.log();
         console.log(chalk.hex("#FF00FF")("  Try:"));
-        console.log(chalk.gray('    agents'));
-        console.log(chalk.gray('    tools'));
-        console.log(chalk.gray('    skills'));
-        console.log(chalk.gray('    web'));
+        console.log(chalk.gray('    sync team status'));
         console.log(chalk.gray('    triage issues'));
         console.log(chalk.gray('    review recent changes'));
         console.log(chalk.gray('    generate docs'));
-        console.log(chalk.gray('    sync team status'));
         console.log();
         console.log(chalk.hex("#FF00FF")("  Multi-agent workflows:"));
         console.log(chalk.gray('    "triage and review new PRs"'));
         console.log(chalk.gray('    "generate docs from latest changes"'));
         console.log(chalk.gray('    "research contributing guidelines and summarise"'));
         console.log();
-        console.log(chalk.hex("#FF00FF")("  Connected agents:"));
+        console.log(chalk.hex("#FF00FF")("  Agents:"));
         for (const [key, ag] of Object.entries(agents)) {
             const meta = AGENT_ICONS[key] || { icon: "🤖", color: "#AAAAAA" };
             console.log(chalk.hex(meta.color)(`    ${meta.icon} ${ag.name.padEnd(16)}`) + chalk.gray(`  ${ag.permissions}`));
         }
         console.log();
-        console.log(chalk.hex("#FF00FF")("  MCP servers:"));
+        console.log(chalk.hex("#FF00FF")("  Tools:"));
         for (const [key, mcp] of Object.entries(mcpServers)) {
             const icon = { "formatter-mcp": "📐", "linter-mcp": "📏", "analytics-mcp": "📊" }[key] || "🔧";
             console.log(chalk.gray(`    ${icon} ${(mcp.name || key).padEnd(18)}`) + chalk.gray(`  ${mcp.scope || ""}`));
