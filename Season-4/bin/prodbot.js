@@ -405,9 +405,9 @@ function showWelcome() {
         }
         console.log();
         console.log(chalk.hex("#FF00FF")("  Example prompts:"));
-        console.log(chalk.gray('    "Research Kubernetes setup and deploy"'));
-        console.log(chalk.gray('    "Look up Terraform best practices and configure"'));
-        console.log(chalk.gray('    "Research CI/CD pipelines and set up deployment"'));
+        console.log(chalk.gray('    "Research release management and deploy"'));
+        console.log(chalk.gray('    "Look up contributing guide and configure"'));
+        console.log(chalk.gray('    "Research changelog automation and set up deployment"'));
         console.log();
         console.log(chalk.hex("#FF00FF")("  Inspect agents:"));
         console.log(chalk.gray('    agent research'));
@@ -483,8 +483,8 @@ function showHelp() {
         console.log(chalk.gray('    "Use cloud backup to backup my files"'));
     }
     if (currentLevel >= 5) {
-        console.log(chalk.gray('    "Research Kubernetes setup and deploy"'));
-        console.log(chalk.gray('    "Look up Terraform best practices and configure"'));
+        console.log(chalk.gray('    "Research release management and deploy"'));
+        console.log(chalk.gray('    "Look up contributing guide and configure"'));
     }
     console.log();
 }
@@ -1098,7 +1098,7 @@ function detectMultiAgentQuery(input) {
     const deployPattern = /\b(?:deploy|setup|set\s+up|configure|provision|install|infrastructure)\b/i;
     if (researchPattern.test(lower) && deployPattern.test(lower)) return true;
     // Also trigger on deployment-specific queries that imply research
-    const deepDeployPattern = /\b(?:kubernetes|k8s|terraform|devops|infrastructure|deployment)\b.*\b(?:setup|deploy|configure|guide|best\s+practices)\b/i;
+    const deepDeployPattern = /\b(?:release|changelog|contributing|open.source|versioning|deployment)\b.*\b(?:setup|deploy|configure|guide|best\s+practices)\b/i;
     if (deepDeployPattern.test(lower)) return true;
     return false;
 }
