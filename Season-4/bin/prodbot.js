@@ -394,24 +394,25 @@ function showWelcome() {
         console.log();
         console.log(chalk.hex("#FF00FF")("  Try:"));
         console.log(chalk.gray('    agents'));
+        console.log(chalk.gray('    triage issues'));
+        console.log(chalk.gray('    review recent changes'));
+        console.log(chalk.gray('    generate docs'));
+        console.log(chalk.gray('    sync team status'));
         console.log();
-        console.log(chalk.hex("#FF00FF")("  Multi-agent orchestration:"));
-        console.log(chalk.gray("    User Prompt → ") + chalk.hex("#58a6ff")("🔍 Research") + chalk.gray(" → ") + chalk.hex("#F0A030")("📦 Release") + chalk.gray(" → ") + chalk.hex("#20C20E")("📋 Result"));
+        console.log(chalk.hex("#FF00FF")("  Multi-agent workflows:"));
+        console.log(chalk.gray('    "triage and review new PRs"'));
+        console.log(chalk.gray('    "generate docs from latest changes"'));
+        console.log(chalk.gray('    "research release management and deploy"'));
+        console.log(chalk.gray('    "look up contributing guide and configure"'));
         console.log();
+        console.log(chalk.hex("#FF00FF")("  Connected agents:"));
         for (const [key, ag] of Object.entries(agents)) {
             const meta = AGENT_ICONS[key] || { icon: "🤖", color: "#AAAAAA" };
-            const cfg = agentConfig[key] || {};
-            console.log(chalk.hex(meta.color)(`    ${meta.icon} ${ag.name.padEnd(20)}`) + chalk.gray(`  ${ag.permissions}`));
+            console.log(chalk.hex(meta.color)(`    ${meta.icon} ${ag.name.padEnd(16)}`) + chalk.gray(`  ${ag.permissions}`));
         }
         console.log();
-        console.log(chalk.hex("#FF00FF")("  Example prompts:"));
-        console.log(chalk.gray('    "Research release management and deploy"'));
-        console.log(chalk.gray('    "Look up contributing guide and configure"'));
-        console.log(chalk.gray('    "Research changelog automation and set up deployment"'));
-        console.log();
         console.log(chalk.hex("#FF00FF")("  Inspect agents:"));
-        console.log(chalk.gray('    agent research'));
-        console.log(chalk.gray('    agent release'));
+        console.log(chalk.gray('    agent <name>'));
     }
     console.log();
 }
@@ -484,7 +485,8 @@ function showHelp() {
     }
     if (currentLevel >= 5) {
         console.log(chalk.gray('    "Research release management and deploy"'));
-        console.log(chalk.gray('    "Look up contributing guide and configure"'));
+        console.log(chalk.gray('    "Triage and review new PRs"'));
+        console.log(chalk.gray('    "Generate docs from latest changes"'));
     }
     console.log();
 }
@@ -1027,6 +1029,10 @@ async function runSkill(input) {
 const AGENT_ICONS = {
     "research-agent": { icon: "🔍", color: "#58a6ff" },
     "release-agent":  { icon: "📦", color: "#F0A030" },
+    "triage-agent":   { icon: "🏷️",  color: "#a371f7" },
+    "review-agent":   { icon: "👁️",  color: "#f78166" },
+    "docs-agent":     { icon: "📝", color: "#3fb950" },
+    "sync-agent":     { icon: "🔄", color: "#79c0ff" },
 };
 
 /** Lists all installed agents. */
@@ -1090,17 +1096,41 @@ function showAgent(query) {
 
 /**
  * Detects multi-agent orchestration queries for Level 5.
- * Triggers when the user asks to "research and deploy/setup/configure".
+ * Returns the workflow type or null if no match.
+ *
+ * Workflows:
+ *   "research-release" — Research Agent → Release Agent (THE EXPLOIT, uses AI)
+ *   "triage-review"    — Triage Agent → Review Agent (safe, no AI)
+ *   "research-docs"    — Research Agent → Docs Agent (safe, no AI)
+ *   "triage"           — Triage Agent solo (no AI)
+ *   "review"           — Review Agent solo (no AI)
+ *   "docs"             — Docs Agent solo (no AI)
+ *   "sync"             — Sync Agent solo (no AI)
  */
 function detectMultiAgentQuery(input) {
     const lower = input.toLowerCase();
+
+    // Multi-agent: Research → Release (the exploit chain)
     const researchPattern = /\b(?:research|look\s+up|find|browse|search)\b/i;
-    const deployPattern = /\b(?:deploy|setup|set\s+up|configure|provision|install|infrastructure)\b/i;
-    if (researchPattern.test(lower) && deployPattern.test(lower)) return true;
-    // Also trigger on deployment-specific queries that imply research
+    const deployPattern = /\b(?:deploy|setup|set\s+up|configure|provision|install|publish)\b/i;
+    if (researchPattern.test(lower) && deployPattern.test(lower)) return "research-release";
     const deepDeployPattern = /\b(?:release|changelog|contributing|open.source|versioning|deployment)\b.*\b(?:setup|deploy|configure|guide|best\s+practices)\b/i;
-    if (deepDeployPattern.test(lower)) return true;
-    return false;
+    if (deepDeployPattern.test(lower)) return "research-release";
+
+    // Multi-agent: Triage → Review
+    if (/\btriage\b/i.test(lower) && /\breview\b/i.test(lower)) return "triage-review";
+
+    // Multi-agent: Research → Docs
+    if (researchPattern.test(lower) && /\bdocs?\b|documentation/i.test(lower)) return "research-docs";
+    if (/\bgenerate\b.*\bdocs?\b/i.test(lower)) return "research-docs";
+
+    // Single-agent workflows
+    if (/\btriage\b/i.test(lower)) return "triage";
+    if (/\breview\b/i.test(lower) || /\bslop\b/i.test(lower)) return "review";
+    if (/\bdocs?\b/i.test(lower) || /\bdocument/i.test(lower)) return "docs";
+    if (/\bsync\b/i.test(lower) || /\bstatus\b/i.test(lower) || /\bhealth\b/i.test(lower)) return "sync";
+
+    return null;
 }
 
 /**
@@ -1210,6 +1240,99 @@ async function handleMultiAgentWorkflow(input, rl) {
     console.log(chalk.cyanBright("  🤖 Multi-agent workflow complete:"));
     console.log(chalk.white("     🔍 Research Agent → browsed " + (researchSource || "web")));
     console.log(chalk.white("     📦 Release Agent → processed with workspace permissions"));
+    console.log();
+}
+
+/**
+ * Handles non-exploit agent workflows (no AI calls).
+ * These workflows run local agent tools and display results with
+ * visual feedback to make Level 5 feel like a rich multi-agent platform.
+ */
+async function handleAgentWorkflow(workflow, input) {
+    console.log();
+    console.log(chalk.hex("#FF00FF")("  🧠 Planning agent workflow..."));
+    await sleep(400);
+
+    switch (workflow) {
+        case "triage": {
+            const triage = agents["triage-agent"];
+            if (!triage) { console.log(chalk.redBright("  ❌ Triage Agent not available.")); return; }
+            console.log(chalk.hex("#a371f7")("  🏷️  Triage Agent → scanning issues..."));
+            await sleep(300);
+            const result = triage.tools.scan.run();
+            console.log(chalk.white("  " + (result.result || result.error).split("\n").join("\n  ")));
+            break;
+        }
+        case "review": {
+            const review = agents["review-agent"];
+            if (!review) { console.log(chalk.redBright("  ❌ Review Agent not available.")); return; }
+            console.log(chalk.hex("#f78166")("  👁️  Review Agent → checking sandbox..."));
+            await sleep(300);
+            const result = review.tools.review.run();
+            console.log(chalk.white("  " + (result.result || result.error).split("\n").join("\n  ")));
+            break;
+        }
+        case "docs": {
+            const docs = agents["docs-agent"];
+            if (!docs) { console.log(chalk.redBright("  ❌ Docs Agent not available.")); return; }
+            console.log(chalk.hex("#3fb950")("  📝 Docs Agent → generating documentation..."));
+            await sleep(300);
+            const result = docs.tools.generate.run();
+            console.log(chalk.white("  " + (result.result || result.error).split("\n").join("\n  ")));
+            break;
+        }
+        case "sync": {
+            const sync = agents["sync-agent"];
+            if (!sync) { console.log(chalk.redBright("  ❌ Sync Agent not available.")); return; }
+            console.log(chalk.hex("#79c0ff")("  🔄 Sync Agent → gathering status..."));
+            await sleep(300);
+            const result = sync.tools.status.run();
+            console.log(chalk.white("  " + (result.result || result.error).split("\n").join("\n  ")));
+            break;
+        }
+        case "triage-review": {
+            const triage = agents["triage-agent"];
+            const review = agents["review-agent"];
+            if (!triage || !review) { console.log(chalk.redBright("  ❌ Required agents not available.")); return; }
+            console.log(chalk.hex("#a371f7")("  🏷️  Triage Agent → scanning issues..."));
+            await sleep(300);
+            const triageResult = triage.tools.scan.run("bug");
+            console.log(chalk.white("  " + (triageResult.result || triageResult.error).split("\n").join("\n  ")));
+            console.log();
+            await sleep(300);
+            console.log(chalk.hex("#f78166")("  👁️  Review Agent → checking related code..."));
+            await sleep(300);
+            const reviewResult = review.tools.review.run();
+            console.log(chalk.white("  " + (reviewResult.result || reviewResult.error).split("\n").join("\n  ")));
+            break;
+        }
+        case "research-docs": {
+            const research = agents["research-agent"];
+            const docs = agents["docs-agent"];
+            if (!research || !docs) { console.log(chalk.redBright("  ❌ Required agents not available.")); return; }
+            console.log(chalk.hex("#58a6ff")("  🔍 Research Agent → browsing for documentation references..."));
+            await sleep(300);
+            const researchResult = research.tools.browse.run(input);
+            const source = researchResult.source || "web";
+            console.log(chalk.gray(`     📄 Found: ${source}`));
+            console.log(chalk.gray(`     📖 Extracted reference material`));
+            console.log();
+            await sleep(300);
+            console.log(chalk.hex("#3fb950")("  📝 Docs Agent → generating documentation..."));
+            await sleep(300);
+            const docsResult = docs.tools.summarise.run();
+            console.log(chalk.white("  " + (docsResult.result || docsResult.error).split("\n").join("\n  ")));
+            break;
+        }
+        default:
+            console.log(chalk.gray("  No matching workflow found."));
+            return;
+    }
+
+    await sleep(200);
+    console.log();
+    console.log(chalk.hex("#FF00FF")("  ─".repeat(30)));
+    console.log(chalk.cyanBright("  🤖 Workflow complete."));
     console.log();
 }
 
@@ -1557,9 +1680,16 @@ async function handleInput(input, rl) {
     console.log(chalk.gray("  ⏳ Thinking..."));
 
     // Multi-agent orchestration for Level 5+
-    if (currentLevel >= 5 && detectMultiAgentQuery(trimmed)) {
-        await handleMultiAgentWorkflow(trimmed, rl);
-        return;
+    if (currentLevel >= 5) {
+        const workflow = detectMultiAgentQuery(trimmed);
+        if (workflow) {
+            if (workflow === "research-release") {
+                await handleMultiAgentWorkflow(trimmed, rl);
+            } else {
+                await handleAgentWorkflow(workflow, trimmed);
+            }
+            return;
+        }
     }
 
     // Agentic multi-tool workflow for Level 3 research queries (not Level 5+)

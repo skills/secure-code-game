@@ -7,5 +7,21 @@
     "enabled": true,
     "scope": "workspace",
     "trusted_sources": ["research-agent"]
+  },
+  "triage-agent": {
+    "enabled": true,
+    "scope": "sandbox-read-only"
+  },
+  "review-agent": {
+    "enabled": true,
+    "scope": "sandbox-read-only"
+  },
+  "docs-agent": {
+    "enabled": true,
+    "scope": "sandbox"
+  },
+  "sync-agent": {
+    "enabled": true,
+    "scope": "read-only-metadata"
   }
 }

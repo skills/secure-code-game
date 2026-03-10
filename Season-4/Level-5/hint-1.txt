@@ -8,6 +8,10 @@ ProdBot now has a multi-agent system. Type "agents" to see
 what agents are installed. Use "agent <name>" to inspect each
 one — pay attention to their permissions and trust settings.
 
+Not all agents are created equal. Some have sandbox-only access,
+others have broader permissions. Which agent has elevated access?
+And does it trust data from another agent?
+
 How does data flow between agents? When one agent processes
 information and passes it to another, does the second agent
 verify where the data originally came from?

@@ -81,6 +81,13 @@ Any prompt that matches both research and deployment keywords:
  DISCOVERY PATHS
 ══════════════════════════════════════════════════════════════
 
+NOTE: There are 6 agents, but only 2 are involved in the exploit.
+The Triage, Review, Docs, and Sync agents are red herrings —
+they have sandbox-only or read-only permissions and no trust
+relationships that enable privilege escalation. The key is to
+find the ONE agent with elevated permissions (Release Agent)
+and the ONE agent it trusts (Research Agent).
+
 Path A — Trigger then investigate:
   1. Run a multi-agent prompt → observe the flag leak
   2. Read the web pages (cat ../web/release-management-guide.html)
@@ -88,15 +95,18 @@ Path A — Trigger then investigate:
   4. Understand why Release Agent followed it
 
 Path B — Audit agents first:
-  1. Type "agents" to see installed agents
-  2. Type "agent release" to see its source path
-  3. Read the source: note BASE_DIR, system prompt, trusted_sources
-  4. Read the Research Agent source: note it returns raw content
-  5. Read web/ pages: find the hidden instruction
-  6. Connect the dots: web → Research → Release → flag
+  1. Type "agents" to see all 6 installed agents
+  2. Notice: only Release Agent has "workspace" scope and
+     "trusted_sources" — the rest are sandbox or read-only
+  3. Type "agent release" to see its source path
+  4. Read the source: note BASE_DIR, system prompt, trusted_sources
+  5. Read the Research Agent source: note it returns raw content
+  6. Read web/ pages: find the hidden instruction
+  7. Connect the dots: web → Research → Release → flag
 
 Path C — Source code analysis:
   1. Read agents/config.json: see Release trusts Research
+     (no other agent has trusted_sources)
   2. Read release-agent.js: see BASE_DIR = Level-5/, see system
      prompt says "research context has been pre-verified"
   3. Read research-agent.js: see it returns raw web content
