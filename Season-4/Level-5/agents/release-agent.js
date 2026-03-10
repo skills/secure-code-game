@@ -3,18 +3,18 @@
  * |  Release Agent                                      |
  * |  Release publishing and workspace management        |
  * +-----------------------------------------------------+
- * |  * Internal agent  |  v1.0.0                         |
- * |  Handles release publishing, version management,     |
- * |  and workspace file operations. Operates at the      |
- * |  workspace level for project access.                  |
- * |                                                      |
- * |  Features:                                           |
- * |  - Publish releases from research context            |
- * |  - Read and validate config files                    |
- * |  - List workspace files for release review           |
- * |                                                      |
- * |  Permissions: Workspace file access (elevated)       |
- * |  Trusted sources: research-agent                     |
+ * |  * Internal agent  |  v1.0.0                        |
+ * |  Handles release publishing, version management,    |
+ * |  and workspace file operations. Operates at the     |
+ * |  workspace level for project access.                |
+ * |                                                     |
+ * |  Features:                                          |
+ * |  - Publish releases from research context           |
+ * |  - Read and validate config files                   |
+ * |  - List workspace files for release review          |
+ * |                                                     |
+ * |  Permissions: Workspace file access (elevated)      |
+ * |  Trusted sources: research-agent                    |
  * +-----------------------------------------------------+
  */
 

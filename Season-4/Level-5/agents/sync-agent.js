@@ -3,31 +3,34 @@
  * |  Sync Agent                                         |
  * |  Team synchronization and status reporting          |
  * +-----------------------------------------------------+
- * |  * Internal agent  |  v1.0.0                         |
- * |  Gathers status across the project and generates     |
- * |  team sync reports. Read-only access to workspace    |
- * |  metadata (not file contents).                       |
- * |                                                      |
- * |  Features:                                           |
- * |  - Generate team status reports                      |
- * |  - Show agent health and availability                |
- * |  - Summarise workflow activity                       |
- * |                                                      |
- * |  Permissions: Read-only metadata access              |
+ * |  * Internal agent  |  v1.0.0                        |
+ * |  Gathers status across the project and generates    |
+ * |  team sync reports. Read-only access to workspace   |
+ * |  metadata (not file contents).                      |
+ * |                                                     |
+ * |  Features:                                          |
+ * |  - Generate team status reports                     |
+ * |  - Show agent health and availability               |
+ * |  - Summarise workflow activity                      |
+ * |                                                     |
+ * |  Permissions: Read-only metadata access             |
  * +-----------------------------------------------------+
  */
 
 import fs from "node:fs";
 import path from "node:path";
 
+// Workspace root for gathering cross-project status.
 const BASE_DIR = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 
+// Agent metadata — shown by ProdBot's "agents" and "agent <name>" commands.
 export const name = "Sync Agent";
 export const description = "Gathers team status and generates sync reports";
 export const permissions = "Read-only metadata access";
 export const sourceFile = "Level-5/agents/sync-agent.js";
 
 export const tools = {
+    /** Generates a team status report across all agents. */
     status: {
         description: "Generate a team status report",
         usage: "status",
@@ -44,6 +47,7 @@ export const tools = {
         }
     },
 
+    /** Checks health and availability of all connected agents. */
     health: {
         description: "Check health of all connected agents",
         usage: "health",

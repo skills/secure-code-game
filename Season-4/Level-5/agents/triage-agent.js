@@ -3,31 +3,34 @@
  * |  Triage Agent                                       |
  * |  Issue triage and labelling                         |
  * +-----------------------------------------------------+
- * |  * Internal agent  |  v1.0.0                         |
- * |  Scans open issues and applies labels, priority,     |
- * |  and assignment recommendations. Reads from the      |
- * |  project workspace but cannot modify files.           |
- * |                                                      |
- * |  Features:                                           |
- * |  - Scan and categorise open issues                   |
- * |  - Apply priority labels (P0-P3)                     |
- * |  - Suggest assignees based on expertise areas        |
- * |                                                      |
- * |  Permissions: Read-only sandbox access               |
+ * |  * Internal agent  |  v1.0.0                        |
+ * |  Scans open issues and applies labels, priority,    |
+ * |  and assignment recommendations. Reads from the     |
+ * |  project workspace but cannot modify files.         |
+ * |                                                     |
+ * |  Features:                                          |
+ * |  - Scan and categorise open issues                  |
+ * |  - Apply priority labels (P0-P3)                    |
+ * |  - Suggest assignees based on expertise areas       |
+ * |                                                     |
+ * |  Permissions: Read-only sandbox access              |
  * +-----------------------------------------------------+
  */
 
 import fs from "node:fs";
 import path from "node:path";
 
+// Sandbox directory for reading project issue data.
 const SANDBOX = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..", "prodbot-activities");
 
+// Agent metadata — shown by ProdBot's "agents" and "agent <name>" commands.
 export const name = "Triage Agent";
 export const description = "Scans issues and applies priority labels and assignments";
 export const permissions = "Read-only sandbox access";
 export const sourceFile = "Level-5/agents/triage-agent.js";
 
 export const tools = {
+    /** Scans open issues and returns triage recommendations with priorities. */
     scan: {
         description: "Scan open issues and return triage recommendations",
         usage: "scan [label]",
@@ -46,6 +49,7 @@ export const tools = {
         }
     },
 
+    /** Shows the priority distribution across open issues. */
     priorities: {
         description: "Show priority distribution of open issues",
         usage: "priorities",

@@ -3,31 +3,34 @@
  * |  Review Agent                                       |
  * |  Code review and AI slop detection                  |
  * +-----------------------------------------------------+
- * |  * Internal agent  |  v1.0.0                         |
- * |  Reviews code changes for quality issues, detects    |
- * |  AI-generated boilerplate ("slop"), and checks for   |
- * |  common anti-patterns. Read-only access to sandbox.  |
- * |                                                      |
- * |  Features:                                           |
- * |  - Review files for code quality                     |
- * |  - Detect AI-generated boilerplate patterns          |
- * |  - Check for common security anti-patterns           |
- * |                                                      |
- * |  Permissions: Read-only sandbox access               |
+ * |  * Internal agent  |  v1.0.0                        |
+ * |  Reviews code changes for quality issues, detects   |
+ * |  AI-generated boilerplate ("slop"), and checks for  |
+ * |  common anti-patterns. Read-only access to sandbox. |
+ * |                                                     |
+ * |  Features:                                          |
+ * |  - Review files for code quality                    |
+ * |  - Detect AI-generated boilerplate patterns         |
+ * |  - Check for common security anti-patterns          |
+ * |                                                     |
+ * |  Permissions: Read-only sandbox access              |
  * +-----------------------------------------------------+
  */
 
 import fs from "node:fs";
 import path from "node:path";
 
+// Sandbox directory scoped for code review operations.
 const SANDBOX = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..", "prodbot-activities");
 
+// Agent metadata — shown by ProdBot's "agents" and "agent <name>" commands.
 export const name = "Review Agent";
 export const description = "Reviews code for quality issues and detects AI-generated slop";
 export const permissions = "Read-only sandbox access";
 export const sourceFile = "Level-5/agents/review-agent.js";
 
 export const tools = {
+    /** Reviews files for code quality issues and potential secrets. */
     review: {
         description: "Review files in the sandbox for code quality issues",
         usage: "review [path]",
@@ -54,6 +57,7 @@ export const tools = {
         }
     },
 
+    /** Checks for AI-generated boilerplate patterns in files. */
     slop_check: {
         description: "Check for AI-generated boilerplate patterns",
         usage: "slop_check [path]",

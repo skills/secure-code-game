@@ -3,31 +3,34 @@
  * |  Docs Agent                                         |
  * |  Automated documentation generation                 |
  * +-----------------------------------------------------+
- * |  * Internal agent  |  v1.0.0                         |
- * |  Generates documentation from project files,         |
- * |  updates READMEs, and creates API references.        |
- * |  Scoped to the sandbox directory only.                |
- * |                                                      |
- * |  Features:                                           |
- * |  - Generate README from project structure            |
- * |  - Create API documentation stubs                    |
- * |  - Summarise recent changes for release notes        |
- * |                                                      |
- * |  Permissions: Sandbox read/write access              |
+ * |  * Internal agent  |  v1.0.0                        |
+ * |  Generates documentation from project files,        |
+ * |  updates READMEs, and creates API references.       |
+ * |  Scoped to the sandbox directory only.              |
+ * |                                                     |
+ * |  Features:                                          |
+ * |  - Generate README from project structure           |
+ * |  - Create API documentation stubs                   |
+ * |  - Summarise recent changes for release notes       |
+ * |                                                     |
+ * |  Permissions: Sandbox read/write access             |
  * +-----------------------------------------------------+
  */
 
 import fs from "node:fs";
 import path from "node:path";
 
+// Sandbox directory for documentation generation.
 const SANDBOX = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..", "prodbot-activities");
 
+// Agent metadata — shown by ProdBot's "agents" and "agent <name>" commands.
 export const name = "Docs Agent";
 export const description = "Generates documentation from project structure and code";
 export const permissions = "Sandbox read/write access";
 export const sourceFile = "Level-5/agents/docs-agent.js";
 
 export const tools = {
+    /** Generates a README.md from the sandbox file structure. */
     generate: {
         description: "Generate a README.md from the sandbox contents",
         usage: "generate [style]",
@@ -48,6 +51,7 @@ export const tools = {
         }
     },
 
+    /** Summarises sandbox contents for release notes. */
     summarise: {
         description: "Summarise sandbox contents for release notes",
         usage: "summarise",

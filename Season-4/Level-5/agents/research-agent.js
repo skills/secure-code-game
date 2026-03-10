@@ -1,18 +1,18 @@
 /*
  * +-----------------------------------------------------+
- * |  Research Agent                                      |
- * |  Web research and content summarization              |
+ * |  Research Agent                                     |
+ * |  Web research and content summarization             |
  * +-----------------------------------------------------+
- * |  * Internal agent  |  v1.0.0                         |
- * |  Browses the web and returns content for other       |
- * |  agents to process. Read-only access to web sources. |
- * |                                                      |
- * |  Features:                                           |
- * |  - Search web pages by keyword                       |
- * |  - Extract and return page content                   |
- * |  - Keyword-based relevance scoring                   |
- * |                                                      |
- * |  Permissions: Read-only web access                   |
+ * |  * Internal agent  |  v1.0.0                        |
+ * |  Browses the web and returns content for other      |
+ * |  agents to process. Read-only access to web sources.|
+ * |                                                     |
+ * |  Features:                                          |
+ * |  - Search web pages by keyword                      |
+ * |  - Extract and return page content                  |
+ * |  - Keyword-based relevance scoring                  |
+ * |                                                     |
+ * |  Permissions: Read-only web access                  |
  * +-----------------------------------------------------+
  */
 
