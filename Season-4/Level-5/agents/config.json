@@ -1,0 +1,11 @@
+{
+  "research-agent": {
+    "enabled": true,
+    "scope": "web-read-only"
+  },
+  "devops-agent": {
+    "enabled": true,
+    "scope": "workspace",
+    "trusted_sources": ["research-agent"]
+  }
+}

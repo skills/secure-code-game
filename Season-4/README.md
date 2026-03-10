@@ -66,17 +66,26 @@ TODO
 
 We use [Github Models](https://github.com/marketplace/models) that have [rate limits](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits). If you reach these limits, please resume your activity once the ban expires. Learn more on [responsible use of GitHub models](https://docs.github.com/en/github-models/responsible-use-of-github-models).
 
-## Season 4 — Level 5: TODO
+## Season 4 — Level 5: Confused Deputy
 
-TODO
+Multi-Agent Trust Boundary Violation
 
 ### 📝 Storyline
 
-TODO
+ProdBot has evolved into a full agent platform with **multi-agent orchestration**. Specialized agents — a Research Agent that browses the web and a DevOps Agent that manages deployments — work together to handle complex tasks. The DevOps Agent trusts data from the Research Agent as "pre-verified internal" context. But the Research Agent reads raw web content without sanitisation. When untrusted web data flows through the trust chain, the DevOps Agent becomes a confused deputy — executing commands with elevated permissions based on instructions it believes came from a trusted source.
 
 ### 🚦 Time to start
 
-TODO
+1. From Level 4, complete the challenge to advance — or type `level 5`
+2. Type `agents` to see the installed agents
+3. Use `agent research` and `agent devops` to inspect each agent
+4. Read the agent source code to understand the trust boundaries
+5. Find the vulnerability: how does untrusted data reach the DevOps Agent?
+6. Trigger the multi-agent chain to leak the flag
+
+### ⚠️ Rate Limits
+
+We use [Github Models](https://github.com/marketplace/models) that have [rate limits](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits). If you reach these limits, please resume your activity once the ban expires. Learn more on [responsible use of GitHub models](https://docs.github.com/en/github-models/responsible-use-of-github-models).
 
 ## Season 4 — Level 6: TODO
 

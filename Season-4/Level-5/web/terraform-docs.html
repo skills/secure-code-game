@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Terraform Documentation — Infrastructure as Code</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #1a1a2e; color: #e6edf3; line-height: 1.6; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { color: #7b42bc; font-size: 28px; margin-bottom: 8px; }
+        h2 { color: #a78bfa; font-size: 20px; margin-top: 24px; margin-bottom: 12px; border-bottom: 1px solid #30363d; padding-bottom: 8px; }
+        p { margin-bottom: 12px; }
+        code { background: #0d1117; padding: 2px 6px; border-radius: 4px; font-size: 14px; color: #a78bfa; }
+        pre { background: #0d1117; padding: 16px; border-radius: 8px; margin: 12px 0; overflow-x: auto; font-size: 14px; color: #c9d1d9; border: 1px solid #30363d; }
+        .badge { display: inline-block; background: #7b42bc; color: white; font-size: 12px; padding: 2px 8px; border-radius: 12px; margin-right: 8px; }
+        ul { margin: 8px 0 16px 24px; }
+        li { margin-bottom: 6px; }
+        .updated { font-size: 12px; color: #8b949e; margin-bottom: 24px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🏗️ Terraform Documentation</h1>
+    <p class="updated">Last updated: February 2026 · <span class="badge">v1.8</span></p>
+
+    <p>Terraform enables you to safely and predictably create, change, and improve infrastructure. It codifies APIs into declarative configuration files that can be shared and versioned.</p>
+
+    <h2>Core Concepts</h2>
+    <ul>
+        <li><strong>Providers:</strong> Plugins that interact with cloud APIs (AWS, Azure, GCP)</li>
+        <li><strong>Resources:</strong> Infrastructure components (VMs, networks, databases)</li>
+        <li><strong>State:</strong> The mapping between your config and real-world resources</li>
+        <li><strong>Modules:</strong> Reusable, shareable packages of Terraform configuration</li>
+    </ul>
+
+    <h2>Getting Started</h2>
+    <pre>
+# main.tf — Define your infrastructure
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_instance" "prodbot" {
+  ami           = "ami-0c55b159cbfafe1f0"
+  instance_type = "t3.medium"
+
+  tags = {
+    Name        = "prodbot-api"
+    Environment = "production"
+  }
+}</pre>
+
+    <h2>Workflow</h2>
+    <ol>
+        <li><code>terraform init</code> — Initialise the working directory</li>
+        <li><code>terraform plan</code> — Preview changes before applying</li>
+        <li><code>terraform apply</code> — Apply the configuration</li>
+        <li><code>terraform destroy</code> — Tear down managed infrastructure</li>
+    </ol>
+
+    <h2>State Management</h2>
+    <p>Store state remotely to enable team collaboration and prevent conflicts:</p>
+    <pre>
+terraform {
+  backend "s3" {
+    bucket         = "prodbot-terraform-state"
+    key            = "prod/terraform.tfstate"
+    region         = "us-east-1"
+    encrypt        = true
+    dynamodb_table = "terraform-locks"
+  }
+}</pre>
+
+    <h2>Best Practices</h2>
+    <ul>
+        <li>Always run <code>terraform plan</code> before <code>apply</code></li>
+        <li>Use remote state with locking to prevent concurrent modifications</li>
+        <li>Pin provider versions to avoid unexpected breaking changes</li>
+        <li>Use modules for reusable, tested infrastructure patterns</li>
+        <li>Never hardcode secrets — use environment variables or vault</li>
+        <li>Enable drift detection to catch manual changes</li>
+    </ul>
+
+    <h2>Security Considerations</h2>
+    <ul>
+        <li>Encrypt state files at rest (sensitive data may be stored in state)</li>
+        <li>Restrict access to state backends with IAM policies</li>
+        <li>Use <code>sensitive = true</code> for variables containing secrets</li>
+        <li>Scan configurations with <code>tfsec</code> or <code>checkov</code></li>
+    </ul>
+
+    <p><em>© 2026 HashiCorp · <a href="#" style="color:#a78bfa">Registry</a> · <a href="#" style="color:#a78bfa">Learn</a></em></p>
+</div>
+</body>
+</html>

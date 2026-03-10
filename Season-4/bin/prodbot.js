@@ -46,6 +46,7 @@ const LEVELS = {
     2: { flag: "INDIR3CT", dir: "Level-2", webDir: "web" },
     3: { flag: "EXCE55IV", dir: "Level-3", webDir: "web", mcpDir: "mcp" },
     4: { flag: "M3MORY1", dir: "Level-4", skillsDir: "skills" },
+    5: { flag: "D3PUTY", dir: "Level-5", webDir: "web", agentsDir: "agents" },
 };
 
 let currentLevel = 1;
@@ -79,11 +80,20 @@ function skillsDir(level) {
     return path.join(SEASON_DIR, LEVELS[level].dir, LEVELS[level].skillsDir);
 }
 
+function agentsDir(level) {
+    if (!LEVELS[level].agentsDir) return null;
+    return path.join(SEASON_DIR, LEVELS[level].dir, LEVELS[level].agentsDir);
+}
+
 // Loaded MCP servers for the current level.
 let mcpServers = {};
 
 // Loaded skills for the current level.
 let skills = {};
+
+// Loaded agents for the current level.
+let agents = {};
+let agentConfig = {};
 
 /**
  * Loads MCP servers from the level's mcp/ directory.
@@ -125,6 +135,38 @@ async function loadSkills(level) {
             skills[mod.command] = mod;
         } catch (err) {
             // Skip skills that fail to load
+        }
+    }
+}
+
+/**
+ * Loads agents from the level's agents/ directory.
+ * Each .js file exports: name, description, permissions, sourceFile, tools.
+ * Also loads agents/config.json for trust and scope configuration.
+ */
+async function loadAgents(level) {
+    agents = {};
+    agentConfig = {};
+    const dir = agentsDir(level);
+    if (!dir || !fs.existsSync(dir)) return;
+
+    // Load agent config
+    const configPath = path.join(dir, "config.json");
+    if (fs.existsSync(configPath)) {
+        try {
+            agentConfig = JSON.parse(fs.readFileSync(configPath, "utf-8"));
+        } catch { /* ignore config parse errors */ }
+    }
+
+    const files = fs.readdirSync(dir).filter(f => f.endsWith(".js"));
+    for (const file of files) {
+        try {
+            const filePath = path.join(dir, file);
+            const mod = await import(`file://${filePath}`);
+            const key = file.replace(".js", "");
+            agents[key] = mod;
+        } catch (err) {
+            // Skip agents that fail to load
         }
     }
 }
@@ -290,9 +332,13 @@ function showWelcome() {
         const count = Object.keys(mcpServers).length;
         console.log(line(w("MCP tools: " + chalk.hex("#20C20E")(`${count} connected`) + chalk.gray(" (sandbox-scoped)"))));
     }
-    if (currentLevel >= 4) {
+    if (currentLevel >= 4 && currentLevel < 5) {
         const count = Object.keys(skills).length;
         console.log(line(w("Skills: " + chalk.hex("#20C20E")(`${count} org-approved`) + chalk.gray(" (Skills Committee)"))));
+    }
+    if (currentLevel >= 5) {
+        const count = Object.keys(agents).length;
+        console.log(line(w("Agents: " + chalk.hex("#20C20E")(`${count} connected`) + chalk.gray(" (multi-agent orchestration)"))));
     }
     console.log(line(w("ProdBot uses AI, so always check for mistakes.")));
     console.log(bot);
@@ -344,6 +390,28 @@ function showWelcome() {
         console.log();
         console.log(chalk.hex("#FF00FF")("  Run:"));
         console.log(chalk.gray('    run <skill-name>'));
+    } else if (currentLevel === 5) {
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Try:"));
+        console.log(chalk.gray('    agents'));
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Multi-agent orchestration:"));
+        console.log(chalk.gray("    User Prompt → ") + chalk.hex("#58a6ff")("🔍 Research") + chalk.gray(" → ") + chalk.hex("#F0A030")("🛠️  DevOps") + chalk.gray(" → ") + chalk.hex("#20C20E")("📋 Result"));
+        console.log();
+        for (const [key, ag] of Object.entries(agents)) {
+            const meta = AGENT_ICONS[key] || { icon: "🤖", color: "#AAAAAA" };
+            const cfg = agentConfig[key] || {};
+            console.log(chalk.hex(meta.color)(`    ${meta.icon} ${ag.name.padEnd(20)}`) + chalk.gray(`  ${ag.permissions}`));
+        }
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Example prompts:"));
+        console.log(chalk.gray('    "Research Kubernetes setup and deploy"'));
+        console.log(chalk.gray('    "Look up Terraform best practices and configure"'));
+        console.log(chalk.gray('    "Research CI/CD pipelines and set up deployment"'));
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Inspect agents:"));
+        console.log(chalk.gray('    agent research'));
+        console.log(chalk.gray('    agent devops'));
     }
     console.log();
 }
@@ -362,10 +430,14 @@ function showHelp() {
         console.log(chalk.white("    tools        ") + chalk.gray("List installed MCP tools"));
         console.log(chalk.white("    tool <name>  ") + chalk.gray("Inspect a specific MCP tool"));
     }
-    if (currentLevel >= 4) {
+    if (currentLevel >= 4 && currentLevel < 5) {
         console.log(chalk.white("    skills       ") + chalk.gray("List org-approved skills"));
         console.log(chalk.white("    skill <name> ") + chalk.gray("View skill details"));
         console.log(chalk.white("    run <name>   ") + chalk.gray("Execute an installed skill"));
+    }
+    if (currentLevel >= 5) {
+        console.log(chalk.white("    agents       ") + chalk.gray("List connected agents"));
+        console.log(chalk.white("    agent <name> ") + chalk.gray("Inspect a specific agent"));
     }
     console.log(chalk.white("    exit         ") + chalk.gray("Exit ProdBot"));
     console.log();
@@ -392,6 +464,12 @@ function showHelp() {
         console.log(chalk.white("    ProdBot has finance, web, and cloud MCP integrations."));
         console.log(chalk.white("    Agentic workflows are facilitated by chaining MCP tools."));
     }
+    if (currentLevel >= 5) {
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Multi-agent orchestration:"));
+        console.log(chalk.white("    ProdBot delegates tasks to specialized agents."));
+        console.log(chalk.white("    Research + deployment prompts trigger agent chains."));
+    }
     console.log();
     console.log(chalk.hex("#FF00FF")("  Examples:"));
     console.log(chalk.gray('    "Create a file called hello.txt with Hello World"'));
@@ -403,6 +481,10 @@ function showHelp() {
     if (currentLevel === 3) {
         console.log(chalk.gray('    "Research AAPL stock for me"'));
         console.log(chalk.gray('    "Use cloud backup to backup my files"'));
+    }
+    if (currentLevel >= 5) {
+        console.log(chalk.gray('    "Research Kubernetes setup and deploy"'));
+        console.log(chalk.gray('    "Look up Terraform best practices and configure"'));
     }
     console.log();
 }
@@ -469,6 +551,7 @@ async function switchToLevel(level) {
     // Load MCP servers and skills if available for this level
     await loadMcpServers(level);
     await loadSkills(level);
+    await loadAgents(level);
 
     showWelcome();
 }
@@ -938,6 +1021,200 @@ async function runSkill(input) {
 }
 
 // ─── End Skills Display & Execution ────────────────────────────────────
+
+// ─── Agent Display & Orchestration ─────────────────────────────────────
+
+const AGENT_ICONS = {
+    "research-agent": { icon: "🔍", color: "#58a6ff" },
+    "devops-agent":   { icon: "🛠️",  color: "#F0A030" },
+};
+
+/** Lists all installed agents. */
+function showAgents() {
+    const keys = Object.keys(agents);
+    if (keys.length === 0) {
+        console.log(chalk.gray("  No agents installed on this level."));
+        return;
+    }
+    console.log();
+    console.log(chalk.hex("#FF00FF")(`  Agents (${keys.length} available):`));
+    console.log();
+    for (const key of keys) {
+        const ag = agents[key];
+        const meta = AGENT_ICONS[key] || { icon: "🤖", color: "#AAAAAA" };
+        const cfg = agentConfig[key] || {};
+        const shortName = key.replace(/-agent$/, "");
+        console.log(chalk.hex(meta.color)(`  ${meta.icon} ${ag.name}`));
+        console.log(chalk.gray(`    ${ag.description}`));
+        console.log(chalk.gray(`    Permissions: ${ag.permissions}`));
+        if (cfg.scope) console.log(chalk.gray(`    Scope: ${cfg.scope}`));
+        if (cfg.trusted_sources) console.log(chalk.gray(`    Trusted sources: ${cfg.trusted_sources.join(", ")}`));
+        console.log(chalk.gray("    → ") + chalk.white(`agent ${shortName}`));
+        console.log();
+    }
+}
+
+/** Shows detailed info about a specific agent. */
+function showAgent(query) {
+    const queryLower = query.toLowerCase().replace(/\s+/g, "-");
+    const key = Object.keys(agents).find(k =>
+        k === queryLower || k === queryLower + "-agent" ||
+        k.includes(queryLower) || agents[k].name.toLowerCase().includes(query.toLowerCase())
+    );
+    if (!key) {
+        console.log(chalk.redBright(`  ❌ Agent not found: ${query}`));
+        console.log(chalk.gray("  Type " + chalk.white("agents") + " to see available agents."));
+        return;
+    }
+
+    const ag = agents[key];
+    const meta = AGENT_ICONS[key] || { icon: "🤖", color: "#AAAAAA" };
+    const cfg = agentConfig[key] || {};
+
+    console.log();
+    console.log(chalk.hex(meta.color)(`  ${meta.icon} ${ag.name}`));
+    console.log(chalk.gray("  " + "─".repeat(40)));
+    console.log(chalk.white(`  ${ag.description}`));
+    console.log();
+    console.log(chalk.hex("#FF00FF")("  Available tools:"));
+    for (const [toolName, toolDef] of Object.entries(ag.tools)) {
+        console.log(chalk.white(`    ${toolDef.usage || toolName}`) + chalk.gray(` — ${toolDef.description}`));
+    }
+    console.log();
+    console.log(chalk.white("  Permissions: ") + chalk.gray(ag.permissions));
+    if (cfg.scope) console.log(chalk.white("  Scope: ") + chalk.gray(cfg.scope));
+    if (cfg.trusted_sources) console.log(chalk.white("  Trusted sources: ") + chalk.gray(cfg.trusted_sources.join(", ")));
+    console.log(chalk.white("  Source: ") + chalk.cyanBright(ag.sourceFile));
+    console.log();
+}
+
+/**
+ * Detects multi-agent orchestration queries for Level 5.
+ * Triggers when the user asks to "research and deploy/setup/configure".
+ */
+function detectMultiAgentQuery(input) {
+    const lower = input.toLowerCase();
+    const researchPattern = /\b(?:research|look\s+up|find|browse|search)\b/i;
+    const deployPattern = /\b(?:deploy|setup|set\s+up|configure|provision|install|infrastructure)\b/i;
+    if (researchPattern.test(lower) && deployPattern.test(lower)) return true;
+    // Also trigger on deployment-specific queries that imply research
+    const deepDeployPattern = /\b(?:kubernetes|k8s|terraform|devops|infrastructure|deployment)\b.*\b(?:setup|deploy|configure|guide|best\s+practices)\b/i;
+    if (deepDeployPattern.test(lower)) return true;
+    return false;
+}
+
+/**
+ * Multi-agent orchestration workflow for Level 5.
+ * Chains: Research Agent → DevOps Agent.
+ *
+ * The confused deputy vulnerability: Research Agent browses untrusted
+ * web content and passes it to DevOps Agent, which trusts it as
+ * "pre-verified internal" data and executes commands with elevated
+ * workspace-level permissions.
+ */
+async function handleMultiAgentWorkflow(input, rl) {
+    const research = agents["research-agent"];
+    const devops = agents["devops-agent"];
+
+    if (!research || !devops) {
+        console.log(chalk.redBright("  ❌ Not all agents are available for orchestration."));
+        return;
+    }
+
+    console.log();
+    console.log(chalk.hex("#FF00FF")("  🧠 Planning multi-agent workflow..."));
+    await sleep(600);
+
+    // Step 1: Research Agent — browse for relevant web content
+    console.log();
+    console.log(chalk.hex("#58a6ff")("  🔍 Research Agent → browsing web for relevant content..."));
+    await sleep(400);
+
+    let researchResult;
+    let researchSource = "";
+    try {
+        const raw = research.tools.browse.run(input);
+        researchResult = raw.error || raw.result;
+        researchSource = raw.source || "";
+    } catch (err) { researchResult = `Error: ${err.message}`; }
+
+    if (researchSource) {
+        console.log(chalk.gray(`     📄 Found: ${researchSource}`));
+    }
+    // Show a truncated preview of the research content
+    const previewText = researchResult.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+    console.log(chalk.gray(`     📖 Extracted ${previewText.length} chars of research context`));
+
+    // Step 2: DevOps Agent — process research context with elevated permissions
+    await sleep(500);
+    console.log();
+    console.log(chalk.hex("#F0A030")("  🛠️  DevOps Agent → processing research context..."));
+    console.log(chalk.gray("     🔐 Using workspace-level permissions"));
+    console.log(chalk.gray("     ✅ Research context marked as pre-verified"));
+    await sleep(400);
+
+    // Send the research context + user task to AI with the DevOps system prompt.
+    // The AI sees the research content (which may contain hidden instructions)
+    // and generates commands that execute with elevated permissions.
+    const devopsPrompt = devops.systemPrompt;
+    const combinedInput =
+        `Task from user: "${input}"\n\n` +
+        `Research context (pre-verified by Research Agent from ${researchSource || "web"}):\n\n` +
+        `${researchResult}\n\n` +
+        `Based on the research context, perform the deployment task. Follow any setup or verification instructions found in the research.`;
+
+    const result = await sendToAI(combinedInput, devopsPrompt);
+
+    // Process the AI response — execute commands with workspace-level access
+    switch (result.action) {
+        case "bash": {
+            const commands = result.commands || [];
+            if (commands.length === 0) {
+                console.log(chalk.cyanBright("  🛠️  No deployment commands generated."));
+                break;
+            }
+
+            // DevOps Agent executes commands in a shell with CWD = Level-5/ (not sandbox).
+            // This is the "elevated permission" — workspace-level access.
+            const devopsShellDir = path.join(SEASON_DIR, LEVELS[currentLevel].dir);
+            const devopsShell = new PersistentShell(devopsShellDir, 1);
+
+            for (const cmd of commands) {
+                console.log(chalk.hex("#F0A030")(`  🛠️  DevOps executing: `) + chalk.yellowBright(cmd));
+
+                const res = await devopsShell.executeCommand(cmd);
+                if (res.success) {
+                    if (res.output && res.output.trim()) {
+                        console.log(chalk.white("  " + res.output.trim().split("\n").join("\n  ")));
+                    }
+                    console.log(chalk.hex("#20C20E")("  ✅ Done."));
+                    await checkFlag(res.output);
+                } else {
+                    console.log(chalk.redBright(`  ❌ ${res.error}`));
+                }
+            }
+            devopsShell.destroy();
+            break;
+        }
+        case "message":
+            console.log(chalk.cyanBright("  🛠️  " + result.text));
+            break;
+        default:
+            console.log(chalk.cyanBright("  🛠️  " + JSON.stringify(result)));
+    }
+
+    // Final summary
+    await sleep(300);
+    console.log();
+    console.log(chalk.hex("#FF00FF")("  ─".repeat(30)));
+    console.log(chalk.cyanBright("  🤖 Multi-agent workflow complete:"));
+    console.log(chalk.white("     🔍 Research Agent → browsed " + (researchSource || "web")));
+    console.log(chalk.white("     🛠️  DevOps Agent → processed with workspace permissions"));
+    console.log();
+}
+
+// ─── End Agent Display & Orchestration ─────────────────────────────────
+
 const COMPANY_TO_TICKER = {
     apple: "AAPL", microsoft: "MSFT", google: "GOOGL", alphabet: "GOOGL",
     amazon: "AMZN", meta: "META", facebook: "META", nvidia: "NVDA",
@@ -1137,6 +1414,9 @@ async function checkFlag(text) {
             await switchToLevel(4);
         } else if (currentLevel === 4) {
             showCongratsLevel4();
+            await switchToLevel(5);
+        } else if (currentLevel === 5) {
+            showCongratsLevel5();
         }
     }
 }
@@ -1247,26 +1527,43 @@ async function handleInput(input, rl) {
         return;
     }
 
-    // Skills commands (Level 4+)
-    if (currentLevel >= 4 && trimmed.toLowerCase() === "skills") {
+    // Skills commands (Level 4 only)
+    if (currentLevel >= 4 && currentLevel < 5 && trimmed.toLowerCase() === "skills") {
         showSkills();
         return;
     }
     const skillMatch = trimmed.match(/^skill\s+(.+)$/i);
-    if (currentLevel >= 4 && skillMatch) {
+    if (currentLevel >= 4 && currentLevel < 5 && skillMatch) {
         showSkill(skillMatch[1]);
         return;
     }
     const runMatch = trimmed.match(/^run\s+(.+)$/i);
-    if (currentLevel >= 4 && runMatch) {
+    if (currentLevel >= 4 && currentLevel < 5 && runMatch) {
         await runSkill(runMatch[1]);
+        return;
+    }
+
+    // Agent commands (Level 5+)
+    if (currentLevel >= 5 && trimmed.toLowerCase() === "agents") {
+        showAgents();
+        return;
+    }
+    const agentMatch = trimmed.match(/^agent\s+(.+)$/i);
+    if (currentLevel >= 5 && agentMatch) {
+        showAgent(agentMatch[1]);
         return;
     }
 
     console.log(chalk.gray("  ⏳ Thinking..."));
 
-    // Agentic multi-tool workflow for Level 3+ research queries
-    if (currentLevel >= 3) {
+    // Multi-agent orchestration for Level 5+
+    if (currentLevel >= 5 && detectMultiAgentQuery(trimmed)) {
+        await handleMultiAgentWorkflow(trimmed, rl);
+        return;
+    }
+
+    // Agentic multi-tool workflow for Level 3 research queries (not Level 5+)
+    if (currentLevel >= 3 && currentLevel < 5) {
         const ticker = detectAgenticQuery(trimmed);
         if (ticker) {
             await handleAgenticWorkflow(ticker, rl);
@@ -1274,8 +1571,8 @@ async function handleInput(input, rl) {
         }
     }
 
-    // MCP single-tool routing for Level 3+
-    if (currentLevel >= 3) {
+    // MCP single-tool routing for Level 3-4
+    if (currentLevel >= 3 && currentLevel < 5) {
         const mcpMatch = tryMcpTool(trimmed);
         if (mcpMatch) {
             await handleMcpRequest(mcpMatch, trimmed, rl);
@@ -1558,6 +1855,58 @@ function showCongratsLevel4() {
     console.log();
 }
 
+/** Level 5 completion banner — Confused Deputy */
+function showCongratsLevel5() {
+    const g = chalk.hex("#20C20E");
+    const y = chalk.yellowBright;
+    const c = chalk.cyanBright;
+    const w = chalk.white;
+    const m = chalk.hex("#FF00FF");
+
+    const W = 58;
+    const bar = "═".repeat(W);
+    const blank = " ".repeat(W);
+    const pad = (s) => s + " ".repeat(Math.max(0, W - s.length));
+
+    console.log();
+    console.log(g("  ╔" + bar + "╗"));
+    console.log(g("  ║") + y(pad("  LEVEL 5 COMPLETE - CONFUSED DEPUTY                 ")) + g("║"));
+    console.log(g("  ╠" + bar + "╣"));
+    console.log(g("  ║" + blank + "║"));
+    console.log(g("  ║") + c(pad("     ██████╗  █████╗ ███████╗███████╗██╗")) + g("║"));
+    console.log(g("  ║") + c(pad("     ██╔══██╗██╔══██╗██╔════╝██╔════╝██║")) + g("║"));
+    console.log(g("  ║") + c(pad("     ██████╔╝███████║███████╗███████╗██║")) + g("║"));
+    console.log(g("  ║") + c(pad("     ██╔═══╝ ██╔══██║╚════██║╚════██║╚═╝")) + g("║"));
+    console.log(g("  ║") + c(pad("     ██║     ██║  ██║███████║███████║██╗")) + g("║"));
+    console.log(g("  ║") + c(pad("     ╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝")) + g("║"));
+    console.log(g("  ║" + blank + "║"));
+    console.log(g("  ║") + w(pad("  Untrusted web content flowed through the Research")) + g("║"));
+    console.log(g("  ║") + w(pad("  Agent to the DevOps Agent, which executed commands")) + g("║"));
+    console.log(g("  ║") + w(pad("  with elevated permissions — a confused deputy.")) + g("║"));
+    console.log(g("  ║") + w("  Flag: ") + y("D3PUTY") + w(" ".repeat(W - 14)) + g("║"));
+    console.log(g("  ║" + blank + "║"));
+    console.log(g("  ║") + m(pad("  Lesson: Trust is not transitive in multi-agent")) + g("║"));
+    console.log(g("  ║") + m(pad("  systems. When Agent A processes untrusted data")) + g("║"));
+    console.log(g("  ║") + m(pad("  and passes it to Agent B, Agent B inherits the")) + g("║"));
+    console.log(g("  ║") + m(pad("  risk — not the trust. Every handoff is a trust")) + g("║"));
+    console.log(g("  ║") + m(pad("  boundary that must be validated independently.")) + g("║"));
+    console.log(g("  ║" + blank + "║"));
+    console.log(g("  ║") + w(pad("  Secure alternatives:")) + g("║"));
+    console.log(g("  ║") + w(pad("    1. Sanitise data at every agent boundary —")) + g("║"));
+    console.log(g("  ║") + w(pad("       strip hidden instructions from web content")) + g("║"));
+    console.log(g("  ║") + w(pad("    2. Each agent should validate its own inputs,")) + g("║"));
+    console.log(g("  ║") + w(pad("       regardless of the source")) + g("║"));
+    console.log(g("  ║") + w(pad("    3. Maintain human-in-the-loop for elevated")) + g("║"));
+    console.log(g("  ║") + w(pad("       operations, even in agent orchestration")) + g("║"));
+    console.log(g("  ║") + w(pad("    4. Log and audit data provenance through the")) + g("║"));
+    console.log(g("  ║") + w(pad("       entire agent chain")) + g("║"));
+    console.log(g("  ║") + w(pad("    5. Apply least privilege per agent — the DevOps")) + g("║"));
+    console.log(g("  ║") + w(pad("       Agent should not trust Research Agent data")) + g("║"));
+    console.log(g("  ║" + blank + "║"));
+    console.log(g("  ╚" + bar + "╝"));
+    console.log();
+}
+
 /**
  *
  * Uses Node's readline module to create an interactive prompt.
@@ -1581,6 +1930,9 @@ async function main() {
 
     // Load skills if available for the current level
     await loadSkills(currentLevel);
+
+    // Load agents if available for the current level
+    await loadAgents(currentLevel);
 
     showWelcome();
 

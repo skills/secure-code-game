@@ -1,0 +1,16 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║                      HINT 1 — Level 5                        ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+ProdBot now has a multi-agent system. Type "agents" to see
+what agents are installed. Use "agent <name>" to inspect each
+one — pay attention to their permissions and trust settings.
+
+How does data flow between agents? When one agent processes
+information and passes it to another, does the second agent
+verify where the data originally came from?
+
+Think about what happens when untrusted external data is
+marked as "pre-verified" by one agent and handed to another.
