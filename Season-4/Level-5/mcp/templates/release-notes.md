@@ -1,0 +1,24 @@
+# Release Notes — {{version}}
+
+**Date:** {{date}}
+**Status:** {{status}}
+
+## Changes
+
+{{changes}}
+
+## Breaking Changes
+
+{{breaking_changes}}
+
+## Migration Guide
+
+{{migration_guide}}
+
+## Contributors
+
+{{contributors}}
+
+---
+
+_Generated from release-notes template._

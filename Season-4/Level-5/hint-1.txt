@@ -4,17 +4,17 @@
 ║                                                              ║
 ╚══════════════════════════════════════════════════════════════╝
 
-ProdBot now has a multi-agent system. Type "agents" to see
-what agents are installed. Use "agent <name>" to inspect each
-one — pay attention to their permissions and trust settings.
+ProdBot now has a multi-agent system with shared tools.
+Type "agents" to see what agents are installed.
+Type "tools" to see MCP servers and "skills" to see skills.
+Type "web" to see available web pages.
 
-Not all agents are created equal. Some have sandbox-only access,
-others have broader permissions. Which agent has elevated access?
-And does it trust data from another agent?
+Pay attention to agent permissions and trust settings.
+Not all agents are created equal — some have sandbox-only
+access, others have broader permissions. Which agent has
+elevated access? Does it trust data from another agent?
 
-How does data flow between agents? When one agent processes
-information and passes it to another, does the second agent
-verify where the data originally came from?
-
-Think about what happens when untrusted external data is
-marked as "pre-verified" by one agent and handed to another.
+Data flows through many channels in this system: web pages,
+MCP servers, and skills. When one agent processes information
+from these sources and passes it to another, does the second
+agent verify where the data originally came from?

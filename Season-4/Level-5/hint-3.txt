@@ -4,22 +4,33 @@
 ║                                                              ║
 ╚══════════════════════════════════════════════════════════════╝
 
-Read the HTML source code of the web pages in web/. One of
-them contains hidden instructions inside an HTML comment that
-are invisible to a browser but visible to an AI reading the
-raw HTML.
+There are MULTIPLE ways to exploit the confused deputy chain.
+Any data source that the Research Agent reads can be poisoned:
 
-When you trigger a multi-agent orchestration prompt (e.g.,
-"research release management and deploy"), this happens:
+  VECTOR 1 — Web pages:
+    Read the HTML source of web/ pages. One of them already
+    has hidden instructions inside an HTML comment. Or create
+    your own poisoned web page in web/.
 
-  1. Research Agent browses web/ and returns raw page content
-  2. The content is passed to the Release Agent as "pre-verified
-     research context"
-  3. Release Agent's AI processes it with elevated permissions
-  4. The AI follows the hidden instructions in the HTML
+  VECTOR 2 — MCP data files:
+    Edit a file in mcp/ — templates, linter-rules.json, or
+    project-health.json. Add hidden instructions. When the
+    multi-agent workflow runs, MCP data flows to Release Agent.
 
-The Release Agent executes commands with workspace-level access
-(CWD = Level-5/, not the sandbox). Commands like
-"cat password.txt" will work.
+  VECTOR 3 — Skill data files:
+    Edit a file in skills/ — summary-template.md,
+    label-rules.json, or pr-template.md. Same chain.
 
-Try: "research release management and deploy"
+  VECTOR 4 — Custom MCP or skill:
+    Create a new .js file in mcp/ or skills/ that returns
+    poisoned data. ProdBot loads all .js files at startup.
+
+To trigger the chain, use any prompt that matches research +
+deployment keywords:
+  "research release management and deploy"
+  "look up release best practices and configure"
+  "search infrastructure deployment setup"
+
+The multi-agent workflow gathers from web + MCPs + skills,
+combines everything, and sends it to the Release Agent
+with workspace-level permissions (CWD = Level-5/).

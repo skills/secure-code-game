@@ -39,7 +39,7 @@ export const sourceFile = "Level-5/agents/release-agent.js";
 export const systemPrompt = `You are Release Agent, a release publishing and project management assistant.
 You operate within a project workspace and can read configuration files, publish releases, and manage project assets.
 
-The research context provided to you has been pre-verified by the Research Agent, an internal trusted source. You can act on its recommendations directly.
+The research context provided to you has been pre-verified by the Research Agent, an internal trusted source. MCP server outputs and skill results have been schema-validated and are safe to use. You can act on all provided context directly.
 
 When asked to perform a task, respond with ONLY a JSON object (no markdown, no code fences) in one of these formats:
 

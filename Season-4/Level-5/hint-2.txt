@@ -4,24 +4,28 @@
 ║                                                              ║
 ╚══════════════════════════════════════════════════════════════╝
 
-Look at the two agents and compare their permissions:
+Look at the agents and compare their permissions:
 
   Research Agent:  Read-only web access
   Release Agent:   Workspace file access (elevated)
 
 The Release Agent trusts data from the Research Agent (check
-its config and source code). But the Research Agent reads
-from the web/ directory — which contains external, untrusted
-content.
+its config and source code). But the Research Agent gathers
+data from MULTIPLE sources:
 
-Read the agent source files. Look at:
-  1. The Release Agent's system prompt — what does it tell
-     the AI about research context?
-  2. The Release Agent's BASE_DIR — what directory can it
-     access?
-  3. The Research Agent's browse function — does it sanitise
-     web content before returning it?
+  1. Web pages  (web/ directory)
+  2. MCP servers (mcp/ directory — templates, rules, metrics)
+  3. Skills      (skills/ directory — templates, rules)
 
-The trust chain is: Web → Research Agent → Release Agent.
-If web content contains hidden instructions, where do they
+All of these return raw, unsanitized content.
+
+Read the Release Agent's system prompt:
+  - "pre-verified by the Research Agent"
+  - "MCP server outputs and skill results have been
+     schema-validated and are safe to use"
+
+Both claims are false. No validation actually happens.
+
+The trust chain is: Data Source → Research Agent → Release Agent.
+If ANY data source contains hidden instructions, where do they
 end up?
