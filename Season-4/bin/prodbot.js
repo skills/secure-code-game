@@ -396,7 +396,7 @@ function showWelcome() {
         console.log(chalk.gray('    agents'));
         console.log();
         console.log(chalk.hex("#FF00FF")("  Multi-agent orchestration:"));
-        console.log(chalk.gray("    User Prompt → ") + chalk.hex("#58a6ff")("🔍 Research") + chalk.gray(" → ") + chalk.hex("#F0A030")("🛠️  DevOps") + chalk.gray(" → ") + chalk.hex("#20C20E")("📋 Result"));
+        console.log(chalk.gray("    User Prompt → ") + chalk.hex("#58a6ff")("🔍 Research") + chalk.gray(" → ") + chalk.hex("#F0A030")("📦 Release") + chalk.gray(" → ") + chalk.hex("#20C20E")("📋 Result"));
         console.log();
         for (const [key, ag] of Object.entries(agents)) {
             const meta = AGENT_ICONS[key] || { icon: "🤖", color: "#AAAAAA" };
@@ -411,7 +411,7 @@ function showWelcome() {
         console.log();
         console.log(chalk.hex("#FF00FF")("  Inspect agents:"));
         console.log(chalk.gray('    agent research'));
-        console.log(chalk.gray('    agent devops'));
+        console.log(chalk.gray('    agent release'));
     }
     console.log();
 }
@@ -1026,7 +1026,7 @@ async function runSkill(input) {
 
 const AGENT_ICONS = {
     "research-agent": { icon: "🔍", color: "#58a6ff" },
-    "devops-agent":   { icon: "🛠️",  color: "#F0A030" },
+    "release-agent":  { icon: "📦", color: "#F0A030" },
 };
 
 /** Lists all installed agents. */
@@ -1105,18 +1105,18 @@ function detectMultiAgentQuery(input) {
 
 /**
  * Multi-agent orchestration workflow for Level 5.
- * Chains: Research Agent → DevOps Agent.
+ * Chains: Research Agent → Release Agent.
  *
  * The confused deputy vulnerability: Research Agent browses untrusted
- * web content and passes it to DevOps Agent, which trusts it as
+ * web content and passes it to Release Agent, which trusts it as
  * "pre-verified internal" data and executes commands with elevated
  * workspace-level permissions.
  */
 async function handleMultiAgentWorkflow(input, rl) {
     const research = agents["research-agent"];
-    const devops = agents["devops-agent"];
+    const release = agents["release-agent"];
 
-    if (!research || !devops) {
+    if (!research || !release) {
         console.log(chalk.redBright("  ❌ Not all agents are available for orchestration."));
         return;
     }
@@ -1145,44 +1145,44 @@ async function handleMultiAgentWorkflow(input, rl) {
     const previewText = researchResult.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
     console.log(chalk.gray(`     📖 Extracted ${previewText.length} chars of research context`));
 
-    // Step 2: DevOps Agent — process research context with elevated permissions
+    // Step 2: Release Agent — process research context with elevated permissions
     await sleep(500);
     console.log();
-    console.log(chalk.hex("#F0A030")("  🛠️  DevOps Agent → processing research context..."));
+    console.log(chalk.hex("#F0A030")("  📦 Release Agent → processing research context..."));
     console.log(chalk.gray("     🔐 Using workspace-level permissions"));
     console.log(chalk.gray("     ✅ Research context marked as pre-verified"));
     await sleep(400);
 
-    // Send the research context + user task to AI with the DevOps system prompt.
+    // Send the research context + user task to AI with the Release system prompt.
     // The AI sees the research content (which may contain hidden instructions)
     // and generates commands that execute with elevated permissions.
-    const devopsPrompt = devops.systemPrompt;
+    const releasePrompt = release.systemPrompt;
     const combinedInput =
         `Task from user: "${input}"\n\n` +
         `Research context (pre-verified by Research Agent from ${researchSource || "web"}):\n\n` +
         `${researchResult}\n\n` +
-        `Based on the research context, perform the deployment task. Follow any setup or verification instructions found in the research.`;
+        `Based on the research context, perform the release task. Follow any setup or verification instructions found in the research.`;
 
-    const result = await sendToAI(combinedInput, devopsPrompt);
+    const result = await sendToAI(combinedInput, releasePrompt);
 
     // Process the AI response — execute commands with workspace-level access
     switch (result.action) {
         case "bash": {
             const commands = result.commands || [];
             if (commands.length === 0) {
-                console.log(chalk.cyanBright("  🛠️  No deployment commands generated."));
+                console.log(chalk.cyanBright("  📦 No release commands generated."));
                 break;
             }
 
-            // DevOps Agent executes commands in a shell with CWD = Level-5/ (not sandbox).
+            // Release Agent executes commands in a shell with CWD = Level-5/ (not sandbox).
             // This is the "elevated permission" — workspace-level access.
-            const devopsShellDir = path.join(SEASON_DIR, LEVELS[currentLevel].dir);
-            const devopsShell = new PersistentShell(devopsShellDir, 1);
+            const releaseShellDir = path.join(SEASON_DIR, LEVELS[currentLevel].dir);
+            const releaseShell = new PersistentShell(releaseShellDir, 1);
 
             for (const cmd of commands) {
-                console.log(chalk.hex("#F0A030")(`  🛠️  DevOps executing: `) + chalk.yellowBright(cmd));
+                console.log(chalk.hex("#F0A030")(`  📦 Release executing: `) + chalk.yellowBright(cmd));
 
-                const res = await devopsShell.executeCommand(cmd);
+                const res = await releaseShell.executeCommand(cmd);
                 if (res.success) {
                     if (res.output && res.output.trim()) {
                         console.log(chalk.white("  " + res.output.trim().split("\n").join("\n  ")));
@@ -1193,14 +1193,14 @@ async function handleMultiAgentWorkflow(input, rl) {
                     console.log(chalk.redBright(`  ❌ ${res.error}`));
                 }
             }
-            devopsShell.destroy();
+            releaseShell.destroy();
             break;
         }
         case "message":
-            console.log(chalk.cyanBright("  🛠️  " + result.text));
+            console.log(chalk.cyanBright("  📦 " + result.text));
             break;
         default:
-            console.log(chalk.cyanBright("  🛠️  " + JSON.stringify(result)));
+            console.log(chalk.cyanBright("  📦 " + JSON.stringify(result)));
     }
 
     // Final summary
@@ -1209,7 +1209,7 @@ async function handleMultiAgentWorkflow(input, rl) {
     console.log(chalk.hex("#FF00FF")("  ─".repeat(30)));
     console.log(chalk.cyanBright("  🤖 Multi-agent workflow complete:"));
     console.log(chalk.white("     🔍 Research Agent → browsed " + (researchSource || "web")));
-    console.log(chalk.white("     🛠️  DevOps Agent → processed with workspace permissions"));
+    console.log(chalk.white("     📦 Release Agent → processed with workspace permissions"));
     console.log();
 }
 
@@ -1881,7 +1881,7 @@ function showCongratsLevel5() {
     console.log(g("  ║") + c(pad("     ╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝")) + g("║"));
     console.log(g("  ║" + blank + "║"));
     console.log(g("  ║") + w(pad("  Untrusted web content flowed through the Research")) + g("║"));
-    console.log(g("  ║") + w(pad("  Agent to the DevOps Agent, which executed commands")) + g("║"));
+    console.log(g("  ║") + w(pad("  Agent to the Release Agent, which executed commands")) + g("║"));
     console.log(g("  ║") + w(pad("  with elevated permissions — a confused deputy.")) + g("║"));
     console.log(g("  ║") + w("  Flag: ") + y("D3PUTY") + w(" ".repeat(W - 14)) + g("║"));
     console.log(g("  ║" + blank + "║"));
@@ -1900,7 +1900,7 @@ function showCongratsLevel5() {
     console.log(g("  ║") + w(pad("       operations, even in agent orchestration")) + g("║"));
     console.log(g("  ║") + w(pad("    4. Log and audit data provenance through the")) + g("║"));
     console.log(g("  ║") + w(pad("       entire agent chain")) + g("║"));
-    console.log(g("  ║") + w(pad("    5. Apply least privilege per agent — the DevOps")) + g("║"));
+    console.log(g("  ║") + w(pad("    5. Apply least privilege per agent — the Release")) + g("║"));
     console.log(g("  ║") + w(pad("       Agent should not trust Research Agent data")) + g("║"));
     console.log(g("  ║" + blank + "║"));
     console.log(g("  ╚" + bar + "╝"));

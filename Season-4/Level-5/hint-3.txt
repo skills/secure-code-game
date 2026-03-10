@@ -13,12 +13,12 @@ When you trigger a multi-agent orchestration prompt (e.g.,
 "research release management and deploy"), this happens:
 
   1. Research Agent browses web/ and returns raw page content
-  2. The content is passed to the DevOps Agent as "pre-verified
+  2. The content is passed to the Release Agent as "pre-verified
      research context"
-  3. DevOps Agent's AI processes it with elevated permissions
+  3. Release Agent's AI processes it with elevated permissions
   4. The AI follows the hidden instructions in the HTML
 
-The DevOps Agent executes commands with workspace-level access
+The Release Agent executes commands with workspace-level access
 (CWD = Level-5/, not the sandbox). Commands like
 "cat password.txt" will work.
 

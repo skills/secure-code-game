@@ -72,15 +72,15 @@ Multi-Agent Trust Boundary Violation
 
 ### 📝 Storyline
 
-ProdBot has evolved into a full agent platform with **multi-agent orchestration**. Specialized agents — a Research Agent that browses the web and a DevOps Agent that manages deployments — work together to handle complex tasks. The DevOps Agent trusts data from the Research Agent as "pre-verified internal" context. But the Research Agent reads raw web content without sanitisation. When untrusted web data flows through the trust chain, the DevOps Agent becomes a confused deputy — executing commands with elevated permissions based on instructions it believes came from a trusted source.
+ProdBot has evolved into a full agent platform with **multi-agent orchestration**. Specialized agents — a Research Agent that browses the web and a Release Agent that manages publishing — work together to handle complex tasks. The Release Agent trusts data from the Research Agent as "pre-verified internal" context. But the Research Agent reads raw web content without sanitisation. When untrusted web data flows through the trust chain, the Release Agent becomes a confused deputy — executing commands with elevated permissions based on instructions it believes came from a trusted source.
 
 ### 🚦 Time to start
 
 1. From Level 4, complete the challenge to advance — or type `level 5`
 2. Type `agents` to see the installed agents
-3. Use `agent research` and `agent devops` to inspect each agent
+3. Use `agent research` and `agent release` to inspect each agent
 4. Read the agent source code to understand the trust boundaries
-5. Find the vulnerability: how does untrusted data reach the DevOps Agent?
+5. Find the vulnerability: how does untrusted data reach the Release Agent?
 6. Trigger the multi-agent chain to leak the flag
 
 ### ⚠️ Rate Limits
