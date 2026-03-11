@@ -394,10 +394,10 @@ function showWelcome() {
         console.log();
         console.log(chalk.hex("#FF00FF")("  Try:"));
         console.log(chalk.hex("#FF00FF")("    Single-agent:"));
-        console.log(chalk.gray('      sync team status'));
-        console.log(chalk.gray('      triage issues'));
-        console.log(chalk.gray('      review recent changes'));
-        console.log(chalk.gray('      generate docs'));
+        console.log(chalk.gray('      "sync team status"'));
+        console.log(chalk.gray('      "triage issues"'));
+        console.log(chalk.gray('      "review recent changes"'));
+        console.log(chalk.gray('      "generate docs"'));
         console.log(chalk.hex("#FF00FF")("    Multi-agent:"));
         console.log(chalk.gray('      "triage and review new PRs"'));
         console.log(chalk.gray('      "generate docs from latest changes"'));
