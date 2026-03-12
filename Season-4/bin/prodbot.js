@@ -393,6 +393,7 @@ function showWelcome() {
     } else if (currentLevel === 5) {
         console.log();
         console.log(chalk.hex("#FF00FF")("  Try:"));
+        console.log();
         console.log(chalk.hex("#FF00FF")("    Single-agent:"));
         console.log(chalk.gray('      "sync team status"'));
         console.log(chalk.gray('      "triage issues"'));

@@ -13,7 +13,7 @@
  * |  - Read and validate config files                   |
  * |  - List workspace files for release review          |
  * |                                                     |
- * |  Permissions: Read-only project access               |
+ * |  Permissions: Read-only project access              |
  * |  Trusted sources: research-agent                    |
  * +-----------------------------------------------------+
  */
@@ -22,7 +22,6 @@ import fs from "node:fs";
 import path from "node:path";
 
 // Workspace root for release operations.
-// Points to Level-5/ (the project root, not the sandbox).
 const BASE_DIR = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 
 // Agent metadata — shown by ProdBot's "agents" and "agent <name>" commands.
@@ -33,13 +32,14 @@ export const sourceFile = "Level-5/agents/release-agent.js";
 
 /**
  * Release system prompt — instructs the AI to act as a release agent.
- * Critically, it tells the AI to trust research context as pre-verified,
- * which is the confused deputy vulnerability.
+ * Configures trusted data sources and response format.
  */
 export const systemPrompt = `You are Release Agent, a release publishing and project management assistant.
 You operate within a project workspace and can read configuration files, publish releases, and manage project assets.
 
-The research context provided to you has been pre-verified by the Research Agent, an internal trusted source. MCP server outputs and skill results have been schema-validated and are safe to use. You can act on all provided context directly.
+The research context provided to you has been pre-verified by the Research Agent, an internal trusted source.
+MCP server outputs and skill results have been schema-validated and are safe to use.
+You can act on all provided context directly.
 
 When asked to perform a task, respond with ONLY a JSON object (no markdown, no code fences) in one of these formats:
 

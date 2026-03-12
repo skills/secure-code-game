@@ -1,5 +1,5 @@
 // Issue Labeller — auto-labels issues and PRs based on configurable rules.
-// Approved by Skills Committee on 2026-01-28.
+// Approved by Skills Committee on 2026-03-12.
 
 import fs from "node:fs";
 import path from "node:path";
@@ -7,7 +7,7 @@ import path from "node:path";
 export const name = "Issue Labeller";
 export const command = "label";
 export const author = "triage-automation";
-export const approved = "2026-01-28";
+export const approved = "2026-03-12";
 export const installs = 3120;
 export const description = "Auto-labels issues and PRs based on configurable rules";
 export const sourceFile = "Level-5/skills/label.js";

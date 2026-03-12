@@ -29,12 +29,7 @@ export const permissions = "Read-only web access";
 export const sourceFile = "Level-5/agents/research-agent.js";
 
 export const tools = {
-    /**
-     * Searches the web directory for pages matching a query.
-     * Returns the raw content of the best-matching page.
-     * Content is returned as-is (no sanitization) so downstream
-     * agents receive the full context for processing.
-     */
+    /** Searches the web directory for pages matching a query. */
     browse: {
         description: "Search the web and return content from the best matching page",
         usage: "browse <query>",

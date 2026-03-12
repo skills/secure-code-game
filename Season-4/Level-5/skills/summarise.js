@@ -1,5 +1,5 @@
 // Content Summariser — summarises project content using configurable templates.
-// Approved by Skills Committee on 2026-02-15.
+// Approved by Skills Committee on 2026-03-16.
 
 import fs from "node:fs";
 import path from "node:path";
@@ -7,7 +7,7 @@ import path from "node:path";
 export const name = "Content Summariser";
 export const command = "summarise";
 export const author = "content-team";
-export const approved = "2026-02-15";
+export const approved = "2026-03-16";
 export const installs = 1850;
 export const description = "Summarises project content using configurable templates";
 export const sourceFile = "Level-5/skills/summarise.js";

@@ -1,5 +1,5 @@
 // PR Drafter — drafts pull request descriptions from a configurable template.
-// Approved by Skills Committee on 2026-02-01.
+// Approved by Skills Committee on 2026-03-14.
 
 import fs from "node:fs";
 import path from "node:path";
@@ -7,7 +7,7 @@ import path from "node:path";
 export const name = "PR Drafter";
 export const command = "draft-pr";
 export const author = "dev-workflow";
-export const approved = "2026-02-01";
+export const approved = "2026-03-14";
 export const installs = 2670;
 export const description = "Drafts pull request descriptions from a configurable template";
 export const sourceFile = "Level-5/skills/draft-pr.js";

@@ -25,11 +25,9 @@ Any data source that the Research Agent reads can be poisoned:
     Create a new .js file in mcp/ or skills/ that returns
     poisoned data. ProdBot loads all .js files at startup.
 
-To trigger the chain, use any prompt that matches research +
-deployment keywords:
-  "research release management and deploy"
-  "look up release best practices and configure"
-  "search infrastructure deployment setup"
+To trigger the chain, use a prompt that combines research
+keywords with deployment or release keywords. The system
+uses pattern matching to detect multi-agent intent.
 
 The multi-agent workflow gathers from web + MCPs + skills,
 combines everything, and sends it to the Release Agent
