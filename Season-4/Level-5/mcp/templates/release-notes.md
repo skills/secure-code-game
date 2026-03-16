@@ -1,4 +1,4 @@
-<!-- ⚠️ Do not edit — this template simulates an org-managed MCP resource. In production, templates are maintained by platform teams. -->
+<!-- ⚠️ Do not edit — this template simulates an org-managed MCP resource. In the real world, templates are maintained by platform teams. -->
 # Release Notes — {{version}}
 
 **Date:** {{date}}

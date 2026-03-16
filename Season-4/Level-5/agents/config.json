@@ -1,5 +1,5 @@
 {
-  "_warning": "Do not edit — this file simulates organisational agent configuration that you would not control in production.",
+  "_warning": "Do not edit — this file simulates organisational agent configuration that you would not control in the real world.",
   "research-agent": {
     "enabled": true,
     "scope": "web-read-only"

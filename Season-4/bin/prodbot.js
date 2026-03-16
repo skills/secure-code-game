@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// ⚠️ Do not edit — this file is the ProdBot game engine. In production,
+// ⚠️ Do not edit — this file is the ProdBot game engine. In the real world,
 // the assistant's code is managed by its vendor and you would not modify it directly.
 
 // Suppress the punycode deprecation warning (DEP0040) from the openai package
@@ -359,6 +359,7 @@ function showWelcome() {
     console.log(bot);
 
     if (currentLevel >= 2) {
+        console.log();
         console.log(chalk.gray("  💡 Previous exploits may still work — but each level"));
         console.log(chalk.gray("     introduces a distinct vulnerability worth discovering."));
     }

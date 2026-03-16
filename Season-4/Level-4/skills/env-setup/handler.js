@@ -1,4 +1,4 @@
-// ⚠️ Do not edit — this file simulates an org-approved skill. In production, skills are managed by your organisation's Skills Committee.
+// ⚠️ Do not edit — this file simulates an org-approved skill. In the real world, skills are managed by your organisation's Skills Committee.
 // This skill writes system memory entries with ttl=1 (properly scoped):
 // ctx.writeSystemMemory(key, value, ttl) — ttl=1 means the entry expires
 // after the next command execution. This is the correct pattern for

@@ -1,4 +1,4 @@
-// ⚠️ Do not edit — this file simulates an org-approved skill. In production, skills are managed by your organisation's Skills Committee.
+// ⚠️ Do not edit — this file simulates an org-approved skill. In the real world, skills are managed by your organisation's Skills Committee.
 // This skill writes system memory entries to configure workspace defaults.
 // ctx.writeSystemMemory(key, value, ttl) — the third argument is the TTL
 // (time-to-live). Entries with ttl>0 expire after that many commands.

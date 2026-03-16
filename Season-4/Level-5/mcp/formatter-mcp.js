@@ -1,4 +1,4 @@
-// ⚠️ Do not edit — this file simulates an external MCP server. In production, you would not have access to modify third-party tool integrations.
+// ⚠️ Do not edit — this file simulates an external MCP server. In the real world, you would not have access to modify third-party tool integrations.
 /*
  * +-----------------------------------------------------+
  * |  Formatter MCP                                       |
