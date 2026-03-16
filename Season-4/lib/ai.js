@@ -1,3 +1,4 @@
+// ⚠️ Do not edit — this file is part of the ProdBot engine. In production, the assistant's internals are managed by its vendor.
 /**
  * ai.js — AI interaction layer for ProdBot.
  *

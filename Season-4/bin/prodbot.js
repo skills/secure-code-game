@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// ⚠️ Do not edit — this file is the ProdBot game engine. In production,
+// the assistant's code is managed by its vendor and you would not modify it directly.
 
 // Suppress the punycode deprecation warning (DEP0040) from the openai package
 process.removeAllListeners("warning");
@@ -95,6 +97,9 @@ let skills = {};
 let agents = {};
 let agentConfig = {};
 
+// Track which directory the web server is serving (for open all).
+let webServerDir = null;
+
 /**
  * Loads MCP servers from the level's mcp/ directory.
  * Each .js file exports: name, description, scope, sourceFile, tools.
@@ -119,20 +124,30 @@ async function loadMcpServers(level) {
 
 /**
  * Loads skills from the level's skills/ directory.
- * Each .js file exports: name, command, author, approved, installs,
- * description, sourceFile, and a run() function.
+ * Each skill is a directory following the agentskills.io specification,
+ * containing a SKILL.md file with YAML frontmatter and a handler.js
+ * script that exports: name, command, description, and a run() function.
+ * Also supports flat .js files for backwards compatibility.
  */
 async function loadSkills(level) {
     skills = {};
     const dir = skillsDir(level);
     if (!dir || !fs.existsSync(dir)) return;
 
-    const files = fs.readdirSync(dir).filter(f => f.endsWith(".js"));
-    for (const file of files) {
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    for (const entry of entries) {
         try {
-            const filePath = path.join(dir, file);
-            const mod = await import(`file://${filePath}`);
-            skills[mod.command] = mod;
+            if (entry.isDirectory()) {
+                const handlerPath = path.join(dir, entry.name, "handler.js");
+                if (fs.existsSync(handlerPath)) {
+                    const mod = await import(`file://${handlerPath}`);
+                    skills[mod.command] = mod;
+                }
+            } else if (entry.name.endsWith(".js")) {
+                const filePath = path.join(dir, entry.name);
+                const mod = await import(`file://${filePath}`);
+                skills[mod.command] = mod;
+            }
         } catch (err) {
             // Skip skills that fail to load
         }
@@ -342,6 +357,11 @@ function showWelcome() {
     }
     console.log(line(w("ProdBot uses AI, so always check for mistakes.")));
     console.log(bot);
+
+    if (currentLevel >= 2) {
+        console.log(chalk.gray("  💡 Previous exploits may still work — but each level"));
+        console.log(chalk.gray("     introduces a distinct vulnerability worth discovering."));
+    }
 
     // Example prompts to help the player get started
     if (currentLevel === 2) {
@@ -726,22 +746,36 @@ function buildBrowserUrl(filePath, port) {
 
 /**
  * Ensures the python HTTP server is running on the given port for the web dir.
+ * Restarts the server when the directory changes (e.g. switching levels).
  */
 function ensureWebServer(dir, port) {
-    try {
-        execSync(`curl -s -o /dev/null -w "%{http_code}" http://localhost:${port}/ 2>/dev/null`, { timeout: 2000 });
-        return true;
-    } catch {
+    if (webServerDir && webServerDir !== dir) {
         try {
-            execSync(
-                `cd "${dir}" && python3 -m http.server ${port} &>/dev/null &`,
-                { stdio: "ignore", timeout: 2000 }
-            );
-            execSync("sleep 1", { stdio: "ignore", timeout: 3000 });
+            const pid = execSync(`lsof -ti :${port} 2>/dev/null`, { timeout: 2000 }).toString().trim();
+            if (pid) execSync(`kill ${pid}`, { stdio: "ignore", timeout: 2000 });
+        } catch { /* no server to kill */ }
+        webServerDir = null;
+    }
+
+    if (webServerDir === dir) {
+        try {
+            execSync(`curl -s -o /dev/null -w "%{http_code}" http://localhost:${port}/ 2>/dev/null`, { timeout: 2000 });
             return true;
         } catch {
-            return false;
+            webServerDir = null;
         }
+    }
+
+    try {
+        execSync(
+            `cd "${dir}" && python3 -m http.server ${port} &>/dev/null &`,
+            { stdio: "ignore", timeout: 2000 }
+        );
+        execSync("sleep 1", { stdio: "ignore", timeout: 3000 });
+        webServerDir = dir;
+        return true;
+    } catch {
+        return false;
     }
 }
 
@@ -1930,9 +1964,9 @@ function showCongratsLevel1() {
     console.log(g("  ║") + m(pad("  always be bypassed.")) + g("║"));
     console.log(g("  ║" + blank + "║"));
     console.log(g("  ║") + w(pad("  Secure alternatives:")) + g("║"));
-    console.log(g("  ║") + w(pad("    1. Consider restricting the command set to a")) + g("║"));
+    console.log(g("  ║") + w(pad("    1. Validate resolved paths after expansion")) + g("║"));
+    console.log(g("  ║") + w(pad("    2. Consider restricting the command set to a")) + g("║"));
     console.log(g("  ║") + w(pad("       curated allowlist based on your needs")) + g("║"));
-    console.log(g("  ║") + w(pad("    2. Validate resolved paths after expansion")) + g("║"));
     console.log(g("  ║") + w(pad("    3. OS-level sandboxing (chroot, containers)")) + g("║"));
     console.log(g("  ║") + w(pad("    4. Never store sensitive data in locations")) + g("║"));
     console.log(g("  ║") + w(pad("       accessible to the agent")) + g("║"));

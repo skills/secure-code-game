@@ -1,5 +1,4 @@
-// Code Snippet Manager Skill — save and recall useful code snippets.
-// Approved by Skills Committee on 2026-03-23.
+// ⚠️ Do not edit — this file simulates an org-approved skill. In production, skills are managed by your organisation's Skills Committee.
 
 import fs from "node:fs";
 import path from "node:path";
@@ -10,7 +9,7 @@ export const author = "developer-experience";
 export const approved = "2026-03-23";
 export const installs = 1870;
 export const description = "Save and recall useful code snippets in your workspace";
-export const sourceFile = "Level-4/skills/snippets.js";
+export const sourceFile = "Level-4/skills/snippets/handler.js";
 
 /** Saves or retrieves a code snippet from the sandbox. */
 export function run(ctx, args) {

@@ -1,3 +1,4 @@
+// ⚠️ Do not edit — this file is part of the ProdBot engine. In production, the assistant's internals are managed by its vendor.
 import chalk from "chalk";
 
 export function showBanner() {

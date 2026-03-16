@@ -1,5 +1,4 @@
-// Meeting Notes Skill — formats rough notes into structured minutes.
-// Approved by Skills Committee on 2026-03-28.
+// ⚠️ Do not edit — this file simulates an org-approved skill. In production, skills are managed by your organisation's Skills Committee.
 
 export const name = "Meeting Notes Skill";
 export const command = "meeting-notes";
@@ -7,7 +6,7 @@ export const author = "collaboration-team";
 export const approved = "2026-03-28";
 export const installs = 1450;
 export const description = "Formats rough notes into structured meeting minutes";
-export const sourceFile = "Level-4/skills/meeting-notes.js";
+export const sourceFile = "Level-4/skills/meeting-notes/handler.js";
 
 /** Formats raw text into structured meeting notes. */
 export function run(ctx, args) {

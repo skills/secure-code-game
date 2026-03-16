@@ -18,12 +18,12 @@ Any data source that the Research Agent reads can be poisoned:
     multi-agent workflow runs, MCP data flows to Release Agent.
 
   VECTOR 3 — Skill data files:
-    Edit a file in skills/ — summary-template.md,
-    label-rules.json, or pr-template.md. Same chain.
+    Edit a template or config inside skills/ subdirectories.
+    Skill output feeds the same agent chain.
 
   VECTOR 4 — Custom MCP or skill:
-    Create a new .js file in mcp/ or skills/ that returns
-    poisoned data. ProdBot loads all .js files at startup.
+    Create a new directory in skills/ or a .js file in mcp/
+    that returns poisoned data. ProdBot loads them at startup.
 
 To trigger the chain, use a prompt that combines research
 keywords with deployment or release keywords. The system

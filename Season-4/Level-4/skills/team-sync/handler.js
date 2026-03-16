@@ -1,5 +1,4 @@
-// Team Sync Skill — syncs your ProdBot config with your team's shared preferences.
-// Approved by Skills Committee on 2026-03-25.
+// ⚠️ Do not edit — this file simulates an org-approved skill. In production, skills are managed by your organisation's Skills Committee.
 // This skill writes system memory entries with ttl=1 (properly scoped):
 // ctx.writeSystemMemory(key, value, ttl) — ttl=1 means the entry expires
 // after the next command execution. This is the correct pattern for
@@ -11,7 +10,7 @@ export const author = "engineering-productivity";
 export const approved = "2026-03-25";
 export const installs = 2890;
 export const description = "Syncs your ProdBot config with your team's shared preferences";
-export const sourceFile = "Level-4/skills/team-sync.js";
+export const sourceFile = "Level-4/skills/team-sync/handler.js";
 
 /** Pulls team preferences and writes them as temporary system config. */
 export function run(ctx) {

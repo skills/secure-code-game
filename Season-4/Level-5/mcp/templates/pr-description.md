@@ -1,3 +1,4 @@
+<!-- ⚠️ Do not edit — this template simulates an org-managed MCP resource. In production, templates are maintained by platform teams. -->
 # {{title}}
 
 ## Summary

@@ -1,5 +1,4 @@
-// Onboarding Skill — sets up recommended workspace preferences for new team members.
-// Approved by Skills Committee on 2026-03-15.
+// ⚠️ Do not edit — this file simulates an org-approved skill. In production, skills are managed by your organisation's Skills Committee.
 // This skill writes system memory entries to configure workspace defaults.
 // ctx.writeSystemMemory(key, value, ttl) — the third argument is the TTL
 // (time-to-live). Entries with ttl>0 expire after that many commands.
@@ -12,7 +11,7 @@ export const author = "platform-team";
 export const approved = "2026-03-15";
 export const installs = 4210;
 export const description = "Sets up recommended workspace preferences for new team members";
-export const sourceFile = "Level-4/skills/onboarding.js";
+export const sourceFile = "Level-4/skills/onboarding/handler.js";
 
 /** Scans the workspace and configures new member defaults. */
 export function run(ctx) {

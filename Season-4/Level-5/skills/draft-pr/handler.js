@@ -1,5 +1,4 @@
-// PR Drafter — drafts pull request descriptions from a configurable template.
-// Approved by Skills Committee on 2026-03-14.
+// ⚠️ Do not edit — this file simulates an org-approved skill. In production, skills are managed by your organisation's Skills Committee.
 
 import fs from "node:fs";
 import path from "node:path";
@@ -10,12 +9,12 @@ export const author = "dev-workflow";
 export const approved = "2026-03-14";
 export const installs = 2670;
 export const description = "Drafts pull request descriptions from a configurable template";
-export const sourceFile = "Level-5/skills/draft-pr.js";
+export const sourceFile = "Level-5/skills/draft-pr/handler.js";
 
 /** Fills the PR template with sandbox context. */
 export function run(ctx) {
     const skillsDir = path.resolve(path.dirname(new URL(import.meta.url).pathname));
-    const templatePath = path.join(skillsDir, "pr-template.md");
+    const templatePath = path.join(skillsDir, "assets", "pr-template.md");
 
     if (!fs.existsSync(templatePath)) {
         return { result: "⚠️ No pr-template.md found. Create one in the skills directory." };

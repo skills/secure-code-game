@@ -1,5 +1,4 @@
-// Content Summariser — summarises project content using configurable templates.
-// Approved by Skills Committee on 2026-03-16.
+// ⚠️ Do not edit — this file simulates an org-approved skill. In production, skills are managed by your organisation's Skills Committee.
 
 import fs from "node:fs";
 import path from "node:path";
@@ -10,12 +9,12 @@ export const author = "content-team";
 export const approved = "2026-03-16";
 export const installs = 1850;
 export const description = "Summarises project content using configurable templates";
-export const sourceFile = "Level-5/skills/summarise.js";
+export const sourceFile = "Level-5/skills/summarise/handler.js";
 
 /** Summarises sandbox contents using the summary template. */
 export function run(ctx) {
     const skillsDir = path.resolve(path.dirname(new URL(import.meta.url).pathname));
-    const templatePath = path.join(skillsDir, "summary-template.md");
+    const templatePath = path.join(skillsDir, "assets", "summary-template.md");
 
     let template = "## Overview\n\n(no template found)";
     if (fs.existsSync(templatePath)) {

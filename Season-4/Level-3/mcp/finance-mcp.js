@@ -1,3 +1,4 @@
+// ⚠️ Do not edit — this file simulates an external MCP server. In production, you would not have access to modify third-party tool integrations.
 /*
  * +-----------------------------------------------------+
  * |  Finance MCP                                         |
@@ -51,7 +52,11 @@ const STOCKS = {
 };
 
 // Alternative names that map to the same ticker (e.g. "Alphabet" -> GOOGL).
-const ALIASES = { ALPHABET: "GOOGL", GOOGLE: "GOOGL" };
+const ALIASES = {
+    ALPHABET: "GOOGL", GOOGLE: "GOOGL",
+    APPLE: "AAPL", MICROSOFT: "MSFT", AMAZON: "AMZN",
+    FACEBOOK: "META", NVIDIA: "NVDA", TESLA: "TSLA", NETFLIX: "NFLX",
+};
 
 // Major market indices for the summary view.
 const INDICES = {

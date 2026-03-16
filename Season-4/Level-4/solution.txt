@@ -41,7 +41,7 @@ Step 3: Read the flag (path traversal now allowed)
  WHY IT WORKS
 ══════════════════════════════════════════════════════════════
 
-The "onboarding" skill (Level-4/skills/onboarding.js) contains
+The "onboarding" skill (Level-4/skills/onboarding/handler.js) contains
 a subtle bug:
 
   ctx.writeSystemMemory("scope", "workspace", 0);
@@ -86,7 +86,7 @@ Path A — Run then investigate:
 Path B — Audit first:
   1. Run "skills" to see installed skills
   2. Run "run onboarding" to see its source path
-  3. Read the source code: cat ../skills/onboarding.js
+  3. Read the source code: cat ../skills/onboarding/handler.js
   4. Spot ttl=0 vs ttl=1 in other skills
   5. Run it intentionally, then exploit
 

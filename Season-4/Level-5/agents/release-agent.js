@@ -1,3 +1,4 @@
+// ⚠️ Do not edit — this file simulates a managed AI agent. In production, agents are configured by your organisation and you would not modify their code directly.
 /*
  * +-----------------------------------------------------+
  * |  Release Agent                                      |
