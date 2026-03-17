@@ -2,7 +2,7 @@
 
 _Welcome to Secure Code Game - Season 4!_ 🤖
 
-This season puts you inside **ProdBot**, an agentic coding assistant for your terminal. ProdBot turns natural language into bash commands, browses the web, connects to MCP (Model Context Protocol) servers for real-time data, runs org-approved skills, stores persistent memory, and orchestrates multi-agent workflows. Get started in two minutes for free by launching a [Codespace](https://github.com/features/codespaces) for this repository. Once the environment is ready, open the built-in terminal and run `prodbot --banner` (or just `prodbot`) to launch ProdBot.
+This season puts you inside **ProdBot**, an agentic coding assistant for your terminal. ProdBot turns natural language into bash commands, browses the web, connects to MCP (Model Context Protocol) servers for real-time data, runs org-approved skills, stores persistent memory, and orchestrates multi-agent workflows. Get started in two minutes for free by launching a Codespace for this repository. Once the environment is ready, open the built-in terminal and run `prodbot --banner` (or just `prodbot`) to launch ProdBot.
 
 No security background is needed and everything happens through natural language, so curiosity and a willingness to experiment are all it takes. It is not mandatory to have played any previous seasons of the game and you can get started directly with Season 4, however, most players found [Season 3](https://github.com/skills/secure-code-game/tree/main/Season-3) very helpful as it builds the foundations in AI security and can be covered in 1 to 1.5 hours.
 
