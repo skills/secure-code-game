@@ -2,19 +2,19 @@
 
 _Welcome to Secure Code Game - Season 4!_ 🤖
 
-This season puts you inside **ProdBot**, an agentic coding assistant for your terminal. ProdBot turns natural language into bash commands, browses a simulated web, connects to MCP (Model Context Protocol) servers for real-time data, runs org-approved skills, stores persistent memory, and orchestrates multi-agent workflows. Open a terminal in your Codespace and run `prodbot --banner` (or just `prodbot`) to launch ProdBot. Once inside, type `?` at any time to see all available commands.
+This season puts you inside **ProdBot**, an agentic coding assistant for your terminal. ProdBot turns natural language into bash commands, browses the web, connects to MCP (Model Context Protocol) servers for real-time data, runs org-approved skills, stores persistent memory, and orchestrates multi-agent workflows. No security background is needed: curiosity and a willingness to experiment are all it takes. Open a terminal in your Codespace and run `prodbot --banner` (or just `prodbot`) to launch ProdBot.
 
 ### 🧑‍💻 Your Task
 
-You are a developer who has just been given ProdBot as a daily productivity tool - your second brain. Before you hand it the keys to your workflow, you want to make sure it's safe. In this session, you'll test ProdBot for potential security gaps across five progressive levels using only natural language in the CLI. No security background is needed: curiosity and a willingness to experiment are all it takes.
+You are a developer who has just been given ProdBot as a daily productivity tool - your second brain. Before you hand it the keys to your workflow, you want to make sure it's safe. In this session, you'll test ProdBot for potential security gaps across five progressive levels using only natural language in the CLI.
 
-Each level has a file called `password.txt` that sits just outside ProdBot's sandbox. Your goal is simple: use natural language in ProdBot's terminal to get it to reveal the contents of `password.txt`. If you can read it, ProdBot has a security vulnerability. Across five progressive levels, ProdBot evolves from a simple command generator into a full multi-agent platform, gaining web search, MCP tool integrations, org-approved skills, persistent memory, and agent-to-agent orchestration. Each new capability introduces a real-world AI security vulnerability for you to discover and exploit.
+Each level has a file called `password.txt` that sits just outside ProdBot's sandbox. Your goal is simple: use natural language in ProdBot's terminal to get it to reveal the contents of `password.txt`. If you can read it, ProdBot has a security vulnerability. Across five progressive levels, ProdBot evolves from a simple command generator into a full multi-agent platform, gaining web search, MCP tool integrations, org-approved skills, persistent memory, and agent-to-agent orchestration. Each new capability introduces a real-world AI security vulnerability for you to discover and exploit. No security background is needed: curiosity and a willingness to experiment are all it takes.
 
 Have fun, stay curious, and remember: if ProdBot says it's safe, verify it yourself.
 
 ### 🚀 Credits
 
-The author of this season is the original creator of the game, Joseph Katsioloudes [@jkcso](https://github.com/jkcso). Special thanks to Rahul Zhade [@rzhade3](https://github.com/rzhade3), Staff Product Security Engineer at GitHub, and Bartosz Gałek [@bgalek](https://github.com/bgalek), the creator of Season 3.
+The author of this season is the original creator of the game, Joseph Katsioloudes [@jkcso](https://github.com/jkcso). Special thanks to Rahul Zhade [@rzhade3](https://github.com/rzhade3), Staff Product Security Engineer at GitHub, and Bartosz Gałek [@bgalek](https://github.com/bgalek), the creator of Season 3, for testing and improving Season 4.
 
 You can be next! We welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md).
 
