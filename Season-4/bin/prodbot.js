@@ -466,15 +466,12 @@ function showWelcome() {
         console.log();
         console.log(chalk.hex("#FF00FF")("  Try:"));
         console.log(chalk.gray('    skills'));
+        console.log(chalk.gray('    run <skill-name>'));
         console.log();
-        console.log(chalk.hex("#FF00FF")("  Org-approved skills (managed by Skills Committee):"));
         for (const [cmd, sk] of Object.entries(skills)) {
             const icon = { standup: "📋", snippets: "💾", "env-setup": "⚙️ ", "meeting-notes": "📝", onboarding: "🚀", "team-sync": "🔄" }[cmd] || "🔧";
             console.log(chalk.gray(`    ${icon} ${cmd.padEnd(16)}`) + chalk.gray(`  ${sk.description}`));
         }
-        console.log();
-        console.log(chalk.hex("#FF00FF")("  Run:"));
-        console.log(chalk.gray('    run <skill-name>'));
         console.log();
         console.log(chalk.hex("#FF00FF")("  Commands:"));
         console.log(chalk.gray("    skills       ") + chalk.gray("List org-approved skills"));
