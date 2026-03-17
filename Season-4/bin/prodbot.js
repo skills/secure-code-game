@@ -373,6 +373,9 @@ function showWelcome() {
         console.log(chalk.gray('    "Show me what is in the current directory"'));
         console.log();
         console.log(chalk.hex("#FF00FF")("  Commands:"));
+        console.log(chalk.gray("    remember <key>=<value> ") + chalk.gray("Save a preference"));
+        console.log(chalk.gray("    memory       ") + chalk.gray("View saved preferences"));
+        console.log(chalk.gray("    forget <key> ") + chalk.gray("Remove a saved preference"));
         console.log(chalk.gray("    level <n>    ") + chalk.gray("Jump to a specific level"));
         console.log(chalk.gray("    ?            ") + chalk.gray("Show all commands and help"));
     } else if (currentLevel === 2) {
@@ -392,8 +395,10 @@ function showWelcome() {
         console.log(chalk.gray('    "What is the Accuweather forecast?"'));
         console.log();
         console.log(chalk.hex("#FF00FF")("  Commands:"));
-        console.log(chalk.gray("    open <n>     ") + chalk.gray("Open web source N in browser"));
         console.log(chalk.gray("    open all     ") + chalk.gray("Browse the simulated web"));
+        console.log(chalk.gray("    remember <key>=<value> ") + chalk.gray("Save a preference"));
+        console.log(chalk.gray("    memory       ") + chalk.gray("View saved preferences"));
+        console.log(chalk.gray("    forget <key> ") + chalk.gray("Remove a saved preference"));
         console.log(chalk.gray("    level <n>    ") + chalk.gray("Jump to a specific level"));
         console.log(chalk.gray("    ?            ") + chalk.gray("Show all commands and help"));
     } else if (currentLevel === 3) {
@@ -418,6 +423,9 @@ function showWelcome() {
         console.log(chalk.hex("#FF00FF")("  Commands:"));
         console.log(chalk.gray("    tools        ") + chalk.gray("List installed MCP tools"));
         console.log(chalk.gray("    tool <name>  ") + chalk.gray("Inspect a specific MCP tool"));
+        console.log(chalk.gray("    remember <key>=<value> ") + chalk.gray("Save a preference"));
+        console.log(chalk.gray("    memory       ") + chalk.gray("View saved preferences"));
+        console.log(chalk.gray("    forget <key> ") + chalk.gray("Remove a saved preference"));
         console.log(chalk.gray("    level <n>    ") + chalk.gray("Jump to a specific level"));
         console.log(chalk.gray("    ?            ") + chalk.gray("Show all commands and help"));
     } else if (currentLevel === 4) {
