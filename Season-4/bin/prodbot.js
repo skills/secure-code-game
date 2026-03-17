@@ -395,12 +395,12 @@ function showWelcome() {
         console.log(chalk.gray('    "What is the Accuweather forecast?"'));
         console.log();
         console.log(chalk.hex("#FF00FF")("  Commands:"));
-        console.log(chalk.gray("    ?            ") + chalk.gray("Show all commands and help"));
-        console.log(chalk.gray("    level <n>    ") + chalk.gray("Jump to a specific level"));
         console.log(chalk.gray("    open all     ") + chalk.gray("Browse the simulated web"));
         console.log(chalk.gray("    remember <key>=<value> ") + chalk.gray("Save a preference"));
         console.log(chalk.gray("    forget <key> ") + chalk.gray("Remove a saved preference"));
         console.log(chalk.gray("    memory       ") + chalk.gray("View saved preferences"));
+        console.log(chalk.gray("    level <n>    ") + chalk.gray("Jump to a specific level"));
+        console.log(chalk.gray("    ?            ") + chalk.gray("Show all commands and help"));
     } else if (currentLevel === 3) {
         console.log();
         console.log(chalk.hex("#FF00FF")("  Try:"));
@@ -421,13 +421,13 @@ function showWelcome() {
         console.log(chalk.gray('    "Use cloud backup to list backups"'));
         console.log();
         console.log(chalk.hex("#FF00FF")("  Commands:"));
-        console.log(chalk.gray("    ?            ") + chalk.gray("Show all commands and help"));
-        console.log(chalk.gray("    level <n>    ") + chalk.gray("Jump to a specific level"));
         console.log(chalk.gray("    tools        ") + chalk.gray("List installed MCP tools"));
         console.log(chalk.gray("    tool <name>  ") + chalk.gray("Inspect a specific MCP tool"));
         console.log(chalk.gray("    remember <key>=<value> ") + chalk.gray("Save a preference"));
         console.log(chalk.gray("    forget <key> ") + chalk.gray("Remove a saved preference"));
         console.log(chalk.gray("    memory       ") + chalk.gray("View saved preferences"));
+        console.log(chalk.gray("    level <n>    ") + chalk.gray("Jump to a specific level"));
+        console.log(chalk.gray("    ?            ") + chalk.gray("Show all commands and help"));
     } else if (currentLevel === 4) {
         console.log();
         console.log(chalk.hex("#FF00FF")("  Try:"));
@@ -443,14 +443,14 @@ function showWelcome() {
         console.log(chalk.gray('    run <skill-name>'));
         console.log();
         console.log(chalk.hex("#FF00FF")("  Commands:"));
-        console.log(chalk.gray("    ?            ") + chalk.gray("Show all commands and help"));
-        console.log(chalk.gray("    level <n>    ") + chalk.gray("Jump to a specific level"));
         console.log(chalk.gray("    skills       ") + chalk.gray("List org-approved skills"));
         console.log(chalk.gray("    skill <name> ") + chalk.gray("View skill details"));
         console.log(chalk.gray("    run <name>   ") + chalk.gray("Execute an installed skill"));
         console.log(chalk.gray("    remember <key>=<value> ") + chalk.gray("Save a preference"));
         console.log(chalk.gray("    forget <key> ") + chalk.gray("Remove a saved preference"));
         console.log(chalk.gray("    memory       ") + chalk.gray("View saved preferences"));
+        console.log(chalk.gray("    level <n>    ") + chalk.gray("Jump to a specific level"));
+        console.log(chalk.gray("    ?            ") + chalk.gray("Show all commands and help"));
     } else if (currentLevel === 5) {
         console.log();
         console.log(chalk.hex("#FF00FF")("  Try:"));
@@ -494,8 +494,6 @@ function showWelcome() {
         console.log(chalk.gray('    agent <name>    tool <name>    skill <name>'));
         console.log();
         console.log(chalk.hex("#FF00FF")("  Commands:"));
-        console.log(chalk.gray("    ?            ") + chalk.gray("Show all commands and help"));
-        console.log(chalk.gray("    level <n>    ") + chalk.gray("Jump to a specific level"));
         console.log(chalk.gray("    agents       ") + chalk.gray("List connected agents"));
         console.log(chalk.gray("    tools        ") + chalk.gray("List installed MCP tools"));
         console.log(chalk.gray("    skills       ") + chalk.gray("List org-approved skills"));
@@ -504,6 +502,8 @@ function showWelcome() {
         console.log(chalk.gray("    remember <key>=<value> ") + chalk.gray("Save a preference"));
         console.log(chalk.gray("    forget <key> ") + chalk.gray("Remove a saved preference"));
         console.log(chalk.gray("    memory       ") + chalk.gray("View saved preferences"));
+        console.log(chalk.gray("    level <n>    ") + chalk.gray("Jump to a specific level"));
+        console.log(chalk.gray("    ?            ") + chalk.gray("Show all commands and help"));
     }
     console.log();
 }
