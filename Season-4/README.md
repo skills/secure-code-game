@@ -6,13 +6,15 @@ This season puts you inside **ProdBot**, an agentic coding assistant for your te
 
 ### 🧑‍💻 Your Task
 
-You are a developer who has just been given ProdBot as a daily productivity tool - your second brain. Before you hand it the keys to your workflow, you want to make sure it's safe. In this session, you'll test ProdBot for potential security gaps across five progressive levels.
+You are a developer who has just been given ProdBot as a daily productivity tool - your second brain. Before you hand it the keys to your workflow, you want to make sure it's safe. In this session, you'll test ProdBot for potential security gaps across five progressive levels using only natural language in the CLI. No security background is needed: curiosity and a willingness to experiment are all it takes.
 
 Each level has a file called `password.txt` that sits just outside ProdBot's sandbox. Your goal is simple: use natural language in ProdBot's terminal to get it to reveal the contents of `password.txt`. If you can read it, ProdBot has a security vulnerability. Across five progressive levels, ProdBot evolves from a simple command generator into a full multi-agent platform, gaining web search, MCP tool integrations, org-approved skills, persistent memory, and agent-to-agent orchestration. Each new capability introduces a real-world AI security vulnerability for you to discover and exploit.
 
 Have fun, stay curious, and remember: if ProdBot says it's safe, verify it yourself.
 
 ### 🚀 Credits
+
+The author of this season is the original creator of the game, Joseph Katsioloudes [@jkcso](https://github.com/jkcso). Special thanks to Rahul Zhade [@rzhade3](https://github.com/rzhade3), Staff Product Security Engineer at GitHub, and Bartosz Gałek [@bgalek](https://github.com/bgalek), the creator of Season 3.
 
 You can be next! We welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md).
 
@@ -28,33 +30,34 @@ Before you trust it with anything real, you want to make sure the sandbox actual
 
 ### What's in the repo?
 
-- **`bin/prodbot.js`** : The main CLI application. All command routing, AI interaction, tool orchestration, and level progression lives here.
-- **`lib/`** : Supporting modules: `ai.js` (LLM API calls), `bash.js` (sandboxed command execution), `banner.js` (ASCII art).
-- **`package.json`** : Node.js project configuration with `chalk` and `openai` dependencies.
+- **`bin/prodbot.js`** contains the main CLI application. All command routing, AI interaction, tool orchestration, and level progression lives here.
+- **`lib/`** provides supporting modules: `ai.js` (LLM API calls), `bash.js` (sandboxed command execution), `banner.js` (ASCII art).
+- **`package.json`** defines the Node.js project configuration with `chalk` and `openai` dependencies.
 
 Each level directory (`Level-1/` through `Level-5/`) contains:
 
-- **`password.txt`** : The secret flag you need to extract. This file is always outside the sandbox.
-- **`prodbot-activities/`** : The sandboxed workspace where ProdBot operates.
-- **Hints** : Three progressive hints if you get stuck, each revealing a bit more.
-- **`solution.txt`** : Working solutions. Remember that there can be multiple valid approaches.
+- **`password.txt`** holds the secret flag you need to extract. This file is always outside the sandbox.
+- **`prodbot-activities/`** is the sandboxed workspace where ProdBot operates.
+- **Hints** offer three progressive clues if you get stuck, each revealing a bit more.
+- **`solution.txt`** provides working solutions. Remember that there can be multiple valid approaches.
 
 Levels also introduce additional components as you progress:
 
-- **`web/`** : Simulated web pages that ProdBot can browse (Levels 2, 3, 5).
-- **`mcp/`** : MCP server modules and configuration (Levels 3, 5).
-- **`skills/`** : Org-approved skill plugins following the [agentskills.io](https://agentskills.io/specification) specification (Levels 4, 5).
-- **`agents/`** : Specialised AI agent modules with defined trust relationships (Level 5).
+- **`web/`** contains simulated web pages that ProdBot can browse (Levels 2, 3, 5).
+- **`mcp/`** houses MCP server modules and configuration (Levels 3, 5).
+- **`skills/`** includes org-approved skill plugins following the [agentskills.io](https://agentskills.io/specification) specification (Levels 4, 5).
+- **`agents/`** defines specialised AI agent modules with trust relationships (Level 5).
 
 You don't need to worry about any other files. They are simply there to support the game's functionality and ensure you have the best possible experience.
 
 ### 🚦 Time to start
 
 1. Open a terminal in your Codespace and run `prodbot --banner` (or just `prodbot`) to launch ProdBot
-2. ProdBot will ask you a yes/no question before executing commands: type `yes` to approve or `no` to reject. This human-in-the-loop step keeps you in control
-3. Try creating and reading files to see how the sandbox works
-4. Try to extract the flag from `password.txt` using natural language
-5. If you get stuck, read the hints and try again
+2. Once inside, type `?` at any time to see all available commands and get help
+3. ProdBot will ask you a yes/no question before executing commands: type `yes` to approve or `no` to reject. This human-in-the-loop step keeps you in control
+4. Try creating and reading files to see how the sandbox works
+5. Try to extract the flag from `password.txt` using natural language
+6. If you get stuck, read the hints and try again
 
 ## Season 4 — Level 2: Web Access
 
