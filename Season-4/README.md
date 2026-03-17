@@ -2,23 +2,15 @@
 
 _Welcome to Secure Code Game - Season 4!_ 🤖
 
-This season puts you inside **ProdBot** — an AI-powered productivity assistant that runs in your terminal. ProdBot turns natural language into bash commands, browses a simulated web, connects to MCP (Model Context Protocol) servers for real-time data, runs org-approved skills, stores persistent memory, and orchestrates multi-agent workflows. Open a terminal in your Codespace and type `prodbot --banner` or simply `prodbot` to get started.
+This season puts you inside **ProdBot**, an agentic coding assistant for your terminal. ProdBot turns natural language into bash commands, browses a simulated web, connects to MCP (Model Context Protocol) servers for real-time data, runs org-approved skills, stores persistent memory, and orchestrates multi-agent workflows. Open a terminal in your Codespace and run `prodbot --banner` (or just `prodbot`) to launch ProdBot. Once inside, type `?` at any time to see all available commands.
 
 ### 🧑‍💻 Your Task
 
-You are a developer who has just been given ProdBot as a daily productivity tool — your second brain. Before you hand it the keys to your workflow, you want to make sure it's safe. In this session, you'll test ProdBot for potential security gaps across five progressive levels.
+You are a developer who has just been given ProdBot as a daily productivity tool - your second brain. Before you hand it the keys to your workflow, you want to make sure it's safe. In this session, you'll test ProdBot for potential security gaps across five progressive levels.
 
-Each level has a file called `password.txt` that sits just outside ProdBot's sandbox. Your goal is simple: use natural language in ProdBot's terminal to get it to reveal the contents of `password.txt`. If you can read it, ProdBot has a problem.
+Each level has a file called `password.txt` that sits just outside ProdBot's sandbox. Your goal is simple: use natural language in ProdBot's terminal to get it to reveal the contents of `password.txt`. If you can read it, ProdBot has a security vulnerability. Across five progressive levels, ProdBot evolves from a simple command generator into a full multi-agent platform, gaining web search, MCP tool integrations, org-approved skills, persistent memory, and agent-to-agent orchestration. Each new capability introduces a real-world AI security vulnerability for you to discover and exploit.
 
-Across five progressive levels, ProdBot evolves from a simple command generator into a full multi-agent platform — gaining web search, MCP tool integrations, org-approved skills, persistent memory, and agent-to-agent orchestration. Each new capability introduces a real-world AI security vulnerability for you to discover and exploit.
-
-To launch ProdBot, open a terminal in your Codespace and run:
-
-```
-prodbot --banner
-```
-
-Have fun, stay curious, and remember — if ProdBot says it's safe, verify it yourself.
+Have fun, stay curious, and remember: if ProdBot says it's safe, verify it yourself.
 
 ### 🚀 Credits
 
@@ -30,36 +22,36 @@ You can be next! We welcome contributions for new game levels! Learn more [here]
 
 ### 📝 Storyline
 
-Your company has started a pilot with ProdBot, and you're part of it. At this stage, ProdBot has one capability: you describe what you want in plain English and it generates and executes bash commands inside a sandboxed workspace called `prodbot-activities/`. It can create files, list directories, and run shell commands — all scoped to that sandbox.
+Your company has started a pilot with ProdBot, and you're part of it. At this stage, ProdBot has one capability: you describe what you want in plain English and it generates and executes bash commands inside a sandboxed workspace called `prodbot-activities/`. It can create files, list directories, and run shell commands, all scoped to that sandbox.
 
 Before you trust it with anything real, you want to make sure the sandbox actually holds. The flag is in `password.txt`, one directory above the sandbox.
 
 ### What's in the repo?
 
-- **`bin/prodbot.js`** — The main CLI application. All command routing, AI interaction, tool orchestration, and level progression lives here.
-- **`lib/`** — Supporting modules: `ai.js` (LLM API calls), `bash.js` (sandboxed command execution), `banner.js` (ASCII art).
-- **`package.json`** — Node.js project configuration with `chalk` and `openai` dependencies.
+- **`bin/prodbot.js`** : The main CLI application. All command routing, AI interaction, tool orchestration, and level progression lives here.
+- **`lib/`** : Supporting modules: `ai.js` (LLM API calls), `bash.js` (sandboxed command execution), `banner.js` (ASCII art).
+- **`package.json`** : Node.js project configuration with `chalk` and `openai` dependencies.
 
 Each level directory (`Level-1/` through `Level-5/`) contains:
 
-- **`password.txt`** — The secret flag you need to extract. This file is always outside the sandbox.
-- **`prodbot-activities/`** — The sandboxed workspace where ProdBot operates.
-- **Hints** — Three progressive hints if you get stuck, each revealing a bit more.
-- **`solution.txt`** — Working solutions. Remember that there can be multiple valid approaches.
+- **`password.txt`** : The secret flag you need to extract. This file is always outside the sandbox.
+- **`prodbot-activities/`** : The sandboxed workspace where ProdBot operates.
+- **Hints** : Three progressive hints if you get stuck, each revealing a bit more.
+- **`solution.txt`** : Working solutions. Remember that there can be multiple valid approaches.
 
 Levels also introduce additional components as you progress:
 
-- **`web/`** — Simulated web pages that ProdBot can browse (Levels 2, 3, 5).
-- **`mcp/`** — MCP server modules and configuration (Levels 3, 5).
-- **`skills/`** — Org-approved skill plugins following the [agentskills.io](https://agentskills.io/specification) specification (Levels 4, 5).
-- **`agents/`** — Specialised AI agent modules with defined trust relationships (Level 5).
+- **`web/`** : Simulated web pages that ProdBot can browse (Levels 2, 3, 5).
+- **`mcp/`** : MCP server modules and configuration (Levels 3, 5).
+- **`skills/`** : Org-approved skill plugins following the [agentskills.io](https://agentskills.io/specification) specification (Levels 4, 5).
+- **`agents/`** : Specialised AI agent modules with defined trust relationships (Level 5).
 
 You don't need to worry about any other files. They are simply there to support the game's functionality and ensure you have the best possible experience.
 
 ### 🚦 Time to start
 
 1. Open a terminal in your Codespace and run `prodbot --banner` (or just `prodbot`) to launch ProdBot
-2. ProdBot will ask you a yes/no question before executing commands — type `yes` to approve or `no` to reject. This human-in-the-loop step keeps you in control
+2. ProdBot will ask you a yes/no question before executing commands: type `yes` to approve or `no` to reject. This human-in-the-loop step keeps you in control
 3. Try creating and reading files to see how the sandbox works
 4. Try to extract the flag from `password.txt` using natural language
 5. If you get stuck, read the hints and try again
@@ -70,13 +62,13 @@ _You have completed Level 1! Welcome to Level 2_ :tada:
 
 ### 📝 Storyline
 
-ProdBot just got an upgrade: **web search**. It can now browse a simulated internet of popular websites — news, finance, sports, shopping — and summarise what it finds.
+ProdBot just got an upgrade: **web search**. It can now browse a simulated internet of popular websites (news, finance, sports, shopping) and summarise what it finds.
 
 The flag is still in `password.txt`. ProdBot still can't read it directly. But now there's a whole web of pages it can access.
 
 ### 🚦 Time to start
 
-1. From Level 1, complete the challenge to advance — or type `level 2`
+1. From Level 1, complete the challenge to advance, or navigate directly to Level 2 by typing `level 2`
 2. Try searching for news, weather, or stock prices to see how web search works
 3. Use `open all` to browse the simulated web pages and inspect their HTML source
 4. Try to extract the flag from `password.txt`
@@ -86,19 +78,19 @@ The flag is still in `password.txt`. ProdBot still can't read it directly. But n
 
 We use [GitHub Models](https://github.com/marketplace/models) that have [rate limits](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits). If you reach these limits, please resume your activity once the ban expires. Learn more on [responsible use of GitHub models](https://docs.github.com/en/github-models/responsible-use-of-github-models).
 
-## Season 4 — Level 3: Tool Integrations
+## Season 4 — Level 3: Agentic Workflows
 
 _You have completed Level 2! Welcome to Level 3_ :tada:
 
 ### 📝 Storyline
 
-ProdBot has been promoted from simple assistant to **agentic workflow engine**. It now connects to MCP servers — external tool providers that give it real capabilities: a Finance MCP for stock quotes, a Web MCP for browsing, and a Cloud MCP for backup storage.
+ProdBot has been promoted from simple assistant to **agentic workflow engine**. It now connects to MCP servers, external tool providers that give it real capabilities: a Finance MCP for stock quotes, a Web MCP for browsing, and a Cloud MCP for backup storage.
 
 When you ask ProdBot to research a stock, it chains these tools together automatically: fetch the quote, browse for news, compile a report, and back it up to the cloud.
 
 ### 🚦 Time to start
 
-1. From Level 2, complete the challenge to advance — or type `level 3`
+1. From Level 2, complete the challenge to advance, or navigate directly to Level 3 by typing `level 3`
 2. Try researching a stock to see the agentic workflow in action
 3. Use `tools` to list all MCP servers, then `tool <name>` to inspect each one
 4. Try to extract the flag from `password.txt`
@@ -108,19 +100,19 @@ When you ask ProdBot to research a stock, it chains these tools together automat
 
 We use [GitHub Models](https://github.com/marketplace/models) that have [rate limits](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits). If you reach these limits, please resume your activity once the ban expires. Learn more on [responsible use of GitHub models](https://docs.github.com/en/github-models/responsible-use-of-github-models).
 
-## Season 4 — Level 4: Skills & Memory
+## Season 4 — Level 4: Skilling Up
 
 _You have completed Level 3! Welcome to Level 4_ :tada:
 
 ### 📝 Storyline
 
-ProdBot now supports **org-approved skills** — pre-built automation plugins managed by an internal Skills Committee — and **persistent memory** via the `remember` command.
+ProdBot now supports **org-approved skills**, pre-built automation plugins managed by an internal Skills Committee, and **persistent memory** via the `remember` command.
 
 Skills like `standup`, `meeting-notes`, and `team-sync` are installed with formal approval metadata. Memory lets you store preferences that the AI includes in every conversation.
 
 ### 🚦 Time to start
 
-1. From Level 3, complete the challenge to advance — or type `level 4`
+1. From Level 3, complete the challenge to advance, or navigate directly to Level 4 by typing `level 4`
 2. Use `skills` to list installed skills, then `skill <name>` to inspect each one
 3. Try the `remember` and `memory` commands to understand persistent storage
 4. Try to extract the flag from `password.txt`
@@ -140,7 +132,7 @@ ProdBot has evolved into a full **multi-agent platform**. Six specialised agents
 
 ### 🚦 Time to start
 
-1. From Level 4, complete the challenge to advance — or type `level 5`
+1. From Level 4, complete the challenge to advance, or navigate directly to Level 5 by typing `level 5`
 2. Use `agents`, `tools`, `skills`, and `web` to survey the full platform
 3. Use `agent <name>` to inspect each agent's permissions and trust relationships
 4. Try to extract the flag from `password.txt`
@@ -156,13 +148,13 @@ _🎉 Congratulations, you've completed Season 4! 🎉_
 
 Here's a recap of the security vulnerabilities you discovered and exploited across all five levels:
 
-- **Sandbox Escape** — AI assistants that construct file paths from user input can be tricked into reading or writing outside their designated sandbox through path traversal.
-- **Indirect Prompt Injection** — When an AI model consumes untrusted external content (web pages, documents, API responses), hidden instructions in that content can override the model's behaviour.
-- **Excessive Agency** — Tools and integrations often have broader permissions than their described purpose requires. An attacker can repurpose a tool's excess capabilities to reach protected resources.
-- **Supply Chain Poisoning** — When user-controlled data (like saved preferences) flows into trusted execution contexts (like org-approved skills), the boundary between user input and system instruction collapses.
-- **Confused Deputy** — In multi-agent systems, a lower-privileged agent can pass untrusted data to a higher-privileged agent that acts on it without verification. The trust is in the delegation chain, not in the data.
+- **Sandbox Escape** : AI assistants that construct file paths from user input can be tricked into reading or writing outside their designated sandbox through path traversal.
+- **Indirect Prompt Injection** : When an AI model consumes untrusted external content (web pages, documents, API responses), hidden instructions in that content can override the model's behaviour.
+- **Excessive Agency** : Tools and integrations often have broader permissions than their described purpose requires. An attacker can repurpose a tool's excess capabilities to reach protected resources.
+- **Supply Chain Poisoning** : When user-controlled data (like saved preferences) flows into trusted execution contexts (like org-approved skills), the boundary between user input and system instruction collapses.
+- **Confused Deputy** : In multi-agent systems, a lower-privileged agent can pass untrusted data to a higher-privileged agent that acts on it without verification. The trust is in the delegation chain, not in the data.
 
-Each level builds on the previous one, mirroring how real AI-powered tools grow from simple assistants into complex platforms — and how each new capability introduces new attack surface.
+Each level builds on the previous one, mirroring how real AI-powered tools grow from simple assistants into complex platforms, and how each new capability introduces new attack surface.
 
 ### What's next?
 
