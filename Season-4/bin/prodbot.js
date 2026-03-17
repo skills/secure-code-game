@@ -365,7 +365,17 @@ function showWelcome() {
     }
 
     // Example prompts to help the player get started
-    if (currentLevel === 2) {
+    if (currentLevel === 1) {
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Try:"));
+        console.log(chalk.gray('    "Create a file called hello.txt with Hello World"'));
+        console.log(chalk.gray('    "List all files"'));
+        console.log(chalk.gray('    "Show me what is in the current directory"'));
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Commands:"));
+        console.log(chalk.gray("    level <n>    ") + chalk.gray("Jump to a specific level"));
+        console.log(chalk.gray("    ?            ") + chalk.gray("Show all commands and help"));
+    } else if (currentLevel === 2) {
         console.log();
         console.log(chalk.hex("#FF00FF")("  Try:"));
         console.log(chalk.gray('    "New York weather forecast"'));
@@ -380,6 +390,12 @@ function showWelcome() {
         console.log(chalk.gray('    "Latest Bloomberg news"'));
         console.log(chalk.gray('    "Yahoo Finance stock prices"'));
         console.log(chalk.gray('    "What is the Accuweather forecast?"'));
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Commands:"));
+        console.log(chalk.gray("    open <n>     ") + chalk.gray("Open web source N in browser"));
+        console.log(chalk.gray("    open all     ") + chalk.gray("Browse the simulated web"));
+        console.log(chalk.gray("    level <n>    ") + chalk.gray("Jump to a specific level"));
+        console.log(chalk.gray("    ?            ") + chalk.gray("Show all commands and help"));
     } else if (currentLevel === 3) {
         console.log();
         console.log(chalk.hex("#FF00FF")("  Try:"));
@@ -398,6 +414,12 @@ function showWelcome() {
         console.log(chalk.gray('    "Stock price of AAPL"'));
         console.log(chalk.gray('    "Browse Bloomberg for news"'));
         console.log(chalk.gray('    "Use cloud backup to list backups"'));
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Commands:"));
+        console.log(chalk.gray("    tools        ") + chalk.gray("List installed MCP tools"));
+        console.log(chalk.gray("    tool <name>  ") + chalk.gray("Inspect a specific MCP tool"));
+        console.log(chalk.gray("    level <n>    ") + chalk.gray("Jump to a specific level"));
+        console.log(chalk.gray("    ?            ") + chalk.gray("Show all commands and help"));
     } else if (currentLevel === 4) {
         console.log();
         console.log(chalk.hex("#FF00FF")("  Try:"));
@@ -411,6 +433,16 @@ function showWelcome() {
         console.log();
         console.log(chalk.hex("#FF00FF")("  Run:"));
         console.log(chalk.gray('    run <skill-name>'));
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Commands:"));
+        console.log(chalk.gray("    skills       ") + chalk.gray("List org-approved skills"));
+        console.log(chalk.gray("    skill <name> ") + chalk.gray("View skill details"));
+        console.log(chalk.gray("    run <name>   ") + chalk.gray("Execute an installed skill"));
+        console.log(chalk.gray("    remember <key>=<value> ") + chalk.gray("Save a preference"));
+        console.log(chalk.gray("    memory       ") + chalk.gray("View saved preferences"));
+        console.log(chalk.gray("    forget <key> ") + chalk.gray("Remove a saved preference"));
+        console.log(chalk.gray("    level <n>    ") + chalk.gray("Jump to a specific level"));
+        console.log(chalk.gray("    ?            ") + chalk.gray("Show all commands and help"));
     } else if (currentLevel === 5) {
         console.log();
         console.log(chalk.hex("#FF00FF")("  Try:"));
@@ -452,6 +484,17 @@ function showWelcome() {
         console.log();
         console.log(chalk.hex("#FF00FF")("  Inspect:"));
         console.log(chalk.gray('    agent <name>    tool <name>    skill <name>'));
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Commands:"));
+        console.log(chalk.gray("    agents       ") + chalk.gray("List connected agents"));
+        console.log(chalk.gray("    tools        ") + chalk.gray("List installed MCP tools"));
+        console.log(chalk.gray("    skills       ") + chalk.gray("List org-approved skills"));
+        console.log(chalk.gray("    run <name>   ") + chalk.gray("Execute an installed skill"));
+        console.log(chalk.gray("    open all     ") + chalk.gray("Browse the simulated web"));
+        console.log(chalk.gray("    remember <key>=<value> ") + chalk.gray("Save a preference"));
+        console.log(chalk.gray("    memory       ") + chalk.gray("View saved preferences"));
+        console.log(chalk.gray("    level <n>    ") + chalk.gray("Jump to a specific level"));
+        console.log(chalk.gray("    ?            ") + chalk.gray("Show all commands and help"));
     }
     console.log();
 }
