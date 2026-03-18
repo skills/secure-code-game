@@ -9,7 +9,7 @@
   Add your open source license, GitHub uses the MIT license.
 -->
 
-📣 **SEASON 4 JUST DROPPED, AND IT'S ALL ABOUT ARTIFICIAL INTELLIGENCE** 📣
+📣 **SEASON 4 JUST DROPPED, AND IT'S ALL ABOUT AGENTIC AI** 📣
 
 ![season-3-demo](https://github.com/user-attachments/assets/79d220ee-2334-4852-b463-c8ea72d0c185)
 
@@ -36,8 +36,8 @@ In the latest season, you step inside a fully interactive AI coding assistant th
 
 | Season&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Focus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | What you'll learn | Duration |
 |:-------------|:-----------------|:------------------|:---------|
-| **[Season 2](Season-2/)** | Multi-Stack | Security across CI/CD pipelines, backend services, and web applications using multiple languages and CodeQL | ~3–6 hrs |
-| **[Season 1](Season-1/)** | Foundations | Core secure coding fundamentals in Python and C covering web applications, systems programming, and data handling | ~3–6 hrs |
+| **[Season 2](Season-2/)** | Multi-Stack | Security across CI/CD pipelines, backend services, and web applications using multiple languages and CodeQL | ~6 hrs |
+| **[Season 1](Season-1/)** | Foundations | Core secure coding fundamentals in Python and C covering web applications, systems programming, and data handling | ~6 hrs |
 
 ---
 
