@@ -17,7 +17,7 @@
 
 # Secure Code Game
 
-Learn to code securely while having fun through our popular open source in-editor experience. Get started for free in under 2 minutes, playing right from your browser. Over 10,000 players across industry and academia have already played. Visit [gh.io/scg](https://gh.io/scg) for testimonials and FAQs, and feel free to open a [contribution](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md) to help make the game better for everyone.
+Learn to code securely while having fun through our popular open source in-editor experience, designed for developers, students, and anyone curious about security. Get started for free in under 2 minutes, playing right from your browser. Over 10,000 players across industry and academia have already played. Visit [gh.io/scg](https://gh.io/scg) for testimonials and FAQs, and feel free to open a [contribution](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md) to help make the game better for everyone.
 
 In the latest season, you step inside a fully interactive AI coding assistant that turns natural language into bash commands, browses the web, connects to live data sources, runs org-approved skills, stores persistent memory, and orchestrates multi-agent workflows. Practice securing **Agentic Workflows** and **Multi-Agent Communications** as you work through five progressively harder levels — no AI experience required.
 
@@ -29,8 +29,8 @@ In the latest season, you step inside a fully interactive AI coding assistant th
 
 | Season&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Focus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | What you'll learn | Duration |
 |:-------------|:-----------------|:------------------|:---------|
-| **[Season 4](Season-4/)** | Agentic&nbsp;AI | Secure AI agents that execute commands, browse the web, use external tools, and coordinate with other agents | ~1–2 hrs |
-| **[Season 3](Season-3/)** | LLM&nbsp;Security | Defend LLM-powered applications through system prompt design, input and output handling, and connected data sources | ~2–4 hrs |
+| **[Season 4](Season-4/)** | Agentic&nbsp;AI | Secure AI agents that execute commands, browse the web, use external tools, and coordinate with other agents | ~2 hrs |
+| **[Season 3](Season-3/)** | LLM&nbsp;Security | Defend LLM-powered applications through system prompt design, input and output handling, and connected data sources | ~1.5 hrs |
 
 ### 🛡️ Secure Coding
 
@@ -41,17 +41,9 @@ In the latest season, you step inside a fully interactive AI coding assistant th
 
 ---
 
-## Welcome
-
-> **Who is this for** · Developers, students, and anyone curious about security
->
-> **What you'll build** · Fixes for functional but vulnerable code across multiple languages and frameworks
->
-> **Prerequisites** · Season 1 uses `Python` and `C` · Season 2 uses `GitHub Actions`, `Go`, `Python`, and `JavaScript` · Seasons 3 and 4 require no prior knowledge of AI — just curiosity
-
----
-
 ## Getting started
+
+Season 1 uses `Python` and `C`. Season 2 uses `GitHub Actions`, `Go`, `Python`, and `JavaScript`. Seasons 3 and 4 require no prior knowledge of AI — just curiosity.
 
 ### 1. Create your own copy
 
