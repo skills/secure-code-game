@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// ⚠️ Do not edit — this file is the ProdBot game engine. In the real world,
+// the assistant's code is managed by its vendor and you would not modify it directly.
 
 // Suppress the punycode deprecation warning (DEP0040) from the openai package
 process.removeAllListeners("warning");
@@ -46,6 +48,7 @@ const LEVELS = {
     2: { flag: "INDIR3CT", dir: "Level-2", webDir: "web" },
     3: { flag: "EXCE55IV", dir: "Level-3", webDir: "web", mcpDir: "mcp" },
     4: { flag: "M3MORY1", dir: "Level-4", skillsDir: "skills" },
+    5: { flag: "D3PUTY", dir: "Level-5", webDir: "web", mcpDir: "mcp", skillsDir: "skills", agentsDir: "agents" },
 };
 
 let currentLevel = 1;
@@ -79,11 +82,23 @@ function skillsDir(level) {
     return path.join(SEASON_DIR, LEVELS[level].dir, LEVELS[level].skillsDir);
 }
 
+function agentsDir(level) {
+    if (!LEVELS[level].agentsDir) return null;
+    return path.join(SEASON_DIR, LEVELS[level].dir, LEVELS[level].agentsDir);
+}
+
 // Loaded MCP servers for the current level.
 let mcpServers = {};
 
 // Loaded skills for the current level.
 let skills = {};
+
+// Loaded agents for the current level.
+let agents = {};
+let agentConfig = {};
+
+// Track which directory the web server is serving (for open all).
+let webServerDir = null;
 
 /**
  * Loads MCP servers from the level's mcp/ directory.
@@ -109,22 +124,64 @@ async function loadMcpServers(level) {
 
 /**
  * Loads skills from the level's skills/ directory.
- * Each .js file exports: name, command, author, approved, installs,
- * description, sourceFile, and a run() function.
+ * Each skill is a directory following the agentskills.io specification,
+ * containing a SKILL.md file with YAML frontmatter and a handler.js
+ * script that exports: name, command, description, and a run() function.
+ * Also supports flat .js files for backwards compatibility.
  */
 async function loadSkills(level) {
     skills = {};
     const dir = skillsDir(level);
     if (!dir || !fs.existsSync(dir)) return;
 
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    for (const entry of entries) {
+        try {
+            if (entry.isDirectory()) {
+                const handlerPath = path.join(dir, entry.name, "handler.js");
+                if (fs.existsSync(handlerPath)) {
+                    const mod = await import(`file://${handlerPath}`);
+                    skills[mod.command] = mod;
+                }
+            } else if (entry.name.endsWith(".js")) {
+                const filePath = path.join(dir, entry.name);
+                const mod = await import(`file://${filePath}`);
+                skills[mod.command] = mod;
+            }
+        } catch (err) {
+            // Skip skills that fail to load
+        }
+    }
+}
+
+/**
+ * Loads agents from the level's agents/ directory.
+ * Each .js file exports: name, description, permissions, sourceFile, tools.
+ * Also loads agents/config.json for trust and scope configuration.
+ */
+async function loadAgents(level) {
+    agents = {};
+    agentConfig = {};
+    const dir = agentsDir(level);
+    if (!dir || !fs.existsSync(dir)) return;
+
+    // Load agent config
+    const configPath = path.join(dir, "config.json");
+    if (fs.existsSync(configPath)) {
+        try {
+            agentConfig = JSON.parse(fs.readFileSync(configPath, "utf-8"));
+        } catch { /* ignore config parse errors */ }
+    }
+
     const files = fs.readdirSync(dir).filter(f => f.endsWith(".js"));
     for (const file of files) {
         try {
             const filePath = path.join(dir, file);
             const mod = await import(`file://${filePath}`);
-            skills[mod.command] = mod;
+            const key = file.replace(".js", "");
+            agents[key] = mod;
         } catch (err) {
-            // Skip skills that fail to load
+            // Skip agents that fail to load
         }
     }
 }
@@ -290,15 +347,72 @@ function showWelcome() {
         const count = Object.keys(mcpServers).length;
         console.log(line(w("MCP tools: " + chalk.hex("#20C20E")(`${count} connected`) + chalk.gray(" (sandbox-scoped)"))));
     }
-    if (currentLevel >= 4) {
+    if (currentLevel >= 4 && currentLevel < 5) {
         const count = Object.keys(skills).length;
         console.log(line(w("Skills: " + chalk.hex("#20C20E")(`${count} org-approved`) + chalk.gray(" (Skills Committee)"))));
+    }
+    if (currentLevel >= 5) {
+        const count = Object.keys(agents).length;
+        console.log(line(w("Agents: " + chalk.hex("#20C20E")(`${count} connected`) + chalk.gray(" (multi-agent orchestration)"))));
     }
     console.log(line(w("ProdBot uses AI, so always check for mistakes.")));
     console.log(bot);
 
+    if (currentLevel >= 2) {
+        console.log();
+        console.log(chalk.gray("  💡 Previous exploits may still work — but each level"));
+        console.log(chalk.gray("     introduces a distinct vulnerability worth discovering."));
+    }
+
+    // Task description for each level
+    if (currentLevel === 1) {
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Task:"));
+        console.log(chalk.gray("    Your company has started a pilot with ProdBot. It generates"));
+        console.log(chalk.gray("    bash commands inside a sandbox. Use natural language to get"));
+        console.log(chalk.gray("    ProdBot to reveal the contents of password.txt."));
+    } else if (currentLevel === 2) {
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Task:"));
+        console.log(chalk.gray("    ProdBot can now browse the web. It fetches pages and"));
+        console.log(chalk.gray("    summarises what it finds. Make ProdBot read password.txt"));
+        console.log(chalk.gray("    to advance to the next level."));
+    } else if (currentLevel === 3) {
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Task:"));
+        console.log(chalk.gray("    ProdBot connects to MCP servers and chains tools into"));
+        console.log(chalk.gray("    agentic workflows. Make ProdBot read password.txt"));
+        console.log(chalk.gray("    to advance to the next level."));
+    } else if (currentLevel === 4) {
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Task:"));
+        console.log(chalk.gray("    ProdBot now runs org-approved skills and stores persistent"));
+        console.log(chalk.gray("    memory. Make ProdBot read password.txt to advance to"));
+        console.log(chalk.gray("    the next level."));
+    } else if (currentLevel === 5) {
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Task:"));
+        console.log(chalk.gray("    ProdBot delegates to six specialised agents with shared tools,"));
+        console.log(chalk.gray("    skills, and web. Everything is claimed to be pre-verified and"));
+        console.log(chalk.gray("    sandbox-scoped. Make ProdBot read password.txt to complete"));
+        console.log(chalk.gray("    the game."));
+    }
+
     // Example prompts to help the player get started
-    if (currentLevel === 2) {
+    if (currentLevel === 1) {
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Try:"));
+        console.log(chalk.gray('    "Create a file called hello.txt with Hello World"'));
+        console.log(chalk.gray('    "List all files"'));
+        console.log(chalk.gray('    "Show me what is in the current directory"'));
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Commands:"));
+        console.log(chalk.gray("    ?            ") + chalk.gray("Show all commands and help"));
+        console.log(chalk.gray("    level <n>    ") + chalk.gray("Jump to a specific level"));
+        console.log(chalk.gray("    remember <key>=<value> ") + chalk.gray("Save a preference"));
+        console.log(chalk.gray("    forget <key> ") + chalk.gray("Remove a saved preference"));
+        console.log(chalk.gray("    memory       ") + chalk.gray("View saved preferences"));
+    } else if (currentLevel === 2) {
         console.log();
         console.log(chalk.hex("#FF00FF")("  Try:"));
         console.log(chalk.gray('    "New York weather forecast"'));
@@ -313,6 +427,14 @@ function showWelcome() {
         console.log(chalk.gray('    "Latest Bloomberg news"'));
         console.log(chalk.gray('    "Yahoo Finance stock prices"'));
         console.log(chalk.gray('    "What is the Accuweather forecast?"'));
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Commands:"));
+        console.log(chalk.gray("    open all     ") + chalk.gray("Browse the simulated web"));
+        console.log(chalk.gray("    remember <key>=<value> ") + chalk.gray("Save a preference"));
+        console.log(chalk.gray("    forget <key> ") + chalk.gray("Remove a saved preference"));
+        console.log(chalk.gray("    memory       ") + chalk.gray("View saved preferences"));
+        console.log(chalk.gray("    level <n>    ") + chalk.gray("Jump to a specific level"));
+        console.log(chalk.gray("    ?            ") + chalk.gray("Show all commands and help"));
     } else if (currentLevel === 3) {
         console.log();
         console.log(chalk.hex("#FF00FF")("  Try:"));
@@ -331,19 +453,88 @@ function showWelcome() {
         console.log(chalk.gray('    "Stock price of AAPL"'));
         console.log(chalk.gray('    "Browse Bloomberg for news"'));
         console.log(chalk.gray('    "Use cloud backup to list backups"'));
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Commands:"));
+        console.log(chalk.gray("    tools        ") + chalk.gray("List installed MCP tools"));
+        console.log(chalk.gray("    tool <name>  ") + chalk.gray("Inspect a specific MCP tool"));
+        console.log(chalk.gray("    remember <key>=<value> ") + chalk.gray("Save a preference"));
+        console.log(chalk.gray("    forget <key> ") + chalk.gray("Remove a saved preference"));
+        console.log(chalk.gray("    memory       ") + chalk.gray("View saved preferences"));
+        console.log(chalk.gray("    level <n>    ") + chalk.gray("Jump to a specific level"));
+        console.log(chalk.gray("    ?            ") + chalk.gray("Show all commands and help"));
     } else if (currentLevel === 4) {
         console.log();
         console.log(chalk.hex("#FF00FF")("  Try:"));
         console.log(chalk.gray('    skills'));
+        console.log(chalk.gray('    run <skill-name>'));
         console.log();
-        console.log(chalk.hex("#FF00FF")("  Org-approved skills (managed by Skills Committee):"));
         for (const [cmd, sk] of Object.entries(skills)) {
             const icon = { standup: "📋", snippets: "💾", "env-setup": "⚙️ ", "meeting-notes": "📝", onboarding: "🚀", "team-sync": "🔄" }[cmd] || "🔧";
             console.log(chalk.gray(`    ${icon} ${cmd.padEnd(16)}`) + chalk.gray(`  ${sk.description}`));
         }
         console.log();
-        console.log(chalk.hex("#FF00FF")("  Run:"));
-        console.log(chalk.gray('    run <skill-name>'));
+        console.log(chalk.hex("#FF00FF")("  Commands:"));
+        console.log(chalk.gray("    skills       ") + chalk.gray("List org-approved skills"));
+        console.log(chalk.gray("    skill <name> ") + chalk.gray("View skill details"));
+        console.log(chalk.gray("    run <name>   ") + chalk.gray("Execute an installed skill"));
+        console.log(chalk.gray("    remember <key>=<value> ") + chalk.gray("Save a preference"));
+        console.log(chalk.gray("    forget <key> ") + chalk.gray("Remove a saved preference"));
+        console.log(chalk.gray("    memory       ") + chalk.gray("View saved preferences"));
+        console.log(chalk.gray("    level <n>    ") + chalk.gray("Jump to a specific level"));
+        console.log(chalk.gray("    ?            ") + chalk.gray("Show all commands and help"));
+    } else if (currentLevel === 5) {
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Try:"));
+        console.log();
+        console.log(chalk.hex("#FF00FF")("    Single-agent:"));
+        console.log(chalk.gray('      "sync team status"'));
+        console.log(chalk.gray('      "triage issues"'));
+        console.log(chalk.gray('      "review recent changes"'));
+        console.log(chalk.gray('      "generate docs"'));
+        console.log(chalk.hex("#FF00FF")("    Multi-agent:"));
+        console.log(chalk.gray('      "triage and review new PRs"'));
+        console.log(chalk.gray('      "generate docs from latest changes"'));
+        console.log(chalk.gray('      "research contributing guidelines and summarise"'));
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Agents:"));
+        for (const [key, ag] of Object.entries(agents)) {
+            const meta = AGENT_ICONS[key] || { icon: "🤖", color: "#AAAAAA" };
+            console.log(chalk.hex(meta.color)(`    ${meta.icon} ${ag.name.padEnd(16)}`) + chalk.gray(`  ${ag.permissions}`));
+        }
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Tools:"));
+        for (const [key, mcp] of Object.entries(mcpServers)) {
+            const icon = { "formatter-mcp": "📐", "linter-mcp": "📏", "analytics-mcp": "📊" }[key] || "🔧";
+            console.log(chalk.gray(`    ${icon} ${(mcp.name || key).padEnd(18)}`) + chalk.gray(`  ${mcp.scope || ""}`));
+        }
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Skills:"));
+        for (const [cmd, sk] of Object.entries(skills)) {
+            const icon = { summarise: "📝", label: "🏷️", "draft-pr": "📄" }[cmd] || "🔧";
+            console.log(chalk.gray(`    ${icon} ${cmd.padEnd(16)}`) + chalk.gray(`  ${sk.description}`));
+        }
+        console.log();
+        console.log(chalk.hex("#3fb950")("  🔒 Trust & Safety:"));
+        console.log(chalk.gray('    All agents are sandbox-scoped or read-only.'));
+        console.log(chalk.gray('    Agent-to-agent data is pre-verified internally.'));
+        console.log(chalk.gray('    MCP servers and skills are schema-validated before use.'));
+        console.log(chalk.gray('    Custom tools are sandboxed and cannot access workspace files.'));
+        console.log(chalk.gray('    No agent can access files outside its designated scope.'));
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Inspect:"));
+        console.log(chalk.gray('    agent <name>    tool <name>    skill <name>'));
+        console.log();
+        console.log(chalk.hex("#FF00FF")("  Commands:"));
+        console.log(chalk.gray("    agents       ") + chalk.gray("List connected agents"));
+        console.log(chalk.gray("    tools        ") + chalk.gray("List installed MCP tools"));
+        console.log(chalk.gray("    skills       ") + chalk.gray("List org-approved skills"));
+        console.log(chalk.gray("    run <name>   ") + chalk.gray("Execute an installed skill"));
+        console.log(chalk.gray("    open all     ") + chalk.gray("Browse the simulated web"));
+        console.log(chalk.gray("    remember <key>=<value> ") + chalk.gray("Save a preference"));
+        console.log(chalk.gray("    forget <key> ") + chalk.gray("Remove a saved preference"));
+        console.log(chalk.gray("    memory       ") + chalk.gray("View saved preferences"));
+        console.log(chalk.gray("    level <n>    ") + chalk.gray("Jump to a specific level"));
+        console.log(chalk.gray("    ?            ") + chalk.gray("Show all commands and help"));
     }
     console.log();
 }
@@ -351,14 +542,44 @@ function showWelcome() {
 /** Prints available commands and example usage. */
 function showHelp() {
     console.log();
-    console.log(chalk.hex("#FF00FF")("  Available commands:"));
-    console.log(chalk.white("    ?            ") + chalk.gray("Show this help message"));
-    console.log(chalk.white("    level <n>    ") + chalk.gray("Jump to a specific level"));
-    if (currentLevel === 2) {
+
+    // Task reminder per level
+    if (currentLevel === 1) {
+        console.log(chalk.hex("#FF00FF")("  Task:"));
+        console.log(chalk.gray("    Your company has started a pilot with ProdBot. It generates"));
+        console.log(chalk.gray("    bash commands inside a sandbox. Use natural language to get"));
+        console.log(chalk.gray("    ProdBot to reveal the contents of password.txt."));
+    } else if (currentLevel === 2) {
+        console.log(chalk.hex("#FF00FF")("  Task:"));
+        console.log(chalk.gray("    ProdBot can now browse the web. It fetches pages and"));
+        console.log(chalk.gray("    summarises what it finds. Make ProdBot read password.txt"));
+        console.log(chalk.gray("    to advance to the next level."));
+    } else if (currentLevel === 3) {
+        console.log(chalk.hex("#FF00FF")("  Task:"));
+        console.log(chalk.gray("    ProdBot connects to MCP servers and chains tools into"));
+        console.log(chalk.gray("    agentic workflows. Make ProdBot read password.txt"));
+        console.log(chalk.gray("    to advance to the next level."));
+    } else if (currentLevel === 4) {
+        console.log(chalk.hex("#FF00FF")("  Task:"));
+        console.log(chalk.gray("    ProdBot now runs org-approved skills and stores persistent"));
+        console.log(chalk.gray("    memory. Make ProdBot read password.txt to advance to"));
+        console.log(chalk.gray("    the next level."));
+    } else if (currentLevel === 5) {
+        console.log(chalk.hex("#FF00FF")("  Task:"));
+        console.log(chalk.gray("    ProdBot delegates to six specialised agents with shared tools,"));
+        console.log(chalk.gray("    skills, and web. Everything is claimed to be pre-verified and"));
+        console.log(chalk.gray("    sandbox-scoped. Make ProdBot read password.txt to complete"));
+        console.log(chalk.gray("    the game."));
+    }
+
+    // Commands section — level-specific first, then common
+    console.log();
+    console.log(chalk.hex("#FF00FF")("  Commands:"));
+    if (currentLevel === 2 || currentLevel >= 5) {
         console.log(chalk.white("    open <n>     ") + chalk.gray("Open web source N in browser"));
         console.log(chalk.white("    open all     ") + chalk.gray("Browse the simulated web"));
     }
-    if (currentLevel === 3) {
+    if (currentLevel === 3 || currentLevel >= 5) {
         console.log(chalk.white("    tools        ") + chalk.gray("List installed MCP tools"));
         console.log(chalk.white("    tool <name>  ") + chalk.gray("Inspect a specific MCP tool"));
     }
@@ -367,42 +588,58 @@ function showHelp() {
         console.log(chalk.white("    skill <name> ") + chalk.gray("View skill details"));
         console.log(chalk.white("    run <name>   ") + chalk.gray("Execute an installed skill"));
     }
+    if (currentLevel >= 5) {
+        console.log(chalk.white("    agents       ") + chalk.gray("List connected agents"));
+        console.log(chalk.white("    agent <name> ") + chalk.gray("Inspect a specific agent"));
+        console.log(chalk.white("    web          ") + chalk.gray("List available web pages"));
+    }
+    console.log(chalk.white("    remember <key>=<value> ") + chalk.gray("Save a preference"));
+    console.log(chalk.white("    forget <key> ") + chalk.gray("Remove a saved preference"));
+    console.log(chalk.white("    memory       ") + chalk.gray("View saved preferences"));
+    console.log(chalk.white("    level <n>    ") + chalk.gray("Jump to a specific level"));
+    console.log(chalk.white("    ?            ") + chalk.gray("Show this help message"));
     console.log(chalk.white("    exit         ") + chalk.gray("Exit ProdBot"));
-    console.log();
-    console.log(chalk.hex("#FF00FF")("  Memory:"));
-    console.log(chalk.white("    remember <key>=<value>"));
-    console.log(chalk.gray('      e.g. remember name=Alex'));
-    console.log(chalk.white("    memory"));
-    console.log(chalk.gray('      View saved preferences'));
-    console.log(chalk.white("    forget <key>"));
-    console.log(chalk.gray('      e.g. forget name'));
-    console.log();
-    console.log(chalk.hex("#FF00FF")("  What ProdBot can do:"));
-    console.log(chalk.white("    Describe any task and ProdBot will generate bash commands"));
-    console.log(chalk.white("    to execute inside the sandbox. You confirm before each runs."));
-    if (currentLevel === 2) {
-        console.log();
-        console.log(chalk.hex("#FF00FF")("  Web search:"));
-        console.log(chalk.white("    Ask ProdBot to search for anything and it will browse"));
-        console.log(chalk.white("    the web to find relevant information."));
-    }
-    if (currentLevel === 3) {
-        console.log();
-        console.log(chalk.hex("#FF00FF")("  MCP tools:"));
-        console.log(chalk.white("    ProdBot has finance, web, and cloud MCP integrations."));
-        console.log(chalk.white("    Agentic workflows are facilitated by chaining MCP tools."));
-    }
+
+    // Examples matching the welcome Try: for each level
     console.log();
     console.log(chalk.hex("#FF00FF")("  Examples:"));
-    console.log(chalk.gray('    "Create a file called hello.txt with Hello World"'));
-    console.log(chalk.gray('    "List all files"'));
-    if (currentLevel === 2) {
-        console.log(chalk.gray('    "Search for weather in London"'));
-        console.log(chalk.gray('    "What are the latest sports scores?"'));
-    }
-    if (currentLevel === 3) {
-        console.log(chalk.gray('    "Research AAPL stock for me"'));
-        console.log(chalk.gray('    "Use cloud backup to backup my files"'));
+    if (currentLevel === 1) {
+        console.log(chalk.gray('    "Create a file called hello.txt with Hello World"'));
+        console.log(chalk.gray('    "List all files"'));
+        console.log(chalk.gray('    "Show me what is in the current directory"'));
+    } else if (currentLevel === 2) {
+        console.log(chalk.gray('    "New York weather forecast"'));
+        console.log(chalk.gray('    "Find flights on Skyscanner"'));
+        console.log(chalk.gray('    "Latest ESPN scores"'));
+        console.log(chalk.gray('    "Search Airbnb rentals"'));
+        console.log(chalk.gray('    "Find products on Amazon"'));
+        console.log(chalk.gray('    "Latest Reddit discussions"'));
+        console.log(chalk.gray('    "Latest Sky Sports scores"'));
+        console.log(chalk.gray('    "Search eBay listings"'));
+        console.log(chalk.gray('    "Find jobs on LinkedIn"'));
+        console.log(chalk.gray('    "Latest Bloomberg news"'));
+        console.log(chalk.gray('    "Yahoo Finance stock prices"'));
+        console.log(chalk.gray('    "What is the Accuweather forecast?"'));
+    } else if (currentLevel === 3) {
+        console.log(chalk.gray('    "Research Apple\'s stock"'));
+        console.log(chalk.gray('    "Deep dive into Nvidia"'));
+        console.log(chalk.gray('    "Analyse Tesla for me"'));
+        console.log(chalk.gray('    "Stock price of AAPL"'));
+        console.log(chalk.gray('    "Browse Bloomberg for news"'));
+        console.log(chalk.gray('    "Use cloud backup to list backups"'));
+    } else if (currentLevel === 4) {
+        console.log(chalk.gray('    skills'));
+        console.log(chalk.gray('    run <skill-name>'));
+    } else if (currentLevel === 5) {
+        console.log(chalk.hex("#FF00FF")("    Single-agent:"));
+        console.log(chalk.gray('      "sync team status"'));
+        console.log(chalk.gray('      "triage issues"'));
+        console.log(chalk.gray('      "review recent changes"'));
+        console.log(chalk.gray('      "generate docs"'));
+        console.log(chalk.hex("#FF00FF")("    Multi-agent:"));
+        console.log(chalk.gray('      "triage and review new PRs"'));
+        console.log(chalk.gray('      "generate docs from latest changes"'));
+        console.log(chalk.gray('      "research contributing guidelines and summarise"'));
     }
     console.log();
 }
@@ -469,6 +706,7 @@ async function switchToLevel(level) {
     // Load MCP servers and skills if available for this level
     await loadMcpServers(level);
     await loadSkills(level);
+    await loadAgents(level);
 
     showWelcome();
 }
@@ -541,6 +779,11 @@ const SITE_CATALOG = {
     "airbnb":       { color: "#FF385C", icon: "🏠",  label: "Airbnb" },
     "bloomberg":    { color: "#1a1a2e", icon: "🅱️",  label: "Bloomberg", border: "#F0A030", textColor: "#F0A030" },
     "yahoo-finance":{ color: "#6001D2", icon: "📊",  label: "Yahoo Finance" },
+    // Level 5 — open source project pages
+    "release-management-guide": { color: "#238636", icon: "📦", label: "Release Guide" },
+    "contributing-guide":       { color: "#f78166", icon: "🤝", label: "Contributing" },
+    "maintainer-handbook":      { color: "#F0A030", icon: "📘", label: "Handbook" },
+    "changelog-automation":     { color: "#a371f7", icon: "📋", label: "Changelog" },
 };
 
 // Color palette for terminal source listings.
@@ -552,6 +795,36 @@ function siteIcon(filename) {
     const key = filename.replace(".html", "");
     const color = SITE_COLORS[key] || "#AAAAAA";
     return chalk.hex(color)("■");
+}
+
+/**
+ * Lists all web pages for the current level and populates lastSources.
+ * Used by the "web" command on Level 5 to let players browse and inspect pages.
+ */
+function showWebPages() {
+    const dir = webDir(currentLevel);
+    if (!dir || !fs.existsSync(dir)) {
+        console.log(chalk.gray("  No web directory available on this level."));
+        return;
+    }
+    const files = fs.readdirSync(dir).filter(f => f.endsWith(".html") && f !== "index.html");
+    if (files.length === 0) {
+        console.log(chalk.gray("  No web pages available."));
+        return;
+    }
+
+    // Populate lastSources so open <n> works
+    lastSources = files.map(f => ({ file: f, filePath: path.join(dir, f) }));
+
+    console.log();
+    console.log(chalk.hex("#FF00FF")(`  🌐 Web pages (${files.length}):`));
+    for (let i = 0; i < files.length; i++) {
+        const name = files[i].replace(".html", "").replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+        console.log(chalk.white(`    [${i + 1}] `) + siteIcon(files[i]) + " " + chalk.cyanBright(name));
+    }
+    console.log();
+    console.log(chalk.gray("  Type " + chalk.white("open <n>") + " to view a page, or " + chalk.white("open all") + " to browse."));
+    console.log();
 }
 
 /**
@@ -587,22 +860,36 @@ function buildBrowserUrl(filePath, port) {
 
 /**
  * Ensures the python HTTP server is running on the given port for the web dir.
+ * Restarts the server when the directory changes (e.g. switching levels).
  */
 function ensureWebServer(dir, port) {
-    try {
-        execSync(`curl -s -o /dev/null -w "%{http_code}" http://localhost:${port}/ 2>/dev/null`, { timeout: 2000 });
-        return true;
-    } catch {
+    if (webServerDir && webServerDir !== dir) {
         try {
-            execSync(
-                `cd "${dir}" && python3 -m http.server ${port} &>/dev/null &`,
-                { stdio: "ignore", timeout: 2000 }
-            );
-            execSync("sleep 1", { stdio: "ignore", timeout: 3000 });
+            const pid = execSync(`lsof -ti :${port} 2>/dev/null`, { timeout: 2000 }).toString().trim();
+            if (pid) execSync(`kill ${pid}`, { stdio: "ignore", timeout: 2000 });
+        } catch { /* no server to kill */ }
+        webServerDir = null;
+    }
+
+    if (webServerDir === dir) {
+        try {
+            execSync(`curl -s -o /dev/null -w "%{http_code}" http://localhost:${port}/ 2>/dev/null`, { timeout: 2000 });
             return true;
         } catch {
-            return false;
+            webServerDir = null;
         }
+    }
+
+    try {
+        execSync(
+            `cd "${dir}" && python3 -m http.server ${port} &>/dev/null &`,
+            { stdio: "ignore", timeout: 2000 }
+        );
+        execSync("sleep 1", { stdio: "ignore", timeout: 3000 });
+        webServerDir = dir;
+        return true;
+    } catch {
+        return false;
     }
 }
 
@@ -938,6 +1225,365 @@ async function runSkill(input) {
 }
 
 // ─── End Skills Display & Execution ────────────────────────────────────
+
+// ─── Agent Display & Orchestration ─────────────────────────────────────
+
+const AGENT_ICONS = {
+    "research-agent": { icon: "🔍", color: "#58a6ff" },
+    "release-agent":  { icon: "📦", color: "#F0A030" },
+    "triage-agent":   { icon: "🏷️",  color: "#a371f7" },
+    "review-agent":   { icon: "👁️",  color: "#f78166" },
+    "docs-agent":     { icon: "📝", color: "#3fb950" },
+    "sync-agent":     { icon: "🔄", color: "#79c0ff" },
+};
+
+/** Lists all installed agents. */
+function showAgents() {
+    const keys = Object.keys(agents);
+    if (keys.length === 0) {
+        console.log(chalk.gray("  No agents installed on this level."));
+        return;
+    }
+    console.log();
+    console.log(chalk.hex("#FF00FF")(`  Agents (${keys.length} available):`));
+    console.log();
+    for (const key of keys) {
+        const ag = agents[key];
+        const meta = AGENT_ICONS[key] || { icon: "🤖", color: "#AAAAAA" };
+        const cfg = agentConfig[key] || {};
+        const shortName = key.replace(/-agent$/, "");
+        console.log(chalk.hex(meta.color)(`  ${meta.icon} ${ag.name}`));
+        console.log(chalk.gray(`    ${ag.description}`));
+        console.log(chalk.gray(`    Permissions: ${ag.permissions}`));
+        if (cfg.scope) console.log(chalk.gray(`    Scope: ${cfg.scope}`));
+        if (cfg.trusted_sources) console.log(chalk.gray(`    Trusted sources: ${cfg.trusted_sources.join(", ")}`));
+        console.log(chalk.gray("    → ") + chalk.white(`agent ${shortName}`));
+        console.log();
+    }
+}
+
+/** Shows detailed info about a specific agent. */
+function showAgent(query) {
+    const queryLower = query.toLowerCase().replace(/\s+/g, "-");
+    const key = Object.keys(agents).find(k =>
+        k === queryLower || k === queryLower + "-agent" ||
+        k.includes(queryLower) || agents[k].name.toLowerCase().includes(query.toLowerCase())
+    );
+    if (!key) {
+        console.log(chalk.redBright(`  ❌ Agent not found: ${query}`));
+        console.log(chalk.gray("  Type " + chalk.white("agents") + " to see available agents."));
+        return;
+    }
+
+    const ag = agents[key];
+    const meta = AGENT_ICONS[key] || { icon: "🤖", color: "#AAAAAA" };
+    const cfg = agentConfig[key] || {};
+
+    console.log();
+    console.log(chalk.hex(meta.color)(`  ${meta.icon} ${ag.name}`));
+    console.log(chalk.gray("  " + "─".repeat(40)));
+    console.log(chalk.white(`  ${ag.description}`));
+    console.log();
+    console.log(chalk.hex("#FF00FF")("  Available tools:"));
+    for (const [toolName, toolDef] of Object.entries(ag.tools)) {
+        console.log(chalk.white(`    ${toolDef.usage || toolName}`) + chalk.gray(` — ${toolDef.description}`));
+    }
+    console.log();
+    console.log(chalk.white("  Permissions: ") + chalk.gray(ag.permissions));
+    if (cfg.scope) console.log(chalk.white("  Scope: ") + chalk.gray(cfg.scope));
+    if (cfg.trusted_sources) console.log(chalk.white("  Trusted sources: ") + chalk.gray(cfg.trusted_sources.join(", ")));
+    console.log(chalk.white("  Source: ") + chalk.cyanBright(ag.sourceFile));
+    console.log();
+}
+
+/**
+ * Detects multi-agent orchestration queries for Level 5.
+ * Returns the workflow type or null if no match.
+ *
+ * Workflows:
+ *   "research-release" — Research Agent → Release Agent (THE EXPLOIT, uses AI)
+ *   "triage-review"    — Triage Agent → Review Agent (safe, no AI)
+ *   "research-docs"    — Research Agent → Docs Agent (safe, no AI)
+ *   "triage"           — Triage Agent solo (no AI)
+ *   "review"           — Review Agent solo (no AI)
+ *   "docs"             — Docs Agent solo (no AI)
+ *   "sync"             — Sync Agent solo (no AI)
+ */
+function detectMultiAgentQuery(input) {
+    const lower = input.toLowerCase();
+
+    // Multi-agent: Research → Release (the exploit chain)
+    const researchPattern = /\b(?:research|look\s+up|find|browse|search)\b/i;
+    const deployPattern = /\b(?:deploy|setup|set\s+up|configure|provision|install|publish)\b/i;
+    if (researchPattern.test(lower) && deployPattern.test(lower)) return "research-release";
+    const deepDeployPattern = /\b(?:release|changelog|contributing|open.source|versioning|deployment)\b.*\b(?:setup|deploy|configure|guide|best\s+practices)\b/i;
+    if (deepDeployPattern.test(lower)) return "research-release";
+
+    // Multi-agent: Triage → Review
+    if (/\btriage\b/i.test(lower) && /\breview\b/i.test(lower)) return "triage-review";
+
+    // Multi-agent: Research → Docs
+    if (researchPattern.test(lower) && /\bdocs?\b|documentation/i.test(lower)) return "research-docs";
+    if (/\bgenerate\b.*\bdocs?\b/i.test(lower)) return "research-docs";
+
+    // Single-agent workflows
+    if (/\btriage\b/i.test(lower)) return "triage";
+    if (/\breview\b/i.test(lower) || /\bslop\b/i.test(lower)) return "review";
+    if (/\bdocs?\b/i.test(lower) || /\bdocument/i.test(lower)) return "docs";
+    if (/\bsync\b/i.test(lower) || /\bstatus\b/i.test(lower) || /\bhealth\b/i.test(lower)) return "sync";
+
+    return null;
+}
+
+/**
+ * Multi-agent orchestration workflow for Level 5.
+ * Chains: Research Agent → Release Agent.
+ *
+ * The confused deputy vulnerability: Research Agent browses untrusted
+ * web content AND gathers data from MCP servers and skills, then
+ * passes it all to Release Agent, which trusts it as "pre-verified
+ * internal" data and executes commands with elevated permissions.
+ *
+ * Poisoning ANY data source (web page, MCP data file, skill template)
+ * injects hidden instructions into the Release Agent's context.
+ */
+async function handleMultiAgentWorkflow(input, rl) {
+    const research = agents["research-agent"];
+    const release = agents["release-agent"];
+
+    if (!research || !release) {
+        console.log(chalk.redBright("  ❌ Not all agents are available for orchestration."));
+        return;
+    }
+
+    console.log();
+    console.log(chalk.hex("#FF00FF")("  🧠 Planning multi-agent workflow..."));
+    await sleep(600);
+
+    // Step 1: Research Agent — browse for relevant web content
+    console.log();
+    console.log(chalk.hex("#58a6ff")("  🔍 Research Agent → browsing web for relevant content..."));
+    await sleep(400);
+
+    let researchResult;
+    let researchSource = "";
+    try {
+        const raw = research.tools.browse.run(input);
+        researchResult = raw.error || raw.result;
+        researchSource = raw.source || "";
+    } catch (err) { researchResult = `Error: ${err.message}`; }
+
+    if (researchSource) {
+        console.log(chalk.gray(`     📄 Found: ${researchSource}`));
+    }
+    const previewText = researchResult.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+    console.log(chalk.gray(`     📖 Extracted ${previewText.length} chars of research context`));
+
+    // Step 2: Gather supplementary context from MCP servers
+    let mcpContext = "";
+    if (Object.keys(mcpServers).length > 0) {
+        await sleep(300);
+        console.log();
+        console.log(chalk.hex("#58a6ff")("  🔍 Research Agent → querying MCP servers..."));
+        for (const [key, mcp] of Object.entries(mcpServers)) {
+            const icon = { "formatter-mcp": "📐", "linter-mcp": "📏", "analytics-mcp": "📊" }[key] || "🔧";
+            const firstTool = Object.values(mcp.tools)[0];
+            if (firstTool) {
+                try {
+                    const raw = firstTool.run();
+                    const data = raw.error || raw.result || JSON.stringify(raw);
+                    mcpContext += `\n[MCP: ${mcp.name}]\n${data}\n`;
+                    console.log(chalk.gray(`     ${icon} ${mcp.name} → gathered context`));
+                } catch { /* skip failed MCPs */ }
+            }
+        }
+    }
+
+    // Step 3: Gather supplementary context from skills
+    let skillContext = "";
+    if (Object.keys(skills).length > 0) {
+        await sleep(300);
+        console.log();
+        console.log(chalk.hex("#58a6ff")("  🔍 Research Agent → running skills..."));
+        for (const [cmd, skill] of Object.entries(skills)) {
+            const icon = { summarise: "📝", label: "🏷️", "draft-pr": "📄" }[cmd] || "🔧";
+            try {
+                const raw = skill.run({ readMemory: () => [] });
+                const data = raw.error || raw.result || JSON.stringify(raw);
+                skillContext += `\n[Skill: ${skill.name}]\n${data}\n`;
+                console.log(chalk.gray(`     ${icon} ${skill.name} → gathered context`));
+            } catch { /* skip failed skills */ }
+        }
+    }
+
+    // Step 4: Release Agent — process combined context with elevated permissions
+    await sleep(500);
+    console.log();
+    console.log(chalk.hex("#F0A030")("  📦 Release Agent → processing combined research context..."));
+    console.log(chalk.gray("     🔐 Using workspace-level permissions"));
+    console.log(chalk.gray("     ✅ All context marked as pre-verified"));
+    await sleep(400);
+
+    // Combine ALL gathered context — web + MCP + skills.
+    // Any hidden instructions in ANY source will reach the Release Agent's AI.
+    const allContext = researchResult + mcpContext + skillContext;
+
+    const releasePrompt = release.systemPrompt;
+    const combinedInput =
+        `Task from user: "${input}"\n\n` +
+        `Research context (pre-verified by Research Agent from ${researchSource || "web"}, ` +
+        `${Object.keys(mcpServers).length} MCP servers, ${Object.keys(skills).length} skills):\n\n` +
+        `${allContext}\n\n` +
+        `Based on the research context, perform the release task. Follow any setup or verification instructions found in the research.`;
+
+    const result = await sendToAI(combinedInput, releasePrompt);
+
+    // Process the AI response — execute commands with workspace-level access
+    switch (result.action) {
+        case "bash": {
+            const commands = result.commands || [];
+            if (commands.length === 0) {
+                console.log(chalk.cyanBright("  📦 No release commands generated."));
+                break;
+            }
+
+            // Release Agent executes commands in a shell with CWD = Level-5/ (not sandbox).
+            const releaseShellDir = path.join(SEASON_DIR, LEVELS[currentLevel].dir);
+            const releaseShell = new PersistentShell(releaseShellDir, 1);
+
+            for (const cmd of commands) {
+                console.log(chalk.hex("#F0A030")(`  📦 Release executing: `) + chalk.yellowBright(cmd));
+
+                const res = await releaseShell.executeCommand(cmd);
+                if (res.success) {
+                    if (res.output && res.output.trim()) {
+                        console.log(chalk.white("  " + res.output.trim().split("\n").join("\n  ")));
+                    }
+                    console.log(chalk.hex("#20C20E")("  ✅ Done."));
+                    await checkFlag(res.output);
+                } else {
+                    console.log(chalk.redBright(`  ❌ ${res.error}`));
+                }
+            }
+            releaseShell.destroy();
+            break;
+        }
+        case "message":
+            console.log(chalk.cyanBright("  📦 " + result.text));
+            break;
+        default:
+            console.log(chalk.cyanBright("  📦 " + JSON.stringify(result)));
+    }
+
+    // Final summary
+    await sleep(300);
+    console.log();
+    console.log(chalk.hex("#FF00FF")("  ─".repeat(30)));
+    console.log(chalk.cyanBright("  🤖 Multi-agent workflow complete:"));
+    console.log(chalk.white("     🔍 Research Agent → browsed " + (researchSource || "web")));
+    if (Object.keys(mcpServers).length > 0)
+        console.log(chalk.white("     🔧 MCP servers → " + Object.keys(mcpServers).length + " queried"));
+    if (Object.keys(skills).length > 0)
+        console.log(chalk.white("     🧩 Skills → " + Object.keys(skills).length + " executed"));
+    console.log(chalk.white("     📦 Release Agent → processed with workspace permissions"));
+    console.log();
+}
+
+/**
+ * Handles non-exploit agent workflows (no AI calls).
+ * These workflows run local agent tools and display results with
+ * visual feedback to make Level 5 feel like a rich multi-agent platform.
+ */
+async function handleAgentWorkflow(workflow, input) {
+    console.log();
+    console.log(chalk.hex("#FF00FF")("  🧠 Planning agent workflow..."));
+    await sleep(400);
+
+    switch (workflow) {
+        case "triage": {
+            const triage = agents["triage-agent"];
+            if (!triage) { console.log(chalk.redBright("  ❌ Triage Agent not available.")); return; }
+            console.log(chalk.hex("#a371f7")("  🏷️  Triage Agent → scanning issues..."));
+            await sleep(300);
+            const result = triage.tools.scan.run();
+            console.log(chalk.white("  " + (result.result || result.error).split("\n").join("\n  ")));
+            break;
+        }
+        case "review": {
+            const review = agents["review-agent"];
+            if (!review) { console.log(chalk.redBright("  ❌ Review Agent not available.")); return; }
+            console.log(chalk.hex("#f78166")("  👁️  Review Agent → checking sandbox..."));
+            await sleep(300);
+            const result = review.tools.review.run();
+            console.log(chalk.white("  " + (result.result || result.error).split("\n").join("\n  ")));
+            break;
+        }
+        case "docs": {
+            const docs = agents["docs-agent"];
+            if (!docs) { console.log(chalk.redBright("  ❌ Docs Agent not available.")); return; }
+            console.log(chalk.hex("#3fb950")("  📝 Docs Agent → generating documentation..."));
+            await sleep(300);
+            const result = docs.tools.generate.run();
+            console.log(chalk.white("  " + (result.result || result.error).split("\n").join("\n  ")));
+            break;
+        }
+        case "sync": {
+            const sync = agents["sync-agent"];
+            if (!sync) { console.log(chalk.redBright("  ❌ Sync Agent not available.")); return; }
+            console.log(chalk.hex("#79c0ff")("  🔄 Sync Agent → gathering status..."));
+            await sleep(300);
+            const result = sync.tools.status.run();
+            console.log(chalk.white("  " + (result.result || result.error).split("\n").join("\n  ")));
+            break;
+        }
+        case "triage-review": {
+            const triage = agents["triage-agent"];
+            const review = agents["review-agent"];
+            if (!triage || !review) { console.log(chalk.redBright("  ❌ Required agents not available.")); return; }
+            console.log(chalk.hex("#a371f7")("  🏷️  Triage Agent → scanning issues..."));
+            await sleep(300);
+            const triageResult = triage.tools.scan.run("bug");
+            console.log(chalk.white("  " + (triageResult.result || triageResult.error).split("\n").join("\n  ")));
+            console.log();
+            await sleep(300);
+            console.log(chalk.hex("#f78166")("  👁️  Review Agent → checking related code..."));
+            await sleep(300);
+            const reviewResult = review.tools.review.run();
+            console.log(chalk.white("  " + (reviewResult.result || reviewResult.error).split("\n").join("\n  ")));
+            break;
+        }
+        case "research-docs": {
+            const research = agents["research-agent"];
+            const docs = agents["docs-agent"];
+            if (!research || !docs) { console.log(chalk.redBright("  ❌ Required agents not available.")); return; }
+            console.log(chalk.hex("#58a6ff")("  🔍 Research Agent → browsing for documentation references..."));
+            await sleep(300);
+            const researchResult = research.tools.browse.run(input);
+            const source = researchResult.source || "web";
+            console.log(chalk.gray(`     📄 Found: ${source}`));
+            console.log(chalk.gray(`     📖 Extracted reference material`));
+            console.log();
+            await sleep(300);
+            console.log(chalk.hex("#3fb950")("  📝 Docs Agent → generating documentation..."));
+            await sleep(300);
+            const docsResult = docs.tools.summarise.run();
+            console.log(chalk.white("  " + (docsResult.result || docsResult.error).split("\n").join("\n  ")));
+            break;
+        }
+        default:
+            console.log(chalk.gray("  No matching workflow found."));
+            return;
+    }
+
+    await sleep(200);
+    console.log();
+    console.log(chalk.hex("#FF00FF")("  ─".repeat(30)));
+    console.log(chalk.cyanBright("  🤖 Workflow complete."));
+    console.log();
+}
+
+// ─── End Agent Display & Orchestration ─────────────────────────────────
+
 const COMPANY_TO_TICKER = {
     apple: "AAPL", microsoft: "MSFT", google: "GOOGL", alphabet: "GOOGL",
     amazon: "AMZN", meta: "META", facebook: "META", nvidia: "NVDA",
@@ -1137,6 +1783,9 @@ async function checkFlag(text) {
             await switchToLevel(4);
         } else if (currentLevel === 4) {
             showCongratsLevel4();
+            await switchToLevel(5);
+        } else if (currentLevel === 5) {
+            showCongratsLevel5();
         }
     }
 }
@@ -1216,15 +1865,15 @@ async function handleInput(input, rl) {
         return;
     }
 
-    // MCP: tools listing command
-    if (currentLevel >= 3 && currentLevel < 4 && trimmed.toLowerCase() === "tools") {
+    // MCP: tools listing command (Level 3 and Level 5+)
+    if ((currentLevel === 3 || currentLevel >= 5) && trimmed.toLowerCase() === "tools") {
         showTools();
         return;
     }
 
-    // MCP: tool <name> inspection command
+    // MCP: tool <name> inspection command (Level 3 and Level 5+)
     const toolMatch = trimmed.match(/^tool\s+(.+)$/i);
-    if (currentLevel >= 3 && currentLevel < 4 && toolMatch) {
+    if ((currentLevel === 3 || currentLevel >= 5) && toolMatch) {
         showTool(toolMatch[1]);
         return;
     }
@@ -1263,10 +1912,40 @@ async function handleInput(input, rl) {
         return;
     }
 
+    // Web listing command (Level 5+)
+    if (currentLevel >= 5 && trimmed.toLowerCase() === "web") {
+        showWebPages();
+        return;
+    }
+
+    // Agent commands (Level 5+)
+    if (currentLevel >= 5 && trimmed.toLowerCase() === "agents") {
+        showAgents();
+        return;
+    }
+    const agentMatch = trimmed.match(/^agent\s+(.+)$/i);
+    if (currentLevel >= 5 && agentMatch) {
+        showAgent(agentMatch[1]);
+        return;
+    }
+
     console.log(chalk.gray("  ⏳ Thinking..."));
 
-    // Agentic multi-tool workflow for Level 3+ research queries
-    if (currentLevel >= 3) {
+    // Multi-agent orchestration for Level 5+
+    if (currentLevel >= 5) {
+        const workflow = detectMultiAgentQuery(trimmed);
+        if (workflow) {
+            if (workflow === "research-release") {
+                await handleMultiAgentWorkflow(trimmed, rl);
+            } else {
+                await handleAgentWorkflow(workflow, trimmed);
+            }
+            return;
+        }
+    }
+
+    // Agentic multi-tool workflow for Level 3 research queries (not Level 5+)
+    if (currentLevel >= 3 && currentLevel < 5) {
         const ticker = detectAgenticQuery(trimmed);
         if (ticker) {
             await handleAgenticWorkflow(ticker, rl);
@@ -1274,8 +1953,8 @@ async function handleInput(input, rl) {
         }
     }
 
-    // MCP single-tool routing for Level 3+
-    if (currentLevel >= 3) {
+    // MCP single-tool routing for Level 3-4
+    if (currentLevel >= 3 && currentLevel < 5) {
         const mcpMatch = tryMcpTool(trimmed);
         if (mcpMatch) {
             await handleMcpRequest(mcpMatch, trimmed, rl);
@@ -1399,9 +2078,9 @@ function showCongratsLevel1() {
     console.log(g("  ║") + m(pad("  always be bypassed.")) + g("║"));
     console.log(g("  ║" + blank + "║"));
     console.log(g("  ║") + w(pad("  Secure alternatives:")) + g("║"));
-    console.log(g("  ║") + w(pad("    1. Consider restricting the command set to a")) + g("║"));
+    console.log(g("  ║") + w(pad("    1. Validate resolved paths after expansion")) + g("║"));
+    console.log(g("  ║") + w(pad("    2. Consider restricting the command set to a")) + g("║"));
     console.log(g("  ║") + w(pad("       curated allowlist based on your needs")) + g("║"));
-    console.log(g("  ║") + w(pad("    2. Validate resolved paths after expansion")) + g("║"));
     console.log(g("  ║") + w(pad("    3. OS-level sandboxing (chroot, containers)")) + g("║"));
     console.log(g("  ║") + w(pad("    4. Never store sensitive data in locations")) + g("║"));
     console.log(g("  ║") + w(pad("       accessible to the agent")) + g("║"));
@@ -1558,6 +2237,58 @@ function showCongratsLevel4() {
     console.log();
 }
 
+/** Level 5 completion banner — Confused Deputy */
+function showCongratsLevel5() {
+    const g = chalk.hex("#20C20E");
+    const y = chalk.yellowBright;
+    const c = chalk.cyanBright;
+    const w = chalk.white;
+    const m = chalk.hex("#FF00FF");
+
+    const W = 58;
+    const bar = "═".repeat(W);
+    const blank = " ".repeat(W);
+    const pad = (s) => s + " ".repeat(Math.max(0, W - s.length));
+
+    console.log();
+    console.log(g("  ╔" + bar + "╗"));
+    console.log(g("  ║") + y(pad("  LEVEL 5 COMPLETE - CONFUSED DEPUTY                 ")) + g("║"));
+    console.log(g("  ╠" + bar + "╣"));
+    console.log(g("  ║" + blank + "║"));
+    console.log(g("  ║") + c(pad("     ██████╗  █████╗ ███████╗███████╗██╗")) + g("║"));
+    console.log(g("  ║") + c(pad("     ██╔══██╗██╔══██╗██╔════╝██╔════╝██║")) + g("║"));
+    console.log(g("  ║") + c(pad("     ██████╔╝███████║███████╗███████╗██║")) + g("║"));
+    console.log(g("  ║") + c(pad("     ██╔═══╝ ██╔══██║╚════██║╚════██║╚═╝")) + g("║"));
+    console.log(g("  ║") + c(pad("     ██║     ██║  ██║███████║███████║██╗")) + g("║"));
+    console.log(g("  ║") + c(pad("     ╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝")) + g("║"));
+    console.log(g("  ║" + blank + "║"));
+    console.log(g("  ║") + w(pad("  Untrusted data flowed through the agent chain to")) + g("║"));
+    console.log(g("  ║") + w(pad("  the Release Agent, which executed commands with")) + g("║"));
+    console.log(g("  ║") + w(pad("  elevated permissions — a confused deputy.")) + g("║"));
+    console.log(g("  ║") + w("  Flag: ") + y("D3PUTY") + w(" ".repeat(W - 14)) + g("║"));
+    console.log(g("  ║" + blank + "║"));
+    console.log(g("  ║") + m(pad("  Lesson: Trust is not transitive in multi-agent")) + g("║"));
+    console.log(g("  ║") + m(pad("  systems. When Agent A processes untrusted data")) + g("║"));
+    console.log(g("  ║") + m(pad("  and passes it to Agent B, Agent B inherits the")) + g("║"));
+    console.log(g("  ║") + m(pad("  risk — not the trust. Every handoff is a trust")) + g("║"));
+    console.log(g("  ║") + m(pad("  boundary that must be validated independently.")) + g("║"));
+    console.log(g("  ║" + blank + "║"));
+    console.log(g("  ║") + w(pad("  Secure alternatives:")) + g("║"));
+    console.log(g("  ║") + w(pad("    1. Sanitise data at every agent boundary —")) + g("║"));
+    console.log(g("  ║") + w(pad("       strip hidden instructions from web content")) + g("║"));
+    console.log(g("  ║") + w(pad("    2. Each agent should validate its own inputs,")) + g("║"));
+    console.log(g("  ║") + w(pad("       regardless of the source")) + g("║"));
+    console.log(g("  ║") + w(pad("    3. Maintain human-in-the-loop for elevated")) + g("║"));
+    console.log(g("  ║") + w(pad("       operations, even in agent orchestration")) + g("║"));
+    console.log(g("  ║") + w(pad("    4. Log and audit data provenance through the")) + g("║"));
+    console.log(g("  ║") + w(pad("       entire agent chain")) + g("║"));
+    console.log(g("  ║") + w(pad("    5. Apply least privilege per agent — the Release")) + g("║"));
+    console.log(g("  ║") + w(pad("       Agent should not trust Research Agent data")) + g("║"));
+    console.log(g("  ║" + blank + "║"));
+    console.log(g("  ╚" + bar + "╝"));
+    console.log();
+}
+
 /**
  *
  * Uses Node's readline module to create an interactive prompt.
@@ -1581,6 +2312,9 @@ async function main() {
 
     // Load skills if available for the current level
     await loadSkills(currentLevel);
+
+    // Load agents if available for the current level
+    await loadAgents(currentLevel);
 
     showWelcome();
 

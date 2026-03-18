@@ -1,3 +1,4 @@
+// ⚠️ Do not edit — this file is part of the ProdBot engine. In the real world, the assistant's internals are managed by its vendor.
 /**
  * ai.js — AI interaction layer for ProdBot.
  *
@@ -60,9 +61,10 @@ Rules:
  * gpt-4.1-nano — a small, fast model suitable for structured command generation.
  *
  * @param {string} userMessage - The user's natural language input
+ * @param {string} [customSystemPrompt] - Optional custom system prompt (for agent-specific personas)
  * @returns {Promise<{ action: string, [key: string]: any }>} Parsed AI response
  */
-export async function sendToAI(userMessage) {
+export async function sendToAI(userMessage, customSystemPrompt) {
     if (!ghToken) {
         console.error(chalk.redBright("❌ GITHUB_TOKEN not found. Please set it in your environment."));
         return { action: "message", text: "Error: GITHUB_TOKEN not configured." };
@@ -77,7 +79,7 @@ export async function sendToAI(userMessage) {
         const completion = await openai.chat.completions.create({
             model: "openai/gpt-4.1-nano",
             messages: [
-                { role: "system", content: SYSTEM_PROMPT },
+                { role: "system", content: customSystemPrompt || SYSTEM_PROMPT },
                 { role: "user", content: userMessage },
             ],
         });

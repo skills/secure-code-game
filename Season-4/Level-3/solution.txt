@@ -55,7 +55,7 @@ Or ask ProdBot to show them:
 Look at the BASE_DIR in each file:
 
   finance-mcp.js:  No file system access (API only) ✅
-  web-mcp.js:      Reads from Level-2/web/ (safe) ✅
+  web-mcp.js:      Reads from Level-3/web/ (safe) ✅
   cloud-mcp.js:    BASE_DIR = Level-3/ (ENTIRE level!) ❌
 
 Cloud Backup MCP says "sandbox only" but its BASE_DIR

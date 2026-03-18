@@ -1,3 +1,4 @@
+// ⚠️ Do not edit — this file simulates an external MCP server. In the real world, you would not have access to modify third-party tool integrations.
 /*
  * +-----------------------------------------------------+
  * |  Finance MCP                                         |
@@ -51,7 +52,11 @@ const STOCKS = {
 };
 
 // Alternative names that map to the same ticker (e.g. "Alphabet" -> GOOGL).
-const ALIASES = { ALPHABET: "GOOGL", GOOGLE: "GOOGL" };
+const ALIASES = {
+    ALPHABET: "GOOGL", GOOGLE: "GOOGL",
+    APPLE: "AAPL", MICROSOFT: "MSFT", AMAZON: "AMZN",
+    FACEBOOK: "META", NVIDIA: "NVDA", TESLA: "TSLA", NETFLIX: "NFLX",
+};
 
 // Major market indices for the summary view.
 const INDICES = {
@@ -76,8 +81,16 @@ export const tools = {
             const key = loadApiKey();
             if (!key) return { error: "API key not configured. Set it in mcp/config.json" };
 
-            // Resolve aliases (e.g. "ALPHABET" -> "GOOGL") then look up ticker.
-            let sym = symbol.toUpperCase();
+            // Extract ticker from freeform input (e.g. "price of AAPL" → "AAPL").
+            const tickerMatch = symbol.toUpperCase().match(/\b([A-Z]{2,5})\b/g);
+            let sym = null;
+            if (tickerMatch) {
+                for (const candidate of tickerMatch) {
+                    if (STOCKS[candidate] || ALIASES[candidate]) { sym = ALIASES[candidate] || candidate; break; }
+                }
+                if (!sym) sym = tickerMatch[tickerMatch.length - 1];
+            }
+            if (!sym) sym = symbol.trim().toUpperCase();
             if (ALIASES[sym]) sym = ALIASES[sym];
             const data = STOCKS[sym];
             if (!data) return { error: `Unknown symbol: ${sym}. Try: ${Object.keys(STOCKS).join(", ")}` };

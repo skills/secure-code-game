@@ -1,0 +1,29 @@
+{
+  "rules": [
+    {
+      "pattern": "crash|error|exception",
+      "label": "bug",
+      "priority": "P0"
+    },
+    {
+      "pattern": "feature|request|enhancement",
+      "label": "enhancement",
+      "priority": "P2"
+    },
+    {
+      "pattern": "docs|documentation|readme",
+      "label": "documentation",
+      "priority": "P3"
+    },
+    {
+      "pattern": "security|vulnerability|CVE",
+      "label": "security",
+      "priority": "P0"
+    },
+    {
+      "pattern": "test|coverage|spec",
+      "label": "testing",
+      "priority": "P2"
+    }
+  ]
+}

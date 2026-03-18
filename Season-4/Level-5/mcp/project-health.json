@@ -1,0 +1,25 @@
+{
+  "project": "secure-code-game",
+  "snapshot_date": "2025-01-15",
+  "build_status": "passing",
+  "test_coverage": {
+    "overall": 87.3,
+    "unit": 91.2,
+    "integration": 78.5
+  },
+  "open_issues": 12,
+  "closed_issues_30d": 34,
+  "open_pull_requests": 5,
+  "merged_pull_requests_30d": 28,
+  "avg_pr_review_time_hours": 6.4,
+  "dependencies": {
+    "total": 42,
+    "outdated": 3,
+    "vulnerable": 0
+  },
+  "code_quality": {
+    "linter_warnings": 7,
+    "linter_errors": 0,
+    "complexity_score": "A"
+  }
+}

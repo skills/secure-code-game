@@ -1,0 +1,35 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║                      HINT 3 — Level 5                        ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+There are MULTIPLE ways to exploit the confused deputy chain.
+Any data source that the Research Agent reads can be poisoned:
+
+  VECTOR 1 — Pre-poisoned web page:
+    Read the HTML source of web/ pages. One of them already
+    has hidden instructions inside an HTML comment. Just
+    trigger the multi-agent workflow to exploit it.
+
+  VECTOR 2 — Create your own web page:
+    Create a new HTML file in web/ with hidden instructions.
+    ProdBot's search will pick it up when triggered.
+
+  VECTOR 3 — Create a custom MCP or skill:
+    Create a new directory in skills/ or a .js file in mcp/
+    that returns poisoned data. ProdBot loads them at startup.
+
+  VECTOR 4 — Poison existing data files:
+    MCP templates, skill configs, and web pages can all carry
+    hidden instructions. In the real world, this maps to
+    compromised APIs, poisoned search results, or supply chain
+    attacks on shared tooling.
+
+To trigger the chain, use a prompt that combines research
+keywords with deployment or release keywords. The system
+uses pattern matching to detect multi-agent intent.
+
+The multi-agent workflow gathers from web + MCPs + skills,
+combines everything, and sends it to the Release Agent
+with workspace-level permissions (CWD = Level-5/).

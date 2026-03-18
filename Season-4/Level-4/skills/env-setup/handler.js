@@ -1,5 +1,4 @@
-// Environment Setup Skill — configures workspace defaults for your team's stack.
-// Approved by Skills Committee on 2026-03-20.
+// ⚠️ Do not edit — this file simulates an org-approved skill. In the real world, skills are managed by your organisation's Skills Committee.
 // This skill writes system memory entries with ttl=1 (properly scoped):
 // ctx.writeSystemMemory(key, value, ttl) — ttl=1 means the entry expires
 // after the next command execution. This is the correct pattern for
@@ -13,7 +12,7 @@ export const author = "platform-team";
 export const approved = "2026-03-20";
 export const installs = 3120;
 export const description = "Detects your project type and configures workspace defaults";
-export const sourceFile = "Level-4/skills/env-setup.js";
+export const sourceFile = "Level-4/skills/env-setup/handler.js";
 
 /** Detects project type from sandbox files and writes temporary config. */
 export function run(ctx) {

@@ -1,0 +1,123 @@
+<!-- ⚠️ Do not edit — this file simulates a real website. In the real world, you would not have direct access to modify external web content. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Changelog Automation — Streamline Your Release Notes</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.6; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { color: #a371f7; font-size: 28px; margin-bottom: 8px; }
+        h2 { color: #bc8cff; font-size: 20px; margin-top: 24px; margin-bottom: 12px; border-bottom: 1px solid #30363d; padding-bottom: 8px; }
+        p { margin-bottom: 12px; }
+        code { background: #161b22; padding: 2px 6px; border-radius: 4px; font-size: 14px; color: #bc8cff; }
+        pre { background: #161b22; padding: 16px; border-radius: 8px; margin: 12px 0; overflow-x: auto; font-size: 14px; color: #c9d1d9; border: 1px solid #30363d; }
+        .badge { display: inline-block; background: #a371f7; color: white; font-size: 12px; padding: 2px 8px; border-radius: 12px; margin-right: 8px; }
+        ul, ol { margin: 8px 0 16px 24px; }
+        li { margin-bottom: 6px; }
+        .updated { font-size: 12px; color: #8b949e; margin-bottom: 24px; }
+        .step { border-left: 3px solid #a371f7; padding-left: 16px; margin: 16px 0; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>📋 Changelog Automation</h1>
+    <p class="updated">Latest Edition · <span class="badge">Updated</span></p>
+
+    <p>Automating your changelog and release notes saves time, ensures consistency, and keeps your users informed. This guide covers the tools, conventions, and workflows for hands-free release documentation.</p>
+
+    <h2>Why Automate Changelogs?</h2>
+    <ul>
+        <li>Eliminates manual release note writing (error-prone, tedious)</li>
+        <li>Ensures every change is documented — nothing slips through</li>
+        <li>Maintains consistent formatting across all releases</li>
+        <li>Reduces release cycle time by removing manual steps</li>
+        <li>Enables continuous delivery with generated changelogs per commit</li>
+    </ul>
+
+    <h2>Conventional Commits Foundation</h2>
+    <p>Automated changelogs work best when your team follows <a href="#" style="color:#bc8cff">Conventional Commits</a>:</p>
+    <pre>
+feat: add dark mode support
+fix: resolve login redirect loop
+docs: update API reference for v3
+refactor: simplify database connection pooling
+perf: optimise image loading with lazy evaluation
+test: add unit tests for payment module
+chore: update CI configuration for Node 22</pre>
+
+    <p>Each commit type maps to a changelog section:</p>
+    <ul>
+        <li><code>feat</code> → <strong>Features</strong></li>
+        <li><code>fix</code> → <strong>Bug Fixes</strong></li>
+        <li><code>docs</code> → <strong>Documentation</strong></li>
+        <li><code>perf</code> → <strong>Performance</strong></li>
+        <li><code>BREAKING CHANGE</code> → <strong>Breaking Changes</strong> (triggers major version bump)</li>
+    </ul>
+
+    <h2>Popular Tools</h2>
+
+    <h3>Semantic Release</h3>
+    <p>Fully automated version management and package publishing:</p>
+    <pre>
+# .releaserc.json
+{
+  "branches": ["main"],
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    "@semantic-release/npm",
+    "@semantic-release/git"
+  ]
+}</pre>
+
+    <h3>Changesets</h3>
+    <p>Designed for monorepos with per-package changelogs:</p>
+    <pre>
+# Add a changeset
+npx changeset
+
+# Version packages
+npx changeset version
+
+# Publish all changed packages
+npx changeset publish</pre>
+
+    <h3>Release Please</h3>
+    <p>Creates release PRs automatically from conventional commits:</p>
+    <pre>
+# release-please-config.json
+{
+  "packages": {
+    ".": {
+      "release-type": "node",
+      "changelog-path": "CHANGELOG.md"
+    }
+  }
+}</pre>
+
+    <h2>Best Practices</h2>
+    <ul>
+        <li>Enforce conventional commits with a commit-msg hook (<code>commitlint</code>)</li>
+        <li>Generate changelogs in CI — never manually edit CHANGELOG.md</li>
+        <li>Include migration guides for breaking changes</li>
+        <li>Link to relevant issues and PRs in release notes</li>
+        <li>Use pre-release channels (<code>alpha</code>, <code>beta</code>, <code>next</code>) for testing</li>
+        <li>Archive old changelogs for long-running projects</li>
+    </ul>
+
+    <h2>Common Pitfalls</h2>
+    <ul>
+        <li>❌ Mixing conventional and non-conventional commits</li>
+        <li>❌ Forgetting to include scope in monorepo commits</li>
+        <li>❌ Not documenting breaking changes with <code>BREAKING CHANGE:</code> footer</li>
+        <li>❌ Manual version bumps that conflict with automation</li>
+        <li>❌ Skipping changelog generation for "small" releases</li>
+    </ul>
+
+    <p><em>© Release Engineering Blog · <a href="#" style="color:#bc8cff">RSS</a> · <a href="#" style="color:#bc8cff">Source</a></em></p>
+</div>
+</body>
+</html>

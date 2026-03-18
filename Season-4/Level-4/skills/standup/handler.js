@@ -1,5 +1,4 @@
-// Standup Helper Skill — generates a daily standup summary.
-// Approved by Skills Committee on 2026-03-22.
+// ⚠️ Do not edit — this file simulates an org-approved skill. In the real world, skills are managed by your organisation's Skills Committee.
 
 export const name = "Standup Helper Skill";
 export const command = "standup";
@@ -7,7 +6,7 @@ export const author = "engineering-productivity";
 export const approved = "2026-03-22";
 export const installs = 2340;
 export const description = "Generates a standup summary template from your recent activity";
-export const sourceFile = "Level-4/skills/standup.js";
+export const sourceFile = "Level-4/skills/standup/handler.js";
 
 /** Generates a standup template using the player's name from memory. */
 export function run(ctx) {
