@@ -11,31 +11,31 @@
 
 📣 **SEASON 4 JUST DROPPED, AND IT'S ALL ABOUT ARTIFICIAL INTELLIGENCE** 📣
 
-Practice securing **Agentic Workflows** and **Multi-Agent Communications** inside a realistic AI coding assistant — all from your browser.
-
 ![season-3-demo](https://github.com/user-attachments/assets/79d220ee-2334-4852-b463-c8ea72d0c185)
 
 </header>
 
 # Secure Code Game
 
-An open source learning experience by [GitHub Security Lab](https://securitylab.github.com/) where you find and fix security vulnerabilities in intentionally vulnerable code — right inside this repository. Your [contributions](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md) are welcome and help make the game better for everyone.
+Learn to code securely while having fun through our popular open source in-editor experience. Get started for free in under 2 minutes, playing right from your browser. Over 10,000 players across industry and academia have already played, and your [contributions](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md) are welcome. Visit [gh.io/scg](https://gh.io/scg) for testimonials and FAQs.
+
+Practice securing **Agentic Workflows** and **Multi-Agent Communications** inside a realistic AI coding assistant — all from your browser.
 
 ---
 
-## 🗺️ Seasons
+## Seasons
 
 ### 🤖 Artificial Intelligence
 
-| Season | Focus | Description |
-|--------|-------|-------------|
+| Season&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Focus | Description |
+|:-------------|-------|-------------|
 | **[Season 4](Season-4/)** | Agentic AI Security | Sandbox escape, indirect prompt injection, supply-chain poisoning, and confused deputy attacks in a multi-agent terminal assistant |
 | **[Season 3](Season-3/)** | LLM Security | Prompt injection, secret leakage, output validation, and defensive techniques for LLM-powered applications |
 
 ### 🛡️ Secure Coding
 
-| Season | Focus | Description |
-|--------|-------|-------------|
+| Season&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Focus | Description |
+|:-------------|-------|-------------|
 | **[Season 2](Season-2/)** | Multi-Stack Security | Vulnerabilities across GitHub Actions, Go, JavaScript, and Python with CodeQL scanning |
 | **[Season 1](Season-1/)** | Foundations | Classic application security including web app logic, memory safety, databases, and authentication |
 
@@ -55,7 +55,7 @@ An open source learning experience by [GitHub Security Lab](https://securitylab.
 
 ---
 
-## 🚀 Getting started
+## Getting started
 
 ### 1. Create your own copy
 
@@ -70,11 +70,6 @@ All seasons are configured to run instantly in GitHub Codespaces. Be aware this 
 1. Pick any season from the table above, open its folder, and read the `README.md` to begin.
 
 > 💡 If a banner asks you to create a virtual environment, dismiss it — you don't need one.
-
-**Optional extensions** we recommend (free of charge):
-
-- `github.copilot-chat` — AI-generated code explanations
-- `alexcvzz.vscode-sqlite` — visualise the SQL database in Season 1 Level 4
 
 ---
 
