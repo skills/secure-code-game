@@ -17,9 +17,9 @@
 
 # Secure Code Game
 
-Learn to code securely while having fun through our popular open source in-editor experience. Get started for free in under 2 minutes, playing right from your browser. Over 10,000 players across industry and academia have already played, and your [contributions](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md) are welcome. Visit [gh.io/scg](https://gh.io/scg) for testimonials and FAQs.
+Learn to code securely while having fun through our popular open source in-editor experience. Get started for free in under 2 minutes, playing right from your browser. Over 10,000 players across industry and academia have already played. Visit [gh.io/scg](https://gh.io/scg) for testimonials and FAQs, and feel free to open a [contribution](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md) to help make the game better for everyone.
 
-Practice securing **Agentic Workflows** and **Multi-Agent Communications** inside a realistic AI coding assistant — all from your browser.
+In the latest season, you step inside a fully interactive AI coding assistant that turns natural language into bash commands, browses the web, connects to live data sources, runs org-approved skills, stores persistent memory, and orchestrates multi-agent workflows. Practice securing **Agentic Workflows** and **Multi-Agent Communications** as you work through five progressively harder levels — no AI experience required.
 
 ---
 
@@ -27,17 +27,17 @@ Practice securing **Agentic Workflows** and **Multi-Agent Communications** insid
 
 ### 🤖 Artificial Intelligence
 
-| Season&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Focus | Description |
-|:-------------|-------|-------------|
-| **[Season 4](Season-4/)** | Agentic AI Security | Sandbox escape, indirect prompt injection, supply-chain poisoning, and confused deputy attacks in a multi-agent terminal assistant |
-| **[Season 3](Season-3/)** | LLM Security | Prompt injection, secret leakage, output validation, and defensive techniques for LLM-powered applications |
+| Season&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Focus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | What you'll learn | Duration |
+|:-------------|:-----------------|:------------------|:---------|
+| **[Season 4](Season-4/)** | Agentic&nbsp;AI | Secure AI agents that execute commands, browse the web, use external tools, and coordinate with other agents | ~1–2 hrs |
+| **[Season 3](Season-3/)** | LLM&nbsp;Security | Defend LLM-powered applications through system prompt design, input and output handling, and connected data sources | ~2–4 hrs |
 
 ### 🛡️ Secure Coding
 
-| Season&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Focus | Description |
-|:-------------|-------|-------------|
-| **[Season 2](Season-2/)** | Multi-Stack Security | Vulnerabilities across GitHub Actions, Go, JavaScript, and Python with CodeQL scanning |
-| **[Season 1](Season-1/)** | Foundations | Classic application security including web app logic, memory safety, databases, and authentication |
+| Season&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Focus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | What you'll learn | Duration |
+|:-------------|:-----------------|:------------------|:---------|
+| **[Season 2](Season-2/)** | Multi-Stack | Security across CI/CD pipelines, backend services, and web applications using multiple languages and CodeQL | ~3–6 hrs |
+| **[Season 1](Season-1/)** | Foundations | Core secure coding fundamentals in Python and C covering web applications, systems programming, and data handling | ~3–6 hrs |
 
 ---
 
@@ -45,13 +45,9 @@ Practice securing **Agentic Workflows** and **Multi-Agent Communications** insid
 
 > **Who is this for** · Developers, students, and anyone curious about security
 >
-> **What you'll learn** · How to spot and fix vulnerable patterns in real-world code, build security into your workflows, and understand security alerts generated against your code
->
 > **What you'll build** · Fixes for functional but vulnerable code across multiple languages and frameworks
 >
 > **Prerequisites** · Season 1 uses `Python` and `C` · Season 2 uses `GitHub Actions`, `Go`, `Python`, and `JavaScript` · Seasons 3 and 4 require no prior knowledge of AI — just curiosity
->
-> **How long** · Seasons 1 and 2 each feature five levels and typically take 3–6 hours · Season 3 offers six levels in about 2–4 hours · Season 4 has five levels and takes about 1–2 hours · All estimates depend on your experience
 
 ---
 
