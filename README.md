@@ -9,7 +9,7 @@
   Add your open source license, GitHub uses the MIT license.
 -->
 
-📣 **SEASON 4 JUST DROPPED, AND IT'S ALL ABOUT AGENTIC AI** 📣
+📣 **SEASON 4 JUST DROPPED, AND IT'S ALL ABOUT AGENTIC AI**
 
 ![season-3-demo](https://github.com/user-attachments/assets/79d220ee-2334-4852-b463-c8ea72d0c185)
 
