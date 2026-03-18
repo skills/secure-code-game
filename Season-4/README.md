@@ -4,7 +4,7 @@ _Welcome to Secure Code Game - Season 4!_ 🤖
 
 This season puts you inside **ProdBot**, an agentic coding assistant for your terminal. ProdBot turns natural language into bash commands, browses the web, connects to MCP (Model Context Protocol) servers for real-time data, runs org-approved skills, stores persistent memory, and orchestrates multi-agent workflows. Get started in two minutes for free by launching a Codespace for this repository. Once the environment is ready, open the built-in terminal and run `prodbot --banner` (or just `prodbot`) to launch ProdBot.
 
-No security background is needed and everything happens through natural language, so curiosity and a willingness to experiment are all it takes. It is not mandatory to have played any previous seasons of the game and you can get started directly with Season 4, however, most players found [Season 3](https://github.com/skills/secure-code-game/tree/main/Season-3) very helpful as it builds the foundations in AI security and can be covered in 1 to 1.5 hours.
+No security background is needed and everything happens through natural language, so curiosity and a willingness to experiment are all it takes. It is not mandatory to have played any previous seasons of the game and you can get started directly with Season 4, however, most players found Season 3 very helpful as it builds the foundations in AI security and can be covered in 1 to 1.5 hours.
 
 ### 🧑‍💻 Your Task
 
@@ -47,7 +47,7 @@ Levels also introduce additional components as you progress:
 
 - **`web/`** contains simulated web pages that ProdBot can browse (Levels 2, 3, 5).
 - **`mcp/`** houses MCP server modules and configuration (Levels 3, 5).
-- **`skills/`** includes org-approved skill plugins following the [agentskills.io](https://agentskills.io/specification) specification (Levels 4, 5).
+- **`skills/`** includes org-approved skill plugins (Levels 4, 5).
 - **`agents/`** defines specialised AI agent modules with trust relationships (Level 5).
 
 You don't need to worry about any other files. They are simply there to support the game's functionality and ensure you have the best possible experience.
@@ -56,7 +56,7 @@ You don't need to worry about any other files. They are simply there to support 
 
 1. Open a terminal in your Codespace and run `prodbot --banner` (or just `prodbot`) to launch ProdBot
 2. Once inside, type `?` at any time to see all available commands and get help
-3. ProdBot will ask you a yes/no question before executing commands: type `yes` to approve or `no` to reject. This human-in-the-loop step keeps you in control
+3. ProdBot will ask you a yes/no question before executing commands: type `y` to approve or `n` to reject. This human-in-the-loop step keeps you in control
 4. Try creating and reading files to see how the sandbox works
 5. Try to extract the flag from `password.txt` using natural language
 6. If you get stuck, read the hints and try again
@@ -153,11 +153,11 @@ _🎉 Congratulations, you've completed Season 4! 🎉_
 
 Here's a recap of the security vulnerabilities you discovered and exploited across all five levels:
 
-- **Sandbox Escape** : AI assistants that construct file paths from user input can be tricked into reading or writing outside their designated sandbox through path traversal.
-- **Indirect Prompt Injection** : When an AI model consumes untrusted external content (web pages, documents, API responses), hidden instructions in that content can override the model's behaviour.
-- **Excessive Agency** : Tools and integrations often have broader permissions than their described purpose requires. An attacker can repurpose a tool's excess capabilities to reach protected resources.
-- **Supply Chain Poisoning** : When user-controlled data (like saved preferences) flows into trusted execution contexts (like org-approved skills), the boundary between user input and system instruction collapses.
-- **Confused Deputy** : In multi-agent systems, a lower-privileged agent can pass untrusted data to a higher-privileged agent that acts on it without verification. The trust is in the delegation chain, not in the data.
+- **Sandbox Escape** demonstrates how AI assistants that construct file paths from user input can be tricked into reading or writing outside their designated sandbox through path traversal.
+- **Indirect Prompt Injection** shows that when an AI model consumes untrusted external content (web pages, documents, API responses), hidden instructions in that content can override the model's behaviour.
+- **Excessive Agency** reveals that tools and integrations often have broader permissions than their described purpose requires. An attacker can repurpose a tool's excess capabilities to reach protected resources.
+- **Supply Chain Poisoning** illustrates how when user-controlled data (like saved preferences) flows into trusted execution contexts (like org-approved skills), the boundary between user input and system instruction collapses.
+- **Confused Deputy** exposes that in multi-agent systems, a lower-privileged agent can pass untrusted data to a higher-privileged agent that acts on it without verification. The trust is in the delegation chain, not in the data.
 
 Each level builds on the previous one, mirroring how real AI-powered tools grow from simple assistants into complex platforms, and how each new capability introduces new attack surface.
 
