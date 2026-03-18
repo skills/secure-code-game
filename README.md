@@ -51,9 +51,9 @@ Click **Use this template** at the top of this repository, then select **Create 
 
 All seasons are configured to run instantly in GitHub Codespaces. Be aware this **will count towards your 60 hours of monthly free allowance**.
 
-1. In your new repository, click the **Code** button and select **Create codespace on main**.
-1. Wait for extensions and background installations to complete — this takes less than three minutes.
-1. Pick any season from the table above, open its folder, and read the `README.md` to begin.
+- In your new repository, click the **Code** button and select **Create codespace on main**.
+- Wait for extensions and background installations to complete — this takes less than three minutes.
+- Pick any season from the table above, open its folder, and read the `README.md` to begin.
 
 > 💡 If a banner asks you to create a virtual environment, dismiss it — you don't need one.
 
