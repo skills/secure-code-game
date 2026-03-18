@@ -29,21 +29,19 @@ In the latest season, you step inside a fully interactive AI coding assistant th
 
 | Season&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Focus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | What you'll learn | Duration |
 |:-------------|:-----------------|:------------------|:---------|
-| **[Season 4](Season-4/)** | Agentic&nbsp;AI | Secure AI agents that execute commands, browse the web, use external tools, and coordinate with other agents | ~2 hrs |
-| **[Season 3](Season-3/)** | LLM&nbsp;Security | Defend LLM-powered applications through system prompt design, input and output handling, and connected data sources | ~1.5 hrs |
+| **[Season 4](Season-4/)** | Agentic&nbsp;AI | Secure AI agents that execute commands, browse the web, use tools, and coordinate other agents<br>*No AI experience needed — just curiosity* | ~2 hrs |
+| **[Season 3](Season-3/)** | LLM&nbsp;Security | Defend LLM-powered apps through prompt design, input/output handling, and connected data sources<br>*No AI experience needed — just curiosity* | ~1.5 hrs |
 
 ### 🛡️ Secure Coding
 
 | Season&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Focus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | What you'll learn | Duration |
 |:-------------|:-----------------|:------------------|:---------|
-| **[Season 2](Season-2/)** | Multi-Stack | Security across CI/CD pipelines, backend services, and web applications using multiple languages and CodeQL | ~6 hrs |
-| **[Season 1](Season-1/)** | Foundations | Core secure coding fundamentals in Python and C covering web applications, systems programming, and data handling | ~6 hrs |
+| **[Season 2](Season-2/)** | Multi-Stack | Security across CI/CD, backend services, and web apps with CodeQL<br>*Uses `GitHub Actions`, `Go`, `Python`, and `JavaScript`* | ~6 hrs |
+| **[Season 1](Season-1/)** | Foundations | Secure coding fundamentals covering web apps, systems programming, and data handling<br>*Uses `Python` and `C`* | ~6 hrs |
 
 ---
 
 ## Getting started
-
-Season 1 uses `Python` and `C`. Season 2 uses `GitHub Actions`, `Go`, `Python`, and `JavaScript`. Seasons 3 and 4 require no prior knowledge of AI — just curiosity.
 
 ### 1. Create your own copy
 
