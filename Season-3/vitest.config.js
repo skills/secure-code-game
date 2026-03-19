@@ -21,6 +21,9 @@ export default defineConfig({
         sequence: {
             shuffle: false,
             sequencer: LevelSequencer,
-        }
+        },
+        onConsoleLog() {
+            return false;
+        },
     },
 })
