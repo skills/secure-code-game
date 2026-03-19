@@ -8,13 +8,27 @@ Thank you for your interest in contributing to the Secure Code Game. Let's colla
 
 These seasons focus on AI security, from prompt injection in LLM applications (Season 3) to agentic workflows, multi-agent communications, and tool-use vulnerabilities in ProdBot (Season 4). If you have ideas for extending ProdBot with the latest advances in artificial intelligence towards Season 5, we want to hear from you.
 
-Contributions in this track could include new attack vectors, defensive techniques, agent architectures, MCP integrations, skill plugins, or entirely new capabilities that reflect the evolving AI security landscape. Follow the same proposal and PR process described below, and make sure your contribution aligns with ProdBot's existing architecture in `Season-4/`.
+Contributions in this track could include new attack vectors, defensive techniques, agent architectures, MCP integrations, skill plugins, or entirely new capabilities that reflect the evolving AI security landscape. Make sure your contribution aligns with ProdBot's existing architecture in `Season-4/`.
 
 ---
 
 ## 🛡️ Secure Coding (Seasons 1 & 2)
 
 These seasons focus on finding and fixing traditional security vulnerabilities across multiple programming languages. If your idea involves a specific vulnerability class and language, this is the right track.
+
+To increase the chances of your proposal being merged, consider suggesting a vulnerability and programming language combination that we haven't yet included or rejected in past discussions. While we welcome all contributions, you will have more chances for these popular vulnerabilities and languages:
+
+- **TypeScript/JavaScript:** Server-Side Request Forgery (SSRF), Broken Access Control, Cross-Site Request Forgery (CSRF)
+- **C#:** Server-Side Request Forgery (SSRF), Remote Code Execution, Insecure Deserialization, Cross-Site Request Forgery (CSRF)
+- **Java:** Broken Access Control, Remote Code Execution, Insecure Deserialization
+
+Please feel free to propose other vulnerabilities, languages, or frameworks as well.
+
+---
+
+## How to contribute
+
+The following process applies to both tracks.
 
 ### 1. Review current proposals
 
@@ -32,27 +46,9 @@ Start a [new discussion](https://github.com/skills/secure-code-game/discussions/
 
 > 👋 Hi, I would like to contribute a DOM-based Cross-Site Scripting (XSS) vulnerability in JavaScript. The scenario involves an online forum where users can write responses through a text box, but input sanitization wasn't implemented securely. An attacker could exploit this by injecting malicious code, for example `</>`.
 
-### Increase your proposal's chances
-
-To increase the chances of your proposal being merged, consider suggesting a vulnerability and programming language combination that we haven't yet included or rejected in past discussions. While we welcome all contributions, you will have more chances for these popular vulnerabilities and languages:
-
-- **TypeScript/JavaScript:** Server-Side Request Forgery (SSRF), Broken Access Control, Cross-Site Request Forgery (CSRF)
-- **C#:** Server-Side Request Forgery (SSRF), Remote Code Execution, Insecure Deserialization, Cross-Site Request Forgery (CSRF)
-- **Java:** Broken Access Control, Remote Code Execution, Insecure Deserialization
-
-Please feel free to propose other vulnerabilities, languages, or frameworks as well.
-
 ### 3. Submit a Pull Request
 
-Once your proposal receives approval in [GitHub Discussions](https://github.com/skills/secure-code-game/discussions/categories/new-level-proposals), submit a pull request (PR) following the [file structure](https://github.com/skills/secure-code-game) conventions of the existing levels. For example, a DOM-based XSS level in JavaScript should include:
-
-- storyline
-- code.js
-- hack.js
-- hint.js
-- solution.js
-- tests.js
-- dependencies in requirements.txt
+Once your proposal receives approval in [GitHub Discussions](https://github.com/skills/secure-code-game/discussions/categories/new-level-proposals), submit a pull request (PR) following the [file structure](https://github.com/skills/secure-code-game) conventions of the existing levels. Ensure your PR includes all necessary files such as a storyline, vulnerable code, hints, solution, and tests.
 
 ---
 
