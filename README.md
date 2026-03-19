@@ -37,8 +37,8 @@ In the latest season, you step inside a fully interactive AI coding assistant th
 
 | Season&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Focus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | What you'll learn | Duration |
 |:-------------|:-----------------|:------------------|:---------|
-| **[Season 4](Season-4/)** | Agentic&nbsp;AI | Secure AI agents that execute commands, browse the web, use tools, and coordinate other agents<br>*No AI experience needed — just curiosity* | ~2 hrs |
-| **[Season 3](Season-3/)** | LLM&nbsp;Security | Defend LLM-powered apps through prompt design, input/output handling, and connected data sources<br>*No AI experience needed — just curiosity* | ~1.5 hrs |
+| **[Season 4](Season-4/)** | Agentic&nbsp;AI | Secure AI agents that execute commands, browse the web, use tools, and coordinate other agents<br>*No AI or coding experience needed — just curiosity* | ~2 hrs |
+| **[Season 3](Season-3/)** | LLM&nbsp;Security | Defend LLM-powered apps through prompt design, input/output handling, and connected data sources<br>*No AI or coding experience needed — just curiosity* | ~1.5 hrs |
 
 ### 🛡️ Secure Coding
 
