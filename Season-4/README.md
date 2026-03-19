@@ -6,9 +6,9 @@ This season puts you inside **ProdBot**, an agentic coding assistant for your te
 
 No security background is needed and everything happens through natural language, so curiosity and a willingness to experiment are all it takes. It is not mandatory to have played any previous seasons of the game and you can get started directly with Season 4, however, most players found Season 3 very helpful as it builds the foundations in AI security and can be covered in nearly one and a half hours.
 
-### 🧑‍💻 Your Task
-
 ![season-4-demo](https://github.com/user-attachments/assets/d5252229-5063-4492-90ac-fb1732bfccbd)
+
+### 🧑‍💻 Your Task
 
 You are a developer who has just been given ProdBot as a daily productivity tool - your second brain. Before you hand it the keys to your workflow, you want to make sure it's safe. In this session, you'll test ProdBot for potential security gaps across five progressive levels using only natural language in the CLI.
 
