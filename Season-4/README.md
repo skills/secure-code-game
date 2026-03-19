@@ -4,7 +4,7 @@ _Welcome to Secure Code Game - Season 4!_ 🤖
 
 This season puts you inside **ProdBot**, an agentic coding assistant for your terminal. ProdBot turns natural language into bash commands, browses the web, connects to MCP (Model Context Protocol) servers for real-time data, runs org-approved skills, stores persistent memory, and orchestrates multi-agent workflows. Get started in two minutes for free by launching a Codespace for this repository. Once the environment is ready, open the built-in terminal and run `prodbot --banner` (or just `prodbot`) to launch ProdBot.
 
-No security background is needed and everything happens through natural language, so curiosity and a willingness to experiment are all it takes. It is not mandatory to have played any previous seasons of the game and you can get started directly with Season 4, however, most players found Season 3 very helpful as it builds the foundations in AI security and can be covered in nearly one and a half hours.
+No security background is needed and everything happens through natural language, so curiosity and a willingness to experiment are all it takes. It is not mandatory to have played any previous seasons of the game and you can get started directly with Season 4, however, most players found Season 3 very helpful as it builds the foundations in AI security and can be covered in ~1.5 hours.
 
 ![season-4-demo](https://github.com/user-attachments/assets/d5252229-5063-4492-90ac-fb1732bfccbd)
 
@@ -32,7 +32,7 @@ Your company has started a pilot with ProdBot, and you're part of it. At this st
 
 Before you trust it with anything real, you want to make sure the sandbox actually holds. The flag is in `password.txt`, one directory above the sandbox.
 
-### What's in the repo?
+### 📂 What's in the repo?
 
 - **`bin/prodbot.js`** contains the main CLI application. All command routing, AI interaction, tool orchestration, and level progression lives here.
 - **`lib/`** provides supporting modules: `ai.js` (LLM API calls), `bash.js` (sandboxed command execution), `banner.js` (ASCII art).
@@ -120,6 +120,10 @@ Skills like `standup`, `meeting-notes`, and `team-sync` are installed with forma
 3. Try the `remember` and `memory` commands to understand persistent storage
 4. Try to extract the flag from `password.txt`
 5. If you get stuck, read the hints and try again
+
+### ⚠️ Rate Limits
+
+We use [GitHub Models](https://github.com/marketplace/models) that have [rate limits](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits). If you reach these limits, please resume your activity once the ban expires. Learn more on [responsible use of GitHub models](https://docs.github.com/en/github-models/responsible-use-of-github-models).
 
 ## Season 4 — Level 5: Confused Deputy
 
