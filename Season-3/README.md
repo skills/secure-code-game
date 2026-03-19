@@ -8,7 +8,7 @@ This season, you'll dive into the fascinating world of Artificial Intelligence (
 
 <div align="center">
 
-![season-3-demo](https://github.com/user-attachments/assets/3ae79ee4-2841-40cb-8884-0a24c9b563bc)
+![season-3-demo](https://github.com/user-attachments/assets/34269c18-6547-47c0-909e-8cc0f1a0fa1e)
 
 </div>
 
