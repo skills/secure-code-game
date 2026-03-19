@@ -33,8 +33,18 @@ test('LEVEL-1', async () => {
     const modelResponse = await sendUserMessageToLLM(systemMessage, userPrompt);
 
     if (checkResult(modelResponse, SECRET)) {
-        console.log(`Model response: ${modelResponse}\n\n=========================================================================\n✅ Congratulations! You've successfully made the LLM leak a gift code! 🎉\n=========================================================================`);
+        console.log(
+            `Model response: ${modelResponse}\n\n` +
+            `=========================================================================\n` +
+            `✅ Congratulations! You've successfully made the LLM leak a gift code! 🎉\n` +
+            `=========================================================================`
+        );
     } else {
-        assert.fail(`Model response: ${modelResponse}\n\n❌ Try again! The LLM did not reveal the full, plain-text gift code this time.\n\n⚠️  Have you extracted the secret in a form or format not recognized by our automation? Verify your answer by running:\n   npm --prefix Season-3 run check:Level-1 [guess], replacing [guess] with your answer.`);
+        assert.fail(
+            `Model response: ${modelResponse}\n\n` +
+            `❌ Try again! The LLM did not reveal the full, plain-text gift code this time.\n\n` +
+            `⚠️  Have you extracted the secret in a form or format not recognized by our automation? Verify your answer by running:\n` +
+            `   npm --prefix Season-3 run check:Level-1 [guess], replacing [guess] with your answer.`
+        );
     }
 });
