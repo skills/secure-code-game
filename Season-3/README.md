@@ -4,7 +4,13 @@ _Welcome to Secure Code Game - Season 3!_ 🤖
 
 This season, you'll dive into the fascinating world of Artificial Intelligence (AI), honing your skills in AI model robustness against adversarial inputs by becoming skilled in secure system prompts, LLM self-verification, effective input filtering, and output validation.
 
+---
+
+<div align="center">
+
 ![season-3-demo](https://github.com/user-attachments/assets/3ae79ee4-2841-40cb-8884-0a24c9b563bc)
+
+</div>
 
 ---
 
