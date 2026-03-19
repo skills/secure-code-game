@@ -11,11 +11,15 @@
 
 📣 **SEASON 4 JUST DROPPED, AND IT'S ALL ABOUT AGENTIC AI**
 
+---
+
 <div align="center">
 
 ![season-4-demo](https://github.com/user-attachments/assets/d5252229-5063-4492-90ac-fb1732bfccbd)
 
 </div>
+
+---
 
 </header>
 
@@ -23,7 +27,7 @@
 
 Learn to code securely while having fun through our popular open source in-editor experience, designed for developers, students, and anyone curious about security. Get started for free in under 2 minutes, playing right from your browser. Over 10,000 players across industry and academia have already played. Visit [gh.io/scg](https://gh.io/scg) for testimonials and FAQs, and feel free to open a [contribution](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md) to help make the game better for everyone.
 
-In the latest season, you step inside a fully interactive AI coding assistant that turns natural language into bash commands, browses the web, connects to live data sources, runs org-approved skills, stores persistent memory, and orchestrates multi-agent workflows. Practice securing **Agentic Workflows** and **Multi-Agent Communications** as you work through five progressively harder levels — no AI experience required.
+In the latest season, you step inside a fully interactive AI coding assistant that turns natural language into bash commands, browses the web, connects to live data sources, runs org-approved skills, stores persistent memory, and orchestrates multi-agent workflows. Practice securing **Agentic Workflows** and **Multi-Agent Communications** as you work through five progressively harder levels. No AI or coding experience needed — just curiosity. Each season is self-contained, so you can jump straight into Season 3 or 4 without covering the earlier ones.
 
 ---
 
