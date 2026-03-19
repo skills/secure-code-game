@@ -23,7 +23,7 @@ In the latest season, you step inside a fully interactive AI coding assistant th
 
 ---
 
-## Seasons
+## Pathways
 
 ### 🤖 Artificial Intelligence
 

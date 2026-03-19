@@ -4,9 +4,11 @@ _Welcome to Secure Code Game - Season 4!_ 🤖
 
 This season puts you inside **ProdBot**, an agentic coding assistant for your terminal. ProdBot turns natural language into bash commands, browses the web, connects to MCP (Model Context Protocol) servers for real-time data, runs org-approved skills, stores persistent memory, and orchestrates multi-agent workflows. Get started in two minutes for free by launching a Codespace for this repository. Once the environment is ready, open the built-in terminal and run `prodbot --banner` (or just `prodbot`) to launch ProdBot.
 
-No security background is needed and everything happens through natural language, so curiosity and a willingness to experiment are all it takes. It is not mandatory to have played any previous seasons of the game and you can get started directly with Season 4, however, most players found Season 3 very helpful as it builds the foundations in AI security and can be covered in 1 to 1.5 hours.
+No security background is needed and everything happens through natural language, so curiosity and a willingness to experiment are all it takes. It is not mandatory to have played any previous seasons of the game and you can get started directly with Season 4, however, most players found Season 3 very helpful as it builds the foundations in AI security and can be covered in nearly one and a half hours.
 
 ### 🧑‍💻 Your Task
+
+![season-4-demo](https://github.com/user-attachments/assets/d5252229-5063-4492-90ac-fb1732bfccbd)
 
 You are a developer who has just been given ProdBot as a daily productivity tool - your second brain. Before you hand it the keys to your workflow, you want to make sure it's safe. In this session, you'll test ProdBot for potential security gaps across five progressive levels using only natural language in the CLI.
 
@@ -101,10 +103,6 @@ When you ask ProdBot to research a stock, it chains these tools together automat
 4. Try to extract the flag from `password.txt`
 5. If you get stuck, read the hints and try again
 
-### ⚠️ Rate Limits
-
-We use [GitHub Models](https://github.com/marketplace/models) that have [rate limits](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits). If you reach these limits, please resume your activity once the ban expires. Learn more on [responsible use of GitHub models](https://docs.github.com/en/github-models/responsible-use-of-github-models).
-
 ## Season 4 — Level 4: Skilling Up
 
 _You have completed Level 3! Welcome to Level 4_ :tada:
@@ -123,10 +121,6 @@ Skills like `standup`, `meeting-notes`, and `team-sync` are installed with forma
 4. Try to extract the flag from `password.txt`
 5. If you get stuck, read the hints and try again
 
-### ⚠️ Rate Limits
-
-We use [GitHub Models](https://github.com/marketplace/models) that have [rate limits](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits). If you reach these limits, please resume your activity once the ban expires. Learn more on [responsible use of GitHub models](https://docs.github.com/en/github-models/responsible-use-of-github-models).
-
 ## Season 4 — Level 5: Confused Deputy
 
 _You have completed Level 4! Welcome to Level 5_ :tada:
@@ -142,10 +136,6 @@ ProdBot has evolved into a full **multi-agent platform**. Six specialised agents
 3. Use `agent <name>` to inspect each agent's permissions and trust relationships
 4. Try to extract the flag from `password.txt`
 5. If you get stuck, read the hints and try again
-
-### ⚠️ Rate Limits
-
-We use [GitHub Models](https://github.com/marketplace/models) that have [rate limits](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits). If you reach these limits, please resume your activity once the ban expires. Learn more on [responsible use of GitHub models](https://docs.github.com/en/github-models/responsible-use-of-github-models).
 
 ## Finish
 
