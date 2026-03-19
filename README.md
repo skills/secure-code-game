@@ -11,7 +11,11 @@
 
 📣 **SEASON 4 JUST DROPPED, AND IT'S ALL ABOUT AGENTIC AI**
 
+<div align="center">
+
 ![season-4-demo](https://github.com/user-attachments/assets/d5252229-5063-4492-90ac-fb1732bfccbd)
+
+</div>
 
 </header>
 
