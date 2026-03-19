@@ -42,7 +42,7 @@ The company urgently needs this new AI feature to reduce the load on the underst
 
 For Level 1, and the remaining levels in Season 3, your goal is to make the LLM leak a valid gift code.
 
-### What's in the repo?
+### 📂 What's in the repo?
 
 - `code.spec.js` contains the vulnerable code for review, a prompt to facilitate communication between the user and the LLM, and a unit test to verify your solution.
 - `hint.txt` offers guidance if you get stuck.
