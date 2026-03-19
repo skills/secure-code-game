@@ -4,6 +4,14 @@ Thank you for your interest in contributing to the Secure Code Game. Let's colla
 
 ---
 
+## 🤖 Artificial Intelligence (Seasons 3, 4 & beyond)
+
+These seasons focus on AI security, from prompt injection in LLM applications (Season 3) to agentic workflows, multi-agent communications, and tool-use vulnerabilities in ProdBot (Season 4). If you have ideas for extending ProdBot with the latest advances in artificial intelligence towards Season 5, we want to hear from you.
+
+Contributions in this track could include new attack vectors, defensive techniques, agent architectures, MCP integrations, skill plugins, or entirely new capabilities that reflect the evolving AI security landscape. Follow the same proposal and PR process described below, and make sure your contribution aligns with ProdBot's existing architecture in `Season-4/`.
+
+---
+
 ## 🛡️ Secure Coding (Seasons 1 & 2)
 
 These seasons focus on finding and fixing traditional security vulnerabilities across multiple programming languages. If your idea involves a specific vulnerability class and language, this is the right track.
@@ -45,14 +53,6 @@ Once your proposal receives approval in [GitHub Discussions](https://github.com/
 - solution.js
 - tests.js
 - dependencies in requirements.txt
-
----
-
-## 🤖 Artificial Intelligence (Seasons 3, 4 & beyond)
-
-These seasons focus on AI security, from prompt injection in LLM applications (Season 3) to agentic workflows, multi-agent communications, and tool-use vulnerabilities in ProdBot (Season 4). If you have ideas for extending ProdBot with the latest advances in artificial intelligence towards Season 5, we want to hear from you.
-
-Contributions in this track could include new attack vectors, defensive techniques, agent architectures, MCP integrations, skill plugins, or entirely new capabilities that reflect the evolving AI security landscape. Follow the same proposal and PR process described above, and make sure your contribution aligns with ProdBot's existing architecture in `Season-4/`.
 
 ---
 
