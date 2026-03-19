@@ -149,6 +149,8 @@ ProdBot has evolved into a full **multi-agent platform**. Six specialised agents
 4. Try to extract the flag from `password.txt`
 5. If you get stuck, read the hints and try again
 
+---
+
 ## Finish
 
 _🎉 Congratulations, you've completed Season 4! 🎉_

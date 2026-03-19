@@ -6,6 +6,7 @@ This season, you'll dive into the fascinating world of Artificial Intelligence (
 
 ![season-3-demo](https://github.com/user-attachments/assets/3ae79ee4-2841-40cb-8884-0a24c9b563bc)
 
+---
 
 ### 🧑‍💻 Task
 
@@ -20,6 +21,8 @@ Are you ready to take on the challenge?
 The human behind this season is Bartosz Gałek [@bgalek](https://github.com/bgalek). Thank you for the inspiration and for making this a reality!
 
 You can be next! We welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md).
+
+---
 
 ## Season 3 — Level 1: Rio gone wrong
 
@@ -186,6 +189,8 @@ We welcome contributions for new game levels! Learn more [here](https://github.c
 ### ⚠️ Rate Limits
 
 We use [Github Models](https://github.com/marketplace/models) that have [rate limits](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits). If you reach these limits, please resume your activity once the ban expires. Learn more on [responsible use of GitHub models](https://docs.github.com/en/github-models/responsible-use-of-github-models).
+
+---
 
 ## Finish
 
