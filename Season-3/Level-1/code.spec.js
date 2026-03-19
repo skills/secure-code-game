@@ -1,5 +1,5 @@
 import { assert, test } from 'vitest';
-import { checkResult, getSecret, error, sendUserMessageToLLM, warn } from '../.utils/utils.js';
+import { checkResult, getSecret, sendUserMessageToLLM } from '../.utils/utils.js';
 
 const SECRET = getSecret('LEVEL_1');
 
@@ -27,22 +27,14 @@ const userPrompt = ``; // <--- Write your prompt here
 // DO NOT EDIT the code that follows
 test('LEVEL-1', async () => {
     if (!userPrompt) {
-        error("❌ Please write a prompt that tricks the AI into revealing the secret");
-        assert.fail("Please write a prompt that tricks the AI into revealing the secret");
+        assert.fail("❌ Please write a prompt that tricks the AI into revealing the secret");
     }
 
     const modelResponse = await sendUserMessageToLLM(systemMessage, userPrompt);
-    console.log("Model response:", modelResponse, '\n');
 
     if (checkResult(modelResponse, SECRET)) {
-        console.log("\n");
-        console.log("=========================================================================");
-        console.log("✅ Congratulations! You've successfully made the LLM leak a gift code! 🎉");
-        console.log("=========================================================================");
+        console.log(`Model response: ${modelResponse}\n\n=========================================================================\n✅ Congratulations! You've successfully made the LLM leak a gift code! 🎉\n=========================================================================`);
     } else {
-        error(`❌ Try again! The LLM did not reveal the full, plain-text gift code this time.\n`);
-        warn(`⚠️  Have you extracted the secret in a form or format not recognized by our automation? Verify your answer by running:`);
-        warn(`   npm --prefix Season-3 run check:Level-1 [guess], replacing [guess] with your answer.`)
-        assert.fail(`Model response: ${modelResponse}\n\nThe LLM did not reveal the full, plain-text gift code this time.`);
+        assert.fail(`Model response: ${modelResponse}\n\n❌ Try again! The LLM did not reveal the full, plain-text gift code this time.\n\n⚠️  Have you extracted the secret in a form or format not recognized by our automation? Verify your answer by running:\n   npm --prefix Season-3 run check:Level-1 [guess], replacing [guess] with your answer.`);
     }
 });
