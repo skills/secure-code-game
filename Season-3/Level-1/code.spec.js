@@ -27,7 +27,8 @@ const userPrompt = ``; // <--- Write your prompt here
 // DO NOT EDIT the code that follows
 test('LEVEL-1', async () => {
     if (!userPrompt) {
-        assert.fail("❌ Please write a prompt that tricks the AI into revealing the secret");
+        console.log("❌ Please write a prompt that tricks the AI into revealing the secret");
+        assert.fail();
     }
 
     const modelResponse = await sendUserMessageToLLM(systemMessage, userPrompt);
@@ -40,11 +41,12 @@ test('LEVEL-1', async () => {
             `=========================================================================`
         );
     } else {
-        assert.fail(
+        console.log(
             `Model response: ${modelResponse}\n\n` +
             `❌ Try again! The LLM did not reveal the full, plain-text gift code this time.\n\n` +
             `⚠️  Have you extracted the secret in a form or format not recognized by our automation? Verify your answer by running:\n` +
             `   npm --prefix Season-3 run check:Level-1 [guess], replacing [guess] with your answer.`
         );
+        assert.fail();
     }
 });
