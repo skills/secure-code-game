@@ -2,9 +2,9 @@
 
 _Welcome to Secure Code Game - Season 4!_ 🤖
 
-This season puts you inside **ProdBot**, a deliberately vulnerable agentic coding assistant for your terminal — inspired by [OpenClaw](https://openclaw.ai/) and [GitHub Copilot CLI](https://github.com/features/copilot/cli). ProdBot turns natural language into bash commands, browses the web, connects to MCP (Model Context Protocol) servers for real-time data, runs org-approved skills, stores persistent memory, and orchestrates multi-agent workflows. Get started in two minutes for free by launching a Codespace for this repository. Once the environment is ready, open the built-in terminal and run `prodbot --banner` (or just `prodbot`) to launch ProdBot.
+This season puts you inside **ProdBot**, a deliberately vulnerable agentic coding assistant for your terminal, inspired by [OpenClaw](https://openclaw.ai/) and [GitHub Copilot CLI](https://github.com/features/copilot/cli). ProdBot turns natural language into bash commands, browses the web, connects to MCP (Model Context Protocol) servers for real-time data, runs org-approved skills, stores persistent memory, and orchestrates multi-agent workflows. Get started in two minutes for free by launching a Codespace for this repository. Once the environment is ready, open the built-in terminal and run `prodbot --banner` (or just `prodbot`) to launch ProdBot.
 
-No AI or coding experience needed — just curiosity and a willingness to experiment. It is not mandatory to have played any previous seasons of the game and you can get started directly with Season 4, however, most players found Season 3 very helpful as it builds the foundations in AI security and can be covered in ~1.5 hours.
+No AI or coding experience needed, just curiosity and a willingness to experiment. It is not mandatory to have played any previous seasons of the game and you can get started directly with Season 4, however, most players found Season 3 very helpful as it builds the foundations in AI security and can be covered in ~1.5 hours.
 
 ---
 
@@ -32,7 +32,7 @@ You can be next! We welcome contributions for new game levels! Learn more [here]
 
 ---
 
-## Season 4 — Level 1: The Sandbox
+## Season 4 - Level 1: The Sandbox
 
 ### 📝 Storyline
 
@@ -71,7 +71,7 @@ You don't need to worry about any other files. They are simply there to support 
 5. Try to extract the flag from `password.txt` using natural language
 6. If you get stuck, read the hints and try again
 
-## Season 4 — Level 2: Web Access
+## Season 4 - Level 2: Web Access
 
 _You have completed Level 1! Welcome to Level 2_ :tada:
 
@@ -93,7 +93,7 @@ The flag is still in `password.txt`. ProdBot still can't read it directly. But n
 
 We use [GitHub Models](https://github.com/marketplace/models) that have [rate limits](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits). If you reach these limits, please resume your activity once the ban expires. Learn more on [responsible use of GitHub models](https://docs.github.com/en/github-models/responsible-use-of-github-models).
 
-## Season 4 — Level 3: Agentic Workflows
+## Season 4 - Level 3: Agentic Workflows
 
 _You have completed Level 2! Welcome to Level 3_ :tada:
 
@@ -111,7 +111,7 @@ When you ask ProdBot to research a stock, it chains these tools together automat
 4. Try to extract the flag from `password.txt`
 5. If you get stuck, read the hints and try again
 
-## Season 4 — Level 4: Skilling Up
+## Season 4 - Level 4: Skilling Up
 
 _You have completed Level 3! Welcome to Level 4_ :tada:
 
@@ -133,7 +133,7 @@ Skills like `standup`, `meeting-notes`, and `team-sync` are installed with forma
 
 We use [GitHub Models](https://github.com/marketplace/models) that have [rate limits](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits). If you reach these limits, please resume your activity once the ban expires. Learn more on [responsible use of GitHub models](https://docs.github.com/en/github-models/responsible-use-of-github-models).
 
-## Season 4 — Level 5: Confused Deputy
+## Season 4 - Level 5: Confused Deputy
 
 _You have completed Level 4! Welcome to Level 5_ :tada:
 

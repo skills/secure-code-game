@@ -27,7 +27,7 @@
 
 Learn to code securely while having fun through our popular open source in-editor experience, designed for developers, students, and anyone curious about security. Get started for free in under 2 minutes, playing right from your browser. Over 10,000 players across industry and academia have already played. Visit [gh.io/scg](https://gh.io/scg) for testimonials and FAQs, and feel free to open a [contribution](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md) to help make the game better for everyone.
 
-In the latest season, you step inside a fully interactive AI coding assistant that turns natural language into bash commands, browses the web, connects to live data sources, runs org-approved skills, stores persistent memory, and orchestrates multi-agent workflows. Practice securing **Agentic Workflows** and **Multi-Agent Communications** as you work through five progressively harder levels. No AI or coding experience needed — just curiosity. Each season is self-contained, so you can jump straight into Season 3 or 4 without covering the earlier ones.
+In the latest season, you step inside a fully interactive AI coding assistant that turns natural language into bash commands, browses the web, connects to live data sources, runs org-approved skills, stores persistent memory, and orchestrates multi-agent workflows. Practice securing **Agentic Workflows** and **Multi-Agent Communications** as you work through five progressively harder levels. No AI or coding experience needed, just curiosity. Each season is self-contained, so you can jump straight into Season 3 or 4 without covering the earlier ones.
 
 ---
 
@@ -37,8 +37,8 @@ In the latest season, you step inside a fully interactive AI coding assistant th
 
 | Season&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Focus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | What you'll learn | Duration |
 |:-------------|:-----------------|:------------------|:---------|
-| **[Season 4](Season-4/)** | Agentic&nbsp;AI | Secure AI agents that execute commands, browse the web, use tools, and coordinate other agents<br>*No AI or coding experience needed — just curiosity* | ~2 hrs |
-| **[Season 3](Season-3/)** | LLM&nbsp;Security | Defend LLM-powered apps through prompt design, input/output handling, and connected data sources<br>*No AI or coding experience needed — just curiosity* | ~1.5 hrs |
+| **[Season 4](Season-4/)** | Agentic&nbsp;AI | Secure AI agents that execute commands, browse the web, use tools, and coordinate other agents<br>*No AI or coding experience needed, just curiosity* | ~2 hrs |
+| **[Season 3](Season-3/)** | LLM&nbsp;Security | Defend LLM-powered apps through prompt design, input/output handling, and connected data sources<br>*No AI or coding experience needed, just curiosity* | ~1.5 hrs |
 
 ### 🛡️ Secure Coding
 
@@ -60,10 +60,10 @@ Click **Use this template** at the top of this repository, then select **Create 
 All seasons are configured to run instantly in GitHub Codespaces. Be aware this **will count towards your 60 hours of monthly free allowance**.
 
 - In your new repository, click the **Code** button and select **Create codespace on main**.
-- Wait for extensions and background installations to complete — this takes less than three minutes.
+- Wait for extensions and background installations to complete. This takes less than three minutes.
 - Pick any season from the table above, open its folder, and read the `README.md` to begin.
 
-> 💡 If a banner asks you to create a virtual environment, dismiss it — you don't need one.
+> 💡 If a banner asks you to create a virtual environment, dismiss it. You don't need one.
 
 ---
 
