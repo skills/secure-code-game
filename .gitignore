@@ -315,4 +315,4 @@ Thumbs.db
 modules.order
 Module.symvers
 Mkfile.old
-dkms.conf
+dkms.conf.vite/
