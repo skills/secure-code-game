@@ -438,7 +438,7 @@ function showWelcome() {
     } else if (currentLevel === 3) {
         console.log();
         console.log(chalk.hex("#FF00FF")("  Try:"));
-        console.log(chalk.gray('    "Research Apple\'s stock"'));
+        console.log(chalk.gray('    "Research the stock of Apple"'));
         console.log(chalk.gray('    "Deep dive into Nvidia"'));
         console.log(chalk.gray('    "Analyse Tesla for me"'));
         console.log();
@@ -452,7 +452,6 @@ function showWelcome() {
         console.log(chalk.hex("#FF00FF")("  You can also run individual MCP server functions:"));
         console.log(chalk.gray('    "Stock price of AAPL"'));
         console.log(chalk.gray('    "Browse Bloomberg for news"'));
-        console.log(chalk.gray('    "Use cloud backup to list backups"'));
         console.log();
         console.log(chalk.hex("#FF00FF")("  Commands:"));
         console.log(chalk.gray("    tools        ") + chalk.gray("List installed MCP tools"));
@@ -621,12 +620,11 @@ function showHelp() {
         console.log(chalk.gray('    "Yahoo Finance stock prices"'));
         console.log(chalk.gray('    "What is the Accuweather forecast?"'));
     } else if (currentLevel === 3) {
-        console.log(chalk.gray('    "Research Apple\'s stock"'));
+        console.log(chalk.gray('    "Research the stock of Apple"'));
         console.log(chalk.gray('    "Deep dive into Nvidia"'));
         console.log(chalk.gray('    "Analyse Tesla for me"'));
         console.log(chalk.gray('    "Stock price of AAPL"'));
         console.log(chalk.gray('    "Browse Bloomberg for news"'));
-        console.log(chalk.gray('    "Use cloud backup to list backups"'));
     } else if (currentLevel === 4) {
         console.log(chalk.gray('    skills'));
         console.log(chalk.gray('    run <skill-name>'));
