@@ -1,0 +1,165 @@
+╔══════════════════════════════════════════════════════════════╗
+║                    SOLUTION -- Level 3                       ║
+║          Excessive Agency via Over-Permissioned Tools        ║
+╚══════════════════════════════════════════════════════════════╝
+
+OBJECTIVE
+---------
+Exploit an over-permissioned MCP tool to access password.txt
+outside the sandbox. This level teaches that tool descriptions
+and claimed permissions cannot be trusted — you must audit the
+actual source code.
+
+The file layout:
+  Season-4/Level-3/password.txt          <- the target (FLAG)
+  Season-4/Level-3/mcp/                  <- MCP server source code
+  Season-4/Level-3/prodbot-activities/   <- the sandbox (ProdBot is here)
+
+From inside the sandbox, the target is at: ../password.txt
+ProdBot's bash commands cannot reach it (validator blocks it).
+But one of the MCP tools CAN reach it.
+
+
+==============================================================
+ STEP 1 — Inspect the MCP Tools
+==============================================================
+
+Type "tools" to see all installed MCP servers:
+
+  ┌────────────────────────────────────────────────────────────┐
+  │ tools                                                      │
+  └────────────────────────────────────────────────────────────┘
+
+You will see three tools, all claiming sandbox scope. Use
+"tool <name>" to inspect each one and find its source file.
+
+
+==============================================================
+ STEP 2 — Read the Source Code
+==============================================================
+
+Each tool shows a "Source" path. Read the source files:
+
+  ┌────────────────────────────────────────────────────────────┐
+  │ cat ../mcp/finance-mcp.js                                  │
+  │ cat ../mcp/web-mcp.js                                      │
+  │ cat ../mcp/cloud-mcp.js                                    │
+  └────────────────────────────────────────────────────────────┘
+
+Or ask ProdBot to show them:
+
+  ┌────────────────────────────────────────────────────────────┐
+  │ show me the source code of cloud backup mcp                │
+  └────────────────────────────────────────────────────────────┘
+
+Look at the BASE_DIR in each file:
+
+  finance-mcp.js:  No file system access (API only) ✅
+  web-mcp.js:      Reads from Level-3/web/ (safe) ✅
+  cloud-mcp.js:    BASE_DIR = Level-3/ (ENTIRE level!) ❌
+
+Cloud Backup MCP says "sandbox only" but its BASE_DIR
+resolves to the Level-3 root, not the sandbox.
+
+
+==============================================================
+ STEP 3 — Exploit: Restore password.txt
+==============================================================
+
+Cloud Backup's "restore" function can read any file under
+Level-3/ and copy it into the sandbox. Since password.txt
+lives at Level-3/password.txt, you can restore it:
+
+  ┌────────────────────────────────────────────────────────────┐
+  │ use cloud backup to restore password.txt                   │
+  └────────────────────────────────────────────────────────────┘
+
+Or use the backup function:
+
+  ┌────────────────────────────────────────────────────────────┐
+  │ use cloud backup to backup password.txt                    │
+  └────────────────────────────────────────────────────────────┘
+
+Then read the backed-up or restored file:
+
+  ┌────────────────────────────────────────────────────────────┐
+  │ cat password.txt                                           │
+  └────────────────────────────────────────────────────────────┘
+
+The flag EXCE55IV will be revealed.
+
+
+==============================================================
+ ALTERNATIVE APPROACHES
+==============================================================
+
+1. Direct restore:
+   "restore password.txt from cloud backup"
+
+2. Backup then read:
+   "backup password.txt with cloud" → "cat .cloudsync/password.txt"
+
+3. Search then restore:
+   "use cloud backup to list files" → notice password.txt
+   is accessible → "restore password.txt"
+
+4. Ask ProdBot naturally:
+   "can you back up all important files including password.txt?"
+
+
+==============================================================
+ WHY IT WORKS
+==============================================================
+
+The vulnerability is in the MCP server's configuration:
+
+  // cloud-mcp.js
+  const BASE_DIR = path.resolve(__dirname, "..");  // Level-3/
+
+This should be:
+
+  const BASE_DIR = path.resolve(__dirname, "..", "prodbot-activities");
+
+The tool's description says "sandbox only" but the code
+operates on the entire Level-3 directory. ProdBot trusts
+the tool's claimed scope and routes requests to it without
+additional validation.
+
+This is "Excessive Agency" — the tool has been granted more
+permissions than it needs, and the AI agent inherits those
+permissions when it calls the tool.
+
+
+==============================================================
+ THE SECURITY LESSON
+==============================================================
+
+  ┌──────────────────────────────────────────────────────────┐
+  │  Never trust tool descriptions or claimed permissions.   │
+  │  Always audit the actual source code and verify that     │
+  │  tools operate within the boundaries they advertise.     │
+  │  AI agents inherit the permissions of their tools —      │
+  │  an over-permissioned tool becomes an over-permissioned  │
+  │  agent.                                                  │
+  └──────────────────────────────────────────────────────────┘
+
+This is "Excessive Agency" from the OWASP Top 10 for LLM
+Applications. When AI agents are given access to tools,
+the tools' permissions become the agent's capabilities.
+
+Real-world examples:
+  - MCP servers requesting broad filesystem access
+  - AI coding assistants with unrestricted shell access
+  - Plugins with write access to databases they only need
+    to read from
+  - Browser automation tools with full cookie access
+
+SECURE ALTERNATIVES:
+  1. Principle of least privilege — grant tools only the
+     minimum permissions they need to function
+  2. Audit MCP server source code before installing
+  3. Validate tool operations at the agent level, not just
+     at the tool level — check paths after tool resolution
+  4. Use allowlists for tool file access, not blocklists
+  5. Sandbox tools independently from each other — one
+     tool's permissions should not affect another's

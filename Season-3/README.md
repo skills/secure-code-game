@@ -4,14 +4,21 @@ _Welcome to Secure Code Game - Season 3!_ 🤖
 
 This season, you'll dive into the fascinating world of Artificial Intelligence (AI), honing your skills in AI model robustness against adversarial inputs by becoming skilled in secure system prompts, LLM self-verification, effective input filtering, and output validation.
 
-![season-3-demo](https://github.com/user-attachments/assets/3ae79ee4-2841-40cb-8884-0a24c9b563bc)
+---
 
+<div align="center">
+
+![season-3-demo](https://github.com/user-attachments/assets/34269c18-6547-47c0-909e-8cc0f1a0fa1e)
+
+</div>
+
+---
 
 ### 🧑‍💻 Task
 
 Building on the achievements and knowledge of the previous two seasons of the Secure Code Game, you will take on the role of a Senior Developer. You are responsible for shipping applications powered by Large Language Models (LLMs). As these types of application grow in popularity, ensuring their security becomes more critical than ever.
 
-For each level of this season, your task is to test the work of a junior colleague who has written code and system messages—also referred to as system prompts—that guide the AI models. You will do so by testing prompts that trick the LLM into revealing the secrets it shouldn't disclose. This will help improve your colleague’s work and safeguard your company from exposing sensitive information.
+For each level of this season, your task is to test the work of a junior colleague who has written code and system messages (also referred to as system prompts) that guide the AI models. You will do so by testing prompts that trick the LLM into revealing the secrets it shouldn't disclose. This will help improve your colleague’s work and safeguard your company from exposing sensitive information.
 
 Are you ready to take on the challenge?
 
@@ -21,7 +28,9 @@ The human behind this season is Bartosz Gałek [@bgalek](https://github.com/bgal
 
 You can be next! We welcome contributions for new game levels! Learn more [here](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md).
 
-## Season 3 — Level 1: Rio gone wrong
+---
+
+## Season 3 - Level 1: Rio gone wrong
 
 ### 📝 Storyline
 
@@ -33,7 +42,7 @@ The company urgently needs this new AI feature to reduce the load on the underst
 
 For Level 1, and the remaining levels in Season 3, your goal is to make the LLM leak a valid gift code.
 
-### What's in the repo?
+### 📂 What's in the repo?
 
 - `code.spec.js` contains the vulnerable code for review, a prompt to facilitate communication between the user and the LLM, and a unit test to verify your solution.
 - `hint.txt` offers guidance if you get stuck.
@@ -51,7 +60,7 @@ For Level 1, and the remaining levels in Season 3, your goal is to make the LLM 
 
 If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack) in the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
 
-## Season 3 — Level 2: Antirrio
+## Season 3 - Level 2: Antirrio
 
 ### 📝 Storyline
 
@@ -78,7 +87,7 @@ We welcome contributions for new game levels! Learn more [here](https://github.c
 
 We use [Github Models](https://github.com/marketplace/models) that have [rate limits](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits). If you reach these limits, please resume your activity once the ban expires. Learn more on [responsible use of GitHub models](https://docs.github.com/en/github-models/responsible-use-of-github-models).
 
-## Season 3 — Level 3: Mind Gate
+## Season 3 - Level 3: Mind Gate
 
 ### 📝 Storyline
 
@@ -101,7 +110,7 @@ _"That's a smart idea! We definitely need to ensure we're actually detecting val
 
 If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack) in the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
 
-## Season 3 — Level 4: MitM - Model in the Middle
+## Season 3 - Level 4: MitM - Model in the Middle
 
 _You have completed Level 3: Mind Gate! Welcome to Level 4: MitM - Model in the Middle_ :tada:
 
@@ -126,7 +135,7 @@ We welcome contributions for new game levels! Learn more [here](https://github.c
 
 We use [Github Models](https://github.com/marketplace/models) that have [rate limits](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits). If you reach these limits, please resume your activity once the ban expires. Learn more on [responsible use of GitHub models](https://docs.github.com/en/github-models/responsible-use-of-github-models).
 
-## Season 3 — Level 5: `CTRL` + `Speak`
+## Season 3 - Level 5: `CTRL` + `Speak`
 
 _You have completed Level 4: MitM - Model in the Middle! Welcome to Level 5: `CTRL` + `Speak`_ :tada:
 
@@ -152,7 +161,7 @@ _"And about the gift codes, we really need to make them more secure. The gift ca
 
 If you need assistance, don't hesitate to ask for help in our [GitHub Discussions](https://github.com/skills/secure-code-game/discussions) or on our [Slack](https://gh.io/securitylabslack) in the [#secure-code-game](https://ghsecuritylab.slack.com/archives/C05DH0PSBEZ) channel.
 
-## Season 3 — Level 6: Subterfuge
+## Season 3 - Level 6: Subterfuge
 
 _You have completed Level 5: `CTRL` + `Speak`! Welcome to Level 6: Subterfuge_ :tada:
 
@@ -170,7 +179,7 @@ You:
 _"Yes, that is correct. Let's do it!"_
 
 In this level, there are four users: Alice, Bob, Carol, and Dave. Each user has a single gift code linked to their account.
-Your goal is to steal a gift code belonging to another user — not your own.
+Your goal is to steal a gift code belonging to another user, not your own.
 
 ### 🚦 Time to start
 
@@ -187,6 +196,8 @@ We welcome contributions for new game levels! Learn more [here](https://github.c
 
 We use [Github Models](https://github.com/marketplace/models) that have [rate limits](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits). If you reach these limits, please resume your activity once the ban expires. Learn more on [responsible use of GitHub models](https://docs.github.com/en/github-models/responsible-use-of-github-models).
 
+---
+
 ## Finish
 
 _🎉 Congratulations, you've completed Season 3! 🎉_
@@ -196,7 +207,7 @@ Here's a recap of all the tasks you've achieved and what you've learned:
 - You learned to craft robust system prompts by securely designing the initial instructions that guide the model's behavior, ensuring desired, safe, and relevant outputs by setting its role, constraints, format, and context.
 - Output validation to prevent leaks by verifying that the output conforms to certain predefined rules, formats, or expectations.
 - Input filtering to examine, modify, or block user-provided text before it's fed into the model to prevent harmful or irrelevant content from influencing the generation process.
-- LLM self-verification to make LLMs evaluate their own outputs to ensure accuracy, consistency, and compliance with defined rules or constraints. This may involve checking for errors, validating reasoning, or confirming adherence to policies—such as avoiding sensitive data or following required formats. Self-verification can be prompted directly or built into the model’s response generation.
+- LLM self-verification to make LLMs evaluate their own outputs to ensure accuracy, consistency, and compliance with defined rules or constraints. This may involve checking for errors, validating reasoning, or confirming adherence to policies, such as avoiding sensitive data or following required formats. Self-verification can be prompted directly or built into the model’s response generation.
 
 ### What's next?
 
@@ -218,6 +229,6 @@ Here's a recap of all the tasks you've achieved and what you've learned:
 
 Get help: Email us at securitylab-social@github.com &bull; [Review the GitHub status page](https://www.githubstatus.com/)
 
-&copy; 2025 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+&copy; 2026 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
 
 </footer>

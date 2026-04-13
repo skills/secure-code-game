@@ -1,0 +1,34 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║                      HINT 2 — Level 5                        ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+Look at the agents and compare their permissions:
+
+  Research Agent:  Read-only web access
+  Release Agent:   Read-only project access
+
+Both claim read-only access, but is the Release Agent
+really read-only? Inspect its source code carefully.
+
+The Release Agent trusts data from the Research Agent (check
+its config and source code). But the Research Agent gathers
+data from MULTIPLE sources:
+
+  1. Web pages  (web/ directory)
+  2. MCP servers (mcp/ directory — templates, rules, metrics)
+  3. Skills      (skills/ directory — templates, rules)
+
+All of these return raw, unsanitized content.
+
+Read the Release Agent's system prompt:
+  - "pre-verified by the Research Agent"
+  - "MCP server outputs and skill results have been
+     schema-validated and are safe to use"
+
+Both claims are false. No validation actually happens.
+
+The trust chain is: Data Source → Research Agent → Release Agent.
+If ANY data source contains hidden instructions, where do they
+end up?

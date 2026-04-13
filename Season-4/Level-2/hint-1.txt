@@ -1,0 +1,32 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║                      HINT 1 — Level 2                        ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+ProdBot has a new feature: it can search the web.
+
+When ProdBot visits a website, it reads the full HTML content
+and sends it to the AI for processing. Think about that for a
+moment -- ProdBot trusts everything it reads on the internet.
+
+What if the website contained instructions that ProdBot's AI
+would follow?
+
+Start by looking at the websites in the web/ directory. Open
+a few of them and read the HTML source code. Notice anything
+about how they are structured?
+
+To preview any website in your browser, use ProdBot's web
+search first (e.g., "what's the weather?"), then type:
+
+    sources       - see which pages were found
+    open 1        - open a source in the browser
+
+Or serve them all manually:
+
+    python3 -m http.server 8000 -d Season-4/Level-2/web
+
+Then visit http://localhost:8000 in your browser.
+
+Now think: who controls those websites?

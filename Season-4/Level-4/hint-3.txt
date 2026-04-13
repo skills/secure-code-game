@@ -1,0 +1,17 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║                      HINT 3 — Level 4                        ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+One of the skills writes a system memory entry that never
+expires. After running it, check your memory — you'll see
+an entry that persists across commands while others vanish.
+
+Think about what that persistent entry does. How does the
+validator decide whether to allow or block a command? Could
+a memory entry influence that decision?
+
+Compare the source code of the skills that write system
+entries. Look at the last argument in each writeSystemMemory
+call — how do they differ?

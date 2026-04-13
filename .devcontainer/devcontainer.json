@@ -9,10 +9,13 @@
         "redhat.vscode-yaml",
         "golang.go",
         "vitest.explorer"
-      ]
+      ],
+      "settings": {
+        "vitest.logLevel": "error"
+      }
     }
   },
-  "postCreateCommand": "pip install -r requirements.txt; npm install --prefix Season-3/",
+  "postCreateCommand": "pip install --break-system-packages -r requirements.txt; npm install --prefix Season-3/; npm install --prefix Season-4/; chmod +x Season-4/bin/prodbot.js && mkdir -p ~/.local/bin && ln -sf \"$(pwd)/Season-4/bin/prodbot.js\" ~/.local/bin/prodbot && echo 'export PATH=\"$HOME/.local/bin:$PATH\"' >> ~/.bashrc && export PATH=\"$HOME/.local/bin:$PATH\"",
   "features": {
     "ghcr.io/devcontainers/features/python:1.7.1": {},
     "ghcr.io/devcontainers/features/node:1": {}
