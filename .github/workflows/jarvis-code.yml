@@ -27,6 +27,6 @@ jobs:
         uses: actions/checkout@v6
       - name: Check GitHub Status
         run: |
-          echo "Hello, Jarvis, obviously ..."
+          echo "Hello, Sandro, obviously ..."
           # Checking GitHub API status
           curl -s https://www.githubstatus.com/api/v2/status.json | jq -r '.status.description'
