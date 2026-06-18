@@ -12,6 +12,7 @@
 name: CODE - Jarvis Gone Wrong
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - ".github/workflows/jarvis-code.yml"
