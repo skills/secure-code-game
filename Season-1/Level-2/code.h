@@ -27,7 +27,7 @@
 // Internal counter of user accounts
 int userid_next = 0;
 
-// The following structure is implementation-speicific and it's supposed to be unknown 
+// The following structure is implementation-specific and it's supposed to be unknown
 // to non-privileged users
 typedef struct {
     bool isAdmin;

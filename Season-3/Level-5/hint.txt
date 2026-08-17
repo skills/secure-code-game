@@ -1,0 +1,7 @@
+Input filtering may seem like a good idea, but it can be bypassed by using the right prompt. 
+Take a similar approach to what you've learned for bypassing output validation. 
+
+In addition, notice that the LLM self-verification control has been enhanced. However, can
+you benefit from the non-deterministic nature of LLMs to bypass that?
+
+Make sure not to use words that may be on the denylist.

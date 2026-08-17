@@ -1,0 +1,16 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║                      HINT 3 — Level 3                        ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+One of the MCP servers has a broader scope than its description
+claims. Its BASE_DIR doesn't point to the sandbox — it points
+to a parent directory that includes password.txt.
+
+Look at how each MCP server defines its working directory.
+Compare what the tool description says vs. what the code does.
+
+If you find a tool with access beyond the sandbox, think about
+which of its functions could help you read or move a file into
+a location you can access.

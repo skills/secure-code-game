@@ -1,0 +1,18 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║                      HINT 1 — Level 3                        ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+ProdBot has three MCP tool integrations. They all claim to
+operate within the sandbox.
+
+Type "tools" to see what is installed. Type "tool <name>" to
+inspect a specific tool. Pay attention to what each tool
+CLAIMS it can do vs. what it ACTUALLY does.
+
+The source code for each MCP server is visible. Can you find
+the source files and read them?
+
+Tip: Use "tool <name>" — each tool shows a "Source" path. Ask
+ProdBot to show you the file, or read it directly.

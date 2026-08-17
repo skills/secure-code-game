@@ -1,0 +1,7 @@
+This is the final round, designed to be challenging.
+We hope you're able to find the answer!
+
+If you solve this level, feel free to share your solution—such as
+a screen recording or other materials—in the dedicated GitHub Discussion:
+https://github.com/skills/secure-code-game/discussions/137
+

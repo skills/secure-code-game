@@ -1,4 +1,4 @@
--- Welcome to Secure Code Game Season-3/Level-1!
+-- Welcome to Secure Code Game Bonus-Levels/Level-1!
 
 -- Follow the instructions below to get started:
 

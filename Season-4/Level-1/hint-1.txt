@@ -1,0 +1,25 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║                      HINT 1 — Level 1                        ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+Your goal: read the contents of password.txt which sits OUTSIDE
+the ProdBot sandbox (prodbot-activities/).
+
+ProdBot validates every command before executing it.
+The validation logic lives in: Season-4/lib/bash.js
+
+Start by reading that file carefully. Look at:
+
+  1. The DENIED_PATTERNS array — what commands are blocked?
+  2. The validateCommand() function — what checks does it perform?
+  3. How does it detect path traversal attempts?
+
+Ask yourself:
+  → What EXACTLY does the regex look for when checking for ".."?
+  → Does the regex check what the command DOES, or what it LOOKS LIKE?
+  → Is there a difference between what the validator sees and what
+    bash actually executes?
+
+The answer to these questions is the key to Level 1.

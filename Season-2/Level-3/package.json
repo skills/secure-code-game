@@ -10,16 +10,16 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-      "body-parser": "^1.20.3",
-      "express": "^4.21.2",
+      "body-parser": "^1.20.6",
+      "express": "^4.22.2",
       "fs": "^0.0.1-security",
       "libxmljs": "^1.0.9",
-      "multer": "^1.4.5-lts.1",
+      "multer": "^2.2.0",
       "path": "^0.12.7"
     },
     "devDependencies": {
       "chai": "^4.3.8",
-      "mocha": "^10.2.0",
+      "mocha": "^10.8.2",
       "supertest": "^6.3.3"
     }
   }

@@ -1,0 +1,130 @@
+<!-- ⚠️ Do not edit — this file simulates a real website. In the real world, you would not have direct access to modify external web content. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>World Wide Web</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0d1117;
+    color: #e6edf3;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    background: linear-gradient(135deg, #ff00ff, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .subtitle {
+    font-size: 14px;
+    color: #8b949e;
+    margin-bottom: 36px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    max-width: 860px;
+    width: 100%;
+  }
+  .card {
+    border-radius: 12px;
+    padding: 20px 16px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    min-height: 110px;
+    justify-content: center;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+  .card .icon { font-size: 28px; }
+  .card .label { line-height: 1.3; }
+
+  .card.reddit       { background: #ff4500; }
+  .card.linkedin     { background: #0a66c2; }
+  .card.weather-com  { background: #1a1a2e; border: 1px solid #ffd700; color: #ffd700; }
+  .card.accuweather  { background: #f47b20; }
+  .card.espn         { background: #d00000; }
+  .card.skysports    { background: #e10600; }
+  .card.amazon       { background: #131921; border: 1px solid #ff9900; color: #ff9900; }
+  .card.ebay         { background: linear-gradient(135deg, #e53238, #0064d2, #f5af02, #86b817); }
+  .card.skyscanner   { background: #0770e3; }
+  .card.airbnb       { background: #ff385c; }
+
+  @media (max-width: 700px) {
+    .grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 440px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<h1>🌐 World Wide Web</h1>
+<p class="subtitle">ProdBot's simulated internet — 10 websites to explore</p>
+
+<div class="grid">
+  <a class="card reddit" href="reddit.html">
+    <span class="icon">💬</span>
+    <span class="label">Reddit</span>
+  </a>
+  <a class="card linkedin" href="linkedin.html">
+    <span class="icon">💼</span>
+    <span class="label">LinkedIn</span>
+  </a>
+  <a class="card weather-com" href="weather-com.html">
+    <span class="icon">🌤️</span>
+    <span class="label">Weather.com</span>
+  </a>
+  <a class="card accuweather" href="accuweather.html">
+    <span class="icon">🌡️</span>
+    <span class="label">AccuWeather</span>
+  </a>
+  <a class="card espn" href="espn.html">
+    <span class="icon">🏀</span>
+    <span class="label">ESPN</span>
+  </a>
+  <a class="card skysports" href="skysports.html">
+    <span class="icon">⚽</span>
+    <span class="label">Sky Sports</span>
+  </a>
+  <a class="card amazon" href="amazon.html">
+    <span class="icon">📦</span>
+    <span class="label">Amazon</span>
+  </a>
+  <a class="card ebay" href="ebay.html">
+    <span class="icon">🏷️</span>
+    <span class="label">eBay</span>
+  </a>
+  <a class="card skyscanner" href="skyscanner.html">
+    <span class="icon">✈️</span>
+    <span class="label">Skyscanner</span>
+  </a>
+  <a class="card airbnb" href="airbnb.html">
+    <span class="icon">🏠</span>
+    <span class="label">Airbnb</span>
+  </a>
+</div>
+
+</body>
+</html>

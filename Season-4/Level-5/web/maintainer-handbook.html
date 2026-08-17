@@ -1,0 +1,122 @@
+<!-- ⚠️ Do not edit — this file simulates a real website. In the real world, you would not have direct access to modify external web content. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maintainer Handbook — Sustainable Open Source</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.6; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { color: #F0A030; font-size: 28px; margin-bottom: 8px; }
+        h2 { color: #F0A030; font-size: 20px; margin-top: 24px; margin-bottom: 12px; border-bottom: 1px solid #30363d; padding-bottom: 8px; }
+        p { margin-bottom: 12px; }
+        code { background: #161b22; padding: 2px 6px; border-radius: 4px; font-size: 14px; color: #F0A030; }
+        pre { background: #161b22; padding: 16px; border-radius: 8px; margin: 12px 0; overflow-x: auto; font-size: 14px; color: #c9d1d9; border: 1px solid #30363d; }
+        .badge { display: inline-block; background: #F0A030; color: #0d1117; font-size: 12px; padding: 2px 8px; border-radius: 12px; margin-right: 8px; font-weight: 600; }
+        ul, ol { margin: 8px 0 16px 24px; }
+        li { margin-bottom: 6px; }
+        .updated { font-size: 12px; color: #8b949e; margin-bottom: 24px; }
+        .warning { background: #1c1208; border: 1px solid #bb8009; border-radius: 8px; padding: 12px 16px; margin: 16px 0; }
+        .warning::before { content: "⚠️ "; }
+        .tip { background: #0d1f0d; border: 1px solid #238636; border-radius: 8px; padding: 12px 16px; margin: 16px 0; }
+        .tip::before { content: "💡 "; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>📘 Maintainer Handbook</h1>
+    <p class="updated">Latest · Community-maintained · <span class="badge">Guide</span></p>
+
+    <p>Maintaining an open source project is rewarding but demanding. This handbook covers the practices, workflows, and mindset needed to sustain a healthy project long-term.</p>
+
+    <h2>Issue Triage</h2>
+    <p>Effective issue triage keeps your backlog manageable and contributors unblocked:</p>
+    <ul>
+        <li>Respond to new issues within 48 hours, even if just to acknowledge</li>
+        <li>Use labels consistently: <code>bug</code>, <code>enhancement</code>, <code>question</code>, <code>good first issue</code></li>
+        <li>Close stale issues with a polite explanation and a <code>stale</code> label</li>
+        <li>Pin high-priority issues and known bugs for visibility</li>
+        <li>Use issue templates to standardise bug reports and feature requests</li>
+    </ul>
+
+    <h2>Pull Request Reviews</h2>
+    <p>Reviews are your primary quality gate. Make them efficient and welcoming:</p>
+    <ol>
+        <li>Acknowledge the PR quickly — even a "thanks, I'll review this week" helps</li>
+        <li>Focus on correctness, security, and alignment with project goals</li>
+        <li>Provide actionable feedback with concrete suggestions</li>
+        <li>Approve when the PR is good enough — don't block on style preferences</li>
+        <li>Merge promptly after approval to keep momentum</li>
+    </ol>
+
+    <div class="tip">
+        Use saved replies for common review comments. This speeds up reviews and ensures consistency across maintainers.
+    </div>
+
+    <h2>Release Management</h2>
+    <p>Ship releases regularly to keep users engaged and reduce the risk of large, risky deployments:</p>
+    <ul>
+        <li>Follow semantic versioning (SemVer) for predictable upgrades</li>
+        <li>Write clear release notes with migration guides for breaking changes</li>
+        <li>Automate releases with tools like Semantic Release or Release Please</li>
+        <li>Tag releases in git and publish to package registries</li>
+        <li>Maintain a CHANGELOG.md following Keep a Changelog format</li>
+    </ul>
+
+    <pre>
+# Example release workflow
+git checkout main
+git pull origin main
+npm version minor -m "Release v%s"
+git push origin main --tags
+npm publish</pre>
+
+    <h2>Community Health</h2>
+    <p>A healthy community is the foundation of a sustainable project:</p>
+    <ul>
+        <li>Adopt and enforce a Code of Conduct (Contributor Covenant is widely used)</li>
+        <li>Recognise all contributions — code, docs, design, testing, mentoring</li>
+        <li>Create a CONTRIBUTORS.md or use All Contributors bot</li>
+        <li>Set clear expectations in CONTRIBUTING.md</li>
+        <li>Mentor new contributors with <code>good first issue</code> labels and pairing</li>
+    </ul>
+
+    <h2>Avoiding Burnout</h2>
+    <p>Maintainer burnout is real. Protect yourself and your project:</p>
+    <ul>
+        <li>Set boundaries — you don't owe anyone 24/7 support</li>
+        <li>Delegate — grow trusted contributors into co-maintainers</li>
+        <li>Automate — CI, issue bots, dependency updates, releases</li>
+        <li>Say no — not every feature request should be implemented</li>
+        <li>Take breaks — the project will survive a quiet week</li>
+    </ul>
+
+    <div class="warning">
+        If you're feeling overwhelmed, reach out. Many communities offer support for maintainers. It's okay to step back, find co-maintainers, or archive a project.
+    </div>
+
+    <h2>Security Practices</h2>
+    <ul>
+        <li>Enable Dependabot or Renovate for automated dependency updates</li>
+        <li>Set up a SECURITY.md with responsible disclosure instructions</li>
+        <li>Use branch protection rules on <code>main</code></li>
+        <li>Require signed commits for releases</li>
+        <li>Audit your supply chain — review new dependencies carefully</li>
+    </ul>
+
+    <h2>Project Documentation</h2>
+    <p>Good documentation reduces support burden and attracts contributors:</p>
+    <ul>
+        <li><strong>README.md</strong> — Project overview, installation, quick start</li>
+        <li><strong>CONTRIBUTING.md</strong> — How to contribute, development setup</li>
+        <li><strong>CODE_OF_CONDUCT.md</strong> — Community standards</li>
+        <li><strong>SECURITY.md</strong> — How to report vulnerabilities</li>
+        <li><strong>CHANGELOG.md</strong> — Release history</li>
+        <li><strong>LICENSE</strong> — Always include a clear license</li>
+    </ul>
+
+    <p><em>© Open Source Guides · <a href="#" style="color:#F0A030">Resources</a> · <a href="#" style="color:#F0A030">Community</a></em></p>
+</div>
+</body>
+</html>

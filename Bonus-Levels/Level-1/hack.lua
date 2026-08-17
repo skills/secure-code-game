@@ -2,7 +2,7 @@
 -- (it contains failing tests). As all other levels, your goal is to get this file to pass.
 
 -- Run them by opening a terminal and running the following:
--- $ (cd Season-4/Level-1/ && lua hack.lua)
+-- $ (cd Bonus-Levels/Level-1/ && lua hack.lua)
 
 require 'busted.runner' ()
 

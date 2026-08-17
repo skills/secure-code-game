@@ -5,7 +5,7 @@
 -- This file should always pass as it is testing the solution
 
 -- Run them by opening a terminal and running the following:
--- $ (cd Season-4/Level-1/solution && lua solution_test.lua)
+-- $ (cd Bonus-Levels/Level-1/solution && lua solution_test.lua)
 
 require 'busted.runner' ()
 local code = require("solution")

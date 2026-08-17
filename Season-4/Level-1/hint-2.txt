@@ -1,0 +1,40 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║                      HINT 2 — Level 1                        ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+You now know that bash.js uses regex to check for ".." in commands.
+But the validator only sees the RAW TEXT of the command — it has no
+idea what the command will actually do when bash runs it.
+
+Think about this: what if the path "../password.txt" never appears
+literally in your command, but bash reconstructs it at runtime?
+
+──────────────────────────────────────────────────────────────
+If the above isn't enough to get you there, here's a more
+concrete direction to explore:
+──────────────────────────────────────────────────────────────
+
+Look at the path traversal regex again:
+  /(?:^|\s|\/)\.\.(\/|$|\s)/
+
+It matches ".." when preceded by: start of line, whitespace, or "/"
+It matches ".." when followed by: "/", end of line, or whitespace
+
+But what about other characters before ".."? The regex only checks
+for a specific set. What if ".." appeared after a character that
+isn't in that set?
+
+Think about how bash assigns variables:
+  MYVAR=somevalue
+
+What character comes right before the value in an assignment?
+
+Now ask yourself:
+  → Would the regex catch ".." if it appeared in a variable assignment?
+  → If not, could you store ".." in a variable and use it later?
+  → How does bash expand variables like $MYVAR in a command?
+
+Remember: bash lets you chain commands with "&&" to run multiple
+things in sequence on the same line.

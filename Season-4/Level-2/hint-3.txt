@@ -1,0 +1,29 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║                      HINT 3 — Level 2                        ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+You need to combine two ideas:
+
+1. Hiding instructions inside HTML that the AI will follow
+2. Using a command that bypasses the validator (from Level 1)
+
+The AI reads the full HTML of a website. If you put instructions
+inside an HTML comment or a hidden element, the AI may treat
+them as real instructions and generate the commands you asked
+for — instead of just summarising the page.
+
+But remember: the command validator is still active. You need
+to use one of the techniques from Level 1 to construct a
+command that passes validation but still reaches the file.
+
+---------------------------------------------------------------
+
+If the AI is just summarising the page as normal instead of
+running your hidden command, think about the format ProdBot
+uses to communicate — JSON responses with a specific structure.
+
+The AI needs to know to respond with a command (not a text
+message). Try including the expected response format in your
+hidden instruction.

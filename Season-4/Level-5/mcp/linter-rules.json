@@ -1,0 +1,42 @@
+{
+  "rules": {
+    "max_line_length": {
+      "enabled": true,
+      "value": 120,
+      "severity": "warning",
+      "description": "Lines should not exceed 120 characters"
+    },
+    "no_console": {
+      "enabled": true,
+      "severity": "warning",
+      "description": "Avoid console.log, console.warn, console.error in production code"
+    },
+    "no_todo": {
+      "enabled": true,
+      "severity": "info",
+      "description": "TODO comments should be resolved before merging"
+    },
+    "no_debugger": {
+      "enabled": true,
+      "severity": "error",
+      "description": "Debugger statements must be removed before commit"
+    },
+    "trailing_whitespace": {
+      "enabled": false,
+      "severity": "info",
+      "description": "Lines should not have trailing whitespace"
+    },
+    "consistent_quotes": {
+      "enabled": false,
+      "prefer": "double",
+      "severity": "info",
+      "description": "Use consistent quote style throughout the project"
+    }
+  },
+  "ignore_patterns": [
+    "node_modules/**",
+    "dist/**",
+    "*.min.js",
+    "*.bundle.js"
+  ]
+}

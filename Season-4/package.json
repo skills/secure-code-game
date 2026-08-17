@@ -1,0 +1,14 @@
+{
+  "name": "season-4",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "prodbot": "./bin/prodbot.js"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "openai": "^4.87.3"
+  },
+  "scripts": {
+  }
+}

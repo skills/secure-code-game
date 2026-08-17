@@ -1,0 +1,13 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║                      HINT 2 — Level 4                        ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+System memory entries have a TTL (time-to-live) that
+controls how long they persist. After each command,
+TTLs are decremented and expired entries are removed.
+
+But what happens when a TTL is set to 0? Compare
+how different skills write their system entries.
+One skill's entry doesn't expire like the others.

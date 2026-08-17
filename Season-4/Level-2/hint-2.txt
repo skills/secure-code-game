@@ -1,0 +1,36 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║                      HINT 2 — Level 2                        ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+The websites in web/ are just HTML files simulating the public
+internet. In the real world, an attacker cannot edit someone
+else's website — but they CAN create their own.
+
+Try creating a new HTML file in the web/ directory. Make it
+about a topic that would match a question you plan to ask
+ProdBot — so that ProdBot's search picks it up and reads it.
+
+Think about how a real attacker might hide instructions inside
+a legitimate-looking webpage. What parts of HTML are invisible
+to a human reader viewing the page in a browser, but would
+still be read by an AI processing the raw HTML?
+
+Consider: HTML comments, hidden elements, or text styled to
+be invisible (zero font size, same colour as background).
+
+To see what a website looks like vs. its raw HTML, try:
+
+    open 1        - view the page in the browser (after a search)
+
+Then open the same file in your editor to see the raw source.
+The difference between what humans see and what AI reads is
+the key to this level.
+
+---------------------------------------------------------------
+
+For educational purposes, you can also edit the existing web/
+files to understand how the injection works — but remember
+that in the real world, this would not be possible on sites
+you do not control.

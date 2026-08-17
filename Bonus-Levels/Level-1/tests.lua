@@ -1,7 +1,7 @@
 -- This file contains passing tests.
 
 -- Run them by opening a terminal and running the following:
--- $ (cd Season-4/Level-1/ && lua tests.lua)
+-- $ (cd Bonus-Levels/Level-1/ && lua tests.lua)
 
 require 'busted.runner' ()
 local code = require("code")

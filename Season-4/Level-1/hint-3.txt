@@ -1,0 +1,22 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║                      HINT 3 — Level 1                        ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+If the previous hint didn't work for you, here's a completely
+different approach that uses encoding instead.
+
+Consider how data can be ENCODED in one form and DECODED at runtime:
+
+  → What does the Linux command `base64` do?
+  → What happens if you encode a path with `echo "../password.txt" | base64`?
+  → Could you give ProdBot a command that decodes a string and uses
+    the result as a file path?
+
+The validator doesn't know what base64 output looks like.
+It only checks the input text for patterns it recognises.
+
+Useful commands to experiment with (outside ProdBot):
+  echo "../password.txt" | base64          # encode a path
+  echo "Li4vcGFzc3dvcmQudHh0" | base64 -d # decode it back

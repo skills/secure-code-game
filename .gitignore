@@ -1,3 +1,14 @@
+### SEASON 4 ###
+# ProdBot sandbox — runtime-generated files, auto-created by prodbot.js
+Season-4/Level-1/prodbot-activities/*
+!Season-4/Level-1/prodbot-activities/.gitkeep
+Season-4/Level-2/prodbot-activities/*
+!Season-4/Level-2/prodbot-activities/.gitkeep
+Season-4/Level-3/prodbot-activities/*
+!Season-4/Level-3/prodbot-activities/.gitkeep
+Season-4/Level-4/prodbot-activities/*
+!Season-4/Level-4/prodbot-activities/.gitkeep
+
 ### VSCODE ###
 .vscode/*
 !.vscode/settings.json
@@ -31,6 +42,7 @@ downloads/
 eggs/
 .eggs/
 lib/
+!Season-4/lib/
 lib64/
 parts/
 sdist/
@@ -303,4 +315,5 @@ Thumbs.db
 modules.order
 Module.symvers
 Mkfile.old
-dkms.conf
+dkms.conf.vite/
+.vite/

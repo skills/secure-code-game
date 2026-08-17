@@ -1,0 +1,13 @@
+{
+  "finance-mcp": {
+    "enabled": true,
+    "api_key_env": "FINANCE_API_KEY"
+  },
+  "web-mcp": {
+    "enabled": true
+  },
+  "cloud-mcp": {
+    "enabled": true,
+    "scope": "sandbox"
+  }
+}

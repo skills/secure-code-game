@@ -1,0 +1,21 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║                      HINT 2 — Level 3                        ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+Look at the source code of each MCP server. Specifically,
+look at how each server defines its BASE_DIR — the root
+directory from which it operates.
+
+Compare the BASE_DIR in each MCP server file:
+  - Does it point to the sandbox (prodbot-activities/)?
+  - Or does it point somewhere broader?
+
+If a tool can reach files outside the sandbox, what could
+you ask it to do with password.txt?
+
+---------------------------------------------------------------
+
+Remember: the tool descriptions say "sandbox only" — but
+descriptions are just text. The code is what actually runs.
