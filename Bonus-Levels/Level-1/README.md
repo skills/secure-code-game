@@ -25,7 +25,7 @@ Your company sells low-powered E-ink displays powered by a small embedded system
 - `code` includes the vulnerable code to be reviewed.
 - `hack` exploits the vulnerabilities in `code`. Running `hack.lua` will fail initially, your goal is to get this file to pass.
 - `tests.lua` contains the unit tests that should still pass after you have implemented your fix.
-- `hint` files offer guidance if you get stuck. We provide 2 hints for this level.
+- `hint` files offer guidance if you get stuck. We provide a hint for this level.
 - `solution` offers a working solution. Remember, there are several possible solutions.
 
 ### 🚦 Time to start!
