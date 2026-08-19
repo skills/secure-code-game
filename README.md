@@ -44,7 +44,7 @@ In the latest season, you step inside a fully interactive AI coding assistant th
 
 | Season&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Focus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | What you'll learn | Duration |
 |:-------------|:-----------------|:------------------|:---------|
-| **[Season 5](Season-5/)** | Community | Levels contributed by the community, each self-contained and playable on its own<br>*Uses `JavaScript`* | ~45 mins |
+| **[Season 5](Season-5/)** | Community | Levels contributed by the community, covering vulnerability classes not seen in the earlier seasons<br>*Uses `JavaScript` and `TypeScript`* | ~1.5 hrs |
 | **[Season 2](Season-2/)** | Multi-Stack | Security across CI/CD, backend services, and web apps with CodeQL<br>*Uses `GitHub Actions`, `Go`, `Python`, and `JavaScript`* | ~6 hrs |
 | **[Season 1](Season-1/)** | Foundations | Secure coding fundamentals covering web apps, systems programming, and data handling<br>*Uses `Python` and `C`* | ~6 hrs |
 
