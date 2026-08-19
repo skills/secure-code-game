@@ -1,0 +1,20 @@
+Three separate things are missing, one per endpoint.
+
+GET /reports/:id
+  The comment says the ids are random, so nobody can land on someone else's
+  report. That is an argument about how hard a report is to find, not about who
+  is allowed to read it. Bob is not guessing anything, he is just asking.
+
+PATCH /reports/:id
+  This one does check that the report belongs to the caller, and then merges the
+  request body straight into the record. Owning a report is not the same as being
+  allowed to set every field on it. Which fields is an employee actually supposed
+  to edit, and in which state? Decide that list on the server and take only those.
+
+POST /reports/:id/approve
+  Read the line that works out the role very carefully, and ask where that value
+  comes from. Anything the caller can put in a request is something the caller
+  can choose. The session already tells you who this is, and the user record
+  already says what they are.
+
+While you are there: should a manager be able to approve their own spending?
