@@ -1,0 +1,28 @@
+{
+  "name": "paperwork",
+  "version": "1.0.0",
+  "description": "Secure Code Game - Season 5, Level 2",
+  "main": "code.ts",
+  "scripts": {
+    "test": "mocha -r ts-node/register tests.ts",
+    "hack": "mocha -r ts-node/register hack.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.22.2"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.16",
+    "@types/express": "^4.17.21",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "^20.14.0",
+    "@types/supertest": "^6.0.2",
+    "chai": "^4.3.8",
+    "mocha": "^10.8.2",
+    "supertest": "^6.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
