@@ -1,5 +1,14 @@
 # Secure Code Game
 
+> [!WARNING]
+> **This season is historical learning material, not currently playable as originally designed.**
+>
+> Season 3 was calibrated against one specific AI model that every player shared. That fixed baseline is no longer available on equal terms across all account types, and newer models respond differently to the same prompts. Several of the original solutions no longer produce the expected result. Recalibrating the challenges is work we have not scoped.
+>
+> We preserve this season as a historical artifact. You're welcome to read the challenges, source code, hints, and solutions as AI security case studies. The original instructions below are retained for historical context, not as current playability guidance. For hands-on play, try [Season 1](../Season-1/) or [Season 2](../Season-2/); no Codespace is needed to read this season.
+>
+> Explore the level folders, including their hints and `solution.txt` files: [Level 1](Level-1/), [Level 2](Level-2/), [Level 3](Level-3/), [Level 4](Level-4/), [Level 5](Level-5/), and [Level 6](Level-6/).
+
 _Welcome to Secure Code Game - Season 3!_ 🤖
 
 This season, you'll dive into the fascinating world of Artificial Intelligence (AI), honing your skills in AI model robustness against adversarial inputs by becoming skilled in secure system prompts, LLM self-verification, effective input filtering, and output validation.

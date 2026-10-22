@@ -1,5 +1,14 @@
 # Secure Code Game
 
+> [!WARNING]
+> **Season 4 is temporarily unavailable.**
+>
+> This season was calibrated against one specific AI model that every player shared, and that model is no longer available on equal terms across all account types. We are moving the season to a new model backend and will restore play here when it lands. Some of the original solutions will be updated as part of that work.
+>
+> In the meantime the challenges, source code, hints, and solutions below remain readable as AI security case studies. No Codespace is needed to read them. For hands-on play right now, try [Season 1](../Season-1/) or [Season 2](../Season-2/).
+>
+> Explore the level folders, including their hints and `solution.txt` files: [Level 1](Level-1/), [Level 2](Level-2/), [Level 3](Level-3/), [Level 4](Level-4/), and [Level 5](Level-5/).
+
 _Welcome to Secure Code Game - Season 4!_ 🤖
 
 This season puts you inside **ProdBot**, a deliberately vulnerable agentic coding assistant for your terminal, inspired by [OpenClaw](https://openclaw.ai/) and [GitHub Copilot CLI](https://github.com/features/copilot/cli). ProdBot turns natural language into bash commands, browses the web, connects to MCP (Model Context Protocol) servers for real-time data, runs org-approved skills, stores persistent memory, and orchestrates multi-agent workflows. Get started in two minutes for free by launching a Codespace for this repository. Once the environment is ready, open the built-in terminal and run `prodbot --banner` (or just `prodbot`) to launch ProdBot.
