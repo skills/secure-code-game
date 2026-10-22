@@ -1,11 +1,11 @@
 # Secure Code Game
 
 > [!WARNING]
-> **This season is historical learning material and no longer works as originally designed.**
+> **This season is historical learning material, not currently playable as originally designed.**
 >
-> Improvements in the underlying AI models have made them harder to trick or exploit. That's good news for security, but these challenges are now very difficult or impossible to complete, and their original solutions may no longer work. This progress does not mean AI models are immune to all attacks.
+> Season 3 was calibrated against one specific AI model that every player shared. That fixed baseline is no longer available on equal terms across all account types, and newer models respond differently to the same prompts. Several of the original solutions no longer produce the expected result. Recalibrating the challenges is work we have not scoped.
 >
-> We preserve this season as a historical artefact. You're welcome to read the challenges, source code, hints, and solutions as AI security case studies. The original instructions below are retained for historical context, not as current playability guidance. For hands-on play, try [Season 1](../Season-1/) or [Season 2](../Season-2/); no Codespace is needed to read this season.
+> We preserve this season as a historical artifact. You're welcome to read the challenges, source code, hints, and solutions as AI security case studies. The original instructions below are retained for historical context, not as current playability guidance. For hands-on play, try [Season 1](../Season-1/) or [Season 2](../Season-2/); no Codespace is needed to read this season.
 >
 > Explore the level folders, including their hints and `solution.txt` files: [Level 1](Level-1/), [Level 2](Level-2/), [Level 3](Level-3/), [Level 4](Level-4/), [Level 5](Level-5/), and [Level 6](Level-6/).
 

@@ -10,11 +10,13 @@
 -->
 
 > [!WARNING]
-> **Seasons 3 and 4 are historical learning material, not currently playable as originally designed.**
+> **Season 3 is historical learning material. Season 4 is temporarily unavailable.**
 >
-> Improvements in the underlying AI models have made them harder to trick or exploit. That's good news for security, but these challenges are now very difficult or impossible to complete, and their original solutions may no longer work. This progress does not mean AI models are immune to all attacks.
+> Both seasons were calibrated against one specific AI model that every player shared. That fixed baseline is no longer available on equal terms across all account types, and newer models respond differently to the same prompts. Several of the original solutions no longer produce the expected result.
 >
-> We preserve [Season 3](Season-3/) and [Season 4](Season-4/) as historical artefacts: explore their challenges, source code, hints, and solutions as case studies in AI security. For hands-on play, start with [Season 1](Season-1/) or [Season 2](Season-2/).
+> [Season 4](Season-4/) is paused while we move it to a new model backend, and play will be restored here when that lands. [Season 3](Season-3/) is preserved as a historical artifact; recalibrating it is work we have not scoped.
+>
+> Both remain readable in the meantime: explore their challenges, source code, hints, and solutions as case studies in AI security. For hands-on play right now, start with [Season 1](Season-1/) or [Season 2](Season-2/).
 
 </header>
 
@@ -22,7 +24,7 @@
 
 Learn to code securely while having fun through our popular open source in-editor experience, designed for developers, students, and anyone curious about security. Get started with Season 1 or 2 for free in under 2 minutes, playing right from your browser. Over 10,000 players across industry and academia have already played. Visit [gh.io/scg](https://gh.io/scg) for testimonials and FAQs, and feel free to open a [contribution](https://github.com/skills/secure-code-game/blob/main/CONTRIBUTING.md) to help make the game better for everyone.
 
-For hands-on secure coding, choose Season 1 or 2. For AI security, read Seasons 3 and 4 as historical case studies covering LLM defenses, **Agentic Workflows**, and **Multi-Agent Communications**. Their original challenge instructions remain available for context, rather than as a promise that the challenges can still be completed.
+For hands-on secure coding, choose Season 1 or 2. For AI security, Season 3 remains readable as a historical case study, and Season 4 while it is paused, covering LLM defenses, **Agentic Workflows**, and **Multi-Agent Communications**. Their original challenge instructions remain available for context, rather than as a promise that the challenges can still be completed today.
 
 ---
 
@@ -32,7 +34,7 @@ For hands-on secure coding, choose Season 1 or 2. For AI security, read Seasons 
 
 | Season&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Focus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | What you'll learn | Status |
 |:-------------|:-----------------|:------------------|:---------|
-| **[Season 4](Season-4/)** | Agentic&nbsp;AI | Study security risks in AI agents that execute commands, browse the web, use tools, and coordinate other agents | Historical / read-only learning |
+| **[Season 4](Season-4/)** | Agentic&nbsp;AI | Study security risks in AI agents that execute commands, browse the web, use tools, and coordinate other agents | Temporarily unavailable / read-only |
 | **[Season 3](Season-3/)** | LLM&nbsp;Security | Study LLM-powered app defenses through prompt design, input/output handling, and connected data sources | Historical / read-only learning |
 
 ### 🛡️ Secure Coding
