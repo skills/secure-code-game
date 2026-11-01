@@ -1,0 +1,3 @@
+Seems like this has to do with a particualarity of how Lua handles indexing a table.
+What is hack.lua doing to enable it to run the code?
+Maybe we should read the docs about tables: https://www.lua.org/manual/5.3/manual.html#2.1 or https://www.luadocs.com/docs/functions/table
