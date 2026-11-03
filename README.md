@@ -41,6 +41,7 @@ For hands-on secure coding, choose Season 1 or 2. For AI security, Season 3 rema
 
 | Season&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Focus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | What you'll learn | Duration |
 |:-------------|:-----------------|:------------------|:---------|
+| **[Season 5](Season-5/)** | Community | Levels contributed by the community, covering vulnerability classes not seen in the earlier seasons<br>*Uses `JavaScript` and `TypeScript`* | ~1.5 hrs |
 | **[Season 2](Season-2/)** | Multi-Stack | Security across CI/CD, backend services, and web apps with CodeQL<br>*Uses `GitHub Actions`, `Go`, `Python`, and `JavaScript`* | ~6 hrs |
 | **[Season 1](Season-1/)** | Foundations | Secure coding fundamentals covering web apps, systems programming, and data handling<br>*Uses `Python` and `C`* | ~6 hrs |
 

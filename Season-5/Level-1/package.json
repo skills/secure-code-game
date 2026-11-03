@@ -1,0 +1,21 @@
+{
+  "name": "mission-control",
+  "version": "1.0.0",
+  "description": "Secure Code Game - Season 5, Level 1",
+  "main": "code.js",
+  "scripts": {
+    "test": "mocha tests.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.6",
+    "express": "^4.22.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.8",
+    "mocha": "^10.8.2",
+    "supertest": "^6.3.3"
+  }
+}

@@ -1,0 +1,13 @@
+Every route starts by working out who is calling. Not one of them finishes the
+thought.
+
+Go through the three endpoints and, for each, ask two separate questions:
+
+  1. Who is making this request?
+  2. Is that person allowed to do this, to this particular report?
+
+The code answers the first question every time. Count how often it answers the
+second one.
+
+Then look again at where each fact comes from. Some of what the code treats as
+established truth arrives in the request itself.

@@ -1,0 +1,10 @@
+The screening happens once, on a string, before anything is fetched.
+
+Ask yourself two separate questions:
+
+  1. Is "127.0.0.1" the only way to write that address?
+  2. Does the URL that was checked have to be the URL that is finally reached?
+
+Try typing http://127.1/ into a browser, or run this in a terminal:
+
+  node -e 'console.log(new URL("http://0x7f000001/").href)'

@@ -1,0 +1,11 @@
+A blocklist is a guess about every string an attacker could send. There will
+always be one more encoding, and fetch() follows redirects for you, so the
+destination can change after your check has passed.
+
+Turn the question around: does an operator ever need Mission Control to fetch an
+address that Mission Control does not already know about?
+
+The registry at the top of the file is already a complete list of the hosts this
+service is allowed to talk to. Use it as the only source of destinations, let the
+caller pass an identifier instead of a URL, and make sure the response really came
+back from the host you allowed.
